@@ -8,6 +8,7 @@ export default {
     extend: {
       colors: {
         JisaGris: '#3B5259',
+        JisaGrisTextGray: '#99A5A9',
         JisaCyan: '#1B9C9E',
         JisaVerde: '#BDD06B',
         JisaAmarillo: '#EECC4E',

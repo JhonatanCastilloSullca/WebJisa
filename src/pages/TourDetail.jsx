@@ -9,6 +9,16 @@ import SeparatorBarHorizontal from "../componentes/SeparatorBarHorizontal";
 import ParrafoContent from "../componentes/layout/ParrafoContent";
 import MapDotIcon from "../assets/icons/MapDotIcon";
 import StickyReserva from "../componentes/StickyReserva";
+import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
+import ItinerarioIcon from "../assets/icons/ItinerarioIcon";
+import IncludeIcon from "../assets/icons/IncludeIcon";
+import MochilaIcon from "../assets/icons/MochilaIcon";
+import PriceIcon from "../assets/icons/PriceIcon";
+import QuestionIcon from "../assets/icons/QuestionIcon";
+import GalleryIcon from "../assets/icons/GalleryIcon";
+import HotelIcon from "../assets/icons/HotelIcon";
+import SeparatorBarHorizontalVerde from "../componentes/SeparatorBarHorizontalVerde";
+import ContactIcon from "../assets/icons/ContactIcon";
 
 const TourDetail = () => {
     const { slug } = useParams();
@@ -76,6 +86,71 @@ const TourDetail = () => {
                     </div>
                 </div>
             </div>
+            <div className="w-full mx-auto mt-24 mb-12">
+
+                <TabGroup className={'w-full'}>
+                    <TabList className={'flex w-full justify-center bg-JisaGris/5 '}>
+                        <Tab className={'flex flex-col justify-center items-center py-2 px-6 rounded-md bg-white'}>
+                            <span className="font-medium text-xl text-JisaGris">Itinerario</span>
+                            <span className="text-JisaGris py-2 px-4"><ItinerarioIcon size={48} /></span>
+                        </Tab>
+                        <Tab className={'flex flex-col justify-center items-center py-2 px-6 rounded-md '}>
+                            <span className="font-medium text-xl text-JisaGris/50">Incluye</span>
+                            <span className="text-JisaGrisTextGray py-2 px-4"><IncludeIcon size={48} /></span>
+                        </Tab>
+                        <Tab className={'flex flex-col justify-center items-center py-2 px-6 rounded-md '}>
+                            <span className="font-medium text-xl text-JisaGris/50">Que llevar</span>
+                            <span className="text-JisaGrisTextGray py-2 px-4"><MochilaIcon size={48} /></span>
+                        </Tab>
+                        <Tab className={'flex flex-col justify-center items-center py-2 px-6 rounded-md '}>
+                            <span className="font-medium text-xl text-JisaGris/50">Precios</span>
+                            <span className="text-JisaGrisTextGray py-2 px-4"><PriceIcon size={48} /></span>
+                        </Tab>
+                        <Tab className={'flex flex-col justify-center items-center py-2 px-6 rounded-md '}>
+                            <span className="font-medium text-xl text-JisaGris/50">FAQ's</span>
+                            <span className="text-JisaGrisTextGray py-2 px-4"><QuestionIcon size={48} /></span>
+                        </Tab>
+                        <Tab className={'flex flex-col justify-center items-center py-2 px-6 rounded-md '}>
+                            <span className="font-medium text-xl text-JisaGris/50">Galeria</span>
+                            <span className="text-JisaGrisTextGray py-2 px-4"><GalleryIcon size={48} /></span>
+                        </Tab>
+                        <Tab className={'flex flex-col justify-center items-center py-2 px-6 rounded-md '}>
+                            <span className="font-medium text-xl text-JisaGris/50">Alojamiento</span>
+                            <span className="text-JisaGrisTextGray py-2 px-4"><HotelIcon size={48} /></span>
+                        </Tab>
+                        <Tab className={'flex flex-col justify-center items-center py-2 px-6 rounded-md '}>
+                            <span className="font-medium text-xl text-JisaGris/50">Contactanos</span>
+                            <span className="text-JisaGrisTextGray py-2 px-4"><ContactIcon size={48} /></span>
+                        </Tab>
+                    </TabList>
+                    <div className="w-full max-w-7xl mx-auto">
+                        <div className="grid grid-cols-12 gap-4 my-10">
+                            <div className="md:col-span-8 col-span-12 h-auto flex flex-col md:items-start items-center justify-center align-middle px-10">
+                                <TabPanels>
+                                    <TabPanel>Content 1</TabPanel>
+                                    <TabPanel>Content 2</TabPanel>
+                                    <TabPanel>Content 3</TabPanel>
+                                </TabPanels>
+                            </div>
+                            <div className="md:col-span-4 col-span-12 h-auto flex flex-col md:items-start items-center justify-center align-middle px-10">
+                                <div className="w-full">
+                                    <div className="bg-JisaGris px-6 py-4 w-full flex-col flex justify-center items-center text-white rounded-t-md">
+                                        <h4 className="font-bold text-3xl">
+                                            Reserva ahora
+                                        </h4>
+                                        <SeparatorBarHorizontalVerde />
+                                        <h5 className="font-semibold text-base" >Camino Inca Full Day</h5>
+                                        <span className="font-bold text-2xl" >US$ 999.00</span>
+                                    </div>
+                                    <div className="border-2 border-JisaGrisTextGray/10 bg-white rounded-b-md flex flex-col justify-center items-center">
+                                        <span className="font-semibold text-lg text-JisaCyan">Fecha de visita</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </TabGroup>
+            </div >
 
 
 
