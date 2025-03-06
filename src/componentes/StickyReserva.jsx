@@ -2,7 +2,7 @@ const StickyReserva = () => {
     return (
         <>
 
-            <div className="w-full mx-auto bg-gray-50 fixed bottom-0 border-t-4 border-JisaCyan rounded-md">
+            <div className="w-full mx-auto bg-gray-50 fixed bottom-0 border-t-4 border-JisaCyan rounded-md z-40 ">
                 <div className="w-full max-w-7xl mx-auto flex justify-between px-7 py-3">
                     <div className="precios-reserva flex flex-col">
                         <span className="font-medium text-lg text-JisaGris">Desde:</span>

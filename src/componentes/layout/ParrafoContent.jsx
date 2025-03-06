@@ -1,8 +1,8 @@
 import React from 'react'
 
-const ParrafoContent = ({ contenido }) => {
+const ParrafoContent = ({ contenido, className = "" }) => {
     return (
-        <p className="md:text-left text-center text-JisaGris font-light  md:text-base text-sm py-4">
+        <p className={`md:text-left text-center text-JisaGris font-light   py-4 ${className}`}>
             {contenido}
         </p>
     )

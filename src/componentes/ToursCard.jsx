@@ -19,7 +19,7 @@ const ToursCard = ({ title, image, location, description, price, dias, group }) 
                     <IconTooltipCard icon={GroupUsers} tooltip={dias} />
                     <IconTooltipCard icon={CalendarIcon} tooltip={group} />
                     <a
-                        href=""
+                        href="/tours/asd"
                         className="p-2 transition"
                     >
                         <CameraIcon size={24} className="text-white hover:text-JisaCyan transition duration-300" />
