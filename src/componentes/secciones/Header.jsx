@@ -9,6 +9,7 @@ import BarsIcon from "../../assets/icons/BarsIcon"
 
 
 function Header() {
+
     return (
         <>
             <header className="top-0 md:absolute relative z-10 bg-white" >
