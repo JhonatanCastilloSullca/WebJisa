@@ -4,8 +4,8 @@ const MapDotIcon = (props) => {
         <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
-            width={props.size || 24}
             height={props.size || 24}
+            width={props.size || 24}
             {...props}
             viewBox="0 0 24 24">
             <path fill="currentColor"
@@ -16,5 +16,4 @@ const MapDotIcon = (props) => {
 
     );
 };
-
 export default MapDotIcon;

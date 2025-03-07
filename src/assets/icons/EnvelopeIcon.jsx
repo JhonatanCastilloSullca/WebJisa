@@ -4,8 +4,8 @@ const EnvelopeIcon = (props) => {
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
             viewBox="0 0 24 24"
-            width={props.size || 24}
             height={props.size || 24}
+            width={props.size || 24}
             {...props}
         >
 

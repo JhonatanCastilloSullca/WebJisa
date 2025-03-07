@@ -1,4 +1,3 @@
-
 const HornIcon = (props) => {
     return (
         <svg
@@ -9,8 +8,8 @@ const HornIcon = (props) => {
 
             viewBox="0 0 512 512"
             fill="currentColor"
-            width={props.size || 24}
             height={props.size || 24}
+            width={props.size || 24}
             {...props}
             xmlSpace="preserve">
             <g

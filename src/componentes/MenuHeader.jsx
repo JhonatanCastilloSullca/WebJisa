@@ -28,14 +28,14 @@ const MenuHeader = ({ menu }) => {
 
     return (
         <nav>
-            <ul className="flex">
+            <ul className="flex md:flex-row flex-col">
                 {menu.map((item, index) => (
                     <li key={index} className="hoverable hover:text-white">
-                        <a href="#" className="relative block py-2 px-4 text-sm lg:text-base font-bold text-white hover:text-JisaGris">
+                        <a href="#" className="relative block py-2 px-4 text-sm lg:text-base font-bold md:text-white text-JisaCyan hover:text-JisaGris">
                             {item.tour}
                         </a>
-                        <div className="p-6 mega-menu mb-16 sm:mb-0 shadow-xl bg-white text-JisaCyan">
-                            <div className="container mx-auto w-full flex justify-between">
+                        <div className="p-6 mega-menu mb-16 sm:mb-0 shadow-xl  bg-white  text-JisaCyan ">
+                            <div className="container mx-auto w-full flex md:flex-row flex-col justify-between">
                                 <ul className="px-4 w-full border-b sm:border-r lg:border-b-0 pb-6 pt-6 lg:pt-3">
                                     <img
                                         src={selectedTour.imagen}
@@ -43,9 +43,8 @@ const MenuHeader = ({ menu }) => {
                                         className="rounded-md h-full object-cover transition-opacity duration-300 opacity-100"
                                     />
                                 </ul>
-
                                 <ul
-                                    className="w-full px-10 mx-auto"
+                                    className="w-full md:px-10 px-0 mx-auto"
                                     onMouseLeave={() =>
                                         setSelectedTour({
                                             imagen: item.imagenPrincipal,

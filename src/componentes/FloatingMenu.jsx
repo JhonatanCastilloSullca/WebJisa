@@ -28,7 +28,7 @@ export default function FloatingMenu({ page }) {
   if (!sections.length) return null;
 
   return (
-    <div className="fixed bottom-5 left-1 bg-white shadow-lg p-1 rounded-tr-xl flex flex-col items-center gap-2 z-20">
+    <div className="fixed bottom-5 left-1 bg-white shadow-lg p-1 rounded-tr-xl flex flex-col items-center gap-2 z-40">
       {sections.map(({ id, icon: Icon }) => (
         <a
           key={id}

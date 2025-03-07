@@ -6,8 +6,6 @@ import FlagPeru from "../../assets/icons/FlagPeru"
 import SeparatorBar from "../SeparatorBar"
 import IconText from "../layout/IconText"
 import BarsIcon from "../../assets/icons/BarsIcon"
-import ParrafoContent from "../layout/ParrafoContent"
-import { useState } from "react"
 import MenuHeader from "../MenuHeader"
 
 
@@ -139,10 +137,10 @@ function Header() {
                         </div>
                     </div>
                 </div>
-                <div className="flex  bg-JisaCyan w-full">
+                <div className="flex  md:bg-JisaCyan bg-white text-JisaCyan md:text-white w-full">
                     <div className="w-full max-w-7xl mx-auto">
                         <nav className=" text-gray-900">
-                            <div className="container mx-auto flex justify-center">
+                            <div className="container mx-auto flex md:justify-center justify-start">
                                 <MenuHeader menu={menu} />
                             </div>
                         </nav>

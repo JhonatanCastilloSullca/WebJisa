@@ -1,5 +1,3 @@
-import React from 'react'
-
 const BuIcon = (props) => {
     return (
         <svg

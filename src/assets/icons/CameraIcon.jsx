@@ -1,4 +1,3 @@
-
 const CameraIcon = (props) => {
     return (
         <svg

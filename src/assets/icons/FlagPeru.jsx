@@ -1,9 +1,8 @@
-
 const FlagPeru = (props) => {
     return (
         <svg xmlns="http://www.w3.org/2000/svg"
-            width={props.size || 24}
             height={props.size || 24}
+            width={props.size || 24}
             viewBox="0 0 32 32">
             <path fill="#fff" d="M10 4h12v24H10z" />
             <path fill="#c82c2b" d="M5 4h6v24H5c-2.208 0-4-1.792-4-4V8c0-2.208 1.792-4 4-4ZM27 28h-6V4h6c2.208 0 4 1.792 4 4v16c0 2.208-1.792 4-4 4Z" />

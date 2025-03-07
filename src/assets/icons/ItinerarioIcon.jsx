@@ -1,8 +1,8 @@
 const ItinerarioIcon = (props) => {
     return (
         <svg xmlns="http://www.w3.org/2000/svg"
-            width={props.size || 24}
             height={props.size || 24}
+            width={props.size || 24}
             fill="currentColor"
             viewBox="0 0 16 16">
             <g fill="currentColor">

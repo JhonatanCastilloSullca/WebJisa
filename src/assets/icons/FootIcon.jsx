@@ -1,11 +1,10 @@
-
 const FootIcon = (props) => {
     return (
         <svg xmlns="http://www.w3.org/2000/svg"
             viewBox="0 -0.5 17 17"
             fill="currentColor"
-            width={props.size || 24}
             height={props.size || 24}
+            width={props.size || 24}
             {...props}
         >
             <g fill="#currentColor"

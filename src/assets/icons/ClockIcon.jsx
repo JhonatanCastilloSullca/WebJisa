@@ -1,4 +1,3 @@
-
 const ClockIcon = (props) => {
     return (
         <svg
