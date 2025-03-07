@@ -67,6 +67,11 @@ function Header() {
                         </div>
                     </div>
                 </div>
+                <div className="flex h-6 bg-JisaCyan w-full">
+                    <div className="w-full max-w-7xl">
+
+                    </div>
+                </div>
             </header>
         </>
 

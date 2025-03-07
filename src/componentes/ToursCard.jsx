@@ -10,7 +10,7 @@ import IconTooltipCard from "./layout/IconTooltipCard"
 const ToursCard = ({ title, image, location, description, price, dias, group }) => {
     return (
         <div className="group w-full h-[512px] flex flex-col bg-cover bg-center rounded-xl shadow-lg relative overflow-hidden transition-all duration-300"
-            style={{ backgroundImage: `url(${image})` }}
+            style={{ backgroundImage: `url(${image}) ` }}
         >
             <div className="absolute inset-0 bg-JisaGris/65 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
             <BoxCard title={title} />
@@ -19,7 +19,7 @@ const ToursCard = ({ title, image, location, description, price, dias, group }) 
                     <IconTooltipCard icon={GroupUsers} tooltip={dias} />
                     <IconTooltipCard icon={CalendarIcon} tooltip={group} />
                     <a
-                        href="/tours/asd"
+                        href="#"
                         className="p-2 transition"
                     >
                         <CameraIcon size={24} className="text-white hover:text-JisaCyan transition duration-300" />
