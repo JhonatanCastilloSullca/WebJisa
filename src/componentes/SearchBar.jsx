@@ -1,4 +1,40 @@
 const SearchBar = ({ id }) => {
+    const tours = [
+        {
+            id: "1",
+            slug: "cusco-slug-1",
+            title: "Grupal",
+            image: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
+            location: "Montaña de Colores Palccoyo, Cusco",
+            description: "Rainbow Mountain Vinicunca Tour (Group Service)",
+            price: "$999.00",
+            dias: "7",
+            group: "Min 4"
+        },
+        {
+            id: "2",
+            slug: "cusco-slug-2",
+            title: "Grupal",
+            image: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
+            location: "Montaña de Colores Palccoyo, Cusco",
+            description: "Rainbow Mountain Vinicunca Tour (Group Service)",
+            price: "$999.00",
+            dias: "7",
+            group: "Min 4"
+        },
+        {
+            id: "3",
+            slug: "cusco-slug-3",
+            title: "Grupal",
+            image: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
+            location: "Montaña de Colores Palccoyo, Cusco",
+            description: "Rainbow Mountain Vinicunca Tour (Group Service)",
+            price: "$999.00",
+            dias: "7",
+            group: "Min 4"
+        }
+    ];
+
     return (
         <div id={id} className="w-full max-w-7xl mx-auto md:-mt-12 z-30 relative md:px-0 px-6">
             <div className="container mx-auto py-4">

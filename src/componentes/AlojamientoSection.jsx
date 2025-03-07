@@ -50,7 +50,7 @@ const AlojamientoSection = ({ alojamientos }) => {
                     <span className="md:text-left text-center text-JisaCyan font-medium text-xl">
                         {hotelSeleccionado.hotel}
                     </span>
-                    <ParrafoContent contenido={hotelSeleccionado.descripcion} />
+                    <ParrafoContent className="text-JisaGris" contenido={hotelSeleccionado.descripcion} />
 
                     {hotelSeleccionado.galeria?.length > 0 && (
                         <Swiper

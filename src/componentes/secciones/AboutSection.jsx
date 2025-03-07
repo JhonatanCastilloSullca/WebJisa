@@ -11,7 +11,7 @@ const AboutSection = ({ id }) => {
                     <JisaTitleContentVerde contenido={`JISA ADVENTURE`} />
                     <HeaderTitle title={'Tours a Machu Picchu, Cusco y Perú 2024'} />
                     <SeparatorBarHorizontal />
-                    <ParrafoContent
+                    <ParrafoContent className="text-JisaGris"
                         contenido={`La fundadora de Jisa Adventure, Felicia Acuña Salas,
                                 es una apasionada del turismo y amante de su país, Perú.
                                 Con una visión clara y determinación, decidió crear esta agencia

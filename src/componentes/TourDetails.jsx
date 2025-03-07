@@ -15,7 +15,7 @@ const TourDetails = ({ ubicaciones, descripcion, brochure, imagenSecundaria }) =
                             </span>
                         ))}
                     </div>
-                    <ParrafoContent contenido={descripcion} />
+                    <ParrafoContent className="text-JisaGris" contenido={descripcion} />
                     <a
                         href={brochure}
                         className="flex px-4 my-4 py-2 bg-JisaCyan text-white font-bold text-lg rounded-lg shadow-md hover:bg-gray-200 hover:text-JisaGris transition"

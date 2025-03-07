@@ -6,9 +6,80 @@ import FlagPeru from "../../assets/icons/FlagPeru"
 import SeparatorBar from "../SeparatorBar"
 import IconText from "../layout/IconText"
 import BarsIcon from "../../assets/icons/BarsIcon"
+import ParrafoContent from "../layout/ParrafoContent"
+import { useState } from "react"
+import MenuHeader from "../MenuHeader"
 
 
 function Header() {
+
+    const menu = [
+        {
+            tour: "Tour por Machu Picchu",
+            imagenPrincipal: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
+            submenu: [
+                {
+                    titulo: "Full Day en Tren Turístico Expedition",
+                    descripcion: "Disfruta de un increíble viaje en tren hacia Machu Picchu con el servicio Expedition. Una experiencia cómoda y accesible que te permitirá conocer una de las maravillas del mundo.",
+                    imagen: "https://picsum.photos/800/500"
+                },
+                {
+                    titulo: "Full Day en Tren Turístico Vistadome",
+                    descripcion: "Viaja con vistas panorámicas a través del tren Vistadome y sumérgete en la belleza natural del Valle Sagrado antes de llegar a la ciudadela de Machu Picchu.",
+                    imagen: "https://picsum.photos/700/400"
+                },
+                {
+                    titulo: "Tour de 2 Días en Machu Picchu",
+                    descripcion: "Descubre la magia de Machu Picchu en un tour de dos días, disfrutando de una noche en Aguas Calientes y explorando la maravilla con más tiempo.",
+                    imagen: "https://picsum.photos/600/350"
+                }
+            ]
+        },
+        {
+            tour: "Tour por el Valle Sagrado",
+            imagenPrincipal: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
+            submenu: [
+                {
+                    titulo: "Tour a Pisac y Ollantaytambo",
+                    descripcion: "Explora los impresionantes centros arqueológicos de Pisac y Ollantaytambo, dos joyas del Valle Sagrado con vistas espectaculares y mucha historia.",
+                    imagen: "https://picsum.photos/680/380"
+                },
+                {
+                    titulo: "Tour de Chinchero, Moray y Salineras",
+                    descripcion: "Visita los andenes circulares de Moray, las salineras de Maras y la encantadora localidad de Chinchero en un recorrido cultural e histórico.",
+                    imagen: "https://picsum.photos/720/420"
+                },
+                {
+                    titulo: "Tour Completo por el Valle Sagrado",
+                    descripcion: "Un recorrido completo por los sitios más emblemáticos del Valle Sagrado, incluyendo Pisac, Ollantaytambo, Chinchero, Moray y las Salineras de Maras.",
+                    imagen: "https://picsum.photos/640/360"
+                }
+            ]
+        },
+        {
+            tour: "Tour a la Montaña de 7 Colores",
+            imagenPrincipal: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
+            submenu: [
+                {
+                    titulo: "Full Day a la Montaña de 7 Colores",
+                    descripcion: "Una caminata desafiante pero increíblemente gratificante a la famosa Montaña de 7 Colores, con paisajes espectaculares y aire puro de los Andes.",
+                    imagen: "https://picsum.photos/780/480"
+                },
+                {
+                    titulo: "Tour Palccoyo: La Alternativa a Vinicunca",
+                    descripcion: "Si buscas una opción menos exigente pero igual de impresionante, Palccoyo ofrece un paisaje colorido sin la caminata intensa de Vinicunca.",
+                    imagen: "https://picsum.photos/1690/690"
+                },
+                {
+                    titulo: "Tour Especial: Montaña de Colores + Valle Rojo",
+                    descripcion: "Además de la Montaña de 7 Colores, descubre el impresionante Valle Rojo, una joya escondida con paisajes surrealistas.",
+                    imagen: "https://picsum.photos/770/470"
+                }
+            ]
+        }
+    ];
+
+
 
     return (
         <>
@@ -68,9 +139,13 @@ function Header() {
                         </div>
                     </div>
                 </div>
-                <div className="flex h-6 bg-JisaCyan w-full">
-                    <div className="w-full max-w-7xl">
-
+                <div className="flex  bg-JisaCyan w-full">
+                    <div className="w-full max-w-7xl mx-auto">
+                        <nav className=" text-gray-900">
+                            <div className="container mx-auto flex justify-center">
+                                <MenuHeader menu={menu} />
+                            </div>
+                        </nav>
                     </div>
                 </div>
             </header>

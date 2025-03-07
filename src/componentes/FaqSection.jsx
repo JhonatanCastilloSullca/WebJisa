@@ -17,7 +17,7 @@ const FaqSection = ({ faqs }) => {
                         </div>
                     </DisclosureButton>
                     <DisclosurePanel className="mt-2 text-sm/5">
-                        <ParrafoContent contenido={faq.descripcion} />
+                        <ParrafoContent className="text-JisaGris" contenido={faq.descripcion} />
                     </DisclosurePanel>
                 </Disclosure>
             ))}
