@@ -3,7 +3,7 @@ import SeparatorBarHorizontal from './SeparatorBarHorizontal'
 
 const HeroSectionTour = ({
     backgroundImage,
-    overlayColor = "rgba(0, 0, 0, 0.35)",
+    overlayColor = "rgba(0, 0, 0, 0.55)",
     title,
     description,
     buttonText,
@@ -11,7 +11,7 @@ const HeroSectionTour = ({
 }) => {
     return (
         <div
-            className="md:h-screen h-auto bg-cover bg-center relative flex flex-col justify-end items-center text-white text-center p-4 "
+            className="md:h-[80vh] h-auto bg-cover bg-center relative flex flex-col justify-end items-center text-white text-center p-4 "
             style={{ backgroundImage: `url(${backgroundImage})` }}
         >
             <div
@@ -28,7 +28,7 @@ const HeroSectionTour = ({
                         <SeparatorBarHorizontal />
                     </div>
                     <div className="md:col-span-6 flex flex-col md:items-start items-center">
-                        <img src="https://picsum.photos/690/390" alt="Jisa-Nosotros-Paquete" className="w-full h-96 object-cover rounded-md " />
+
                     </div>
                 </div>
             </div>

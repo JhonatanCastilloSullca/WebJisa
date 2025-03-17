@@ -144,7 +144,39 @@
     background: #448899;
 }
 
+.NuestroEquipoSwyper>.swiper-pagination>.swiper-pagination-bullet {
+    background: #448899;
+}
 
+.contenido-text-testimonios>h3 {
+    font-size: 1.5rem;
+    color: rgb(59 82 89 / var(--tw-text-opacity, 1));
+    font-weight: bold;
+    padding: 1rem 0;
+}
+
+.contenido-text-testimonios>h4 {
+    font-size: 1.125rem;
+    color: rgb(27 156 158 / var(--tw-text-opacity, 1))
+        /* #1b9c9e */
+    ;
+    font-weight: bold;
+    padding: 0.5rem 0;
+}
+
+.contenido-text-testimonios>p {
+    font-size: 1.125rem
+        /* 18px */
+    ;
+    line-height: 1.75rem
+        /* 28px */
+    ;
+    font-weight: 300;
+    color: rgb(59 82 89 / var(--tw-text-opacity, 1))
+        /* #3b5259 */
+    ;
+
+}
 
 
 

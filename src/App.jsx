@@ -10,6 +10,8 @@ import Paquetes from './pages/Paquetes'
 import PaqueteDetail from './pages/PaqueteDetail'
 import Nosotros from './pages/Nosotros'
 import NotFound from './pages/NotFound'
+import TerminosCondiciones from './pages/TerminosCondiciones'
+import PreguntasFrecuentes from './pages/PreguntasFrecuentes'
 
 function App() {
 
@@ -25,6 +27,8 @@ function App() {
           <Route path="paquetes" element={<Paquetes />} />
           <Route path="paquetes/:slug" element={<PaqueteDetail />} />
           <Route path="nosotros" element={<Nosotros />} />
+          <Route path="terminos-condiciones" element={<TerminosCondiciones />} />
+          <Route path="preguntas-frecuentes" element={<PreguntasFrecuentes />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
