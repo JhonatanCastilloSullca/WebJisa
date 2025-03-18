@@ -146,6 +146,36 @@ const Cart = () => {
                                 </div>
                                 <div className="md:col-span-2 col-span-2 flex flex-col">
                                     <div className="flex flex-col">
+                                        <span className='font-medium text-sm text-JisaGris'>Tipo de documento</span>
+                                        <input type="text" className='h-10 rounded-md' />
+                                    </div>
+                                </div>
+                                <div className="md:col-span-3 col-span-3 flex flex-col">
+                                    <div className="flex flex-col">
+                                        <span className='font-medium text-sm text-JisaGris'>N° Documento</span>
+                                        <input type="text" className='h-10 rounded-md' />
+                                    </div>
+                                </div>
+                                <div className="md:col-span-3 col-span-3 flex flex-col">
+                                    <div className="flex flex-col">
+                                        <span className='font-medium text-sm text-JisaGris'>Pais</span>
+                                        <input type="text" className='h-10 rounded-md' />
+                                    </div>
+                                </div>
+                                <div className="md:col-span-2 col-span-2 flex flex-col">
+                                    <div className="flex flex-col">
+                                        <span className='font-medium text-sm text-JisaGris'>Email</span>
+                                        <input type="text" className='h-10 rounded-md' />
+                                    </div>
+                                </div>
+                                <div className="md:col-span-2 col-span-2 flex flex-col">
+                                    <div className="flex flex-col">
+                                        <span className='font-medium text-sm text-JisaGris'>Fecha de nacimiento</span>
+                                        <input type="text" className='h-10 rounded-md' />
+                                    </div>
+                                </div>
+                                <div className="md:col-span-2 col-span-2 flex flex-col">
+                                    <div className="flex flex-col">
                                         <span className='font-medium text-sm text-JisaGris'>Fecha de nacimiento</span>
                                         <input type="text" className='h-10 rounded-md' />
                                     </div>
