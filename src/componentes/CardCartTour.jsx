@@ -30,17 +30,17 @@ const CardCartTour = ({ tour, cantidad, onCantidadChange, onRemove }) => {
                     </div>
                     <div className="flex py-2">
                         <div className="flex gap-y-4 flex-col text-JisaAmarillo">
-                            <IconCategoria icon={ClockIcon} title={'Duración'} subtitle={tour.duration} tamaño={20} tamañotitulo={'text-base'} className='pe-6' />
-                            <IconCategoria icon={MountainHikIcon} title={'Dificultad'} subtitle={tour.difficulty} tamaño={20} tamañotitulo={'text-base'} className='pe-6' />
+                            <IconCategoria icon={ClockIcon} title={'Duración'} subtitle={tour.duration} tamaño={20} tamañotitulo={'text-base'} className='pe-3' />
+                            <IconCategoria icon={MountainHikIcon} title={'Dificultad'} subtitle={tour.difficulty} tamaño={20} tamañotitulo={'text-base'} className='pe-3' />
                         </div>
                         <SeparatorBar />
                         <div className="flex gap-y-4 flex-col text-JisaAmarillo">
-                            <IconCategoria icon={GroupUsers} title={'Grupo'} subtitle={tour.groupSize + " Personas"} tamaño={20} tamañotitulo={'text-base'} className='px-6' />
-                            <IconCategoria icon={BuIcon} title={'Transporte'} subtitle={tour.transport} tamaño={20} tamañotitulo={'text-base'} className='px-6' />
+                            <IconCategoria icon={GroupUsers} title={'Grupo'} subtitle={tour.groupSize + " Personas"} tamaño={20} tamañotitulo={'text-base'} className='px-3' />
+                            <IconCategoria icon={BuIcon} title={'Transporte'} subtitle={tour.transport} tamaño={20} tamañotitulo={'text-base'} className='px-3' />
                         </div>
                         <SeparatorBar />
                         <div className="flex gap-y-4 flex-col text-JisaAmarillo">
-                            <IconCategoria icon={CalendarIcon} title={'Fecha'} subtitle={tour.date} tamaño={20} tamañotitulo={'text-base'} className='px-6' />
+                            <IconCategoria icon={CalendarIcon} title={'Fecha'} subtitle={tour.date} tamaño={20} tamañotitulo={'text-base'} className='px-3' />
                         </div>
                     </div>
                 </div>

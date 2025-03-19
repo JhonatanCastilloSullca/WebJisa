@@ -1,0 +1,42 @@
+import React from 'react'
+import UserIcon from '../assets/icons/UserIcon'
+
+const CardCartPasajero = ({ index }) => {
+    return (
+        <div className="cardCartPasajero px-12">
+            <div className="flex justify-between">
+                <h5 className="text-JisaCyan font-semibold text-2xl">
+                    Información del pasajero n° {index + 1}
+                </h5>
+                <div className="flex gap-x-2">
+                    <span className="text-JisaVerde font-semibold text-lg">Pasajero de contacto</span>
+                    <div className="h-8 w-8 rounded-full bg-JisaVerde flex justify-center items-center text-JisaCyan">
+                        <UserIcon className="w-5 h-5" />
+                    </div>
+                </div>
+            </div>
+
+            <div className="formulario grid grid-cols-12 gap-4">
+                {[
+                    { label: "Nombre", span: 4 },
+                    { label: "Apellidos", span: 4 },
+                    { label: "Género", span: 2 },
+                    { label: "Tipo de documento", span: 2 },
+                    { label: "N° Documento", span: 3 },
+                    { label: "País", span: 3 },
+                    { label: "Email", span: 2 },
+                    { label: "Fecha de nacimiento", span: 2 },
+                ].map((field, i) => (
+                    <div key={i} className={`md:col-span-${field.span} col-span-${field.span} flex flex-col`}>
+                        <span className="font-medium text-sm text-JisaGris">{field.label}</span>
+                        <input type="text" className="h-10 rounded-md" />
+                    </div>
+                ))}
+            </div>
+
+            <div className="w-full self-center border-t border-JisaGris/20 my-12"></div>
+        </div>
+    )
+}
+
+export default CardCartPasajero

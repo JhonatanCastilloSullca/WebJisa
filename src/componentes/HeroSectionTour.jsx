@@ -20,7 +20,7 @@ const HeroSectionTour = ({
             ></div>
 
             {/* Contenido */}
-            <div className="relative z-10 max-w-7xl w-full flex flex-col gap-y-0 justify-center h-[75%]">
+            <div className="relative  max-w-7xl w-full flex flex-col gap-y-0 justify-center h-[75%]">
                 <div className="grid grid-cols-12 gap-4">
                     <div className="md:col-span-6 flex flex-col md:items-start items-center justify-center">
                         <h1 className="md:text-7xl text-5xl md:w-full  md:text-left text-center font-black">{title}</h1>

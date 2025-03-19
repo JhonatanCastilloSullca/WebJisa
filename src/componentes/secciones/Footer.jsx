@@ -10,6 +10,7 @@ import EnvelopeIcon from "../../assets/icons/EnvelopeIcon";
 import PhoneIcon from "../../assets/icons/PhoneIcon";
 import MapDotIcon from "../../assets/icons/MapDotIcon";
 import ClockIcon from "../../assets/icons/ClockIcon";
+import { NavLink } from "react-router-dom";
 
 
 function Footer() {
@@ -18,7 +19,7 @@ function Footer() {
             <div className="w-full">
                 <img src={FooterJisa} alt="" className="-mb-2" />
             </div>
-            <div className="bg-black w-full z-30 relative">
+            <div className="bg-black w-full z-40 relative">
                 <div className="w-full max-w-7xl grid grid-cols-12 gap-4 mx-auto ">
                     <div className="md:col-span-4 col-span-12 p-4 text-white flex flex-col px-8">
                         <img src={logoJisa} alt="Logo Jisa" className="h-32 object-contain py-2" />
@@ -54,7 +55,16 @@ function Footer() {
                                     <a href="#">Nuestro blog</a>
                                 </li>
                                 <li>
-                                    <a href="#">Sobre nosotros</a>
+                                    <NavLink to={'/nosotros'}>Sobre nosotros</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to={'/politicas-privacidad'}>Politicas de reserva</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to={'/terminos-condiciones'}>Termino y Condiciones</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to={'/preguntas-frecuentes'}>Preguntas Frecuentes</NavLink>
                                 </li>
                             </ul>
                         </div>

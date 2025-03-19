@@ -1,3 +1,4 @@
+import HeroSectionMidle from "../componentes/HeroSectionMidle"
 
 const PoliticaPrivacidad = () => {
     return (

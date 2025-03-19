@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ParrafoContent from "./layout/ParrafoContent";
+import { NavLink } from "react-router-dom";
 
 const MenuHeader = ({ menu }) => {
     const [selectedTour, setSelectedTour] = useState({
@@ -56,7 +57,8 @@ const MenuHeader = ({ menu }) => {
                                         <span className="text-2xl text-center font-bold pt-2 pb-4">{item.tour}</span>
                                         <ul className="text-lg flex-col flex gap-y-4">
                                             {item.submenu.map((subItem, subIndex) => (
-                                                <li
+                                                <NavLink
+                                                    to={"tours/machupichu-1-dia"}
                                                     key={subIndex}
                                                     className="border-b border-JisaCyan/50 py-1  cursor-pointer text-base"
                                                     onMouseEnter={() =>
@@ -67,7 +69,7 @@ const MenuHeader = ({ menu }) => {
                                                     }
                                                 >
                                                     {subItem.titulo}
-                                                </li>
+                                                </NavLink>
                                             ))}
                                         </ul>
                                     </div>

@@ -7,6 +7,8 @@ import SeparatorBar from "../SeparatorBar"
 import IconText from "../layout/IconText"
 import BarsIcon from "../../assets/icons/BarsIcon"
 import MenuHeader from "../MenuHeader"
+import CartIcon from "../../assets/icons/CartIcon"
+import { NavLink } from "react-router-dom"
 
 
 function Header() {
@@ -89,7 +91,10 @@ function Header() {
                     <div className="md:max-w-7xl w-full mx-auto">
                         <div className="flex justify-between py-2">
                             <div className="flex items-center">
-                                <img src={logoJisa} alt="Logo Jisa" className=" h-12 md:h-20 object-cover py-2 px-2" />
+                                <NavLink
+                                    to={"/"}>
+                                    <img src={logoJisa} alt="Logo Jisa" className=" h-12 md:h-20 object-cover py-2 px-2" />
+                                </NavLink>
                             </div>
                             <div className="">
                                 <div className="flex flex-col justify-evenly h-full md:px-0 px-4">
@@ -142,6 +147,16 @@ function Header() {
                         <nav className=" text-gray-900">
                             <div className="container mx-auto flex md:justify-center justify-start">
                                 <MenuHeader menu={menu} />
+                                <NavLink to="/nosotros" className="relative block py-2 px-4 text-sm lg:text-base font-bold md:text-white text-JisaCyan hover:text-JisaGris">
+                                    Sobre Nosotros
+                                </NavLink>
+                                <NavLink to="/carrito" className="relative inline-flex items-center p-3 text-sm font-medium text-center text-white">
+                                    <CartIcon size={16} />
+                                    <span className="sr-only">Notifications</span>
+                                    <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2">
+                                        20
+                                    </div>
+                                </NavLink>
                             </div>
                         </nav>
                     </div>

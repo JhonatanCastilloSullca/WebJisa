@@ -13,6 +13,7 @@ import NotFound from './pages/NotFound'
 import TerminosCondiciones from './pages/TerminosCondiciones'
 import PreguntasFrecuentes from './pages/PreguntasFrecuentes'
 import Cart from './pages/Cart'
+import PoliticaPrivacidad from './pages/PoliticaPrivacidad'
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
           <Route path="paquetes/:slug" element={<PaqueteDetail />} />
           <Route path="nosotros" element={<Nosotros />} />
           <Route path="terminos-condiciones" element={<TerminosCondiciones />} />
+          <Route path="politicas-privacidad" element={<PoliticaPrivacidad />} />
           <Route path="preguntas-frecuentes" element={<PreguntasFrecuentes />} />
           <Route path="carrito" element={<Cart />} />
           <Route path="*" element={<NotFound />} />
