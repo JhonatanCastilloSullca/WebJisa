@@ -1,7 +1,18 @@
+import HeroSection from "../componentes/HeroSection"
+import HeroSectionMidle from "../componentes/HeroSectionMidle"
+import BlogSection from "../componentes/secciones/BlogSection"
+import PackageSection from "../componentes/secciones/PackageSection"
+
 const NotFound = () => {
     return (
         <>
-            <h1 className="text-3xl font-bold">NOT FOUND</h1>
+            <HeroSectionMidle
+                backgroundImage="https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
+                title="404"
+                description="Parece que no encontraste lo que buscabas pero te puede interesar"
+            />
+            <PackageSection />
+            <BlogSection />
         </>
     )
 }

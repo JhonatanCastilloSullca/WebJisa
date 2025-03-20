@@ -18,8 +18,6 @@ const HeroSectionTour = ({
                 className="absolute inset-0"
                 style={{ backgroundColor: overlayColor }}
             ></div>
-
-            {/* Contenido */}
             <div className="relative  max-w-7xl w-full flex flex-col gap-y-0 justify-center h-[75%]">
                 <div className="grid grid-cols-12 gap-4">
                     <div className="md:col-span-6 flex flex-col md:items-start items-center justify-center">

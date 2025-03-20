@@ -146,6 +146,9 @@ function Header() {
                     <div className="w-full max-w-7xl mx-auto">
                         <nav className=" text-gray-900">
                             <div className="container mx-auto flex md:justify-center justify-start">
+                                <NavLink to="/" className="relative block py-2 px-4 text-sm lg:text-base font-bold md:text-white text-JisaCyan hover:text-JisaGris">
+                                    Inicio
+                                </NavLink>
                                 <MenuHeader menu={menu} />
                                 <NavLink to="/nosotros" className="relative block py-2 px-4 text-sm lg:text-base font-bold md:text-white text-JisaCyan hover:text-JisaGris">
                                     Sobre Nosotros

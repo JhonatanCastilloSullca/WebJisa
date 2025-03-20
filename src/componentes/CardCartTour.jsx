@@ -15,7 +15,7 @@ const CardCartTour = ({ tour, cantidad, onCantidadChange, onRemove }) => {
 
         <div className="card-tour relative">
             <div className="flex gap-4 w-full items-center">
-                <div className="img-tour h-20 w-32">
+                <div className="img-tour h-20 w-32 min-w-max">
                     <img
                         src={tour.imageUrl || "https://picsum.photos/690/390"}
                         alt={tour.title}
