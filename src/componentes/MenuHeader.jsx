@@ -32,7 +32,7 @@ const MenuHeader = ({ menu }) => {
             <ul className="flex md:flex-row flex-col">
                 {menu.map((item, index) => (
                     <li key={index} className="hoverable hover:text-white">
-                        <a href="#" className="relative block py-2 px-4 text-sm lg:text-base font-bold md:text-white text-JisaCyan hover:text-JisaGris">
+                        <a href='/tours' className="relative block py-2 px-4 text-sm lg:text-base font-bold md:text-white text-JisaCyan hover:text-JisaGris">
                             {item.tour}
                         </a>
                         <div className="p-6 mega-menu mb-16 sm:mb-0 shadow-xl  bg-white  text-JisaCyan ">

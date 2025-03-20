@@ -20,18 +20,18 @@ const ToursCard = ({ title, image, location, description, price, dias, group }) 
                     <div className="flex flex-col gap-2">
                         <IconTooltipCard icon={GroupUsers} tooltip={dias} />
                         <IconTooltipCard icon={CalendarIcon} tooltip={group} />
-                        <a
+                        <span
                             href="#"
                             className="p-2 transition"
                         >
                             <CameraIcon size={24} className="text-white hover:text-JisaCyan transition duration-300" />
-                        </a>
-                        <a
-                            href=""
+                        </span>
+                        <span
+                            href="#"
                             className="p-2 transition"
                         >
                             <ShareIcon size={24} className="text-white hover:text-JisaCyan transition duration-300" />
-                        </a>
+                        </span>
                     </div>
                 </div>
                 <div className="bg-white absolute bottom-0 w-full flex flex-col py-2 rounded-b-xl transition-all duration-300  z-10">

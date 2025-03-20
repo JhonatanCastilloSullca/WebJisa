@@ -22,69 +22,40 @@ import BookNowSection from './BookNowSection'
 const TabsSection = ({ tour }) => {
     return (
         <div className="w-full mx-auto mt-24 mb-12">
-            <TabGroup className={'w-full'}>
-                <TabList className={'flex w-full justify-center bg-JisaGris/5 '}>
-                    <Tab className={'flex flex-col justify-center items-center py-2 px-6 rounded-md bg-white'}>
-                        <span className="font-medium text-xl text-JisaGris">Itinerario</span>
-                        <span className="text-JisaGris py-2 px-4"><ItinerarioIcon size={48} /></span>
-                    </Tab>
-                    <Tab className={'flex flex-col justify-center items-center py-2 px-6 rounded-md '}>
-                        <span className="font-medium text-xl text-JisaGris/50">Incluye</span>
-                        <span className="text-JisaGrisTextGray py-2 px-4"><IncludeIcon size={48} /></span>
-                    </Tab>
-                    <Tab className={'flex flex-col justify-center items-center py-2 px-6 rounded-md '}>
-                        <span className="font-medium text-xl text-JisaGris/50">Que llevar</span>
-                        <span className="text-JisaGrisTextGray py-2 px-4"><MochilaIcon size={48} /></span>
-                    </Tab>
-                    <Tab className={'flex flex-col justify-center items-center py-2 px-6 rounded-md '}>
-                        <span className="font-medium text-xl text-JisaGris/50">Precios</span>
-                        <span className="text-JisaGrisTextGray py-2 px-4"><PriceIcon size={48} /></span>
-                    </Tab>
-                    <Tab className={'flex flex-col justify-center items-center py-2 px-6 rounded-md '}>
-                        <span className="font-medium text-xl text-JisaGris/50">FAQ's</span>
-                        <span className="text-JisaGrisTextGray py-2 px-4"><QuestionIcon size={48} /></span>
-                    </Tab>
-                    <Tab className={'flex flex-col justify-center items-center py-2 px-6 rounded-md '}>
-                        <span className="font-medium text-xl text-JisaGris/50">Alojamiento</span>
-                        <span className="text-JisaGrisTextGray py-2 px-4"><HotelIcon size={48} /></span>
-                    </Tab>
-                    <Tab className={'flex flex-col justify-center items-center py-2 px-6 rounded-md '}>
-                        <span className="font-medium text-xl text-JisaGris/50">Galeria</span>
-                        <span className="text-JisaGrisTextGray py-2 px-4"><GalleryIcon size={48} /></span>
-                    </Tab>
-                    <Tab className={'flex flex-col justify-center items-center py-2 px-6 rounded-md '}>
-                        <span className="font-medium text-xl text-JisaGris/50">Contactanos</span>
-                        <span className="text-JisaGrisTextGray py-2 px-4"><ContactIcon size={48} /></span>
-                    </Tab>
+            <TabGroup className="w-full">
+                <TabList className="flex w-full justify-center bg-JisaGris/5">
+                    {[
+                        { label: "Itinerario", icon: <ItinerarioIcon size={48} /> },
+                        { label: "Incluye", icon: <IncludeIcon size={48} /> },
+                        { label: "Que llevar", icon: <MochilaIcon size={48} /> },
+                        { label: "Precios", icon: <PriceIcon size={48} /> },
+                        { label: "FAQ's", icon: <QuestionIcon size={48} /> },
+                        { label: "Alojamiento", icon: <HotelIcon size={48} /> },
+                        { label: "Galeria", icon: <GalleryIcon size={48} /> },
+                        { label: "Contactanos", icon: <ContactIcon size={48} /> }
+                    ].map((tab, index) => (
+                        <Tab key={index} className={({ selected }) =>
+                            `flex flex-col justify-center items-center py-2 px-6 rounded-md transition-colors duration-200 
+                            ${selected ? 'bg-white text-JisaGris font-medium' : 'text-[#98a4a8]'}`
+                        }>
+                            <span className="text-xl">{tab.label}</span>
+                            <span className="py-2 px-4">{tab.icon}</span>
+                        </Tab>
+                    ))}
                 </TabList>
+
                 <div className="w-full max-w-7xl mx-auto">
                     <div className="grid grid-cols-12 gap-4 my-10">
-                        <div className="md:col-span-8 col-span-12 h-auto flex flex-col md:items-start px-10 ">
-                            <TabPanels className={`w-full`}>
-                                <TabPanel>
-                                    <ItinerarioSection itinerario={tour.itinerario} />
-                                </TabPanel>
-                                <TabPanel className={''}>
-                                    <IncluyeSection incluye={tour.incluye} noincluye={tour.noincluye} />
-                                </TabPanel>
-                                <TabPanel className={''}>
-                                    <QueLlevarSection quellevar={tour.quellevar} />
-                                </TabPanel>
-                                <TabPanel className={``}>
-                                    <PrecioSection precios={tour.precios} />
-                                </TabPanel>
-                                <TabPanel className={``}>
-                                    <FaqSection faqs={tour.faqs} />
-                                </TabPanel>
-                                <TabPanel className="w-full">
-                                    <AlojamientoSection alojamientos={tour.alojamiento} />
-                                </TabPanel>
-                                <TabPanel className={``}>
-                                    <GaleriaTourSection galleryID="tours-gallery" images={tour.galeria} />
-                                </TabPanel>
-                                <TabPanel className={``}>
-                                    <ContactoSection titulo={tour.titulo} />
-                                </TabPanel>
+                        <div className="md:col-span-8 col-span-12 h-auto flex flex-col md:items-start px-10">
+                            <TabPanels className="w-full">
+                                <TabPanel><ItinerarioSection itinerario={tour.itinerario} /></TabPanel>
+                                <TabPanel><IncluyeSection incluye={tour.incluye} noincluye={tour.noincluye} /></TabPanel>
+                                <TabPanel><QueLlevarSection quellevar={tour.quellevar} /></TabPanel>
+                                <TabPanel><PrecioSection precios={tour.precios} /></TabPanel>
+                                <TabPanel><FaqSection faqs={tour.faqs} /></TabPanel>
+                                <TabPanel><AlojamientoSection alojamientos={tour.alojamiento} /></TabPanel>
+                                <TabPanel><GaleriaTourSection galleryID="tours-gallery" images={tour.galeria} /></TabPanel>
+                                <TabPanel><ContactoSection titulo={tour.titulo} /></TabPanel>
                             </TabPanels>
                             <MiniGallerySection galeria={tour.galeria} />
                         </div>
@@ -92,7 +63,7 @@ const TabsSection = ({ tour }) => {
                     </div>
                 </div>
             </TabGroup>
-        </div >
+        </div>
     )
 }
 

@@ -9,9 +9,9 @@ const PromocionSection = ({ id }) => {
             }}
         >
             <div className="relative inset-0 bg-black/75 flex items-center justify-center py-32">
-                <div className="w-full max-w-7xl mx-auto px-8 md:px-20 lg:px-40 text-center">
+                <div className="w-full max-w-5xl mx-auto px-8 md:px-20 lg:px-40 text-center">
                     <div className="flex flex-col justify-center items-center gap-y-8">
-                        <span className="font-bold text-4xl md:text-5xl text-white">
+                        <span className="font-bold text-3xl md:text-5xl text-white">
                             ¡Aprovecha nuestras ofertas especiales y ahorra en tu próximo viaje a Machu Picchu!
                         </span>
                         <a
