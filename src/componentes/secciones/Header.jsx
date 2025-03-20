@@ -9,10 +9,16 @@ import BarsIcon from "../../assets/icons/BarsIcon"
 import MenuHeader from "../MenuHeader"
 import CartIcon from "../../assets/icons/CartIcon"
 import { NavLink } from "react-router-dom"
+import { useState } from "react"
 
 
 function Header() {
 
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
+    };
     const menu = [
         {
             tour: "Tour por Machu Picchu",
@@ -83,69 +89,60 @@ function Header() {
 
     return (
         <>
-            <header className="top-0 md:absolute relative z-10 bg-white" >
-                <Marquee className=" bg-JisaGris text-white font-medium h-10" speed={50} >
-                    Tour machupicchu 2025 en oferta 20 % de descuento  -  Reserva tu paquete con nosotros  -  Temporada verano 2025 - Tour Lima Ica Paracas - Tour Gastronomico de Lujo - Parapente Rap Motocross - Salidas diarias | Servicio grupal y privado - Excursiones Atencion Personalizada
+            <header className="top-0 md:absolute relative z-10 bg-white">
+                <Marquee className="bg-JisaGris text-white font-medium h-10" speed={50}>
+                    Tour machupicchu 2025 en oferta 20 % de descuento - Reserva tu paquete con nosotros...
                 </Marquee>
                 <div className="w-full">
                     <div className="md:max-w-7xl w-full mx-auto">
                         <div className="flex justify-between py-2">
                             <div className="flex items-center">
-                                <NavLink
-                                    to={"/"}>
-                                    <img src={logoJisa} alt="Logo Jisa" className=" h-12 md:h-20 object-cover py-2 px-2" />
+                                <NavLink to="/">
+                                    <img src={logoJisa} alt="Logo Jisa" className="h-12 md:h-20 object-cover py-2 px-2" />
                                 </NavLink>
                             </div>
-                            <div className="">
-                                <div className="flex flex-col justify-evenly h-full md:px-0 px-4">
-                                    <div className="flex gap-x-2 align-middle items-center justify-end">
-                                        <IconText icon={WhatsappIcon} text="999 999 999  /  999 999 999" />
-                                        <div className="hidden md:contents">
-                                            <SeparatorBar />
-                                            <IconText icon={EnvelopeIcon} text="contacto@jisa.com" />
-                                            <SeparatorBar />
-                                            <IconText text="Blog" />
-                                            <SeparatorBar />
-                                            <IconText icon={FlagPeru} />
+                            <div className="flex flex-col justify-evenly h-full md:px-0 px-4">
+                                <div className="flex gap-x-2 align-middle items-center justify-end">
+                                    <IconText icon={WhatsappIcon} text="999 999 999 / 999 999 999" />
+                                    <div className="hidden md:flex">
+                                        <SeparatorBar />
+                                        <IconText icon={EnvelopeIcon} text="contacto@jisa.com" />
+                                        <SeparatorBar />
+                                        <IconText text="Blog" />
+                                        <SeparatorBar />
+                                        <IconText icon={FlagPeru} />
+                                    </div>
+                                </div>
+                                <div className="flex gap-x-4">
+                                    <div className="hidden md:flex">
+                                        <div className="border-JisaCyan border-2 flex justify-center items-center rounded-md">
+                                            <div className="h-full size-9 bg-JisaCyan rounded-sm flex justify-center items-center">
+                                                <EnvelopeIcon size={20} className="text-white" />
+                                            </div>
+                                            <div className="px-2">
+                                                <span>Urb. Dirección Calle Avenida 1233 - A</span>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="flex gap-x-4">
-                                        <div className="hidden md:contents">
-                                            <div className="border-JisaCyan border-2 flex justify-center items-center rounded-md">
-                                                <div className="h-full size-9 bg-JisaCyan rounded-sm flex justify-center items-center">
-                                                    <EnvelopeIcon size={20} className="text-white" />
-                                                </div>
-                                                <div className="px-2">
-                                                    <span>Urb. Dirección Calle Avenida 1233 - A</span>
-                                                </div>
-                                            </div>
-                                            <div className="border-JisaCyan border-2 flex justify-center items-center rounded-md">
-                                                <div className="h-full size-9 bg-JisaCyan rounded-sm flex justify-center items-center">
-                                                    <EnvelopeIcon size={20} className="text-white" />
-                                                </div>
-                                                <div className="px-2">
-                                                    <span>Nuevas reseñas</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="section-menu flex justify-between md:w-auto w-full py-1">
-                                            <a href="#" className="bg-JisaCyan text-white  rounded-xl text-center items-center flex px-6 md:font-medium font-bold md:text-base text-xl py-1 ">
-                                                Reservar
-                                            </a>
-                                            <a href="#" className="text-JisaCyan  justify-center items-center align-middle md:hidden flex ">
-                                                <BarsIcon size={36} />
-                                            </a>
-                                        </div>
+                                    <div className="section-menu flex justify-between md:w-auto w-full py-1">
+                                        <a href="#" className="bg-JisaCyan text-white rounded-xl text-center flex px-6 md:font-medium font-bold md:text-base text-xl py-1">
+                                            Reservar
+                                        </a>
+                                        <button onClick={toggleMenu} className="text-JisaCyan md:hidden flex items-center">
+                                            <BarsIcon size={36} />
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="flex  md:bg-JisaCyan bg-white text-JisaCyan md:text-white w-full">
+
+                {/* Menú de navegación (Se oculta en móviles y se muestra si menuOpen es true) */}
+                <div className={`flex flex-col md:flex-row md:bg-JisaCyan bg-white text-JisaCyan md:text-white w-full transition-all duration-300 ease-in-out ${menuOpen ? "block" : "hidden md:flex"}`}>
                     <div className="w-full max-w-7xl mx-auto">
-                        <nav className=" text-gray-900">
-                            <div className="container mx-auto flex md:justify-center justify-start">
+                        <nav className="text-gray-900">
+                            <div className="container mx-auto flex md:flex-row flex-col md:justify-center justify-start">
                                 <NavLink to="/" className="relative block py-2 px-4 text-sm lg:text-base font-bold md:text-white text-JisaCyan hover:text-JisaGris">
                                     Inicio
                                 </NavLink>
@@ -153,11 +150,12 @@ function Header() {
                                 <NavLink to="/nosotros" className="relative block py-2 px-4 text-sm lg:text-base font-bold md:text-white text-JisaCyan hover:text-JisaGris">
                                     Sobre Nosotros
                                 </NavLink>
-                                <NavLink to="/carrito" className="relative inline-flex items-center p-3 text-sm font-medium text-center text-white">
-                                    <CartIcon size={16} />
-                                    <span className="sr-only">Notifications</span>
-                                    <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2">
-                                        20
+                                <NavLink to="/carrito" className="relative inline-flex items-center p-3 text-sm font-medium text-center md:text-white text-JisaCyan">
+                                    <div className="absolute w-10">
+                                        <CartIcon size={16} />
+                                        <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2">
+                                            20
+                                        </div>
                                     </div>
                                 </NavLink>
                             </div>
