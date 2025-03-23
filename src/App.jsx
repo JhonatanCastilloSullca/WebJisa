@@ -14,13 +14,25 @@ import TerminosCondiciones from './pages/TerminosCondiciones'
 import PreguntasFrecuentes from './pages/PreguntasFrecuentes'
 import Cart from './pages/Cart'
 import PoliticaPrivacidad from './pages/PoliticaPrivacidad'
-import ScrollTop from './componentes/ScrollTop'
+import { useApi } from './hooks/useApi'
+import { useEffect } from 'react'
 
 function App() {
 
-  return (
-    <BrowserRouter>
 
+  const { data, isLoading, isError, error } = useApi({ endpoint: 'general' });
+
+  useEffect(() => {
+
+    if (data) {
+      console.log('✅ Data recibida:', data);
+    }
+  }, [data])
+
+
+  return (
+
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
