@@ -17,7 +17,7 @@ function Footer() {
     return (
         <>
             <div className="w-full">
-                <img src={FooterJisa} alt="" className="-mb-2" />
+                <img src={FooterJisa} alt="" className="-mb-2 w-full" />
             </div>
             <div className="bg-black w-full z-40 relative">
                 <div className="w-full max-w-7xl grid grid-cols-12 gap-4 mx-auto ">

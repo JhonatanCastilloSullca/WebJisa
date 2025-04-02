@@ -89,7 +89,7 @@ function Header() {
 
     return (
         <>
-            <header className="top-0 md:absolute relative z-10 bg-white">
+            <header className="top-0 md:absolute relative z-10 bg-white w-full">
                 <Marquee className="bg-JisaGris text-white font-medium h-10" speed={50}>
                     Tour machupicchu 2025 en oferta 20 % de descuento - Reserva tu paquete con nosotros...
                 </Marquee>
@@ -138,7 +138,6 @@ function Header() {
                     </div>
                 </div>
 
-                {/* Menú de navegación (Se oculta en móviles y se muestra si menuOpen es true) */}
                 <div className={`flex flex-col md:flex-row md:bg-JisaCyan bg-white text-JisaCyan md:text-white w-full transition-all duration-300 ease-in-out ${menuOpen ? "block" : "hidden md:flex"}`}>
                     <div className="w-full max-w-7xl mx-auto">
                         <nav className="text-gray-900">
