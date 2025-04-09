@@ -94,11 +94,11 @@ function Header() {
                     Tour machupicchu 2025 en oferta 20 % de descuento - Reserva tu paquete con nosotros...
                 </Marquee>
                 <div className="w-full">
-                    <div className="md:max-w-7xl w-full mx-auto">
+                    <div className="md:max-w-5xl w-full mx-auto">
                         <div className="flex justify-between py-2">
                             <div className="flex items-center">
                                 <NavLink to="/">
-                                    <img src={logoJisa} alt="Logo Jisa" className="h-12 md:h-20 object-cover py-2 px-2" />
+                                    <img src={logoJisa} alt="Logo Jisa" className="h-12 md:h-16 object-cover py-2 px-2" />
                                 </NavLink>
                             </div>
                             <div className="flex flex-col justify-evenly h-full md:px-0 px-4">
