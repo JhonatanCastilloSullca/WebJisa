@@ -9,8 +9,8 @@ import HornIcon from "../assets/icons/HornIcon";
 
 export const menuSections = {
     home: [
-        { id: "hero", icon: HouseIcon },
-        { id: "about", icon: GroupUsers },
+        { id: "hero", icon: MapDotIcon },
+        { id: "about", icon: MapDotIcon },
         { id: "packages", icon: FootIcon },
         { id: "destinos", icon: DirectionIcon },
         { id: "tours", icon: MapDotIcon },
