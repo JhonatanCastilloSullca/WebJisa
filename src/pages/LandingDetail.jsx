@@ -13,6 +13,25 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import StarIcon from "../assets/icons/StarIcon";
 import CardLayout from "../componentes/CardLayout";
+import '@justinribeiro/lite-youtube';
+import ItinerarioIcon from "../assets/icons/ItinerarioIcon";
+import IncludeIcon from "../assets/icons/IncludeIcon";
+import MochilaIcon from "../assets/icons/MochilaIcon";
+import PriceIcon from "../assets/icons/PriceIcon";
+import QuestionIcon from "../assets/icons/QuestionIcon";
+import HotelIcon from "../assets/icons/HotelIcon";
+import GalleryIcon from "../assets/icons/GalleryIcon";
+import ContactIcon from "../assets/icons/ContactIcon";
+import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
+import ItinerarioSection from "../componentes/ItinerarioSection";
+import IncluyeSection from "../componentes/IncluyeSection";
+import QueLlevarSection from "../componentes/QueLlevarSection";
+import PrecioSection from "../componentes/PrecioSection";
+import FaqSection from "../componentes/FaqSection";
+import AlojamientoSection from "../componentes/AlojamientoSection";
+import GaleriaTourSection from "../componentes/GaleriaTourSection";
+import ContactoSection from "../componentes/ContactoSection";
+
 
 
 
@@ -327,7 +346,7 @@ const LandingDetail = () => {
               </Swiper>
             </div>
             <div className="col-span-3 px-10 my-auto">
-              <div class="text-white font-light leading-4 text-xs">
+              <div className="text-white font-light leading-4 text-xs">
                 <p>
 
                   Montserrat es una tipografía limpia, moderna y versátil que ofrece una excelente
@@ -361,16 +380,126 @@ const LandingDetail = () => {
       </div>
       <div className="w-full bg-black">
         <div className="max-w-7xl w-full mx-auto pb-12">
-          <div class="flex items-center justify-center gap-4 text-white py-4 text-xl">
-            <div class="relative flex-1 border-t-2 border-dashed border-JisaCyan">
-
+          <div className="flex items-center justify-center gap-4 text-white py-4 text-xl">
+            <div className="relative flex-1 border-t-2 border-dashed border-JisaCyan">
             </div>
-            <span class="whitespace-nowrap text-3xl px-4">Visita Virtual</span>
-            <div class="relative flex-1 border-t-2 border-dashed border-JisaCyan">
-
+            <span className="whitespace-nowrap text-3xl px-4">Visita Virtual</span>
+            <div className="relative flex-1 border-t-2 border-dashed border-JisaCyan">
             </div>
           </div>
+          <Swiper
+            breakpoints={{
+              320: { slidesPerView: 1, spaceBetween: 10 },
+              480: { slidesPerView: 1.5, spaceBetween: 15 },
+              640: { slidesPerView: 2, spaceBetween: 20 },
+              768: { slidesPerView: 3, spaceBetween: 50 },
+              1024: { slidesPerView: 3, spaceBetween: 50 },
+              1280: { slidesPerView: 3, spaceBetween: 50 },
+            }}
+            centeredSlides={true}
+            autoplay={{ delay: 2500, disableOnInteraction: false }}
+            loop
+            navigation={false}
+            modules={[]}
+            className="mySwiperVideo w-full h-full mt-4"
+          >
+            <SwiperSlide >
+              <lite-youtube videoid="guJLfqTFfIw"></lite-youtube>
+            </SwiperSlide>
+            <SwiperSlide >
+              <lite-youtube videoid="guJLfqTFfIw"></lite-youtube>
+            </SwiperSlide>
+            <SwiperSlide >
+              <lite-youtube videoid="guJLfqTFfIw"></lite-youtube>
+            </SwiperSlide>
+            <SwiperSlide >
+              <lite-youtube videoid="guJLfqTFfIw"></lite-youtube>
+            </SwiperSlide>
+            <SwiperSlide >
+              <lite-youtube videoid="guJLfqTFfIw"></lite-youtube>
+            </SwiperSlide>
+          </Swiper>
+        </div>
+      </div>
 
+      <div className="w-full bg-black">
+        <div className="max-w-7xl w-full mx-auto pb-12">
+          <div className="w-full mx-auto mb-12">
+            <TabGroup className="w-full ">
+              <TabList className="flex w-full justify-center gap-x-1">
+                {[
+                  { label: "Itinerario", icon: <ItinerarioIcon size={48} /> },
+                  { label: "Incluye", icon: <IncludeIcon size={48} /> },
+                  { label: "Que llevar", icon: <MochilaIcon size={48} /> },
+                  { label: "Precios", icon: <PriceIcon size={48} /> },
+                  { label: "FAQ's", icon: <QuestionIcon size={48} /> },
+                  { label: "Alojamiento", icon: <HotelIcon size={48} /> },
+                  { label: "Galeria", icon: <GalleryIcon size={48} /> },
+                  { label: "Contactanos", icon: <ContactIcon size={48} /> }
+                ].map((tab, index) => (
+                  <Tab key={index} className={({ selected }) =>
+                    `flex flex-col justify-center items-center py-2 px-6 rounded-md transition-colors duration-200  
+                                      ${selected ? 'bg-white text-JisaCyan font-medium' : 'bg-white/95 text-[#98a4a8]'}`
+                  }>
+                    <span className="text-xl">{tab.label}</span>
+                    <span className="py-2 px-4">{tab.icon}</span>
+                  </Tab>
+                ))}
+              </TabList>
+
+              <div className="w-full max-w-7xl mx-auto">
+                <div className="grid grid-cols-12 gap-4 my-10">
+                  <div className="md:col-span-12 col-span-12 h-auto flex flex-col md:items-start px-10 rounded-md">
+                    <TabPanels className="w-full bg-white rounded-2xl px-10 py-6">
+                      <TabPanel><ItinerarioSection itinerario={tour.itinerario} /></TabPanel>
+                      <TabPanel><IncluyeSection incluye={tour.incluye} noincluye={tour.noincluye} /></TabPanel>
+                      <TabPanel><QueLlevarSection quellevar={tour.quellevar} /></TabPanel>
+                      <TabPanel><PrecioSection precios={tour.precios} /></TabPanel>
+                      <TabPanel><FaqSection faqs={tour.faqs} /></TabPanel>
+                      <TabPanel><AlojamientoSection alojamientos={tour.alojamiento} /></TabPanel>
+                      <TabPanel><GaleriaTourSection galleryID="tours-gallery" images={tour.galeria} /></TabPanel>
+                      <TabPanel><ContactoSection titulo={tour.titulo} /></TabPanel>
+                    </TabPanels>
+                  </div>
+                </div>
+              </div>
+            </TabGroup>
+          </div>
+        </div>
+      </div>
+      <div
+        className="w-full h-full relative mx-auto  bg-cover bg-center bg-fixed"
+        style={{
+          backgroundImage: `url(https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp)`,
+        }}
+      >
+        <div className="relative inset-0 bg-black/85 flex items-center justify-center py-10">
+          <div className="w-full max-w-7xl mx-auto px-8 text-center">
+            <div className="grid grid-cols-12 gap-4 my-10">
+              <div className="md:col-span-8 col-span-12 h-auto flex flex-col md:items-start px-10 rounded-md">
+
+              </div>
+              <div className="md:col-span-4 col-span-12 h-auto flex flex-col md:items-start  rounded-md">
+                <div className="flex flex-col justify-center  gap-y-2">
+                  <span className="font-medium text-2xl text-white text-left">
+                    ¡Aprovecha nuestras ofertas especiales y ahorra en tu próximo viaje a Machu Picchu!
+                  </span>
+                  <p className="font-light text-base text-white text-left">
+                    Montserrat es una tipografía limpia, moderna y versátil que ofrece una excelente legibilidad en pantalla.
+                    Con formas geométricas y un estilo sofisticado, funciona muy bien en títulos, encabezados y contenido general.
+                    Es perfecta para transmitir .
+                  </p>
+
+                  <a
+                    href='#'
+                    className="px-12 py-4 mt-10 bg-JisaCyan text-white font-bold text-lg rounded-lg shadow-md hover:bg-gray-200 hover:text-JisaGris transition"
+                  >
+                    Contactanos
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
