@@ -309,7 +309,7 @@ const LandingDetail = () => {
         buttonText="Ver Tours"
         buttonLink="https://jisaadventure.com/"
       />
-      <div className="w-full bg-black">
+      <div className="w-full ">
         <div className="max-w-7xl w-full mx-auto pb-12">
           <div className="grid grid-cols-12 -mt-48 relative">
             <div className="col-span-9 mx-4">
@@ -345,8 +345,8 @@ const LandingDetail = () => {
                 </SwiperSlide>
               </Swiper>
             </div>
-            <div className="col-span-3 px-10 my-auto">
-              <div className="text-white font-light leading-4 text-xs">
+            <div className="col-span-3 px-10 my-auto bg-white py-10">
+              <div className="text-JisaGrisTextGray font-light leading-4 text-xs ">
                 <p>
 
                   Montserrat es una tipografía limpia, moderna y versátil que ofrece una excelente
@@ -366,7 +366,7 @@ const LandingDetail = () => {
                   frescura en una web de turismo
                 </p>
               </div>
-              <div className="flex flex-col py-4 text-white uppercase">
+              <div className="flex flex-col py-4 text-JisaGris uppercase">
                 <span className="text-xl">+20 Destinos</span>
                 <span className="text-xl">+5 Hoteles</span>
                 <span className="text-xl">+3 restaurant</span>
@@ -378,9 +378,9 @@ const LandingDetail = () => {
           </div>
         </div>
       </div>
-      <div className="w-full bg-black">
+      <div className="w-full ">
         <div className="max-w-7xl w-full mx-auto pb-12">
-          <div className="flex items-center justify-center gap-4 text-white py-4 text-xl">
+          <div className="flex items-center justify-center gap-4 text-JisaGris py-4 text-xl">
             <div className="relative flex-1 border-t-2 border-dashed border-JisaCyan">
             </div>
             <span className="whitespace-nowrap text-3xl px-4">Visita Virtual</span>
@@ -422,7 +422,7 @@ const LandingDetail = () => {
         </div>
       </div>
 
-      <div className="w-full bg-black">
+      <div className="w-full ">
         <div className="max-w-7xl w-full mx-auto pb-12">
           <div className="w-full mx-auto mb-12">
             <TabGroup className="w-full ">

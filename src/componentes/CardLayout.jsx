@@ -12,7 +12,7 @@ const CardLayout = () => {
         className="h-96 w-auto object-cover rounded-lg"
       />
       <div
-        className="border-b-white border-b-2 text-white flex justify-between py-4 mb-2"
+        className="border-b-white border-b-2 text-JisaGrisTextGray flex justify-between py-4 mb-2"
       >
         <span className=" font-normal text-xl">Dia 1</span>
         <div className="stars flex w-24 text-JisaCyan gap-x-1">
@@ -23,7 +23,7 @@ const CardLayout = () => {
           <StarIcon className="" />
         </div>
       </div>
-      <div className="text-white  font-light leading-4 text-xs px-1">
+      <div className="text-JisaGrisTextGray  font-light leading-4 text-xs px-1">
         Montserrat es una tipografía limpia, moderna y versátil que ofrece una
         excelente legibilidad en pantalla. Con formas geométricas y un estilo
         sofisticado, funciona muy bien en títulos, encabezados y contenido
