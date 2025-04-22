@@ -13,7 +13,7 @@ import FloatingMenu from "../componentes/FloatingMenu";
 const Home = () => {
     return (
         <>
-            <FloatingMenu page="home" />
+            {/* <FloatingMenu page="home" /> */}
             <Hero id="hero" />
             <SearchBar id="search" />
             <AboutSection id="about" />
