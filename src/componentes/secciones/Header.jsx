@@ -98,7 +98,7 @@ function Header() {
                         <div className="flex justify-between py-2">
                             <div className="flex items-center">
                                 <NavLink to="/">
-                                    <img src={logoJisa} alt="Logo Jisa" className="h-12 md:h-16 object-cover py-2 px-2" />
+                                    <img src={logoJisa} alt="Logo Jisa" className="h-10 md:h-16 object-cover py-2 px-2" />
                                 </NavLink>
                             </div>
                             <div className="flex flex-col justify-evenly h-full md:px-0 px-4">

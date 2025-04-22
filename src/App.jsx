@@ -16,6 +16,7 @@ import Cart from './pages/Cart'
 import PoliticaPrivacidad from './pages/PoliticaPrivacidad'
 import { useApi } from './hooks/useApi'
 import { useEffect } from 'react'
+import LandingDetail from './pages/LandingDetail'
 
 function App() {
 
@@ -42,6 +43,7 @@ function App() {
           <Route path="blogs/:slug" element={<BlogDetail />} />
           <Route path="paquetes" element={<Paquetes />} />
           <Route path="paquetes/:slug" element={<PaqueteDetail />} />
+          <Route path="landing/:slug" element={<LandingDetail />} />
           <Route path="nosotros" element={<Nosotros />} />
           <Route path="terminos-condiciones" element={<TerminosCondiciones />} />
           <Route path="politicas-privacidad" element={<PoliticaPrivacidad />} />
