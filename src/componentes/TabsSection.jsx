@@ -25,20 +25,20 @@ const TabsSection = ({ tour }) => {
       <TabGroup className="w-full">
         <TabList className="flex w-full justify-center bg-JisaGris/5">
           {[
-            { label: "Itinerario", icon: <ItinerarioIcon size={48} /> },
-            { label: "Incluye", icon: <IncludeIcon size={48} /> },
-            { label: "Que llevar", icon: <MochilaIcon size={48} /> },
-            { label: "Precios", icon: <PriceIcon size={48} /> },
-            { label: "FAQ's", icon: <QuestionIcon size={48} /> },
-            { label: "Alojamiento", icon: <HotelIcon size={48} /> },
-            { label: "Galeria", icon: <GalleryIcon size={48} /> },
-            { label: "Contactanos", icon: <ContactIcon size={48} /> }
+            { label: "Itinerario", icon: <ItinerarioIcon size={32} /> },
+            { label: "Incluye", icon: <IncludeIcon size={32} /> },
+            { label: "Que llevar", icon: <MochilaIcon size={32} /> },
+            { label: "Precios", icon: <PriceIcon size={32} /> },
+            { label: "FAQ's", icon: <QuestionIcon size={32} /> },
+            { label: "Alojamiento", icon: <HotelIcon size={32} /> },
+            { label: "Galeria", icon: <GalleryIcon size={32} /> },
+            { label: "Contactanos", icon: <ContactIcon size={32} /> }
           ].map((tab, index) => (
             <Tab key={index} className={({ selected }) =>
               `flex flex-col justify-center items-center py-2 px-6 rounded-md transition-colors duration-200 
                             ${selected ? 'bg-white text-JisaGris font-medium' : 'text-[#98a4a8]'}`
             }>
-              <span className="text-xl">{tab.label}</span>
+              <span className="text-lg">{tab.label}</span>
               <span className="py-2 px-4">{tab.icon}</span>
             </Tab>
           ))}

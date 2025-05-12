@@ -10,7 +10,7 @@ const ItinerarioSection = ({ itinerario }) => {
         <div>
             <SeparatorBarHorizontal />
             <JisaTitleContentVerde contenido={'Itinerario'} className="text-2xl" />
-            <ParrafoContent className="text-JisaGris" contenido={itinerario.descripcion} />
+            <ParrafoContent className="text-JisaGris text-base" contenido={itinerario.descripcion} />
 
             {itinerario.dias.map((dia, index) => (
                 <Disclosure key={index} as="div" className="px-4 py-2 text-JisaCyan border-2 rounded-md my-4">

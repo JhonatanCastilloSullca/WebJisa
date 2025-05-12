@@ -375,3 +375,9 @@ example:
   position: relative;
   top: -1px;
 }
+
+.rdp-root {
+  --rdp-accent-color: #1B9C9E !important; /* Change the accent color to indigo. */
+  --rdp-accent-background-color: #f0f0f0; /* Change the accent background color. */
+  /* Add more CSS variables here. */
+}
