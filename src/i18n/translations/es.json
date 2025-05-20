@@ -1,0 +1,15 @@
+{
+  "header": {
+    "buscar-tour": "Buscar tour",
+    "tours": "Tours",
+    "contact": "Contacto"
+  },
+  "home": {
+    "welcomeMessage": "Bienvenido a nuestro sitio",
+    "description": "Explora los mejores destinos"
+  },
+  "footer": {
+    "terms": "Términos y condiciones",
+    "privacy": "Política de privacidad"
+  }
+}
