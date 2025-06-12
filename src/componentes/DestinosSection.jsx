@@ -7,55 +7,17 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import CardDestinos from "../componentes/CardDestinos"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import SeparatorBarHorizontalCyan from "./SeparatorBarHorizontalVerde";
+import { useApi } from "../hooks/useApi";
 
-const tours = [
-    {
-        titulo: "MACHUPICCHU",
-        slug: "machupicchu",
-        descripcion:
-            `Machu Picchu, la joya del Imperio Inca y una de las maravillas del mundo, te espera con sus imponentes montañas, historia fascinante y paisajes que te dejarán sin aliento. Este destino emblemático ofrece diversas formas de explorarlo, desde recorridos guiados por la ciudadela hasta rutas de trekking que revelan su belleza oculta.
+const DestinosSection = ({ id, data }) => {
 
-Explora nuestras opciones de tours y elige la experiencia que más se adapte a tu estilo de aventura. ¡Prepárate para un viaje inolvidable a la cuna de la cultura andina!`,
-        cantidad: 7,
-        imagen: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
-    },
-    {
-        titulo: "MARAS",
-        slug: "maras",
-        descripcion:
-            `Maras, famoso por sus salineras y paisajes impresionantes, te invita a descubrir la historia y la cultura andina...`,
-        cantidad: 5,
-        imagen: "https://jisaadventure.com/wp-content/uploads/2023/12/Aventura-Cuatrimotos-Salineras-Moray-Explora.webp",
-    },
-    {
-        titulo: "Lima",
-        slug: "Lima",
-        descripcion:
-            `Lima, la capital del Perú, ofrece una combinación única de historia, gastronomía y cultura vibrante...`,
-        cantidad: 4,
-        imagen: "https://jisaadventure.com/wp-content/uploads/2024/01/Descubre_Lima_Recorrido_Cultural.png",
-    },
-    {
-        titulo: "MARAS",
-        slug: "maras",
-        descripcion:
-            `Maras, famoso por sus salineras y paisajes impresionantes, te invita a descubrir la historia y la cultura andina...`,
-        cantidad: 5,
-        imagen: "https://jisaadventure.com/wp-content/uploads/2023/12/Aventura-Cuatrimotos-Salineras-Moray-Explora.webp",
-    },
-    {
-        titulo: "Lima",
-        slug: "Lima",
-        descripcion:
-            `Lima, la capital del Perú, ofrece una combinación única de historia, gastronomía y cultura vibrante...`,
-        cantidad: 4,
-        imagen: "https://jisaadventure.com/wp-content/uploads/2024/01/Descubre_Lima_Recorrido_Cultural.png",
-    },
-];
-const DestinosSection = ({ id }) => {
+    const tours = data || [];
+
     const [activeIndex, setActiveIndex] = useState(0);
+
+    if (!tours[activeIndex]) return null;
 
     return (
         <div id={id} className="w-full relative mx-auto py-16 bg-cover bg-center" style={{ backgroundImage: `url(${tours[activeIndex].imagen})` }}>
@@ -66,7 +28,7 @@ const DestinosSection = ({ id }) => {
 
                         <div className="flex flex-col justify-center md:items-start items-center pt-4 md:ps-14 md:pe-20 px-6">
                             <span className="md:text-left text-white font-semibold text-xl text-center">DESTINOS</span>
-                            <span className="md:text-left text-white font-bold text-5xl text-center">{tours[activeIndex].titulo}</span>
+                            <span className="md:text-left text-white font-bold text-5xl text-center">{tours[activeIndex].nombre}</span>
                             <SeparatorBarHorizontalCyan />
                             <p className="md:text-base text-sm font-light my-4 text-white min-h-72 md:text-left text-center">
                                 {tours[activeIndex].descripcion}
@@ -100,7 +62,7 @@ const DestinosSection = ({ id }) => {
                                 {tours.map((tour, index) => (
                                     <SwiperSlide key={index}>
                                         <div className="w-full md:h-full h-[440px] bg-red-200 rounded-2xl">
-                                            <img src={tour.imagen} alt={tour.titulo} className=" object-center w-full h-full object-cover rounded-2xl" />
+                                            <img src={tour.imagen} alt={tour.nombre} className=" object-center w-full h-full object-cover rounded-2xl" />
                                         </div>
                                     </SwiperSlide>
                                 ))}

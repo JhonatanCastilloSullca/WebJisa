@@ -14,22 +14,9 @@ import TerminosCondiciones from './pages/TerminosCondiciones'
 import PreguntasFrecuentes from './pages/PreguntasFrecuentes'
 import Cart from './pages/Cart'
 import PoliticaPrivacidad from './pages/PoliticaPrivacidad'
-import { useApi } from './hooks/useApi'
-import { useEffect } from 'react'
 import LandingDetail from './pages/LandingDetail'
 
 function App() {
-
-
-  const { data, isLoading, isError, error } = useApi({ endpoint: 'general' });
-
-  useEffect(() => {
-
-    if (data) {
-      console.log('✅ Data recibida:', data);
-    }
-  }, [data])
-
 
   return (
 

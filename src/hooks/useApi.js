@@ -7,6 +7,11 @@ const fetchData = async ({ queryKey }) => {
     const { endpoint, method = 'POST', headers = {}, body = null } = queryKey[1];
 
     const url = `${API_URL}/${endpoint}`;
+
+    const finalBody = body
+        ? { ...body, idioma_id: 1 }
+        : { idioma_id: 1 };
+
     const requestOptions = {
         method,
         headers: {
@@ -14,7 +19,7 @@ const fetchData = async ({ queryKey }) => {
             'Content-Type': 'application/json',
             ...headers,
         },
-        body: body ? JSON.stringify(body) : null,
+        body: finalBody ? JSON.stringify(finalBody) : null,
     };
 
     const response = await fetch(url, requestOptions);
