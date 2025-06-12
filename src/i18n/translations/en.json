@@ -1,0 +1,16 @@
+{
+  "header": {
+    "buscar-tour": "Search tour",
+    "tours": "Tours",
+    "contact": "Contact"
+  },
+  "home": {
+    "welcomeMessage": "Welcome to our site",
+    "description": "Explore the best destinations"
+  },
+  "footer": {
+    "terms": "Terms and conditions",
+    "privacy": "Privacy policy"
+  }
+}
+

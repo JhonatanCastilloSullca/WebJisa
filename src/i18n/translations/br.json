@@ -1,0 +1,15 @@
+{
+  "header": {
+    "buscar-tour": "Buscar toursino",
+    "tours": "Passeios",
+    "contact": "Contato"
+  },
+  "home": {
+    "welcomeMessage": "Bem-vindo ao nosso site",
+    "description": "Explore os melhores destinos"
+  },
+  "footer": {
+    "terms": "Termos e condições",
+    "privacy": "Política de privacidade"
+  }
+}

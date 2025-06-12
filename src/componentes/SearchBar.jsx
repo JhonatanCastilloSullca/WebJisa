@@ -1,5 +1,9 @@
 import { useState } from "react";
 import Autosuggest from "react-autosuggest";
+import { useTranslation } from 'react-i18next'
+
+
+  
 
 const tours = [
     {
@@ -56,6 +60,7 @@ const renderSuggestion = (suggestion) => (
 const SearchBar = ({ id }) => {
     const [value, setValue] = useState("");
     const [suggestions, setSuggestions] = useState([]);
+    const { t } = useTranslation()
 
     return (
         <div id={id} className="w-full max-w-7xl mx-auto md:-mt-12 z-30 relative md:px-0 px-6">
@@ -83,8 +88,8 @@ const SearchBar = ({ id }) => {
                     onSuggestionsClearRequested={() => setSuggestions([])}
                     getSuggestionValue={getSuggestionValue}
                     renderSuggestion={renderSuggestion}
-                    inputProps={{
-                        placeholder: `buscar tour`,
+                    inputProps={{                                                
+                        placeholder: t('header.buscar-tour'),
                         value,
                         onChange: (_, { newValue }) => setValue(newValue),
                         className: "bg-white md:h-16 h-12 focus:ring-2 focus:ring-JisaCyan focus:outline-none w-full md:text-xl text-lg leading-6 text-JisaGris/80 placeholder-JisaGris/30 rounded-lg pl-10 pr-4 shadow-xl"
