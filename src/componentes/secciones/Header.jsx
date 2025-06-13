@@ -15,14 +15,39 @@ import FlagEU from "../../assets/icons/FlagEU"
 import FlagBr from "../../assets/icons/FlagBr"
 
 
-
-function Header() {
+function Header({ dataGeneral }) {
+  const header = dataGeneral?.data?.header;
+  console.log("Header data:", header);
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const toggleMenu = () => setMenuOpen(!menuOpen);
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+  const { i18n } = useTranslation();
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const onClickOutside = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener('click', onClickOutside);
+    return () => document.removeEventListener('click', onClickOutside);
+  }, []);
+
+  const languages = [
+    { code: 'es', Icon: FlagPeru },
+    { code: 'en', Icon: FlagEU },
+    { code: 'br', Icon: FlagBr }
+  ];
+  const current = languages.find(l => l.code === i18n.language) || languages[0];
+
+  if (!header) {
+    console.log("⏳ Aún no hay datos de header");
+    return null;
+  }
+
   const menu = [
     {
       tour: "Tour por Machu Picchu",
@@ -90,36 +115,13 @@ function Header() {
   ];
 
 
-  const { i18n } = useTranslation()
-  const [open, setOpen] = useState(false)
-  const ref = useRef(null)
-
-  useEffect(() => {
-    const onClickOutside = (e) => {
-      if (ref.current && !ref.current.contains(e.target)) {
-        setOpen(false)
-      }
-    }
-    document.addEventListener('click', onClickOutside)
-    return () => document.removeEventListener('click', onClickOutside)
-  }, [])
-
-  const languages = [
-    { code: 'es', Icon: FlagPeru },
-    { code: 'en', Icon: FlagEU },
-    { code: 'br', Icon: FlagBr }
-  ]
-  const current = languages.find(l => l.code === i18n.language) || languages[0]
-
-
-
-
   return (
     <>
       <header className="top-0 md:absolute relative z-10 bg-white w-full">
         <Marquee className="bg-JisaGris text-white font-medium h-10" speed={50}>
           Tour machupicchu 2025 en oferta 20 % de descuento - Reserva tu paquete con nosotros...
         </Marquee>
+
         <div className="w-full">
           <div className="md:max-w-5xl w-full mx-auto">
             <div className="flex justify-between py-2">
@@ -130,10 +132,11 @@ function Header() {
               </div>
               <div className="flex flex-col justify-evenly h-full md:px-0 px-4">
                 <div className="flex gap-x-2 align-middle items-center justify-end">
-                  <IconText icon={WhatsappIcon} text="999 999 999 / 999 999 999" />
+                  <IconText icon={WhatsappIcon} text={header.numero} />
+
                   <div className="hidden md:flex">
                     <SeparatorBar />
-                    <IconText icon={EnvelopeIcon} text="contacto@jisa.com" />
+                    <IconText icon={EnvelopeIcon} text={header.correo} />
                     <SeparatorBar />
                     <IconText text="Blog" />
                     <SeparatorBar />
@@ -171,13 +174,13 @@ function Header() {
                         <EnvelopeIcon size={20} className="text-white" />
                       </div>
                       <div className="px-2">
-                        <span>Urb. Dirección Calle Avenida 1233 - A</span>
+                        <span>{header.direccion}</span>
                       </div>
                     </div>
                   </div>
                   <div className="section-menu flex justify-between md:w-auto w-full py-1">
                     <a href="#" className="bg-JisaCyan text-white rounded-xl text-center flex px-6 md:font-medium font-bold md:text-base text-xl py-1">
-                      Reservar
+                      {header.boton_accion}
                     </a>
                     <button onClick={toggleMenu} className="text-JisaCyan md:hidden flex items-center">
                       <BarsIcon size={36} />

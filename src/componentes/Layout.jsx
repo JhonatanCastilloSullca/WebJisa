@@ -4,10 +4,10 @@ import Footer from "./secciones/Footer"
 import FloatingMenu from "./FloatingMenu"
 import FloatingContact from "./FloatingContact"
 import ScrollTop from "./ScrollTop"
-function Layout() {
+function Layout({ dataGeneral }) {
     return (
         <>
-            <Header />
+            <Header dataGeneral={dataGeneral} />
             <ScrollTop />
             <FloatingContact />
             <main className="min-h-screen relative">

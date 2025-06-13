@@ -17,25 +17,28 @@ import PoliticaPrivacidad from './pages/PoliticaPrivacidad'
 import { useApi } from './hooks/useApi'
 import { useEffect } from 'react'
 import LandingDetail from './pages/LandingDetail'
+import { useTranslation } from 'react-i18next'
+const idiomaMap = { es: 1, en: 2, br: 3 }
 
 function App() {
 
+  const { i18n } = useTranslation()
+  const idiomaId = idiomaMap[i18n.language] || 1
 
-  const { data, isLoading, isError, error } = useApi({ endpoint: 'general' });
+  const { data, isLoading, isError } = useApi({
+    endpoint: 'general',
+    method: 'POST',
+    idiomaId,
+  })
 
-  useEffect(() => {
 
-    if (data) {
-      console.log('✅ Data recibida:', data);
-    }
-  }, [data])
 
 
   return (
 
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Layout dataGeneral={data} />}>
           <Route index element={<Home />} />
           <Route path="tours" element={<Tours />} />
           <Route path="tours/:slug" element={<TourDetail />} />
