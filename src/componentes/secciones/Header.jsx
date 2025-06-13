@@ -9,12 +9,11 @@ import BarsIcon from "../../assets/icons/BarsIcon"
 import MenuHeader from "../MenuHeader"
 import CartIcon from "../../assets/icons/CartIcon"
 import { NavLink } from "react-router-dom"
-import { useEffect, useRef, useState } from "react"
-import { useTranslation } from 'react-i18next'
-import FlagEU from "../../assets/icons/FlagEU"
-import FlagBr from "../../assets/icons/FlagBr"
+import { useState } from "react"
+import HouseIcon from "../../assets/icons/HouseIcon"
 
 
+<<<<<<< HEAD
 function Header({ dataGeneral }) {
   const header = dataGeneral?.data?.header;
   console.log("Header data:", header);
@@ -48,6 +47,18 @@ function Header({ dataGeneral }) {
     return null;
   }
 
+=======
+function Header({ data }) {
+
+  const [menuOpen, setMenuOpen] = useState(false);
+  const headerPromocion = data.promocionHeader || [];
+  const header = data.header || [];
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+>>>>>>> 22bd3ae8e23818aa2358e958ddfe725aa56b99bc
   const menu = [
     {
       tour: "Tour por Machu Picchu",
@@ -114,7 +125,9 @@ function Header({ dataGeneral }) {
     }
   ];
 
+  const [visible, setVisible] = useState(true)
 
+<<<<<<< HEAD
   return (
     <>
       <header className="top-0 md:absolute relative z-10 bg-white w-full">
@@ -151,20 +164,29 @@ function Header({ dataGeneral }) {
                       {open && (
                         <div className="absolute right-0 mt-1 bg-white rounded shadow-lg border z-10">
                           {languages.map(({ code, Icon }) => (
+=======
+    return (
+        <>
+            <header className="top-0 md:absolute relative z-10 bg-white w-full">
+                {visible && (
+                    <div className="relative bg-JisaGris text-white h-10 overflow-hidden">
+                        <div className="absolute right-0 top-0 h-full w-10 z-10 flex items-center justify-center bg-JisaGris">
+>>>>>>> 22bd3ae8e23818aa2358e958ddfe725aa56b99bc
                             <button
-                              key={code}
-                              onClick={() => {
-                                i18n.changeLanguage(code)
-                                setOpen(false)
-                              }}
-                              className="w-full p-1 hover:bg-gray-100 flex justify-center"
+                            onClick={() => setVisible(false)}
+                            className="text-white text-lg font-bold"
                             >
-                              <Icon size={20} />
+                            ✕
                             </button>
-                          ))}
                         </div>
-                      )}
+
+                        <Marquee speed={50} className="h-10 items-center font-medium">
+                            <div className="pr-12"> 
+                            <a href={headerPromocion.enlace}>{headerPromocion.text}</a>
+                            </div>
+                        </Marquee>
                     </div>
+<<<<<<< HEAD
                   </div>
                 </div>
                 <div className="flex gap-x-4">
@@ -186,11 +208,59 @@ function Header({ dataGeneral }) {
                       <BarsIcon size={36} />
                     </button>
                   </div>
+=======
+                )}
+                <div className="w-full">
+                    <div className="md:max-w-5xl w-full mx-auto">
+                        <div className="flex justify-between py-2">
+                            <div className="flex items-center">
+                                <NavLink to="/">
+                                    <img src={header.logo} alt="Logo Jisa Adventure" className="h-10 md:h-16 object-cover py-2 px-2" />
+                                </NavLink>
+                            </div>
+                            <div className="flex flex-col justify-evenly h-full md:px-0 px-4">
+                                <div className="flex gap-x-2 align-middle items-center justify-end">
+                                    <IconText icon={WhatsappIcon} text={header.numero} enlace={`https://wa.me/51${header.numero.replace(/\s+/g, '')}`} />
+                                    <div className="hidden md:flex">
+                                        <SeparatorBar />
+                                        <IconText icon={EnvelopeIcon} text={header.correo} enlace={`mailto:${header.correo}`}/>
+                                        <SeparatorBar />
+                                        <IconText text="Blog" />
+                                        <SeparatorBar />
+                                        <IconText icon={FlagPeru} />
+                                    </div>
+                                </div>
+                                <div className="flex gap-x-4">
+                                    <a
+                                        href={`https://www.google.com/maps/place/Jisa+Adventure+-+Agencia+de+Viajes+para+Cusco/@-13.5178268,-71.985513,17z/data=!3m1!4b1!4m6!3m5!1s0x916dd77bb8997e1d:0xea62539e8d460589!8m2!3d-13.5178268!4d-71.9806421!16s%2Fg%2F11pb0s5dw9?entry=ttu&g_ep=EgoyMDI1MDUyNy4wIKXMDSoASAFQAw%3D%3D`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="border-JisaCyan border-2 flex justify-center items-center rounded-md no-underline"
+                                        >
+                                        <div className="h-full size-9 bg-JisaCyan rounded-sm flex justify-center items-center">
+                                            <HouseIcon size={20} className="text-white" />
+                                        </div>
+                                        <div className="px-2">
+                                            <span>{header.direccion}</span>
+                                        </div>
+                                    </a>
+                                    <div className="section-menu flex justify-between md:w-auto w-full py-1">
+                                        <NavLink
+                                            to={header.enlace}
+                                            className="bg-JisaCyan text-white rounded-xl text-center flex px-6 md:font-medium font-bold md:text-base text-xl py-1"
+                                        >
+                                            {header.boton_accion}
+                                        </NavLink>
+                                        <button onClick={toggleMenu} className="text-JisaCyan md:hidden flex items-center">
+                                            <BarsIcon size={36} />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+>>>>>>> 22bd3ae8e23818aa2358e958ddfe725aa56b99bc
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
         <div className={`flex flex-col md:flex-row md:bg-JisaCyan bg-white text-JisaCyan md:text-white w-full transition-all duration-300 ease-in-out ${menuOpen ? "block" : "hidden md:flex"}`}>
           <div className="w-full max-w-7xl mx-auto">

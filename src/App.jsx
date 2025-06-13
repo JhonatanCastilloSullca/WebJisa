@@ -14,8 +14,6 @@ import TerminosCondiciones from './pages/TerminosCondiciones'
 import PreguntasFrecuentes from './pages/PreguntasFrecuentes'
 import Cart from './pages/Cart'
 import PoliticaPrivacidad from './pages/PoliticaPrivacidad'
-import { useApi } from './hooks/useApi'
-import { useEffect } from 'react'
 import LandingDetail from './pages/LandingDetail'
 import { useTranslation } from 'react-i18next'
 const idiomaMap = { es: 1, en: 2, br: 3 }
