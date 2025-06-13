@@ -25,20 +25,17 @@ function App() {
   const { i18n } = useTranslation()
   const idiomaId = idiomaMap[i18n.language] || 1
 
-  const { data, isLoading, isError } = useApi({
-    endpoint: 'general',
-    method: 'POST',
-    idiomaId,
-  })
+  const { data, isLoading, isError, error } = useApi({ endpoint: 'general', method: 'POST', idiomaId, });
 
-
-
+    if (isLoading) return <p className="text-center py-10">Cargando layout...</p>;
+    if (isError) return <p className="text-center text-red-500 py-10">Error: {error.message}</p>;
+    if (!data || !data.data) return null;
 
   return (
 
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout dataGeneral={data} />}>
+        <Route path="/" element={<Layout dataGeneral={data.data} />}>
           <Route index element={<Home />} />
           <Route path="tours" element={<Tours />} />
           <Route path="tours/:slug" element={<TourDetail />} />
