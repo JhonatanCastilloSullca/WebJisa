@@ -3,12 +3,14 @@ import SeparatorBarHorizontalVerde from './SeparatorBarHorizontalVerde'
 import JisaTitleContentGris from './layout/JisaTitleContentGris'
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
 import ParrafoContent from './layout/ParrafoContent'
+import { useTranslation } from 'react-i18next'
 
 const FaqSection = ({ faqs }) => {
+    const { t } = useTranslation()
     return (
         <div>
             <SeparatorBarHorizontalVerde />
-            <JisaTitleContentGris contenido={'Preguntas antes de viajar'} className="text-2xl" />
+            <JisaTitleContentGris contenido={t('tours_detail.preguntas_antes_de_viajar')} className="text-2xl" />
             {faqs.map((faq, index) => (
                 <Disclosure as="div" key={index} className="px-4 py-2 text-JisaCyan border-2 rounded-md my-4">
                     <DisclosureButton className="group flex w-full items-center justify-center">

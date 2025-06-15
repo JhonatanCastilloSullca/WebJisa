@@ -12,6 +12,7 @@ import 'swiper/css/navigation';
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { useTranslation } from "react-i18next";
 
 const testimoniosPorMarca = {
     Tripadvisor: [
@@ -171,6 +172,7 @@ const testimoniosPorMarca = {
 };
 
 const Testimonios = ({ marca }) => {
+    const { t } = useTranslation()
     const testimonios = testimoniosPorMarca[marca] || [];
 
     return (
@@ -214,9 +216,9 @@ const Testimonios = ({ marca }) => {
                     <div className="flex justify-center py-4">
 
                         {marca === "Tripadvisor" ? (
-                            <p className="text-center" >La evaluación general en <span className="text-JisaCyan font-bold">Tripadvisor </span>es <span className="text-JisaCyan font-bold">5.0 </span> de 5,en base a<span className="text-JisaCyan font-bold"> 479 reseñas </span></p>
+                            <p className="text-center" >{t("trip_section.la_evaluación_general_en")} <span className="text-JisaCyan font-bold">Tripadvisor </span>{t("trip_section.es")} <span className="text-JisaCyan font-bold">5.0 </span> de 5,{t("trip_section.en_base_a")}<span className="text-JisaCyan font-bold"> 479 {t("trip_section.reseñas")} </span></p>
                         ) : (
-                            <p className="text-center" >La evaluación general en <span className="text-[#eb4939] font-bold">Tripadvisor </span>es <span className="text-[#eb4939] font-bold">5.0 </span> de 5,en base a<span className="text-[#eb4939] font-bold"> 479 reseñas </span></p>
+                            <p className="text-center" >{t("trip_section.la_evaluación_general_en")} <span className="text-[#eb4939] font-bold">Tripadvisor </span>{t("trip_section.es")} <span className="text-[#eb4939] font-bold">5.0 </span> de 5,{t("trip_section.en_base_a")}<span className="text-[#eb4939] font-bold"> 479 {t("trip_section.reseñas")} </span></p>
 
                         )}
                     </div>

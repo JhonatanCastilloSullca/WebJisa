@@ -1,8 +1,10 @@
 import React from 'react'
 import ParrafoContent from './layout/ParrafoContent'
 import MapDotIcon from '../assets/icons/MapDotIcon'
+import { useTranslation } from 'react-i18next'
 
 const TourDetails = ({ ubicaciones, descripcion, brochure, imagenSecundaria }) => {
+    const { t } = useTranslation()
     return (
         <div className="w-full max-w-7xl mx-auto mt-24 mb-12">
             <div className="grid grid-cols-12 gap-4">
@@ -23,7 +25,7 @@ const TourDetails = ({ ubicaciones, descripcion, brochure, imagenSecundaria }) =
                         rel="noopener noreferrer"
                     >
                         <MapDotIcon />
-                        Descargar Brochure
+                        {t('tours_detail.descargar_brochure')}
                     </a>
                 </div>
                 <div className="md:col-span-6 col-span-12 h-auto flex flex-col md:items-start items-center justify-center align-middle">

@@ -4,12 +4,14 @@ import JisaTitleContentVerde from './layout/JisaTitleContentVerde'
 import ParrafoContent from './layout/ParrafoContent'
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
 import DownIcon from '../assets/icons/DownIcon'
+import { useTranslation } from 'react-i18next'
 
 const ItinerarioSection = ({ itinerario }) => {
+    const { t } = useTranslation()
     return (
         <div>
             <SeparatorBarHorizontal />
-            <JisaTitleContentVerde contenido={'Itinerario'} className="text-2xl" />
+            <JisaTitleContentVerde contenido={t('tours_detail.itinerario')} className="text-2xl" />
             <ParrafoContent className="text-JisaGris text-base" contenido={itinerario.descripcion} />
 
             {itinerario.dias.map((dia, index) => (
@@ -17,7 +19,7 @@ const ItinerarioSection = ({ itinerario }) => {
                     <DisclosureButton className="group flex w-full items-center justify-between">
                         <div className="flex gap-x-4 align-middle items-center">
                             <div className="flex flex-col">
-                                <span className="text-xs font-light">DAY</span>
+                                <span className="text-xs font-light uppercase">{t('tours_detail.dia')}</span>
                                 <span className="text-lg font-bold">0{index + 1}</span>
                             </div>
                             <span className="text-2xl font-semibold">{dia.titulo}</span>

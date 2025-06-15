@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 
 const phoneCodes = [
     { code: "+1", country: "EE.UU." },
@@ -9,6 +10,7 @@ const phoneCodes = [
 ];
 
 function FormContactTour() {
+    const { t } = useTranslation()
     const {
         register,
         handleSubmit,
@@ -24,7 +26,7 @@ function FormContactTour() {
 
             <form onSubmit={handleSubmit(onSubmit)} className="md:space-y-10 space-y-4">
                 <span className={`md:text-left text-center text-JisaCyan font-medium text-xl`} >
-                    Datos Personales
+                    {t("contact_section.form.datos_personales")}
                 </span>
                 <div className="gap-2 grid grid-cols-12 ">
                     <div className="md:col-span-2 col-span-4">
@@ -33,7 +35,7 @@ function FormContactTour() {
                             className=" w-full px-3 py-2 border-b-2 border-JisaCyan rounded-md text-black/40 "
 
                         >
-                            <option value="">Code</option>
+                            <option value="">{t("contact_section.form.code")}</option>
                             {phoneCodes.map((item) => (
                                 <option key={item.code} value={item.code}>
                                     {item.code} ({item.country})
@@ -44,7 +46,7 @@ function FormContactTour() {
                     <div className="md:col-span-4 col-span-8">
                         <input
                             type="tel"
-                            placeholder="Telefono"
+                            placeholder={t("contact_section.form.telefono")}
                             {...register("phone", { required: "El teléfono es obligatorio" })}
                             className="w-full px-3 py-2 border-b-2  border-JisaCyan rounded-md"
                         />
@@ -54,7 +56,7 @@ function FormContactTour() {
                     <div className="md:col-span-6 col-span-12">
                         <input
                             type="text"
-                            placeholder="Nombre"
+                            placeholder={t("contact_section.form.nombre")}
                             {...register("name", { required: "El nombre es obligatorio" })}
                             className="w-full px-3 py-2 border-b-2 border-JisaCyan rounded-md"
                         />
@@ -69,7 +71,7 @@ function FormContactTour() {
                             <label className="block text-sm font-medium"></label>
                             <input
                                 type="email"
-                                placeholder="Email"
+                                placeholder={t("contact_section.form.email")}
                                 {...register("email", {
                                     required: "El email es obligatorio",
                                     pattern: { value: /^\S+@\S+\.\S+$/, message: "Correo inválido" },
@@ -83,7 +85,7 @@ function FormContactTour() {
                             <label className="block text-sm font-medium"></label>
                             <input
                                 type="text"
-                                placeholder="Pais"
+                                placeholder={"pais"}
                                 {...register("pais", {
                                     required: "El pais es obligatorio",
                                     pattern: { value: /^\S+@\S+\.\S+$/, message: "Correo inválido" },
@@ -95,18 +97,13 @@ function FormContactTour() {
                         </div>
                     </div>
                 </div>
-                <div className="">
-                    <span className={`md:text-left text-center text-JisaCyan font-medium text-xl`} >
-                        Datos Personales
-                    </span>
-                </div>
 
                 <div className="gap-2 grid grid-cols-12 ">
                     <div className="md:col-span-6 col-span-4">
                         <label className="block text-sm font-medium"></label>
                         <input
                             type="text"
-                            placeholder="Tour interesado"
+                            placeholder={t("contact_section.form.tour_interesado")}
                             {...register("tour", {
                                 required: "El tour es obligatorio",
                                 pattern: { value: /^\S+@\S+\.\S+$/, message: "Correo inválido" },
@@ -136,7 +133,7 @@ function FormContactTour() {
                         <label className="block text-sm font-medium"></label>
                         <input
                             type="number"
-                            placeholder="Adultos"
+                            placeholder={t("contact_section.form.adultos")}
                             {...register("adultos", {
                                 required: "El adultos es obligatorio",
                                 pattern: { value: /^\S+@\S+\.\S+$/, message: "Correo inválido" },
@@ -150,7 +147,7 @@ function FormContactTour() {
                         <label className="block text-sm font-medium"></label>
                         <input
                             type="number"
-                            placeholder="Niños"
+                            placeholder={t("contact_section.form.niños")}
                             {...register("niños", {
                                 required: "El niños es obligatorio",
                                 pattern: { value: /^\S+@\S+\.\S+$/, message: "Correo inválido" },
@@ -165,7 +162,7 @@ function FormContactTour() {
 
                 <div>
                     <textarea
-                        placeholder="Información adicional"
+                        placeholder={t("contact_section.form.informacion_adicional")}
                         {...register("message", {
                             required: "El mensaje es obligatorio",
                             minLength: { value: 10, message: "El mensaje debe tener al menos 10 caracteres" },
@@ -180,7 +177,7 @@ function FormContactTour() {
                         type="submit"
                         className=" cursor-pointer px-16 py-2 bg-JisaCyan text-white font-bold text-lg rounded-lg shadow-md hover:bg-gray-200 hover:text-JisaGris transition"
                     >
-                        Enviar
+                        {t("contact_section.form.enviar")}
                     </button>
                 </div>
 

@@ -19,9 +19,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { useTranslation } from "react-i18next"
 
 
 const Nosotros = () => {
+    const { t } = useTranslation()
 
     const nuestroEquipo = [
         {
@@ -63,8 +65,8 @@ const Nosotros = () => {
         <>
             <HeroSectionMidle
                 backgroundImage="https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
-                title="SOBRE NOSOTROS"
-                description={`La fundadora de Jisa Adventure, Felicia Acuña Salas, es una apasionada del turismo y amante de su país, Perú. Con una visión clara y determinación, decidió crear esta agencia para compartir la belleza y riqueza cultural de Perú con el mundo. Gracias a su experiencia como guía oficial de turismo, pudo diseñar experiencias únicas y auténticas para los viajeros que buscan descubrir la magia de Perú. `}
+                title={t("nosotros.sobre_nosotros")}
+                description={t("nosotros.description")}
                 buttonText="Ver Tours"
                 buttonLink="https://jisaadventure.com/"
             />
@@ -75,12 +77,12 @@ const Nosotros = () => {
                     </div>
                     <div className="md:col-span-6 col-span-12 h-auto flex flex-col md:items-start items-center justify-center align-middle px-10 gap-y-8">
                         <div className="">
-                            <h4 className="text-3xl font-medium text-JisaCyan" >Misión</h4>
+                            <h4 className="text-3xl font-medium text-JisaCyan" >{t("nosotros.misión")}</h4>
                             <SeparatorBarHorizontalVerdeClaro />
                             <ParrafoContent contenido={`La fundadora de Jisa Adventure, Felicia Acuña Salas, es una apasionada del turismo y amante de su país, Perú. Con una visión clara y determinación, decidió crear esta agencia para compartir la belleza y riqueza cultural de Perú con el mundo. Gracias a su experiencia como guía oficial de turismo, pudo diseñar experiencias únicas`} />
                         </div>
                         <div className="">
-                            <h4 className="text-3xl font-medium text-JisaCyan" >Visión</h4>
+                            <h4 className="text-3xl font-medium text-JisaCyan" >{t("nosotros.visión")}</h4>
                             <SeparatorBarHorizontalVerdeClaro />
                             <ParrafoContent contenido={`La fundadora de Jisa Adventure, Felicia Acuña Salas, es una apasionada del turismo y amante de su país, Perú. Con una visión clara y determinación, decidió crear esta agencia para compartir la belleza y riqueza cultural de Perú con el mundo. Gracias a su experiencia como guía oficial de turismo, pudo diseñar experiencias únicas`} />
                         </div>
@@ -91,7 +93,7 @@ const Nosotros = () => {
                 <div className="grid grid-cols-12 gap-4">
                     <div className="md:col-span-3 col-span-6 h-auto flex md:items-start items-center justify-center align-middle">
                         <div className="flex flex-col justify-center items-center px-4">
-                            <h5 className="text-JisaCyan font-semibold text-3xl text-center h-[2ch] mb-8" >Pasión por el turismo</h5>
+                            <h5 className="text-JisaCyan font-semibold text-3xl text-center h-[2ch] mb-8" >{t("nosotros.pasión_por_el_turismo")}</h5>
                             <div className="text-JisaVerde py-4">
                                 <HeartIcon size={80} />
                             </div>
@@ -102,7 +104,7 @@ const Nosotros = () => {
                     </div>
                     <div className="md:col-span-3 col-span-6 h-auto flex md:items-start items-center justify-center align-middle">
                         <div className="flex flex-col justify-center items-center px-4">
-                            <h5 className="text-JisaCyan font-semibold text-3xl text-center h-[2ch] mb-8" >Sostenibilidad</h5>
+                            <h5 className="text-JisaCyan font-semibold text-3xl text-center h-[2ch] mb-8" >{t("nosotros.sostenibilidad")}</h5>
                             <div className="text-JisaVerde py-4">
                                 <HojaIcon size={80} />
                             </div>
@@ -113,7 +115,7 @@ const Nosotros = () => {
                     </div>
                     <div className="md:col-span-3 col-span-6 h-auto flex md:items-start items-center justify-center align-middle">
                         <div className="flex flex-col justify-center items-center px-4">
-                            <h5 className="text-JisaCyan font-semibold text-3xl text-center h-[2ch] mb-8" >Excelencia en el Servicio</h5>
+                            <h5 className="text-JisaCyan font-semibold text-3xl text-center h-[2ch] mb-8" >{t("nosotros.excelencia_en_el_servicio")}</h5>
                             <div className="text-JisaVerde py-4">
                                 <StarIcon size={80} />
                             </div>
@@ -124,7 +126,7 @@ const Nosotros = () => {
                     </div>
                     <div className="md:col-span-3 col-span-6 h-auto flex md:items-start items-center justify-center align-middle">
                         <div className="flex flex-col justify-center items-center px-4">
-                            <h5 className="text-JisaCyan font-semibold text-3xl text-center h-[2ch] mb-8" >Respeto por la Cultura</h5>
+                            <h5 className="text-JisaCyan font-semibold text-3xl text-center h-[2ch] mb-8" >{t("nosotros.respeto_por_la_cultura")}</h5>
                             <div className="text-JisaVerde py-4">
                                 <MountainIcon size={80} />
                             </div>
@@ -138,9 +140,6 @@ const Nosotros = () => {
             <div className="w-full max-w-7xl mx-auto mt-24 mb-12 flex flex-col justify-center items-center">
                 <HeaderTitle title={'Nuestro Equipo'} />
                 <SeparatorBarHorizontal />
-
-
-
                 <Swiper
                     breakpoints={{
                         320: { slidesPerView: 1, spaceBetween: 10 },
@@ -187,7 +186,7 @@ const Nosotros = () => {
                     <div className="grid grid-cols-12 gap-4 w-full pt-12 py-16">
                         <div className="md:col-span-6 col-span-12 h-auto flex flex-col md:items-start items-center justify-center align-middle px-10">
                             <JisaTitleContentVerde contenido={'Jisa Adventure'} className="text-6xl" />
-                            <JisaTitleContent contenido={'UNA EMPRESA DIFERENTE'} className="text-2xl" />
+                            <JisaTitleContent contenido={t("nosotros.UNA_EMPRESA_DIFERENTE")} className="text-2xl" />
                             <SeparatorBarHorizontalVerdeClaro />
                             <ParrafoContent className="text-white pe-12" contenido={
                                 `
@@ -238,7 +237,7 @@ const Nosotros = () => {
                 </div>
             </div>
             <div className="w-full max-w-7xl mx-auto mt-24 mb-12 flex flex-col justify-center items-center ">
-                <HeaderTitle title={'PAQUETES DESTACADOS'} />
+                <HeaderTitle title={t("nosotros.nuestro_equipo")} />
                 <SeparatorBarHorizontal />
                 <SubHeaderTitle title={`Descubre las historias y testimonios de aquellos que han viajado con Jisa Adventure y han experimentado momentos inolvidables en los hermosos destinos de Perú.`} />
                 <div className="grid grid-cols-12 gap-14 w-full pt-12 py-16">
@@ -390,8 +389,8 @@ const Nosotros = () => {
             </div>
 
             <div className="w-full max-w-7xl mx-auto mt-24 mb-12 flex flex-col ">
-                <JisaTitleContentVerde contenido={'Certificados'} className="text-5xl" />
-                <JisaTitleContent contenido={`Titulos, Certificados y Reconocimientos`} className="text-2xl" />
+                <JisaTitleContentVerde contenido={t("nosotros.Certificados")} className="text-5xl" />
+                <JisaTitleContent contenido={t('nosotros.Titulos_Certificados_y_Reconocimientos')} className="text-2xl" />
                 <SeparatorBarHorizontalVerde />
                 <CertificadosSection />
             </div>

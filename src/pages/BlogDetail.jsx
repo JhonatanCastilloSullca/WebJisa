@@ -17,8 +17,10 @@ import BlogCard from "../componentes/BlogCard";
 import PackageSection from "../componentes/secciones/PackageSection";
 import PromocionSection from "../componentes/PromocionSection";
 import TestimoniosSection from "../componentes/secciones/TestimoniosSection";
+import { useTranslation } from "react-i18next";
 
 const BlogDetail = () => {
+    const { t } = useTranslation()
     const { slug } = useParams();
     const blogData = {
         title: "Otra forma de disfrutar tu visita en las noches cusqueñas",
@@ -89,7 +91,7 @@ const BlogDetail = () => {
                         <img src={blogData.secondaryImage} alt="Jisa-Nosotros-Paquete" className="w-full h-full object-cover rounded-lg " />
                     </div>
                     <div className="w-full flex flex-col items-center justify-center py-6">
-                        <span className="text-JisaCyan font-bold text-2xl">Las noches en Cuscos</span>
+                        <span className="text-JisaCyan font-bold text-2xl">{t("blogs_detail.las_noches_en_cusco")}</span>
                         <ParrafoContent
                             contenido={
                                 blogData.secondaryText
@@ -130,14 +132,14 @@ const BlogDetail = () => {
                 </div>
                 <div className="w-full max-w-7xl mx-auto mt-12 mb-12 px-12 flex flex-col">
                     <SeparatorBarHorizontal />
-                    <JisaTitleContentCyan contenido={'Disponibilidad machupicchu'} className="text-2xl" />
+                    <JisaTitleContentCyan contenido={t("blogs_detail.disponibilidad_machupicchu")} className="text-2xl" />
                     <CalendarBlog />
                 </div>
 
 
                 <div className="w-full max-w-7xl mx-auto mt-12 mb-12 px-12 flex flex-col">
                     <SeparatorBarHorizontal />
-                    <JisaTitleContentCyan contenido={'Blogs relacionados'} className="text-2xl" />
+                    <JisaTitleContentCyan contenido={t("blogs_detail.blogs_relacionados")} className="text-2xl" />
                     <div className="w-full max-w-6xl mx-auto md:px-0 px-4 pt-12">
                         <GridNumber col={12} className="md:gap-x-11 gap-x-0">
                             <RowNumber col={4}>

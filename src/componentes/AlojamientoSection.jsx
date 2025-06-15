@@ -5,15 +5,17 @@ import SeparatorBarHorizontalVerde from './SeparatorBarHorizontalVerde';
 import JisaTitleContentGris from './layout/JisaTitleContentGris';
 import HotelCard from './HotelCard';
 import ParrafoContent from './layout/ParrafoContent';
+import { useTranslation } from 'react-i18next';
 
 const AlojamientoSection = ({ alojamientos }) => {
+    const { t } = useTranslation()
     const [hotelSeleccionado, setHotelSeleccionado] = useState(alojamientos[0] || null);
     return (
 
 
         <div>
             <SeparatorBarHorizontalVerde />
-            <JisaTitleContentGris contenido="Hoteles para este tour" className="text-2xl" />
+            <JisaTitleContentGris contenido={t("tours_detail.hoteles_para_este_tour")} className="text-2xl" />
 
             <Swiper
                 breakpoints={{
