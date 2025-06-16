@@ -10,8 +10,10 @@ import CardDestinos from "../componentes/CardDestinos"
 import { useEffect, useState } from "react"
 import SeparatorBarHorizontalCyan from "./SeparatorBarHorizontalVerde";
 import { useApi } from "../hooks/useApi";
+import { useTranslation } from "react-i18next";
 
 const DestinosSection = ({ id, data }) => {
+    const { t } = useTranslation()
 
     const tours = data || [];
 
@@ -27,14 +29,14 @@ const DestinosSection = ({ id, data }) => {
                     <div className={`md:col-span-3 col-span-12 `}>
 
                         <div className="flex flex-col justify-center md:items-start items-center pt-4 md:ps-14 md:pe-20 px-6">
-                            <span className="md:text-left text-white font-semibold text-xl text-center">DESTINOS</span>
+                            <span className="md:text-left text-white font-semibold text-xl text-center">{t('destion_section.destinos')}</span>
                             <span className="md:text-left text-white font-bold text-5xl text-center">{tours[activeIndex].nombre}</span>
                             <SeparatorBarHorizontalCyan />
                             <p className="md:text-base text-sm font-light my-4 text-white min-h-72 md:text-left text-center">
                                 {tours[activeIndex].descripcion}
                             </p>
                             <a href="#" className="text-white font-bold text-md md:text-left text-center py-6">
-                                ({tours[activeIndex].cantidad}) Tours Disponibles
+                                ({tours[activeIndex].cantidad}) {t('destion_section.tours_disponibles')}
                             </a>
                         </div>
                     </div>

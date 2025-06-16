@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 
 const phoneCodes = [
     { code: "+1", country: "EE.UU." },
@@ -9,6 +10,7 @@ const phoneCodes = [
 ];
 
 function FormContact() {
+    const { t } = useTranslation()
     const {
         register,
         handleSubmit,
@@ -29,7 +31,7 @@ function FormContact() {
                             className=" w-full px-3 py-2 border-b-2 border-JisaCyan rounded-md text-black/40 "
 
                         >
-                            <option value="">Code</option>
+                            <option value="">{t('contact_section.form.code')}</option>
                             {phoneCodes.map((item) => (
                                 <option key={item.code} value={item.code}>
                                     {item.code} ({item.country})
@@ -40,7 +42,7 @@ function FormContact() {
                     <div className="md:col-span-5 col-span-8">
                         <input
                             type="tel"
-                            placeholder="Telefono"
+                            placeholder={t('contact_section.form.telefono')}
                             {...register("phone", { required: "El teléfono es obligatorio" })}
                             className="w-full px-3 py-2 border-b-2  border-JisaCyan rounded-md"
                         />
@@ -49,7 +51,7 @@ function FormContact() {
                     <div className="md:col-span-5 col-span-12">
                         <input
                             type="text"
-                            placeholder="Nombre"
+                            placeholder={t('contact_section.form.nombre')}
                             {...register("name", { required: "El nombre es obligatorio" })}
                             className="w-full px-3 py-2 border-b-2 border-JisaCyan rounded-md"
                         />
@@ -63,7 +65,7 @@ function FormContact() {
                     <label className="block text-sm font-medium"></label>
                     <input
                         type="email"
-                        placeholder="Email"
+                        placeholder={t('contact_section.form.email')}
                         {...register("email", {
                             required: "El email es obligatorio",
                             pattern: { value: /^\S+@\S+\.\S+$/, message: "Correo inválido" },
@@ -76,7 +78,7 @@ function FormContact() {
 
                 <div>
                     <textarea
-                        placeholder="Información adicional"
+                        placeholder={t('contact_section.form.informacion_adicional')}
                         {...register("message", {
                             required: "El mensaje es obligatorio",
                             minLength: { value: 10, message: "El mensaje debe tener al menos 10 caracteres" },
@@ -91,7 +93,7 @@ function FormContact() {
                         type="submit"
                         className=" cursor-pointer px-16 py-2 bg-JisaCyan text-white font-bold text-lg rounded-lg shadow-md hover:bg-gray-200 hover:text-JisaGris transition"
                     >
-                        Enviar
+                        {t('contact_section.form.enviar')}
                     </button>
                 </div>
 

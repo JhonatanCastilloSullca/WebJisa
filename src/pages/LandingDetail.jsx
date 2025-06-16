@@ -31,6 +31,7 @@ import FaqSection from "../componentes/FaqSection";
 import AlojamientoSection from "../componentes/AlojamientoSection";
 import GaleriaTourSection from "../componentes/GaleriaTourSection";
 import ContactoSection from "../componentes/ContactoSection";
+import { useTranslation } from "react-i18next";
 
 
 
@@ -38,6 +39,7 @@ import ContactoSection from "../componentes/ContactoSection";
 
 const LandingDetail = () => {
   const { slug } = useParams();
+  const { t } = useTranslation()
 
   const tour = {
     imagen: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
@@ -367,11 +369,11 @@ const LandingDetail = () => {
                 </p>
               </div>
               <div className="flex flex-col py-4 text-JisaGris uppercase">
-                <span className="text-xl">+20 Destinos</span>
-                <span className="text-xl">+5 Hoteles</span>
-                <span className="text-xl">+3 restaurant</span>
+                <span className="text-xl">+20 {t('landing_detail.destinos')}</span>
+                <span className="text-xl">+5 {t('landing_detail.hoteles')}</span>
+                <span className="text-xl">+3 {t('landing_detail.restaurant')}</span>
                 <a href="#" className="bg-JisaCyan text-white rounded-xl text-center flex justify-start px-6 md:font-medium font-bold md:text-base text-xl py-1 w-fit">
-                  Reservar
+                  {t('landing_detail.reservar')}
                 </a>
               </div>
             </div>
@@ -383,7 +385,7 @@ const LandingDetail = () => {
           <div className="flex items-center justify-center gap-4 text-JisaGris py-4 text-xl">
             <div className="relative flex-1 border-t-2 border-dashed border-JisaCyan">
             </div>
-            <span className="whitespace-nowrap text-3xl px-4">Visita Virtual</span>
+            <span className="whitespace-nowrap text-3xl px-4">{t('landing_detail.visita_virtual')}</span>
             <div className="relative flex-1 border-t-2 border-dashed border-JisaCyan">
             </div>
           </div>
@@ -428,14 +430,14 @@ const LandingDetail = () => {
             <TabGroup className="w-full ">
               <TabList className="flex w-full justify-center gap-x-1">
                 {[
-                  { label: "Itinerario", icon: <ItinerarioIcon size={48} /> },
-                  { label: "Incluye", icon: <IncludeIcon size={48} /> },
-                  { label: "Que llevar", icon: <MochilaIcon size={48} /> },
-                  { label: "Precios", icon: <PriceIcon size={48} /> },
-                  { label: "FAQ's", icon: <QuestionIcon size={48} /> },
-                  { label: "Alojamiento", icon: <HotelIcon size={48} /> },
-                  { label: "Galeria", icon: <GalleryIcon size={48} /> },
-                  { label: "Contactanos", icon: <ContactIcon size={48} /> }
+                  { label: t('tours_detail.itinerario'), icon: <ItinerarioIcon size={48} /> },
+                  { label: t('tours_detail.incluye'), icon: <IncludeIcon size={48} /> },
+                  { label: t('tours_detail.que_llevar'), icon: <MochilaIcon size={48} /> },
+                  { label: t('tours_detail.precios'), icon: <PriceIcon size={48} /> },
+                  { label: t('tours_detail.faqs'), icon: <QuestionIcon size={48} /> },
+                  { label: t('tours_detail.alojamiento'), icon: <HotelIcon size={48} /> },
+                  { label: t('tours_detail.galeria'), icon: <GalleryIcon size={48} /> },
+                  { label: t('tours_detail.contactanos'), icon: <ContactIcon size={48} /> }
                 ].map((tab, index) => (
                   <Tab key={index} className={({ selected }) =>
                     `flex flex-col justify-center items-center py-2 px-6 rounded-md transition-colors duration-200  

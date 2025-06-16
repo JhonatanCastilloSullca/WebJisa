@@ -11,8 +11,10 @@ import InfoIcon from "../assets/icons/InfoIcon";
 import CocktailIcon from "../assets/icons/CocktailIcon";
 import PromocionSection from "../componentes/PromocionSection";
 import ContactSection from "../componentes/secciones/ContactSection";
+import { useTranslation } from "react-i18next";
 
 const Blogs = () => {
+    const { t } = useTranslation()
     const [categoriaActiva, setCategoriaActiva] = useState(null);
 
     const categorias = [
@@ -73,7 +75,6 @@ const Blogs = () => {
         },
     ];
 
-    // Filtrar los blogs por la categoría activa
     const blogsFiltrados = categoriaActiva
         ? blogs.filter((blog) => blog.categoria === categoriaActiva)
         : blogs;
@@ -82,8 +83,8 @@ const Blogs = () => {
         <>
             <HeroSectionMidle
                 backgroundImage="https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
-                title="Nuestro Blog"
-                description="Explora las mejores experiencias de viaje y cultura con Jisa Adventure."
+                title={t("blogs.nuestro_blog")}
+                description={t("blogs.description")}
             />
 
             <div className="w-full max-w-4xl mx-auto mt-24 mb-12 px-6">

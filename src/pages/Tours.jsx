@@ -8,8 +8,10 @@ import SeparatorBarHorizontal from "../componentes/SeparatorBarHorizontal"
 import ToursCard from "../componentes/ToursCard"
 import BlogSection from "../componentes/secciones/BlogSection";
 import ContactSection from "../componentes/secciones/ContactSection";
+import { useTranslation } from "react-i18next";
 
 const Tours = () => {
+    const { t } = useTranslation()
     return (
         <>
             <HeroSectionMidle
@@ -19,7 +21,7 @@ const Tours = () => {
             />
             <div className="w-full max-w-7xl mx-auto mt-12 mb-12 px-12 flex flex-col">
                 <SeparatorBarHorizontal />
-                <JisaTitleContentCyan contenido={'Tours de Maras Moray destacados'} className="text-2xl" />
+                <JisaTitleContentCyan contenido={t('tours.tours_destacados_de') + ' ' + 'Maras Moray '} className="text-2xl" />
                 <div className="w-full max-w-6xl mx-auto md:px-0 px-4 pt-12">
                     <GridNumber col={12} className="md:gap-x-11 gap-x-0">
                         <RowNumber col={4}>
@@ -60,7 +62,7 @@ const Tours = () => {
             </div>
             <div className="w-full max-w-7xl mx-auto mt-12 mb-12 px-12 flex flex-col">
                 <SeparatorBarHorizontal />
-                <JisaTitleContentCyan contenido={'Paquetes que contienen Maras Moray'} className="text-2xl" />
+                <JisaTitleContentCyan contenido={t('tours.paquetes_contienen') + ' ' + 'Maras Moray'} className="text-2xl" />
                 <div className="w-full max-w-6xl mx-auto md:px-0 px-4 pt-12">
                     <GridNumber col={12} className="md:gap-x-11 gap-x-0">
                         <RowNumber col={4}>
@@ -101,7 +103,7 @@ const Tours = () => {
             </div>
             <div className="w-full max-w-7xl mx-auto mt-12 mb-12 px-12 flex flex-col">
                 <SeparatorBarHorizontal />
-                <JisaTitleContentCyan contenido={'Mas destinos en'} className="text-2xl" />
+                <JisaTitleContentCyan contenido={t('tours.mas_destinos_en') + ' ' + 'Maras Moray'} className="text-2xl" />
                 <div className="w-full max-w-6xl mx-auto md:px-0 px-4 pt-12">
                     <GridNumber col={12} className="md:gap-x-11 gap-x-0">
                         <RowNumber col={4}>
@@ -173,7 +175,7 @@ const Tours = () => {
                     </GridNumber>
                 </div>
                 <div className="flex justify-center w-full my-12">
-                    <a href="#" className="font-bold text-JisaVerde text-2xl"> Ver mas tours</a>
+                    <a href="#" className="font-bold text-JisaVerde text-2xl"> {t('tours.ver_mas_tours')}</a>
                 </div>
             </div>
             <div
@@ -206,21 +208,19 @@ const Tours = () => {
 
                             <SwiperSlide >
                                 <div className="relative h-48 group">
-                                    {/* Imagen */}
                                     <img
                                         src="https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
                                         alt="imagen"
                                         className="w-full h-full object-cover rounded-lg transition-all duration-300 group-hover:border-4 group-hover:border-white"
                                     />
 
-                                    {/* Overlay y contenido */}
                                     <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-85 transition-all duration-300 flex flex-col items-center justify-center text-white rounded-lg p-4 group-hover:border-4 group-hover:border-white">
                                         <h3 className="text-xl font-bold opacity-0 group-hover:opacity-100 transition-all duration-300">
                                             Tours y Paquetes
                                         </h3>
                                         <div className=" absolute bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300 text-sm text-center mt-2">
-                                            <span className="block">8 Tours Disponibles</span>
-                                            <span className="block">4 Paquetes Disponibles</span>
+                                            <span className="block">8 {t('tours.tours_disponibles')}</span>
+                                            <span className="block">4 {t('tours.paquetes_disponibles')}</span>
                                         </div>
                                     </div>
                                 </div>

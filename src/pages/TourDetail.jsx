@@ -7,11 +7,13 @@ import BlogSection from "../componentes/secciones/BlogSection";
 import { useParams } from "react-router-dom";
 import HeroSectionTour from "../componentes/HeroSectionTour";
 import StickyReserva from "../componentes/StickyReserva";
+import { useTranslation } from "react-i18next";
 
 
 
 
 const TourDetail = () => {
+    const { t } = useTranslation()
     const { slug } = useParams();
 
     const tour = {

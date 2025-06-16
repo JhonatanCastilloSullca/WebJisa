@@ -3,7 +3,7 @@ import Autosuggest from "react-autosuggest";
 import { useTranslation } from 'react-i18next'
 
 
-  
+
 
 const tours = [
     {
@@ -88,7 +88,7 @@ const SearchBar = ({ id }) => {
                     onSuggestionsClearRequested={() => setSuggestions([])}
                     getSuggestionValue={getSuggestionValue}
                     renderSuggestion={renderSuggestion}
-                    inputProps={{                                                
+                    inputProps={{
                         placeholder: t('header.buscar-tour'),
                         value,
                         onChange: (_, { newValue }) => setValue(newValue),

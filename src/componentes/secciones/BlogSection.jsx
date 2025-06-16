@@ -5,13 +5,15 @@ import HeaderTitle from "../layout/HeaderTitle"
 import SubHeaderTitle from "../layout/SubHeaderTitle"
 import RowNumber from "../RowNumber"
 import SeparatorBarHorizontal from "../SeparatorBarHorizontal"
+import { useTranslation } from "react-i18next"
 
 const BlogSection = ({ id }) => {
+    const { t } = useTranslation()
     return (
         <div id={id} className="w-full max-w-7xl mx-auto md:my-12 my-12 pb-24 mb-12 ">
             <div className="flex-col justify-center flex items-center py-10">
-                <HeaderTitle title={'¿TIENES INTERÉS EN CUSCO?'} />
-                <SubHeaderTitle title={`En JISA ADVENTURE, nos preocupamos por cada detalle de tu travesía para que tu experiencia sea inolvidable. Nuestro equipo de asesores está siempre dispuesto a ayudarte a planificar el viaje ideal, adaptando cada tour a tus intereses y necesidades.`} />
+                <HeaderTitle title={t("blog_section.titulo")} />
+                <SubHeaderTitle title={t("blog_section.description")} />
                 <SeparatorBarHorizontal />
             </div>
 
@@ -56,7 +58,7 @@ const BlogSection = ({ id }) => {
 
                 <div className="w-full flex justify-center py-6">
                     <NavLink to={'/blogs'}>
-                        <span className="font-bold text-JisaVerde text-xl">Ver mas</span>
+                        <span className="font-bold text-JisaVerde text-xl">{t("blog_section.ver_mas")}</span>
                     </NavLink>
                 </div>
             </div>

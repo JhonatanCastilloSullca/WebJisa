@@ -18,21 +18,23 @@ import GaleriaTourSection from './GaleriaTourSection'
 import ContactoSection from './ContactoSection'
 import MiniGallerySection from './MiniGallerySection'
 import BookNowSection from './BookNowSection'
+import { useTranslation } from 'react-i18next'
 
 const TabsSection = ({ tour }) => {
+  const { t } = useTranslation()
   return (
     <div className="w-full mx-auto mt-24 mb-12">
       <TabGroup className="w-full">
         <TabList className="flex w-full justify-center bg-JisaGris/5">
           {[
-            { label: "Itinerario", icon: <ItinerarioIcon size={32} /> },
-            { label: "Incluye", icon: <IncludeIcon size={32} /> },
-            { label: "Que llevar", icon: <MochilaIcon size={32} /> },
-            { label: "Precios", icon: <PriceIcon size={32} /> },
-            { label: "FAQ's", icon: <QuestionIcon size={32} /> },
-            { label: "Alojamiento", icon: <HotelIcon size={32} /> },
-            { label: "Galeria", icon: <GalleryIcon size={32} /> },
-            { label: "Contactanos", icon: <ContactIcon size={32} /> }
+            { label: t('tours_detail.itinerario'), icon: <ItinerarioIcon size={32} /> },
+            { label: t('tours_detail.incluye'), icon: <IncludeIcon size={32} /> },
+            { label: t('tours_detail.que_llevar'), icon: <MochilaIcon size={32} /> },
+            { label: t('tours_detail.precios'), icon: <PriceIcon size={32} /> },
+            { label: t('tours_detail.faqs'), icon: <QuestionIcon size={32} /> },
+            { label: t('tours_detail.alojamiento'), icon: <HotelIcon size={32} /> },
+            { label: t('tours_detail.galeria'), icon: <GalleryIcon size={32} /> },
+            { label: t('tours_detail.contactanos'), icon: <ContactIcon size={32} /> }
           ].map((tab, index) => (
             <Tab key={index} className={({ selected }) =>
               `flex flex-col justify-center items-center py-2 px-6 rounded-md transition-colors duration-200 
