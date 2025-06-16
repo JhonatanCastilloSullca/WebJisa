@@ -9,20 +9,13 @@ const AboutSection = ({ id }) => {
             <div className="grid grid-cols-12 gap-4">
                 <div className="md:col-span-7 col-span-12 h-auto flex flex-col md:items-start items-center justify-center align-middle px-10">
                     <JisaTitleContentVerde contenido={`JISA ADVENTURE`} />
-                    <HeaderTitle title={'Tours a Machu Picchu, Cusco y Perú 2024'} />
+                    <HeaderTitle title={'¿Por qué elegir Jisa Adventure?'} />
                     <SeparatorBarHorizontal />
                     <ParrafoContent className="text-JisaGris"
-                        contenido={`La fundadora de Jisa Adventure, Felicia Acuña Salas,
-                                es una apasionada del turismo y amante de su país, Perú.
-                                Con una visión clara y determinación, decidió crear esta agencia
-                                para compartir la belleza y riqueza cultural de Perú con el mundo.
-                                Gracias a su experiencia como guía oficial de turismo,
-                                pudo diseñar experiencias únicas y auténticas para los
-                                viajeros que buscan descubrir la magia de Perú. Hoy en día,
-                                Jisa Adventure es reconocida por su excelencia en el servicio
-                                y por brindar momentos inolvidables a quienes eligen explorar
-                                este hermoso país con nosotros. ¡Únete a la aventura y descubre
-                                la historia que inspiró a Felicia a crear Jisa Adventure!`}
+                        contenido={`Con Jisa Adventure no eres un turista más. Eres un viajero que busca vivir cada lugar de verdad. 
+                            Diseñamos experiencias memorables. Conectamos contigo desde el primer mensaje hasta el último paso de 
+                            tu aventura. Trabajamos con pasión, con raíces locales y con el corazón puesto en cada detalle. 
+                            Viajar con nosotros es viajar seguro y acompañado. `}
                     />
                 </div>
                 <div className="md:col-span-5 col-span-12 h-auto flex flex-col md:items-start items-center justify-center align-middle">
