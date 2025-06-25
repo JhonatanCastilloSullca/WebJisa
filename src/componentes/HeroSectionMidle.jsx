@@ -10,8 +10,8 @@ const HeroSectionMidle = ({
 }) => {
     return (
         <div
-            className="md:h-[70vh] h-auto bg-cover bg-center relative flex flex-col justify-end items-center text-white text-center p-4 md:py-32 py-16"
-            style={{ backgroundImage: `url(${backgroundImage})` }}
+            className="md:h-[80vh] h-auto bg-cover bg-center relative flex flex-col justify-end items-center text-white text-center p-4 md:py-32 py-16"
+            style={{ backgroundImage: `url(${encodeURI(backgroundImage)})` }}
         >
             <div
                 className="absolute inset-0"
@@ -26,11 +26,11 @@ const HeroSectionMidle = ({
                     </div>
                 </div>
 
-                {blogCategoria && (
+                {/* {blogCategoria && (
                     <div className="py-4 absolute left-0 bottom-0">
                         <span className="font-bold text-xl">blogs/<a href={blogSlug} className=" text-JisaCyan">{blogCategoria}</a></span>
                     </div>
-                )}
+                )} */}
             </div>
         </div>
 

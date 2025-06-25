@@ -8,13 +8,22 @@ import { useParams } from "react-router-dom";
 import HeroSectionTour from "../componentes/HeroSectionTour";
 import StickyReserva from "../componentes/StickyReserva";
 import { useTranslation } from "react-i18next";
-
-
+import { useApi } from "../hooks/useApi";
 
 
 const TourDetail = () => {
     const { t } = useTranslation()
     const { slug } = useParams();
+
+    const idiomaId = idiomaMap[t.language] || 1
+        
+    const { data, isLoading, isError, error } = useApi({ endpoint: 'blog-slug', method: 'POST', body: { idioma_id: idiomaId, slug: slug, }, });
+
+    if (isLoading) return <p className="text-center py-10">Cargando layout...</p>;
+    if (isError) return <p className="text-center text-red-500 py-10">Error: {error.message}</p>;
+    if (!data || !data.data) return null;
+
+    const blogData = data.data.blog || [];
 
     const tour = {
         imagen: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",

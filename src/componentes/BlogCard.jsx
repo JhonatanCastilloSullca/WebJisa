@@ -20,9 +20,9 @@ const BlogCard = ({ title, image, author, fecha, description, context, color, sl
                 <BoxCard title={title} color={color} />
                 <div className="absolute flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 justify-center items-center  inset-0">
                     <div className="flex flex-col gap-2">
-                        <p className="text-center font-light text-white px-8 text-sm -mt-10">
+                        {/* <p className="text-center font-light text-white px-8 text-sm -mt-10">
                             {context}
-                        </p>
+                        </p> */}
                     </div>
                 </div>
 
