@@ -27,10 +27,9 @@ function App() {
 
   const { data, isLoading, isError, error } = useApi({ endpoint: 'general', method: 'POST', idiomaId, });
 
-    if (isLoading) return <p className="text-center py-10">Cargando layout...</p>;
-    if (isError) return <p className="text-center text-red-500 py-10">Error: {error.message}</p>;
-    if (!data || !data.data) return null;
-
+  if (isLoading) return <p className="text-center py-10">Cargando layout...</p>;
+  if (isError) return <p className="text-center text-red-500 py-10">Error: {error.message}</p>;
+  if (!data || !data.data) return null;
   return (
 
     <BrowserRouter>

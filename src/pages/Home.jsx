@@ -13,20 +13,19 @@ import { useApi } from "../hooks/useApi";
 import { useEffect, useState } from "react";
 
 function Home({ dataGeneral }) {
-    
     return (
         <>
             {/* <FloatingMenu page="home" /> */}
             <Hero id="hero" data={dataGeneral.slider} />
             <SearchBar id="search" data={dataGeneral.tours} />
             <AboutSection id="about" data={dataGeneral.nosotros} />
-            <PackageSection id="packages" data={dataGeneral.paquetes} tipo="1"/>
+            <PackageSection id="packages" data={dataGeneral.paquetes} tipo="1" />
             <DestinosSection id="destinos" data={dataGeneral.destinos} />
             <PackageSection id="tours" data={dataGeneral.toursPrincipales} tipo="0" />
             <PromocionSection id="promociones" data={dataGeneral.destinos} />
             <ContactSection id="contacto" data={dataGeneral.destinos} />
             <BlogSection id="blog" data={dataGeneral.blogs} />
-            <TestimoniosSection id="testimonios" data={dataGeneral.tripadvisors} google={dataGeneral.googles}/>
+            <TestimoniosSection id="testimonios" data={dataGeneral.tripadvisors} google={dataGeneral.googles} />
             <MarcasSection id="marcas" data={dataGeneral.destinos} />
         </>
     );

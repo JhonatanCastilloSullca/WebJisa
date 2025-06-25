@@ -10,7 +10,6 @@ import ContactIcon from "../assets/icons/ContactIcon"
 
 
 const BlogCard = ({ title, image, author, fecha, description, context, color, slug }) => {
-    console.log(image)
     return (
         <div className="group w-full h-[256px] flex flex-col bg-cover bg-center rounded-xl shadow-lg relative overflow-hidden transition-all duration-300"
             style={{ backgroundImage: `url(${encodeURI(image)})` }}
