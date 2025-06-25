@@ -3,75 +3,57 @@ import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
 import HeroSection from '../HeroSection';
 
-function Hero({ id }) {
+function Hero({ id, data }) {
+    console.log(data)
     return (
         <div id={id} className="h-auto w-full relative top-0">
-            <Swiper
-                spaceBetween={30}
-                centeredSlides={true}
-                autoplay={{
-                    delay: 5000,
-                    disableOnInteraction: true,
-                }}
-                pagination={{
-                    clickable: true,
-                }}
-                modules={[Autoplay]}
-                className="mySwiper"
-            >
-                <SwiperSlide>
-                    <HeroSection
-                        backgroundImage="https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
-                        title="LO MEJOR DE CUSCO ESTA ESPERANDOTE"
-                        description={`Comenzaron las reservas para el Camino Inca 2025, Separa tu espacio ahora y descubre Machu Picchu en una aventura Inolvidable`}
-                        buttonText="Ver Tours"
-                        buttonLink="https://jisaadventure.com/"
-                    />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <HeroSection
-                        backgroundImage="https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
-                        title="LO MEJOR DE CUSCO ESTA ESPERANDOTE"
-                        description={`Comenzaron las reservas para el Camino Inca 2025, Separa tu espacio ahora y descubre Machu Picchu en una aventura Inolvidable`}
-                        buttonText="Ver Tours"
-                        buttonLink="https://jisaadventure.com/"
-                    />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <HeroSection
-                        backgroundImage="https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
-                        title="LO MEJOR DE CUSCO ESTA ESPERANDOTE"
-                        description={`Comenzaron las reservas para el Camino Inca 2025, Separa tu espacio ahora y descubre Machu Picchu en una aventura Inolvidable`}
-                        buttonText="Ver Tours"
-                        buttonLink="https://jisaadventure.com/"
-                    />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <HeroSection
-                        backgroundImage="https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
-                        title="LO MEJOR DE CUSCO ESTA ESPERANDOTE"
-                        description={`Comenzaron las reservas para el Camino Inca 2025, Separa tu espacio ahora y descubre Machu Picchu en una aventura Inolvidable`}
-                        buttonText="Ver Tours"
-                        buttonLink="https://jisaadventure.com/"
-                    />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <HeroSection
-                        backgroundImage="https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
-                        title="LO MEJOR DE CUSCO ESTA ESPERANDOTE"
-                        description={`Comenzaron las reservas para el Camino Inca 2025, Separa tu espacio ahora y descubre Machu Picchu en una aventura Inolvidable`}
-                        buttonText="Ver Tours"
-                        buttonLink="https://jisaadventure.com/"
-                    />
-                </SwiperSlide>
-            </Swiper>
-            <div className="w-full">
-                <div className="max-w-7xl w-full mx-auto">
+            {/* Slider de imágenes */}
+            {data?.tipo == 0 && Array.isArray(data.detalles) && (
+                <Swiper
+                    spaceBetween={30}
+                    centeredSlides={true}
+                    autoplay={{
+                        delay: 5000,
+                        disableOnInteraction: true,
+                    }}
+                    modules={[Autoplay]}
+                    className="mySwiper"
+                >
+                    {data.detalles.map((img, index) => (
+                        <SwiperSlide key={index}>
+                            <HeroSection
+                                backgroundImage={img.enlace}
+                                title="LO MEJOR DE CUSCO ESTÁ ESPERÁNDOTE"
+                                description="Comenzaron las reservas para el Camino Inca 2025, separa tu espacio ahora y descubre Machu Picchu en una aventura inolvidable"
+                                buttonText="Ver Tours"
+                                buttonLink="https://jisaadventure.com/"
+                            />
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            )}
 
+            {/* Video de fondo */}
+            {data?.tipo === 1 && typeof data.detalles === 'string' && (
+                <div className="relative w-full h-[80vh] overflow-hidden">
+                    <video
+                        className="w-full h-full object-cover"
+                        src={data.detalles}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                    />
+                    {/* Opcional: superponer contenido
+                    <div className="absolute inset-0 flex flex-col justify-center items-center text-white text-center bg-black/40">
+                        <h2 className="text-4xl font-bold mb-4">LO MEJOR DE CUSCO ESTÁ ESPERÁNDOTE</h2>
+                        <p className="max-w-xl mb-6 px-4">Comenzaron las reservas para el Camino Inca 2025, separa tu espacio ahora y descubre Machu Picchu en una aventura inolvidable</p>
+                        <a href="https://jisaadventure.com/" className="bg-white text-black px-6 py-2 rounded-xl font-semibold">Ver Tours</a>
+                    </div> */}
                 </div>
-            </div>
+            )}
         </div>
-    )
+    );
 }
 
-export default Hero
+export default Hero;

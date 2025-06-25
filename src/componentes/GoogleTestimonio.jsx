@@ -7,40 +7,38 @@ export default function GoogleTestimonio({ review }) {
             {/* Usuario */}
             <div className="flex items-center gap-4">
                 <img
-                    src={review.userImage}
-                    alt={review.userName}
+                    src={review.imagen}
+                    alt={review.nombre}
                     className="w-12 h-12 rounded-full object-cover"
                 />
                 <div>
                     <h3 className="font-semibold text-gray-900 ">
-                        {review.userName}
+                        {review.nombre}
                     </h3>
-                    <p className="text-sm text-JisaGris ">
+                    {/* <p className="text-sm text-JisaGris ">
                         {review.contributions} contribuciones
-                    </p>
+                    </p> */}
                 </div>
             </div>
 
             <div className="mt-4">
                 <div className="flex gap-x-2">
-                    <div className="text-JisaAmarillo flex gap-0">
-                        <StarIcon size={15} />
-                        <StarIcon size={15} />
-                        <StarIcon size={15} />
-                        <StarIcon size={15} />
-                        <StarIcon size={15} />
+                    <div className="text-JisaAmarillo flex">
+                        {[...Array(review.estrellas)].map((_, i) => (
+                        <StarIcon key={i} size={15} />
+                        ))}
                     </div>
                     <p className="text-sm text-JisaGris ">
-                        {review.date}
+                        {review.fecha}
                     </p>
                 </div>
             </div>
             <div className=" h-[12ch]">
-                <h4 className="text-lg font-semibold text-JisaGris ">
+                {/* <h4 className="text-lg font-semibold text-JisaGris ">
                     {review.title}
-                </h4>
+                </h4> */}
 
-                <p className="mt-2  line-clamp-3 text-JisaGris ">{review.description}</p>
+                <p className="mt-2  line-clamp-3 text-JisaGris ">{review.descripcion}</p>
             </div>
         </div>
     );

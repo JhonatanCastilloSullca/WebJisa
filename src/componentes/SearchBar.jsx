@@ -1,63 +1,28 @@
 import { useState } from "react";
 import Autosuggest from "react-autosuggest";
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom';
 
-
-
-
-const tours = [
-    {
-        id: "1",
-        slug: "cusco-slug-1",
-        title: "Grupal",
-        image: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
-        location: "Montaña de Colores Palccoyo, Cusco",
-        description: "Rainbow Mountain Vinicunca Tour (Group Service)",
-        price: "$999.00",
-        dias: "7",
-        group: "Min 4"
-    },
-    {
-        id: "2",
-        slug: "cusco-slug-2",
-        title: "Grupal",
-        image: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
-        location: "Montaña de Colores Palccoyo, Cusco",
-        description: "Rainbow Mountain Vinicunca Tour (Group Service)",
-        price: "$999.00",
-        dias: "7",
-        group: "Min 4"
-    },
-    {
-        id: "3",
-        slug: "cusco-slug-3",
-        title: "Grupal",
-        image: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
-        location: "Montaña de Colores Palccoyo, Cusco",
-        description: "Rainbow Mountain Vinicunca Tour (Group Service)",
-        price: "$999.00",
-        dias: "7",
-        group: "Min 4"
-    }
-];
-
-const getSuggestions = (value) => {
+const SearchBar = ({ id, data }) => {
+    const tours = data;
+    console.log(tours)
+    const getSuggestions = (value) => {
     const inputValue = value.trim().toLowerCase();
-    return inputValue.length === 0 ? [] : tours.filter(tour =>
-        tour.description.toLowerCase().includes(inputValue)
+        return inputValue.length === 0 ? [] : tours.filter(tour =>
+            tour.titulo.toLowerCase().includes(inputValue)
+        );
+    };
+
+    const getSuggestionValue = (suggestion) => suggestion.titulo;
+
+    const renderSuggestion = (suggestion) => (
+        <Link to={`/tours/${suggestion.slug}`}>
+            <div className="flex items-center gap-2 p-2 border-b hover:bg-gray-100 cursor-pointer">
+                <img src={suggestion.foto_principal} alt={suggestion.titulo} className="w-10 h-10 rounded" />
+                <span>{suggestion.titulo}</span>
+            </div>
+        </Link>
     );
-};
-
-const getSuggestionValue = (suggestion) => suggestion.description;
-
-const renderSuggestion = (suggestion) => (
-    <div className="flex items-center gap-2 p-2 border-b hover:bg-gray-100 cursor-pointer">
-        <img src={suggestion.image} alt={suggestion.title} className="w-10 h-10 rounded" />
-        <span>{suggestion.description}</span>
-    </div>
-);
-
-const SearchBar = ({ id }) => {
     const [value, setValue] = useState("");
     const [suggestions, setSuggestions] = useState([]);
     const { t } = useTranslation()

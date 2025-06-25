@@ -36,7 +36,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout dataGeneral={data.data} />}>
-          <Route index element={<Home />} />
+          <Route index element={<Home dataGeneral={data.data} />} />
           <Route path="tours" element={<Tours />} />
           <Route path="tours/:slug" element={<TourDetail />} />
           <Route path="blogs" element={<Blogs />} />

@@ -8,6 +8,10 @@
     "title": "Pacotes em destaque",
     "description": "Descubra nossos pacotes mais populares"
   },
+  "tours_destacados": {
+    "title": "Passeios em destaque",
+    "description": "Descubra nossos passeios mais populares"
+  },
   "destion_section": {
     "destinos": "Destinos",
     "tours_disponibles": "Passeios disponíveis"

@@ -32,11 +32,11 @@ const DestinosSection = ({ id, data }) => {
                             <span className="md:text-left text-white font-semibold text-xl text-center">{t('destion_section.destinos')}</span>
                             <span className="md:text-left text-white font-bold text-5xl text-center">{tours[activeIndex].nombre}</span>
                             <SeparatorBarHorizontalCyan />
-                            <p className="md:text-base text-sm font-light my-4 text-white min-h-72 md:text-left text-center">
+                            <p className="line-clamp-10 md:text-base text-sm font-light my-4 text-white md:text-left text-center">
                                 {tours[activeIndex].descripcion}
                             </p>
                             <a href="#" className="text-white font-bold text-md md:text-left text-center py-6">
-                                ({tours[activeIndex].cantidad}) {t('destion_section.tours_disponibles')}
+                                ({tours[activeIndex].tours_count}) {t('destion_section.tours_disponibles')}
                             </a>
                         </div>
                     </div>

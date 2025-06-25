@@ -8,6 +8,10 @@
     "title": "Featured packages",
     "description": "Discover our most popular packages"
   },
+  "tours_destacados": {
+    "title": "Featured tours",
+    "description": "Discover our most popular tours"
+  },
   "destion_section": {
     "destinos": "Destinations",
     "tours_disponibles": "Available tours"
