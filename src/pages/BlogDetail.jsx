@@ -141,7 +141,7 @@ const BlogDetail = () => {
                 </div>
                 <PackageSection data={data.data?.paquetes} tipo="0" />
                 <PromocionSection />
-                <TestimoniosSection data={data.data?.tripadvisors} google={data.data?.googles} />
+                <TestimoniosSection id="testimonios" data={data.data?.tripadvisors} google={data.data?.googles} />
             </div>
         </>
     )

@@ -1,12 +1,38 @@
 import PhotoSwipeLightbox from 'photoswipe/lightbox';
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react';
 import 'photoswipe/style.css';
 
+const GalleriaTours = ({ id, images }) => {
+    const [imagesWithSize, setImagesWithSize] = useState([]);
 
-const GalleriaTours = (props) => {
     useEffect(() => {
+        const loadImageSizes = async () => {
+            const results = await Promise.all(
+                images.map(image =>
+                    new Promise(resolve => {
+                        const img = new Image();
+                        img.src = image.ruta;
+                        img.onload = () => {
+                            resolve({
+                                ...image,
+                                width: img.naturalWidth,
+                                height: img.naturalHeight
+                            });
+                        };
+                    })
+                )
+            );
+            setImagesWithSize(results);
+        };
+
+        loadImageSizes();
+    }, [images]);
+
+    useEffect(() => {
+        if (!imagesWithSize.length) return;
+
         let lightbox = new PhotoSwipeLightbox({
-            gallery: '#' + props.galleryID,
+            gallery: '#' + id,
             children: 'a',
             pswpModule: () => import('photoswipe'),
         });
@@ -16,25 +42,25 @@ const GalleriaTours = (props) => {
             lightbox.destroy();
             lightbox = null;
         };
-    }, []);
+    }, [imagesWithSize]);
 
     return (
-        <div className="pswp-gallery grid grid-cols-3 max-w-6xl gap-6 mx-auto py-20 " id={props.galleryID}>
-            {props.images.map((image, index) => (
+        <div className="pswp-gallery grid grid-cols-3 max-w-6xl gap-6 mx-auto py-20" id={id}>
+            {imagesWithSize.map((image, index) => (
                 <a
-                    className='rounded-xl shadow-xl overflow-hidden hover:scale-105 transition-all max-h-52'
-                    href={image.largeURL}
+                    key={id + '-' + index}
+                    href={image.ruta}
                     data-pswp-width={image.width}
                     data-pswp-height={image.height}
-                    key={props.galleryID + '-' + index}
                     target="_blank"
                     rel="noreferrer"
+                    className="rounded-xl shadow-xl overflow-hidden hover:scale-105 transition-all max-h-52"
                 >
-                    <img src={image.largeURL} alt="" className='w-full h-full object-cover' />
+                    <img src={image.ruta} alt="" className="w-full h-full object-cover" />
                 </a>
             ))}
         </div>
     );
-}
+};
 
-export default GalleriaTours
+export default GalleriaTours;
