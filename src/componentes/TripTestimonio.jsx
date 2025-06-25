@@ -15,7 +15,7 @@ export default function TripadvisorReview({ review }) {
                         {review.nombre}
                     </h3>
                     <p className="text-sm text-JisaGris ">
-                        {review.contribuciones} contribuciones
+                        {review.contribuciones}
                     </p>
                 </div>
             </div>
