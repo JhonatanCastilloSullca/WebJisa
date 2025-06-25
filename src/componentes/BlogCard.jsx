@@ -9,12 +9,13 @@ import IconTooltipCard from "./layout/IconTooltipCard"
 import ContactIcon from "../assets/icons/ContactIcon"
 
 
-const BlogCard = ({ title, image, author, fecha, description, context, color }) => {
+const BlogCard = ({ title, image, author, fecha, description, context, color, slug }) => {
+    console.log(image)
     return (
         <div className="group w-full h-[256px] flex flex-col bg-cover bg-center rounded-xl shadow-lg relative overflow-hidden transition-all duration-300"
-            style={{ backgroundImage: `url(${image})` }}
+            style={{ backgroundImage: `url(${encodeURI(image)})` }}
         >
-            <NavLink to={'/blogs/blog-turistico'}>
+            <NavLink to={`/blogs/${slug}`}>
                 <div className="absolute inset-0 bg-JisaGris/65 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
                 <BoxCard title={title} color={color} />
                 <div className="absolute flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 justify-center items-center  inset-0">

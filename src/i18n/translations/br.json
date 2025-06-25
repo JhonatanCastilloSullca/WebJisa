@@ -33,8 +33,9 @@
     }
   },
   "blog_section": {
-    "titulo": "VOCÊ ESTÁ INTERESSADO EM CUSCO?",
-    "description": "Na JISA ADVENTURE, cuidamos de cada detalhe da sua viagem para garantir que sua experiência seja inesquecível. Nossa equipe de consultores está sempre pronta para ajudar você a planejar a viagem perfeita, adaptando cada passeio aos seus interesses e necessidades.",
+    "titulo": "Somos seu guia para o Peru.",
+    "description": "Na Jisa Adventure, não apenas levamos você a diferentes destinos no Peru, como também garantimos que todas as suas perguntas sejam respondidas e ajudamos você a chegar com tudo o que precisa para a viagem dos seus sonhos ao Peru.",
+    "description2": "Siga nosso blog para dicas, recomendações e tudo o que você precisa saber para planejar sua aventura neste destino mágico.",
     "ver_mas": "Ver mais"
   },
   "trip_section": {

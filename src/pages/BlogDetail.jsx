@@ -18,10 +18,22 @@ import PackageSection from "../componentes/secciones/PackageSection";
 import PromocionSection from "../componentes/PromocionSection";
 import TestimoniosSection from "../componentes/secciones/TestimoniosSection";
 import { useTranslation } from "react-i18next";
+import { useApi } from "../hooks/useApi";
+
+const idiomaMap = { es: 1, en: 2, br: 3 }
 
 const BlogDetail = () => {
     const { t } = useTranslation()
     const { slug } = useParams();
+
+    const idiomaId = idiomaMap[t.language] || 1
+    
+    const { data, isLoading, isError, error } = useApi({ endpoint: 'blog-slug', method: 'POST', body: { idioma_id: idiomaId, slug: slug, }, });
+
+    if (isLoading) return <p className="text-center py-10">Cargando layout...</p>;
+    if (isError) return <p className="text-center text-red-500 py-10">Error: {error.message}</p>;
+    if (!data || !data.data) return null;
+
     const blogData = {
         title: "Otra forma de disfrutar tu visita en las noches cusqueñas",
         category: "Nocturno",
@@ -179,12 +191,9 @@ const BlogDetail = () => {
                         </GridNumber>
                     </div>
                 </div>
-                <PackageSection />
+                <PackageSection data={data.data?.paquetes} tipo="0" />
                 <PromocionSection />
-                <TestimoniosSection />
-
-
-
+                <TestimoniosSection data={data.data?.tripadvisors} google={data.data?.googles} />
             </div>
         </>
     )

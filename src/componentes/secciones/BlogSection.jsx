@@ -14,6 +14,7 @@ const BlogSection = ({ id , data }) => {
             <div className="flex-col justify-center flex items-center py-10">
                 <HeaderTitle title={t("blog_section.titulo")} />
                 <SubHeaderTitle title={t("blog_section.description")} />
+                <SubHeaderTitle title={t("blog_section.description2")} />
                 <SeparatorBarHorizontal />
             </div>
 
@@ -21,7 +22,7 @@ const BlogSection = ({ id , data }) => {
 
                 <GridNumber col={12} className="md:gap-x-11 gap-x-0">
                     {data.map((blog,index) => (
-                        <RowNumber col={4}>
+                        <RowNumber col={4} key={index}>
                             <BlogCard
                                 title={blog.categoriablog.nombre}
                                 image={blog.imagen}
@@ -30,6 +31,7 @@ const BlogSection = ({ id , data }) => {
                                 context={blog.resumen}
                                 author="Jisa Adventure"
                                 fecha={blog.fecha}
+                                slug={blog.slug}
                             />
                         </RowNumber>
                     ))}
