@@ -27,7 +27,7 @@ const FloatingContact = () => {
                         <MailIcon size={25} />
                     </a>
                     <a
-                        href="https://wa.me/+51939383158"
+                        href="https://wa.me/51926561020"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-16 h-16 rounded-full bg-white text-gray-700 flex items-center justify-center shadow-md"

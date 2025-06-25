@@ -38,8 +38,8 @@ function Header({ dataGeneral }) {
 
   const languages = [
     { code: 'es', Icon: FlagPeru },
-    { code: 'en', Icon: FlagEU },
-    { code: 'br', Icon: FlagBr }
+    // { code: 'en', Icon: FlagEU },
+    // { code: 'br', Icon: FlagBr }
   ];
   const current = languages.find(l => l.code === i18n.language) || languages[0];
 
@@ -229,10 +229,10 @@ function Header({ dataGeneral }) {
                 </NavLink>
                 <NavLink to="/carrito" className="relative inline-flex items-center p-3 text-sm font-medium text-center md:text-white text-JisaCyan">
                   <div className="absolute w-10">
-                    <CartIcon size={16} />
+                    {/* <CartIcon size={16} />
                     <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2">
                       20
-                    </div>
+                    </div> */}
                   </div>
                 </NavLink>
               </div>

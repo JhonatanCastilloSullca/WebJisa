@@ -41,7 +41,7 @@ function Footer() {
             <h4 className="font-bold text-xl md:text-left text-center">Jisa Adventure</h4>
             <div className="lista-menu-footer ps-4 py-2 md:">
               <ul className="text-base font-normal text-center">
-                <li>
+                {/* <li>
                   <a href="#">{t("footer.inicio")}</a>
                 </li>
                 <li>
@@ -54,11 +54,11 @@ function Footer() {
                   <a href="#">{t("footer.paquetes_personalizados")}</a>
                 </li>
                 <li>
-                  <a href="#">{t("footer.nuestro_blog")}</a>
+                  <a href="#">{t("footer.nuestro_blog")}</a> 
                 </li>
                 <li>
                   <NavLink to={'/nosotros'}>{t("footer.sobre_nosotros")}</NavLink>
-                </li>
+                </li> */}
                 <li>
                   <NavLink to={'/politicas-privacidad'}>{t("footer.politicas_reserva")}</NavLink>
                 </li>
@@ -76,7 +76,7 @@ function Footer() {
               <div className="flex flex-col gap-y-2">
                 <h4 className="font-semibold text-base">{t("footer.asesor_venta")}</h4>
                 <IconText icon={EnvelopeIcon} text="info@jisaadventure.com" />
-                <IconText icon={PhoneIcon} text="999 999 999" />
+                <IconText icon={PhoneIcon} text="926 561 020" />
               </div>
               <div className="flex flex-col gap-y-2">
                 <h4 className="font-semibold text-base">{t("footer.datos_informacion")}</h4>
@@ -87,8 +87,8 @@ function Footer() {
           </div>
         </div>
         <div className="w-full max-w-7xl text-center gap-4 mx-auto ">
-          <span className="text-JisaGris">
-            Jisa Adventure, © 2025 :: all right reserved
+          <span className="text-JisaCyan">
+            © {new Date().getFullYear()} Jisa Adventure – Todos los derechos reservados
           </span>
         </div>
       </div>
