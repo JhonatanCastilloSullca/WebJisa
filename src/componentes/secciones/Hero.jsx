@@ -4,7 +4,6 @@ import { Autoplay } from 'swiper/modules';
 import HeroSection from '../HeroSection';
 
 function Hero({ id, data }) {
-    console.log(data)
     return (
         <div id={id} className="h-auto w-full relative top-0">
             {/* Slider de imágenes */}

@@ -5,9 +5,8 @@ import { Link } from 'react-router-dom';
 
 const SearchBar = ({ id, data }) => {
     const tours = data;
-    console.log(tours)
     const getSuggestions = (value) => {
-    const inputValue = value.trim().toLowerCase();
+        const inputValue = value.trim().toLowerCase();
         return inputValue.length === 0 ? [] : tours.filter(tour =>
             tour.titulo.toLowerCase().includes(inputValue)
         );
