@@ -296,7 +296,7 @@ const TourDetail = () => {
             <TabsSection tour={tour} />
             <TestimoniosSection id="testimonios" />
             <ToursRelacionados tours={tour.toursRelacionados} />
-            <BlogSection id="blog" />
+            {/* <BlogSection id="blog" /> */}
         </>
     )
 }
