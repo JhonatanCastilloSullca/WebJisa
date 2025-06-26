@@ -90,9 +90,7 @@ function Header({ dataGeneral }) {
                     <SeparatorBar />
                     <IconText icon={EnvelopeIcon} text={header.correo} enlace={`mailto:${header.correo}`} />
                     <SeparatorBar />
-                    <NavLink to="/blogs">
                       <IconText text="Blog" />
-                    </NavLink>
                     <SeparatorBar />
                     <div ref={ref} className="relative inline-block">
                       <button
