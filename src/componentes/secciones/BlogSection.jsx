@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next"
 const BlogSection = ({ id , data }) => {
     const { t } = useTranslation()
     return (
-        <div id={id} className="w-full max-w-7xl mx-auto md:my-12 my-12 pb-24 mb-12 ">
+        <div id={id} className="w-full max-w-7xl mx-auto md:my-12 my-12 pb-1 mb-2 ">
             <div className="flex-col justify-center flex items-center py-10">
                 <HeaderTitle title={t("blog_section.titulo")} />
                 <SubHeaderTitle title={t("blog_section.description")} />

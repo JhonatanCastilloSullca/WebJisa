@@ -3,6 +3,7 @@ import FacebookIcon from "../../assets/icons/FacebookIcon";
 import GoogleIcon from "../../assets/icons/GoogleIcon"
 import InstagramIcon from "../../assets/icons/InstagramIcon"
 import TripAdvisorIcon from "../../assets/icons/TripAdvisorIcon"
+import TikTokIcon from "../../assets/icons/TikTokIcon"
 import logoJisa from "../../assets/imagen/LogoJisaSecundario.webp"
 import FooterJisa from "../../assets/imagen/Footer-Jisa-Adventure-Caminante.webp"
 import IconText from "../layout/IconText";
@@ -35,13 +36,14 @@ function Footer() {
               <TripAdvisorIcon size={40} className="" />
               <InstagramIcon size={30} className="" />
               <FacebookIcon size={30} className="" />
+              <TikTokIcon size={30} className="" />
             </div>
           </div>
           <div className="md:col-span-4 col-span-12 p-4 text-white px-12">
             <h4 className="font-bold text-xl md:text-left text-center">Jisa Adventure</h4>
             <div className="lista-menu-footer ps-4 py-2 md:">
               <ul className="text-base font-normal text-center">
-                <li>
+                {/* <li>
                   <a href="#">{t("footer.inicio")}</a>
                 </li>
                 <li>
@@ -54,7 +56,7 @@ function Footer() {
                   <a href="#">{t("footer.paquetes_personalizados")}</a>
                 </li>
                 <li>
-                  <a href="#">{t("footer.nuestro_blog")}</a>
+                  <a href="#">{t("footer.nuestro_blog")}</a> 
                 </li>
                 <li>
                   <NavLink to={'/nosotros'}>{t("footer.sobre_nosotros")}</NavLink>
@@ -67,7 +69,7 @@ function Footer() {
                 </li>
                 <li>
                   <NavLink to={'/preguntas-frecuentes'}>{t("footer.faq")}</NavLink>
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>
@@ -76,7 +78,7 @@ function Footer() {
               <div className="flex flex-col gap-y-2">
                 <h4 className="font-semibold text-base">{t("footer.asesor_venta")}</h4>
                 <IconText icon={EnvelopeIcon} text="info@jisaadventure.com" />
-                <IconText icon={PhoneIcon} text="999 999 999" />
+                <IconText icon={PhoneIcon} text="926 561 020" />
               </div>
               <div className="flex flex-col gap-y-2">
                 <h4 className="font-semibold text-base">{t("footer.datos_informacion")}</h4>
@@ -87,8 +89,8 @@ function Footer() {
           </div>
         </div>
         <div className="w-full max-w-7xl text-center gap-4 mx-auto ">
-          <span className="text-JisaGris">
-            Jisa Adventure, © 2025 :: all right reserved
+          <span className="text-JisaCyan">
+            © {new Date().getFullYear()} Jisa Adventure – Todos los derechos reservados
           </span>
         </div>
       </div>

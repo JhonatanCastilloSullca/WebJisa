@@ -6,7 +6,7 @@ const IconCategoria = ({ icon: Icon, title, subtitle, tamaño = 40, className = 
                 <Icon size={tamaño} />
                 <div className="flex flex-col">
                     <span className={`font-bold ${tamañotitulo}`}>{title}</span>
-                    <span className="font-light text-xs text-JisaGris">{subtitle}</span>
+                    <span className="font-light text-xs text-JisaGris">{subtitle} </span>
                 </div>
             </div>
         </>

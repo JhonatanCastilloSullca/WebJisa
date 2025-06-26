@@ -18,7 +18,7 @@ const TestimoniosSection = ({ id, data, google }) => {
     ];
 
     return (
-        <div id={id} className="w-full max-w-7xl mx-auto my-24  mb-12 ">
+        <div id={id} className="w-full max-w-7xl mx-auto ">
             <div className="flex-col justify-center flex items-center py-10">
                 <HeaderTitle title={t("trip_section.titulo")} />
                 <SubHeaderTitle title={t("trip_section.subtitulo")} />

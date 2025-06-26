@@ -15,11 +15,11 @@ const FaqSection = ({ faqs }) => {
                 <Disclosure as="div" key={index} className="px-4 py-2 text-JisaCyan border-2 rounded-md my-4">
                     <DisclosureButton className="group flex w-full items-center justify-center">
                         <div className="flex gap-x-4 align-middle items-center">
-                            <span className="text-3xl font-semibold">{faq.titulo}</span>
+                            <span className="text-2xl font-semibold">{faq.pregunta}</span>
                         </div>
                     </DisclosureButton>
                     <DisclosurePanel className="mt-2 text-sm/5">
-                        <ParrafoContent className="text-JisaGris" contenido={faq.descripcion} />
+                        <ParrafoContent className="text-JisaGris" contenido={faq.respuesta} />
                     </DisclosurePanel>
                 </Disclosure>
             ))}

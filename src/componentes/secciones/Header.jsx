@@ -19,6 +19,7 @@ import MenuLinea from "./MenuLinea"
 function Header({ dataGeneral }) {
   const header = dataGeneral?.header || [];
   const headerPromocion = dataGeneral?.promocionHeader || [];
+  const menus = dataGeneral?.menu || [];
 
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(!menuOpen);
@@ -39,8 +40,8 @@ function Header({ dataGeneral }) {
 
   const languages = [
     { code: 'es', Icon: FlagPeru },
-    { code: 'en', Icon: FlagEU },
-    { code: 'br', Icon: FlagBr }
+    // { code: 'en', Icon: FlagEU },
+    // { code: 'br', Icon: FlagBr }
   ];
   const current = languages.find(l => l.code === i18n.language) || languages[0];
 
@@ -48,72 +49,6 @@ function Header({ dataGeneral }) {
     console.log("⏳ Aún no hay datos de header");
     return null;
   }
-
-  const menu = [
-    {
-      tour: "Tour por Machu Picchu",
-      imagenPrincipal: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
-      submenu: [
-        {
-          titulo: "Full Day en Tren Turístico Expedition",
-          descripcion: "Disfruta de un increíble viaje en tren hacia Machu Picchu con el servicio Expedition. Una experiencia cómoda y accesible que te permitirá conocer una de las maravillas del mundo.",
-          imagen: "https://picsum.photos/800/500"
-        },
-        {
-          titulo: "Full Day en Tren Turístico Vistadome",
-          descripcion: "Viaja con vistas panorámicas a través del tren Vistadome y sumérgete en la belleza natural del Valle Sagrado antes de llegar a la ciudadela de Machu Picchu.",
-          imagen: "https://picsum.photos/700/400"
-        },
-        {
-          titulo: "Tour de 2 Días en Machu Picchu",
-          descripcion: "Descubre la magia de Machu Picchu en un tour de dos días, disfrutando de una noche en Aguas Calientes y explorando la maravilla con más tiempo.",
-          imagen: "https://picsum.photos/600/350"
-        }
-      ]
-    },
-    {
-      tour: "Tour por el Valle Sagrado",
-      imagenPrincipal: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
-      submenu: [
-        {
-          titulo: "Tour a Pisac y Ollantaytambo",
-          descripcion: "Explora los impresionantes centros arqueológicos de Pisac y Ollantaytambo, dos joyas del Valle Sagrado con vistas espectaculares y mucha historia.",
-          imagen: "https://picsum.photos/680/380"
-        },
-        {
-          titulo: "Tour de Chinchero, Moray y Salineras",
-          descripcion: "Visita los andenes circulares de Moray, las salineras de Maras y la encantadora localidad de Chinchero en un recorrido cultural e histórico.",
-          imagen: "https://picsum.photos/720/420"
-        },
-        {
-          titulo: "Tour Completo por el Valle Sagrado",
-          descripcion: "Un recorrido completo por los sitios más emblemáticos del Valle Sagrado, incluyendo Pisac, Ollantaytambo, Chinchero, Moray y las Salineras de Maras.",
-          imagen: "https://picsum.photos/640/360"
-        }
-      ]
-    },
-    {
-      tour: "Tour a la Montaña de 7 Colores",
-      imagenPrincipal: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
-      submenu: [
-        {
-          titulo: "Full Day a la Montaña de 7 Colores",
-          descripcion: "Una caminata desafiante pero increíblemente gratificante a la famosa Montaña de 7 Colores, con paisajes espectaculares y aire puro de los Andes.",
-          imagen: "https://picsum.photos/780/480"
-        },
-        {
-          titulo: "Tour Palccoyo: La Alternativa a Vinicunca",
-          descripcion: "Si buscas una opción menos exigente pero igual de impresionante, Palccoyo ofrece un paisaje colorido sin la caminata intensa de Vinicunca.",
-          imagen: "https://picsum.photos/1690/690"
-        },
-        {
-          titulo: "Tour Especial: Montaña de Colores + Valle Rojo",
-          descripcion: "Además de la Montaña de 7 Colores, descubre el impresionante Valle Rojo, una joya escondida con paisajes surrealistas.",
-          imagen: "https://picsum.photos/770/470"
-        }
-      ]
-    }
-  ];
 
   const [visible, setVisible] = useState(true);
 
@@ -156,7 +91,9 @@ function Header({ dataGeneral }) {
                     <SeparatorBar />
                     <IconText icon={EnvelopeIcon} text={header.correo} enlace={`mailto:${header.correo}`} />
                     <SeparatorBar />
-                    <IconText text="Blog" />
+                    <NavLink to="/blogs">
+                      <IconText text="Blog" />
+                    </NavLink>
                     <SeparatorBar />
                     <div ref={ref} className="relative inline-block">
                       <button

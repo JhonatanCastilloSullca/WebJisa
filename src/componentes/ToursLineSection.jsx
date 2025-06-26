@@ -9,13 +9,14 @@ const ToursLineSection = ({ tours }) => {
             {tours.map((tour) => (
                 <RowNumber key={tour.id}>
                     <ToursCard
-                        title={tour.title}
-                        image={tour.image}
-                        location={tour.location}
-                        description={tour.description}
-                        price={tour.price}
-                        dias={tour.dias}
-                        group={tour.group}
+                        title={tour.tipo.nombre}
+                        image={tour.foto_principal}
+                        location={tour.ubicaciones.map(u => u.nombre).join(', ')}
+                        description={tour.titulo}
+                        price="0"
+                        dias="7"
+                        group={'Min 4'}
+                        slug={tour.slug}
                     />
                 </RowNumber>
             ))}

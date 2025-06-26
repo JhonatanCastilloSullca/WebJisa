@@ -27,6 +27,7 @@ const PackageSection = ({ id,data,tipo }) => {
                                 price="0"
                                 dias="7"
                                 group={'Min 4'}
+                                slug={tour.slug}
                             />
                         </RowNumber>
                     ))}
