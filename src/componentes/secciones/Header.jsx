@@ -154,7 +154,7 @@ function Header({ dataGeneral }) {
           </div>
         </div>
 
-        <MenuLinea menuOpen={menuOpen} menu={menu} />
+        <MenuLinea menuOpen={menuOpen} menu={menus} />
 
       </header>
     </>
