@@ -31,8 +31,8 @@ const MenuHeader = ({ menu }) => {
         <nav>
             <ul className="flex md:flex-row flex-col">
                 {menu.map((item, index) => (
-                    <li key={index} className="hoverable hover:text-white">
-                        <a href="#" className="relative block py-2 px-4 text-sm lg:text-base font-bold md:text-white text-JisaCyan hover:text-JisaGris">
+                    <li key={index} className="hoverable hover:text-JisaCyan">
+                        <a href="#" className="relative block py-2 px-0 text-sm lg:text-base font-bold md:text-JisaCyan text-JisaCyan hover:text-JisaGris">
                             {item.nombre}
                         </a>
                         <div className="p-6 mega-menu mb-16 sm:mb-0 shadow-xl  bg-white  text-JisaCyan ">

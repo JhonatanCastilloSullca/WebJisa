@@ -15,6 +15,7 @@ import FlagEU from "../../assets/icons/FlagEU"
 import FlagBr from "../../assets/icons/FlagBr"
 import HouseIcon from "../../assets/icons/HouseIcon"
 import MenuLinea from "./MenuLinea"
+import MenuIntern from "./MenuInter"
 
 function Header({ dataGeneral }) {
   const header = dataGeneral?.header || [];
@@ -74,56 +75,64 @@ function Header({ dataGeneral }) {
           </div>
         )}
         <div className="w-full">
+
+          <div className="w-full flex align-middle gap-x-1 items-center justify-center bg-JisaCyan text-white">
+
+            <div className="hidden md:flex items-center">
+              <IconText icon={WhatsappIcon} text={header.numero} enlace={`https://wa.me/51${header.numero.replace(/\s+/g, '')}`} />
+              <SeparatorBar />
+              <IconText icon={HouseIcon} text={header.direccion} enlace={`https://wa.me/51${header.numero.replace(/\s+/g, '')}`} />
+              <SeparatorBar />
+              <IconText icon={EnvelopeIcon} text={header.correo} enlace={`mailto:${header.correo}`} />
+              <SeparatorBar />
+              <NavLink to="/blogs">
+                <IconText text="Blog" />
+              </NavLink>
+              <SeparatorBar />
+              <NavLink
+                to={header.enlace}
+                className="bg-JisaCyan text-white rounded-xl text-center flex px-6 md:font-medium font-bold md:text-base text-xl py-1"
+              >
+                {header.boton_accion}
+              </NavLink>
+              <div ref={ref} className="relative inline-block">
+                <button
+                  onClick={() => setOpen(open => !open)}
+                  className="p-1 focus:outline-none"
+                >
+                  <current.Icon size={20} />
+                </button>
+
+                {open && (
+                  <div className="absolute right-0 mt-1 bg-white rounded shadow-lg border z-10">
+                    {languages.map(({ code, Icon }) => (
+                      <button
+                        key={code}
+                        onClick={() => {
+                          i18n.changeLanguage(code)
+                          setOpen(false)
+                        }}
+                        className="w-full p-1 hover:bg-gray-100 flex justify-center"
+                      >
+                        <Icon size={20} />
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
           <div className="md:max-w-5xl w-full mx-auto">
-            <div className="flex justify-between py-2">
+            <div className="flex justify-between items-center py-2">
               <div className="flex items-center">
                 <NavLink to="/">
                   <img src={header.logo} alt="Logo Jisa Adventure" className="h-10 md:h-16 object-cover py-2 px-2" />
                 </NavLink>
               </div>
               <div className="flex flex-col justify-evenly h-full md:px-0 pe-2">
-                <div className="flex align-middle gap-x-1 items-center justify-end">
-                  <IconText icon={WhatsappIcon} text={header.numero} enlace={`https://wa.me/51${header.numero.replace(/\s+/g, '')}`} />
-                  <div className="md:hidden ">
-                    <IconText icon={HouseIcon} text={header.direccion} enlace={`https://wa.me/51${header.numero.replace(/\s+/g, '')}`} />
-                  </div>
-                  <div className="hidden md:flex">
-                    <SeparatorBar />
-                    <IconText icon={EnvelopeIcon} text={header.correo} enlace={`mailto:${header.correo}`} />
-                    <SeparatorBar />
-                    <NavLink to="/blogs">
-                      <IconText text="Blog" />
-                    </NavLink>
-                    <SeparatorBar />
-                    <div ref={ref} className="relative inline-block">
-                      <button
-                        onClick={() => setOpen(open => !open)}
-                        className="p-1 focus:outline-none"
-                      >
-                        <current.Icon size={20} />
-                      </button>
 
-                      {open && (
-                        <div className="absolute right-0 mt-1 bg-white rounded shadow-lg border z-10">
-                          {languages.map(({ code, Icon }) => (
-                            <button
-                              key={code}
-                              onClick={() => {
-                                i18n.changeLanguage(code)
-                                setOpen(false)
-                              }}
-                              className="w-full p-1 hover:bg-gray-100 flex justify-center"
-                            >
-                              <Icon size={20} />
-                            </button>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
                 <div className="flex gap-x-4">
-                  <a
+                  {/* <a
                     href={`https://www.google.com/maps/place/Jisa+Adventure+-+Agencia+de+Viajes+para+Cusco/@-13.5178268,-71.985513,17z/data=!3m1!4b1!4m6!3m5!1s0x916dd77bb8997e1d:0xea62539e8d460589!8m2!3d-13.5178268!4d-71.9806421!16s%2Fg%2F11pb0s5dw9?entry=ttu&g_ep=EgoyMDI1MDUyNy4wIKXMDSoASAFQAw%3D%3D`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -136,14 +145,12 @@ function Header({ dataGeneral }) {
                     <div className="">
                       <span>{header.direccion}</span>
                     </div>
-                  </a>
+                  </a> */}
+                  <div className="hidden md:flex">
+                    <MenuIntern menuOpen={menuOpen} menu={menus} />
+                  </div>
                   <div className="section-menu flex justify-end md:w-auto w-full py-1">
-                    <NavLink
-                      to={header.enlace}
-                      className="bg-JisaCyan text-white rounded-xl text-center flex px-6 md:font-medium font-bold md:text-base text-xl py-1"
-                    >
-                      {header.boton_accion}
-                    </NavLink>
+
                     <button onClick={toggleMenu} className="text-JisaCyan md:hidden flex items-center">
                       <BarsIcon size={36} />
                     </button>
@@ -153,8 +160,11 @@ function Header({ dataGeneral }) {
             </div>
           </div>
         </div>
+        <div className="md:hidden flex">
+          <MenuLinea menuOpen={menuOpen} menu={menus} />
+        </div>
 
-        <MenuLinea menuOpen={menuOpen} menu={menus} />
+
 
       </header>
     </>
