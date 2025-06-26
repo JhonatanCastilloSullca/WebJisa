@@ -17,7 +17,7 @@ const TourDetail = () => {
     const { slug } = useParams();
 
     const idiomaId = idiomaMap[t.language] || 1
-        
+
     const { data, isLoading, isError, error } = useApi({ endpoint: 'tour-slug', method: 'POST', body: { idioma_id: idiomaId, slug: slug, }, });
 
     if (isLoading) return <p className="text-center py-10">Cargando layout...</p>;
@@ -28,7 +28,7 @@ const TourDetail = () => {
     const dias = tour.itinerarios.length;
     const grupo = 12;
     const recojo = "Hotel";
-    
+
     return (
         <>
             {/* <StickyReserva /> */}
@@ -47,11 +47,11 @@ const TourDetail = () => {
                 brochure={tour.brochure}
                 imagenSecundaria={tour.foto_principal}
             />
-            <TabsSection tour={tour} dias={dias}/>
+            <TabsSection tour={tour} dias={dias} />
 
             <TestimoniosSection id="testimonios" data={data.data?.tripadvisors} google={data.data?.googles} />
             <ToursRelacionados tours={tour.relacionados} />
-            <BlogSection id="blog" data={data.data?.blogs}/>
+            <BlogSection id="blog" data={data.data?.blogs} />
         </>
     )
 }

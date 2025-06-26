@@ -18,6 +18,7 @@ import { useApi } from './hooks/useApi'
 import { useEffect } from 'react'
 import LandingDetail from './pages/LandingDetail'
 import { useTranslation } from 'react-i18next'
+import DestinosDetail from './pages/DestinosDetail'
 const idiomaMap = { es: 1, en: 2, br: 3 }
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
           <Route path="blogs/:slug" element={<BlogDetail />} />
           <Route path="paquetes" element={<Paquetes />} />
           <Route path="paquetes/:slug" element={<PaqueteDetail />} />
+          <Route path="destinos/:slug" element={<DestinosDetail />} />
           <Route path="landing/:slug" element={<LandingDetail />} />
           <Route path="nosotros" element={<Nosotros />} />
           <Route path="terminos-condiciones" element={<TerminosCondiciones />} />
