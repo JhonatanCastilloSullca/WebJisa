@@ -12,9 +12,20 @@ import CocktailIcon from "../assets/icons/CocktailIcon";
 import PromocionSection from "../componentes/PromocionSection";
 import ContactSection from "../componentes/secciones/ContactSection";
 import { useTranslation } from "react-i18next";
+import { useApi } from "../hooks/useApi";
+
+const idiomaMap = { es: 1, en: 2, br: 3 }
 
 const Blogs = () => {
     const { t } = useTranslation()
+    const idiomaId = idiomaMap[t.language] || 1
+
+    const { data, isLoading, isError, error } = useApi({ endpoint: 'blog-slug', method: 'POST', body: { idioma_id: idiomaId, slug: slug, }, });
+    
+    if (isLoading) return <p className="text-center py-10">Cargando layout...</p>;
+    if (isError) return <p className="text-center text-red-500 py-10">Error: {error.message}</p>;
+    if (!data || !data.data) return null;
+
     const [categoriaActiva, setCategoriaActiva] = useState(null);
 
     const categorias = [

@@ -3,6 +3,7 @@ import FacebookIcon from "../../assets/icons/FacebookIcon";
 import GoogleIcon from "../../assets/icons/GoogleIcon"
 import InstagramIcon from "../../assets/icons/InstagramIcon"
 import TripAdvisorIcon from "../../assets/icons/TripAdvisorIcon"
+import TikTokIcon from "../../assets/icons/TikTokIcon"
 import logoJisa from "../../assets/imagen/LogoJisaSecundario.webp"
 import FooterJisa from "../../assets/imagen/Footer-Jisa-Adventure-Caminante.webp"
 import IconText from "../layout/IconText";
@@ -35,6 +36,7 @@ function Footer() {
               <TripAdvisorIcon size={40} className="" />
               <InstagramIcon size={30} className="" />
               <FacebookIcon size={30} className="" />
+              <TikTokIcon size={30} className="" />
             </div>
           </div>
           <div className="md:col-span-4 col-span-12 p-4 text-white px-12">
@@ -58,7 +60,7 @@ function Footer() {
                 </li>
                 <li>
                   <NavLink to={'/nosotros'}>{t("footer.sobre_nosotros")}</NavLink>
-                </li> */}
+                </li>
                 <li>
                   <NavLink to={'/politicas-privacidad'}>{t("footer.politicas_reserva")}</NavLink>
                 </li>
@@ -67,7 +69,7 @@ function Footer() {
                 </li>
                 <li>
                   <NavLink to={'/preguntas-frecuentes'}>{t("footer.faq")}</NavLink>
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>

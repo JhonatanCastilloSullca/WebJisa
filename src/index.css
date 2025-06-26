@@ -319,12 +319,13 @@ example:
 /* #hoverable Class Styles */
 .hoverable {
   position: static;
+  padding-left: 12px;
 }
 
 .hoverable>a:after {
-  content: "\25BC";
+  /* content: "\25BC"; */
   font-size: 10px;
-  padding-left: 6px;
+  padding-left: 12px;
   position: relative;
   top: -1px;
 }
