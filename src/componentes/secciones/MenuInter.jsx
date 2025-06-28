@@ -14,14 +14,14 @@ function MenuIntern({ dataGeneral, menuOpen, menu = [] }) {
           <div className="container mx-auto flex md:flex-row flex-col md:justify-center justify-start uppercase">
             <NavLink
               to="/"
-              className="relative block py-2 px-4 text-sm lg:text-base font-bold md:text-JisaCyan text-black hover:text-JisaGris uppercase"
+              className="relative block py-2 px-4 text-sm lg:text-base font-semibold md:text-black text-black hover:text-JisaCyan uppercase"
             >
               Inicio
             </NavLink>
             <MenuHeader menu={menu} />
             <NavLink
               to="/nosotros"
-              className="relative block py-2 px-4 text-sm lg:text-base font-bold md:text-JisaCyan text-black hover:text-JisaGris uppercase"
+              className="relative block py-2 px-4 text-sm lg:text-base font-semibold md:text-black text-black hover:text-JisaCyan uppercase"
             >
               Sobre Nosotros
             </NavLink>

@@ -77,24 +77,23 @@ function Header({ dataGeneral }) {
         <div className="w-full">
 
           <div className="  gap-x-1 bg-JisaCyan text-white hidden md:flex justify-center">
-            <div className="md:max-w-5xl w-full flex items-end justify-end align-middle">
+            <div className="md:max-w-5xl w-full flex  justify-end align-middle items-center py-[0.15rem]">
               <IconText icon={WhatsappIcon} text={header.numero} enlace={`https://wa.me/51${header.numero.replace(/\s+/g, '')}`} />
-              <SeparatorBar />
+
               {/* <IconText icon={HouseIcon} text={header.direccion} enlace={`https://wa.me/51${header.numero.replace(/\s+/g, '')}`} /> */}
-              <SeparatorBar />
+
               <IconText icon={EnvelopeIcon} text={header.correo} enlace={`mailto:${header.correo}`} />
-              <SeparatorBar />
+
               {/* <NavLink to="/blogs">
                 <IconText text="Blog" />
               </NavLink> */}
-              <SeparatorBar />
 
-              <div ref={ref} className="relative inline-block">
+              <div ref={ref} className="relative flex">
                 <button
                   onClick={() => setOpen(open => !open)}
-                  className="p-1 focus:outline-none"
+                  className="focus:outline-none"
                 >
-                  <current.Icon size={20} />
+                  <current.Icon size={16} />
                 </button>
 
                 {open && (
@@ -108,7 +107,7 @@ function Header({ dataGeneral }) {
                         }}
                         className="w-full hover:bg-gray-100 flex justify-center"
                       >
-                        <Icon size={20} />
+                        <Icon size={16} />
                       </button>
                     ))}
                   </div>

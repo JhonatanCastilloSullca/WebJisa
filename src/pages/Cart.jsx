@@ -62,7 +62,7 @@ const Cart = () => {
 
     return (
         <>
-            <div className="relative inset-1 w-full max-w-7xl mx-auto mt-48 mb-12 py-4">
+            <div className="relative inset-1 w-full max-w-7xl mx-auto md:mt-48 mb-12 py-4">
                 <CartWizard
                     tours={tours}
                     totalItems={totalItems}

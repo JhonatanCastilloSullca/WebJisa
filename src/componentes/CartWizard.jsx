@@ -45,16 +45,16 @@ export default function CartWizard({ tours, totalItems, subtotal, impuestos, tot
             <div className="flex items-center justify-between mb-6">
                 {steps.map((step, index) => (
                     <div key={index} className="flex flex-col items-center flex-1 relative cursor-pointer" onClick={() => setCurrentStep(index)}>
-                        <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center">
-                            <div className={`w-16 h-16 flex items-center justify-center rounded-full text-white font-bold transition-all
+                        <div className="w-16 h-16 md:w-24 md:h-24 bg-white rounded-full flex items-center justify-center">
+                            <div className={`w-10 h-10 md:w-16 md:h-16 flex items-center justify-center rounded-full text-white font-bold transition-all
                             ${index === currentStep ? "bg-JisaVerde text-white text-3xl" : "bg-JisaGris text-JisaVerde text-3xl"}`}>
                                 {index + 1}
                             </div>
                         </div>
                         {index < steps.length - 1 && (
-                            <div className="absolute top-12 left-[50%] w-full h-1.5 bg-JisaGris -z-10"></div>
+                            <div className="absolute md:top-12 top-7 left-[50%] w-full h-1.5 bg-JisaGris -z-10"></div>
                         )}
-                        <span className={`mt-2  text-center transition-all text-lg font-normal w-32
+                        <span className={`mt-2 text-center transition-all md:text-lg h-[2ch] text-xs font-normal md:w-32 w-24
                             ${index === currentStep ? "text-JisaCyan" : "text-gray-500"}`}>
                             {step}
                         </span>

@@ -7,14 +7,14 @@ const Step1Cart = ({ tours, totalItems, subtotal, impuestos, totalPrice, handleN
     return (
         <div className="Step1 w-full max-w-7xl mx-auto  mb-12">
             <div className="grid grid-cols-12 gap-4">
-                <div className="md:col-span-8 col-span-8 flex flex-col bg-JisaGris/5 rounded-xl p-6">
+                <div className="md:col-span-8 col-span-12 flex flex-col bg-JisaGris/5 rounded-xl p-6">
                     <h5 className='text-JisaVerde font-semibold text-2xl'>Carrito</h5>
                     <span className='text-JisaGris font-medium text-base'>Items({totalItems})</span>
                     <div className="flex-col flex gap-y-8">
                         <ListCartTour tours={tours} />
                     </div>
                 </div>
-                <div className="md:col-span-4 col-span-4 flex flex-col">
+                <div className="md:col-span-4 col-span-12 flex flex-col">
                     <div className='bg-JisaGris/5 p-4 flex justify-center items-center flex-col rounded-md'>
                         <h5 className='text-JisaVerde font-semibold text-2xl'>Resumen de la orden</h5>
                         <div className="mt-2 w-[80%] self-center border-t border-JisaGris/20"></div>

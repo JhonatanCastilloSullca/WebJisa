@@ -20,6 +20,8 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { useTranslation } from "react-i18next"
+import NosotrosCardSect from "../componentes/NosotrosCardSect"
+import UsuarioEquipoCard from "../componentes/UsuarioEquipoCard"
 
 
 const Nosotros = () => {
@@ -76,12 +78,12 @@ const Nosotros = () => {
                         <img src="https://picsum.photos/690/390" alt="Jisa-Nosotros-Paquete" className="w-full h-96 object-cover rounded-md " />
                     </div>
                     <div className="md:col-span-6 col-span-12 h-auto flex flex-col md:items-start items-center justify-center align-middle px-10 gap-y-8">
-                        <div className=" justify-center flex flex-col items-center">
+                        <div className="md:justify-start md:items-start justify-center flex flex-col items-center">
                             <h4 className="text-3xl font-medium text-JisaCyan" >{t("nosotros.misión")}</h4>
                             <SeparatorBarHorizontalVerdeClaro />
                             <ParrafoContent contenido={`La fundadora de Jisa Adventure, Felicia Acuña Salas, es una apasionada del turismo y amante de su país, Perú. Con una visión clara y determinación, decidió crear esta agencia para compartir la belleza y riqueza cultural de Perú con el mundo. Gracias a su experiencia como guía oficial de turismo, pudo diseñar experiencias únicas`} />
                         </div>
-                        <div className="">
+                        <div className="md:justify-start md:items-start justify-center flex flex-col items-center">
                             <h4 className="text-3xl font-medium text-JisaCyan" >{t("nosotros.visión")}</h4>
                             <SeparatorBarHorizontalVerdeClaro />
                             <ParrafoContent contenido={`La fundadora de Jisa Adventure, Felicia Acuña Salas, es una apasionada del turismo y amante de su país, Perú. Con una visión clara y determinación, decidió crear esta agencia para compartir la belleza y riqueza cultural de Perú con el mundo. Gracias a su experiencia como guía oficial de turismo, pudo diseñar experiencias únicas`} />
@@ -91,50 +93,26 @@ const Nosotros = () => {
             </div>
             <div className="w-full max-w-7xl mx-auto mt-24 mb-12">
                 <div className="grid grid-cols-12 gap-4">
-                    <div className="md:col-span-3 col-span-6 h-auto flex md:items-start items-center justify-center align-middle">
-                        <div className="flex flex-col justify-center items-center px-4">
-                            <h5 className="text-JisaCyan font-semibold text-3xl text-center h-[2ch] mb-8" >{t("nosotros.pasión_por_el_turismo")}</h5>
-                            <div className="text-JisaVerde py-4">
-                                <HeartIcon size={80} />
-                            </div>
-                            <span className="font-normal text-xl text-center text-JisaGris" >
-                                La fundadora de Jisa Adventure, Felicia Acuña Salas, es una apasionada
-                            </span>
-                        </div>
-                    </div>
-                    <div className="md:col-span-3 col-span-6 h-auto flex md:items-start items-center justify-center align-middle">
-                        <div className="flex flex-col justify-center items-center px-4">
-                            <h5 className="text-JisaCyan font-semibold text-3xl text-center h-[2ch] mb-8" >{t("nosotros.sostenibilidad")}</h5>
-                            <div className="text-JisaVerde py-4">
-                                <HojaIcon size={80} />
-                            </div>
-                            <span className="font-normal text-xl text-center text-JisaGris" >
-                                La fundadora de Jisa Adventure, Felicia Acuña Salas, es
-                            </span>
-                        </div>
-                    </div>
-                    <div className="md:col-span-3 col-span-6 h-auto flex md:items-start items-center justify-center align-middle">
-                        <div className="flex flex-col justify-center items-center px-4">
-                            <h5 className="text-JisaCyan font-semibold text-3xl text-center h-[2ch] mb-8" >{t("nosotros.excelencia_en_el_servicio")}</h5>
-                            <div className="text-JisaVerde py-4">
-                                <StarIcon size={80} />
-                            </div>
-                            <span className="font-normal text-xl text-center text-JisaGris" >
-                                La fundadora de Jisa AdSalas, es una apasionada
-                            </span>
-                        </div>
-                    </div>
-                    <div className="md:col-span-3 col-span-6 h-auto flex md:items-start items-center justify-center align-middle">
-                        <div className="flex flex-col justify-center items-center px-4">
-                            <h5 className="text-JisaCyan font-semibold text-3xl text-center h-[2ch] mb-8" >{t("nosotros.respeto_por_la_cultura")}</h5>
-                            <div className="text-JisaVerde py-4">
-                                <MountainIcon size={80} />
-                            </div>
-                            <span className="font-normal text-xl text-center text-JisaGris" >
-                                La fundadora de Jisa Adventure, Felicia Acuña Salas, es una apasionada
-                            </span>
-                        </div>
-                    </div>
+                    <NosotrosCardSect
+                        title={t("nosotros.pasión_por_el_turismo")}
+                        description="La fundadora de Jisa Adventure, Felicia Acuña Salas, es una apasionada"
+                        Icon={HeartIcon}
+                    />
+                    <NosotrosCardSect
+                        title={t("nosotros.sostenibilidad")}
+                        description="La fundadora de Jisa Adventure, Felicia Acuña Salas, es"
+                        Icon={HojaIcon}
+                    />
+                    <NosotrosCardSect
+                        title={t("nosotros.excelencia_en_el_servicio")}
+                        description="La fundadora de Jisa AdSalas, es una apasionada"
+                        Icon={StarIcon}
+                    />
+                    <NosotrosCardSect
+                        title={t("nosotros.respeto_por_la_cultura")}
+                        description="La fundadora de Jisa Adventure, Felicia Acuña Salas, es una apasionada"
+                        Icon={MountainIcon}
+                    />
                 </div>
             </div>
             <div className="w-full max-w-7xl mx-auto mt-24 mb-12 flex flex-col justify-center items-center">
@@ -240,151 +218,23 @@ const Nosotros = () => {
                 <HeaderTitle title={t("nosotros.nuestro_equipo")} />
                 <SeparatorBarHorizontal />
                 <SubHeaderTitle title={`Descubre las historias y testimonios de aquellos que han viajado con Jisa Adventure y han experimentado momentos inolvidables en los hermosos destinos de Perú.`} />
-                <div className="grid grid-cols-12 gap-14 w-full pt-12 py-16">
-                    <div className="md:col-span-3 col-span-12 h-auto flex flex-col  items-center justify-center align-middle ">
-                        <div className="w-full h-full rounded-full bg-JisaVerde flex items-center justify-center">
-                            <img className="w-full h-full object-cover rounded-full" src={imagen} alt="" />
-                        </div>
-                        <div className="py-8 flex flex-col">
-                            <span className="text-center text-JisaCyan font-semibold text-lg">MARTHA P. MORALES HARRIS</span>
-                            <span className="text-center text-JisaGris font-normal text-xl">Asesor de venta</span>
-                        </div>
-                    </div>
-                    <div className="md:col-span-3 col-span-12 h-auto flex flex-col  items-center justify-center align-middle ">
-                        <div className="w-full h-full rounded-full bg-JisaVerde flex items-center justify-center">
-                            <img className="w-full h-full object-cover rounded-full" src={imagen} alt="" />
-                        </div>
-                        <div className="py-8 flex flex-col">
-                            <span className="text-center text-JisaCyan font-semibold text-lg">MARTHA P. MORALES HARRIS</span>
-                            <span className="text-center text-JisaGris font-normal text-xl">Asesor de venta</span>
-                        </div>
-                    </div>
-                    <div className="md:col-span-3 col-span-12 h-auto flex flex-col  items-center justify-center align-middle ">
-                        <div className="w-full h-full rounded-full bg-JisaVerde flex items-center justify-center">
-                            <img className="w-full h-full object-cover rounded-full" src={imagen} alt="" />
-                        </div>
-                        <div className="py-8 flex flex-col">
-                            <span className="text-center text-JisaCyan font-semibold text-lg">MARTHA P. MORALES HARRIS</span>
-                            <span className="text-center text-JisaGris font-normal text-xl">Asesor de venta</span>
-                        </div>
-                    </div>
-                    <div className="md:col-span-3 col-span-12 h-auto flex flex-col  items-center justify-center align-middle ">
-                        <div className="w-full h-full rounded-full bg-JisaVerde flex items-center justify-center">
-                            <img className="w-full h-full object-cover rounded-full" src={imagen} alt="" />
-                        </div>
-                        <div className="py-8 flex flex-col">
-                            <span className="text-center text-JisaCyan font-semibold text-lg">MARTHA P. MORALES HARRIS</span>
-                            <span className="text-center text-JisaGris font-normal text-xl">Asesor de venta</span>
-                        </div>
-                    </div>
-                    <div className="md:col-span-3 col-span-12 h-auto flex flex-col  items-center justify-center align-middle ">
-                        <div className="w-full h-full rounded-full bg-JisaVerde flex items-center justify-center">
-                            <img className="w-full h-full object-cover rounded-full" src={imagen} alt="" />
-                        </div>
-                        <div className="py-8 flex flex-col">
-                            <span className="text-center text-JisaCyan font-semibold text-lg">MARTHA P. MORALES HARRIS</span>
-                            <span className="text-center text-JisaGris font-normal text-xl">Asesor de venta</span>
-                        </div>
-                    </div>
-                    <div className="md:col-span-3 col-span-12 h-auto flex flex-col  items-center justify-center align-middle ">
-                        <div className="w-full h-full rounded-full bg-JisaVerde flex items-center justify-center">
-                            <img className="w-full h-full object-cover rounded-full" src={imagen} alt="" />
-                        </div>
-                        <div className="py-8 flex flex-col">
-                            <span className="text-center text-JisaCyan font-semibold text-lg">MARTHA P. MORALES HARRIS</span>
-                            <span className="text-center text-JisaGris font-normal text-xl">Asesor de venta</span>
-                        </div>
-                    </div>
-                    <div className="md:col-span-3 col-span-12 h-auto flex flex-col  items-center justify-center align-middle ">
-                        <div className="w-full h-full rounded-full bg-JisaVerde flex items-center justify-center">
-                            <img className="w-full h-full object-cover rounded-full" src={imagen} alt="" />
-                        </div>
-                        <div className="py-8 flex flex-col">
-                            <span className="text-center text-JisaCyan font-semibold text-lg">MARTHA P. MORALES HARRIS</span>
-                            <span className="text-center text-JisaGris font-normal text-xl">Asesor de venta</span>
-                        </div>
-                    </div>
-                    <div className="md:col-span-3 col-span-12 h-auto flex flex-col  items-center justify-center align-middle ">
-                        <div className="w-full h-full rounded-full bg-JisaVerde flex items-center justify-center">
-                            <img className="w-full h-full object-cover rounded-full" src={imagen} alt="" />
-                        </div>
-                        <div className="py-8 flex flex-col">
-                            <span className="text-center text-JisaCyan font-semibold text-lg">MARTHA P. MORALES HARRIS</span>
-                            <span className="text-center text-JisaGris font-normal text-xl">Asesor de venta</span>
-                        </div>
-                    </div>
-                    <div className="md:col-span-3 col-span-12 h-auto flex flex-col  items-center justify-center align-middle ">
-                        <div className="w-full h-full rounded-full bg-JisaVerde flex items-center justify-center">
-                            <img className="w-full h-full object-cover rounded-full" src={imagen} alt="" />
-                        </div>
-                        <div className="py-8 flex flex-col">
-                            <span className="text-center text-JisaCyan font-semibold text-lg">MARTHA P. MORALES HARRIS</span>
-                            <span className="text-center text-JisaGris font-normal text-xl">Asesor de venta</span>
-                        </div>
-                    </div>
-                    <div className="md:col-span-3 col-span-12 h-auto flex flex-col  items-center justify-center align-middle ">
-                        <div className="w-full h-full rounded-full bg-JisaVerde flex items-center justify-center">
-                            <img className="w-full h-full object-cover rounded-full" src={imagen} alt="" />
-                        </div>
-                        <div className="py-8 flex flex-col">
-                            <span className="text-center text-JisaCyan font-semibold text-lg">MARTHA P. MORALES HARRIS</span>
-                            <span className="text-center text-JisaGris font-normal text-xl">Asesor de venta</span>
-                        </div>
-                    </div>
-                    <div className="md:col-span-3 col-span-12 h-auto flex flex-col  items-center justify-center align-middle ">
-                        <div className="w-full h-full rounded-full bg-JisaVerde flex items-center justify-center">
-                            <img className="w-full h-full object-cover rounded-full" src={imagen} alt="" />
-                        </div>
-                        <div className="py-8 flex flex-col">
-                            <span className="text-center text-JisaCyan font-semibold text-lg">MARTHA P. MORALES HARRIS</span>
-                            <span className="text-center text-JisaGris font-normal text-xl">Asesor de venta</span>
-                        </div>
-                    </div>
-                    <div className="md:col-span-3 col-span-12 h-auto flex flex-col  items-center justify-center align-middle ">
-                        <div className="w-full h-full rounded-full bg-JisaVerde flex items-center justify-center">
-                            <img className="w-full h-full object-cover rounded-full" src={imagen} alt="" />
-                        </div>
-                        <div className="py-8 flex flex-col">
-                            <span className="text-center text-JisaCyan font-semibold text-lg">MARTHA P. MORALES HARRIS</span>
-                            <span className="text-center text-JisaGris font-normal text-xl">Asesor de venta</span>
-                        </div>
-                    </div>
-                    <div className="md:col-span-3 col-span-12 h-auto flex flex-col  items-center justify-center align-middle ">
-                        <div className="w-full h-full rounded-full bg-JisaVerde flex items-center justify-center">
-                            <img className="w-full h-full object-cover rounded-full" src={imagen} alt="" />
-                        </div>
-                        <div className="py-8 flex flex-col">
-                            <span className="text-center text-JisaCyan font-semibold text-lg">MARTHA P. MORALES HARRIS</span>
-                            <span className="text-center text-JisaGris font-normal text-xl">Asesor de venta</span>
-                        </div>
-                    </div>
-                    <div className="md:col-span-3 col-span-12 h-auto flex flex-col  items-center justify-center align-middle ">
-                        <div className="w-full h-full rounded-full bg-JisaVerde flex items-center justify-center">
-                            <img className="w-full h-full object-cover rounded-full" src={imagen} alt="" />
-                        </div>
-                        <div className="py-8 flex flex-col">
-                            <span className="text-center text-JisaCyan font-semibold text-lg">MARTHA P. MORALES HARRIS</span>
-                            <span className="text-center text-JisaGris font-normal text-xl">Asesor de venta</span>
-                        </div>
-                    </div>
-                    <div className="md:col-span-3 col-span-12 h-auto flex flex-col  items-center justify-center align-middle ">
-                        <div className="w-full h-full rounded-full bg-JisaVerde flex items-center justify-center">
-                            <img className="w-full h-full object-cover rounded-full" src={imagen} alt="" />
-                        </div>
-                        <div className="py-8 flex flex-col">
-                            <span className="text-center text-JisaCyan font-semibold text-lg">MARTHA P. MORALES HARRIS</span>
-                            <span className="text-center text-JisaGris font-normal text-xl">Asesor de venta</span>
-                        </div>
-                    </div>
-                    <div className="md:col-span-3 col-span-12 h-auto flex flex-col  items-center justify-center align-middle ">
-                        <div className="w-full h-full rounded-full bg-JisaVerde flex items-center justify-center">
-                            <img className="w-full h-full object-cover rounded-full" src={imagen} alt="" />
-                        </div>
-                        <div className="py-8 flex flex-col">
-                            <span className="text-center text-JisaCyan font-semibold text-lg">MARTHA P. MORALES HARRIS</span>
-                            <span className="text-center text-JisaGris font-normal text-xl">Asesor de venta</span>
-                        </div>
-                    </div>
+                <div className="grid grid-cols-8 md:gap-14 gap-10 px-10 w-full pt-12 pb-16">
+                    <UsuarioEquipoCard nombre="MARTHA P. MORALES HARRIS" rol="Asesor de venta" imagen={imagen} />
+                    <UsuarioEquipoCard nombre="MARTHA P. MORALES HARRIS" rol="Asesor de venta" imagen={imagen} />
+                    <UsuarioEquipoCard nombre="MARTHA P. MORALES HARRIS" rol="Asesor de venta" imagen={imagen} />
+                    <UsuarioEquipoCard nombre="MARTHA P. MORALES HARRIS" rol="Asesor de venta" imagen={imagen} />
+                    <UsuarioEquipoCard nombre="MARTHA P. MORALES HARRIS" rol="Asesor de venta" imagen={imagen} />
+                    <UsuarioEquipoCard nombre="MARTHA P. MORALES HARRIS" rol="Asesor de venta" imagen={imagen} />
+                    <UsuarioEquipoCard nombre="MARTHA P. MORALES HARRIS" rol="Asesor de venta" imagen={imagen} />
+                    <UsuarioEquipoCard nombre="MARTHA P. MORALES HARRIS" rol="Asesor de venta" imagen={imagen} />
+                    <UsuarioEquipoCard nombre="MARTHA P. MORALES HARRIS" rol="Asesor de venta" imagen={imagen} />
+                    <UsuarioEquipoCard nombre="MARTHA P. MORALES HARRIS" rol="Asesor de venta" imagen={imagen} />
+                    <UsuarioEquipoCard nombre="MARTHA P. MORALES HARRIS" rol="Asesor de venta" imagen={imagen} />
+                    <UsuarioEquipoCard nombre="MARTHA P. MORALES HARRIS" rol="Asesor de venta" imagen={imagen} />
+                    <UsuarioEquipoCard nombre="MARTHA P. MORALES HARRIS" rol="Asesor de venta" imagen={imagen} />
+                    <UsuarioEquipoCard nombre="MARTHA P. MORALES HARRIS" rol="Asesor de venta" imagen={imagen} />
+                    <UsuarioEquipoCard nombre="MARTHA P. MORALES HARRIS" rol="Asesor de venta" imagen={imagen} />
+                    <UsuarioEquipoCard nombre="MARTHA P. MORALES HARRIS" rol="Asesor de venta" imagen={imagen} />
                 </div>
             </div>
 

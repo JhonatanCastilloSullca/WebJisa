@@ -13,50 +13,98 @@ const CardCartTour = ({ tour, cantidad, onCantidadChange, onRemove }) => {
 
     return (
 
-        <div className="card-tour relative">
-            <div className="flex gap-4 w-full items-center">
-                <div className="img-tour h-20 w-32 min-w-max">
+        <div className="card-tour relative p-4 border rounded-md shadow-md">
+            <div className="flex flex-col md:flex-row gap-4 w-full">
+                {/* Imagen */}
+                <div className="img-tour h-20 md:h-20 w-full md:w-32">
                     <img
                         src={tour.imageUrl || "https://picsum.photos/690/390"}
                         alt={tour.title}
-                        className="w-full h-full object-cover rounded-md block"
+                        className="w-full h-full object-cover rounded-md"
                     />
                 </div>
-                <div className='data-tour flex flex-col gap-y-1 w-auto'>
-                    <span className='font-semibold text-base text-JisaGris'>{tour.title}</span>
-                    <div className="flex text-JisaGrisTextGray">
+
+                {/* Datos del tour */}
+                <div className="data-tour flex flex-col gap-y-2 w-full">
+                    <span className="font-semibold text-sm md:text-base text-JisaGris">{tour.title}</span>
+                    <div className="flex items-center text-JisaGrisTextGray gap-1">
                         <MapDotIcon size={14} />
-                        <div className="text-xs font-medium">{tour.location}</div>
+                        <div className="md:text-sm text-xs">{tour.location}</div>
                     </div>
-                    <div className="flex py-2">
-                        <div className="flex gap-y-4 flex-col text-JisaAmarillo">
-                            <IconCategoria icon={ClockIcon} title={'Duración'} subtitle={tour.duration} tamaño={20} tamañotitulo={'text-base'} className='pe-3' />
-                            <IconCategoria icon={MountainHikIcon} title={'Dificultad'} subtitle={tour.difficulty} tamaño={20} tamañotitulo={'text-base'} className='pe-3' />
+                    <div className="md:flex md:justify-between">
+                        <div className="flex flex-col sm:flex-row gap-y-4 sm:gap-y-0 sm:gap-x-6 py-2">
+                            {/* Columna 1: Duración y Dificultad */}
+                            <div className="flex md:flex-col gap-3 text-JisaAmarillo w-full sm:flex-1">
+                                <IconCategoria
+                                    icon={ClockIcon}
+                                    title="Duración"
+                                    subtitle={tour.duration}
+                                    tamaño={20}
+                                    tamañotitulo="text-base"
+                                />
+                                <IconCategoria
+                                    icon={MountainHikIcon}
+                                    title="Dificultad"
+                                    subtitle={tour.difficulty}
+                                    tamaño={20}
+                                    tamañotitulo="text-base"
+                                />
+                            </div>
+
+                            <div className="flex md:flex-col gap-3 text-JisaAmarillo w-full sm:flex-1">
+                                <IconCategoria
+                                    icon={GroupUsers}
+                                    title="Grupo"
+                                    subtitle={`${tour.groupSize} Personas`}
+                                    tamaño={20}
+                                    tamañotitulo="text-base"
+                                />
+                                <IconCategoria
+                                    icon={BuIcon}
+                                    title="Transporte"
+                                    subtitle={tour.transport}
+                                    tamaño={20}
+                                    tamañotitulo="text-base"
+                                />
+                            </div>
+
+                            <div className="flex md:flex-col gap-3 text-JisaAmarillo w-full sm:flex-1">
+                                <IconCategoria
+                                    icon={CalendarIcon}
+                                    title="Fecha"
+                                    subtitle={tour.date}
+                                    tamaño={20}
+                                    tamañotitulo="text-base"
+                                />
+                            </div>
                         </div>
-                        <SeparatorBar />
-                        <div className="flex gap-y-4 flex-col text-JisaAmarillo">
-                            <IconCategoria icon={GroupUsers} title={'Grupo'} subtitle={tour.groupSize + " Personas"} tamaño={20} tamañotitulo={'text-base'} className='px-3' />
-                            <IconCategoria icon={BuIcon} title={'Transporte'} subtitle={tour.transport} tamaño={20} tamañotitulo={'text-base'} className='px-3' />
-                        </div>
-                        <SeparatorBar />
-                        <div className="flex gap-y-4 flex-col text-JisaAmarillo">
-                            <IconCategoria icon={CalendarIcon} title={'Fecha'} subtitle={tour.date} tamaño={20} tamañotitulo={'text-base'} className='px-3' />
+
+                        <div className="cantidad-tour flex flex-col justify-center md:items-start sm:items-center items-center">
+                            <span className="font-semibold text-sm text-JisaCyan">Cantidad de pasajeros</span>
+                            <div className="flex items-center gap-2 p-2">
+                                <button onClick={() => onCantidadChange(tour.id, cantidad - 1)} className="font-bold text-JisaGris text-2xl px-3">-</button>
+                                <input
+                                    type="text"
+                                    value={cantidad}
+                                    readOnly
+                                    className="text-JisaGrisTextGray text-lg w-20 rounded-sm text-center border border-JisaGrisTextGray/30 bg-white"
+                                />
+                                <button onClick={() => onCantidadChange(tour.id, cantidad + 1)} className="font-bold text-JisaGris text-2xl px-3">+</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div className="cantidad-tour flex flex-col justify-center">
-                    <span className="font-semibold text-sm text-JisaCyan text-center">Cantidad de pasajeros</span>
-                    <div className="flex p-2 justify-center">
-                        <button onClick={() => onCantidadChange(tour.id, cantidad - 1)} className="font-bold text-JisaGris text-3xl px-4">-</button>
-                        <input type="text" value={cantidad} readOnly className="text-JisaGrisTextGray text-xl w-24 rounded-sm text-center border-2 border-JisaGrisTextGray/5 bg-white" />
-                        <button onClick={() => onCantidadChange(tour.id, cantidad + 1)} className="font-bold text-JisaGris text-3xl px-4">+</button>
-                    </div>
-                </div>
-                <button className='text-red-800 absolute top-0 right-0' onClick={() => onRemove(tour.id)}>
+
+                {/* Botón eliminar */}
+                <button
+                    className="text-red-800 absolute top-2 right-2"
+                    onClick={() => onRemove(tour.id)}
+                >
                     <TrashIcon size={15} />
                 </button>
             </div>
         </div>
+
 
     )
 }

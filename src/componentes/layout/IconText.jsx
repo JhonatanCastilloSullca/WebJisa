@@ -1,9 +1,9 @@
 
 const IconText = ({ icon: Icon, text, enlace }) => {
     const content = (
-        <div className="contactos-header flex gap-x-1 items-center">
-            {Icon && <Icon size={12} />}
-            <span className="md:text-base text-[10px]">{text}</span>
+        <div className="contactos-header flex gap-x-1 items-center px-2">
+            {Icon && <Icon size={10} />}
+            <span className="md:text-xs text-[6px]">{text}</span>
         </div>
     );
 
