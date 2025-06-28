@@ -24,17 +24,7 @@ function MainMenu({ menuOpen, menu = [] }) {
             >
               Sobre Nosotros
             </NavLink>
-            <NavLink
-              to="/carrito"
-              className="relative inline-flex items-center p-3 text-sm font-medium text-center md:text-white text-JisaCyan"
-            >
-              <div className="absolute w-10">
-                <CartIcon size={16} />
-                <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2">
-                  20
-                </div>
-              </div>
-            </NavLink>
+
           </div>
         </nav>
       </div>

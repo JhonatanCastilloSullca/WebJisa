@@ -76,7 +76,7 @@ const Nosotros = () => {
                         <img src="https://picsum.photos/690/390" alt="Jisa-Nosotros-Paquete" className="w-full h-96 object-cover rounded-md " />
                     </div>
                     <div className="md:col-span-6 col-span-12 h-auto flex flex-col md:items-start items-center justify-center align-middle px-10 gap-y-8">
-                        <div className="">
+                        <div className=" justify-center flex flex-col items-center">
                             <h4 className="text-3xl font-medium text-JisaCyan" >{t("nosotros.misión")}</h4>
                             <SeparatorBarHorizontalVerdeClaro />
                             <ParrafoContent contenido={`La fundadora de Jisa Adventure, Felicia Acuña Salas, es una apasionada del turismo y amante de su país, Perú. Con una visión clara y determinación, decidió crear esta agencia para compartir la belleza y riqueza cultural de Perú con el mundo. Gracias a su experiencia como guía oficial de turismo, pudo diseñar experiencias únicas`} />

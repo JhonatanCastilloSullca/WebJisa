@@ -6,7 +6,7 @@ import RowNumber from "../RowNumber"
 import SeparatorBarHorizontal from "../SeparatorBarHorizontal"
 import ToursCard from "../ToursCard"
 
-const PackageSection = ({ id,data,tipo }) => {
+const PackageSection = ({ id, data, tipo }) => {
     const { t } = useTranslation()
     return (
         <div id={id} className="w-full max-w-7xl mx-auto md:my-24 my-12 pb-24 mb-12 ">
@@ -17,10 +17,10 @@ const PackageSection = ({ id,data,tipo }) => {
             </div>
             <div className="w-full max-w-6xl mx-auto md:px-0 px-4">
                 <GridNumber col={12} className="md:gap-x-11 gap-x-0">
-                    {data.map((tour,index) => (
+                    {data.map((tour, index) => (
                         <RowNumber col={4} key={index}>
                             <ToursCard
-                                title={tour.tipo.nombre}
+                                title={tour.tipo_categoria.nombre}
                                 image={tour.foto_principal}
                                 location={tour.ubicaciones.map(u => u.nombre).join(', ')}
                                 description={tour.titulo}

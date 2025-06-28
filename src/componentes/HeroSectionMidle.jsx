@@ -17,7 +17,7 @@ const HeroSectionMidle = ({
                 className="absolute inset-0"
                 style={{ backgroundColor: overlayColor }}
             ></div>
-            <div className="absolute bottom-0 max-w-7xl w-full flex flex-col">
+            <div className="md:absolute relative bottom-0 max-w-7xl w-full flex flex-col">
                 <div className="grid grid-cols-5 gap-4">
                     <div className="md:col-span-5 col-span-5 flex flex-col md:items-center items-center">
                         <h1 className="md:text-5xl text-2xl md:w-full text-JisaVerde  md:text-center text-center font-bold mb-4">{title}</h1>

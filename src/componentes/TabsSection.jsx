@@ -24,8 +24,8 @@ const TabsSection = ({ tour, dias }) => {
   const { t } = useTranslation()
   return (
     <div className="w-full mx-auto mt-24 mb-12">
-      <TabGroup className="w-full">
-        <TabList className="flex w-full justify-center bg-JisaGris/5">
+      <TabGroup className="w-full ">
+        <TabList className="flex w-full justify-center bg-JisaGris/5 overflow-auto">
           {[
             { label: t('tours_detail.itinerario'), icon: <ItinerarioIcon size={32} /> },
             { label: t('tours_detail.incluye'), icon: <IncludeIcon size={32} /> },

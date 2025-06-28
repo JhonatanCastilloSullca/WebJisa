@@ -29,6 +29,7 @@ const TourDetail = () => {
     const grupo = 12;
     const recojo = "Hotel";
 
+
     return (
         <>
             {/* <StickyReserva /> */}
@@ -40,7 +41,7 @@ const TourDetail = () => {
                 buttonLink="https://jisaadventure.com/"
             />
 
-            <TourInfo duracion={dias} grupo={grupo} tipo={tour.tipo.nombre} recojo={recojo} />;
+            <TourInfo duracion={dias} grupo={grupo} tipo={tour.tipo_categoria.nombre} recojo={recojo} />
             <TourDetails
                 ubicaciones={tour.ubicaciones}
                 descripcion={tour.resumen}

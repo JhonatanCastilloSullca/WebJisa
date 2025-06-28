@@ -146,6 +146,19 @@ function Header({ dataGeneral }) {
                   </div>
 
                   <div className="section-menu  justify-center items-center md:w-auto w-full py-1 md:hidden flex gap-x-2">
+                    <div>
+                      <NavLink
+                        to="/carrito"
+                        className="relative inline-flex items-center p-3 text-sm font-medium text-center md:text-JisaCyan text-JisaCyan"
+                      >
+                        <div className="relative w-4">
+                          <CartIcon size={16} />
+                          <div className="absolute -right-4  inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-4 -end-2">
+                            20
+                          </div>
+                        </div>
+                      </NavLink>
+                    </div>
 
                     <div className="bg-white rounded shadow-lg border z-10 ">
                       {languages.map(({ code, Icon }) => (

@@ -14,7 +14,7 @@ import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { useTranslation } from "react-i18next";
 
-const Testimonios = ({ marca,data }) => {
+const Testimonios = ({ marca, data }) => {
     const { t } = useTranslation()
     const testimonios = data || [];
 
@@ -66,7 +66,7 @@ const Testimonios = ({ marca,data }) => {
                         )}
                     </div>
                 </div>
-                <div className="md:col-span-3 col-span-12 flex justify-center">
+                <div className="md:col-span-3 col-span-12 justify-center md:flex hidden">
 
                     {marca === "Tripadvisor" ? (
                         <img src="https://static.vecteezy.com/system/resources/thumbnails/044/248/881/small_2x/young-tourist-with-backpack-and-map-png.png" alt="Jisa-Nosotros-Paquete" className="w-44" />
