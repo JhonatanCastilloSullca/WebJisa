@@ -57,7 +57,7 @@ function Header({ dataGeneral }) {
     <>
       <header className="top-0 md:absolute relative z-10 bg-white w-full">
         {visible && (
-          <div className="relative bg-JisaGris text-white h-10 overflow-hidden">
+          <div className="relative bg-JisaGris text-white h-10 overflow-hidden md:block hidden">
             <div className="absolute right-0 top-0 h-full w-10 z-10 flex items-center justify-center bg-JisaGris">
               <button
                 onClick={() => setVisible(false)}
@@ -76,25 +76,19 @@ function Header({ dataGeneral }) {
         )}
         <div className="w-full">
 
-          <div className="w-full flex align-middle gap-x-1 items-center justify-center bg-JisaCyan text-white">
-
-            <div className="hidden md:flex items-center">
+          <div className="  gap-x-1 bg-JisaCyan text-white hidden md:flex justify-center">
+            <div className="md:max-w-5xl w-full flex items-end justify-end align-middle">
               <IconText icon={WhatsappIcon} text={header.numero} enlace={`https://wa.me/51${header.numero.replace(/\s+/g, '')}`} />
               <SeparatorBar />
-              <IconText icon={HouseIcon} text={header.direccion} enlace={`https://wa.me/51${header.numero.replace(/\s+/g, '')}`} />
+              {/* <IconText icon={HouseIcon} text={header.direccion} enlace={`https://wa.me/51${header.numero.replace(/\s+/g, '')}`} /> */}
               <SeparatorBar />
               <IconText icon={EnvelopeIcon} text={header.correo} enlace={`mailto:${header.correo}`} />
               <SeparatorBar />
-              <NavLink to="/blogs">
+              {/* <NavLink to="/blogs">
                 <IconText text="Blog" />
-              </NavLink>
+              </NavLink> */}
               <SeparatorBar />
-              <NavLink
-                to={header.enlace}
-                className="bg-JisaCyan text-white rounded-xl text-center flex px-6 md:font-medium font-bold md:text-base text-xl py-1"
-              >
-                {header.boton_accion}
-              </NavLink>
+
               <div ref={ref} className="relative inline-block">
                 <button
                   onClick={() => setOpen(open => !open)}
@@ -104,7 +98,7 @@ function Header({ dataGeneral }) {
                 </button>
 
                 {open && (
-                  <div className="absolute right-0 mt-1 bg-white rounded shadow-lg border z-10">
+                  <div className="absolute right-0 bg-white rounded shadow-lg border z-10 ">
                     {languages.map(({ code, Icon }) => (
                       <button
                         key={code}
@@ -112,7 +106,7 @@ function Header({ dataGeneral }) {
                           i18n.changeLanguage(code)
                           setOpen(false)
                         }}
-                        className="w-full p-1 hover:bg-gray-100 flex justify-center"
+                        className="w-full hover:bg-gray-100 flex justify-center"
                       >
                         <Icon size={20} />
                       </button>
@@ -147,9 +141,26 @@ function Header({ dataGeneral }) {
                     </div>
                   </a> */}
                   <div className="hidden md:flex">
-                    <MenuIntern menuOpen={menuOpen} menu={menus} />
+                    <MenuIntern dataGeneral={dataGeneral} menuOpen={menuOpen} menu={menus} />
+
                   </div>
-                  <div className="section-menu flex justify-end md:w-auto w-full py-1">
+
+                  <div className="section-menu  justify-center items-center md:w-auto w-full py-1 md:hidden flex gap-x-2">
+
+                    <div className="bg-white rounded shadow-lg border z-10 ">
+                      {languages.map(({ code, Icon }) => (
+                        <button
+                          key={code}
+                          onClick={() => {
+                            i18n.changeLanguage(code)
+                            setOpen(false)
+                          }}
+                          className="w-full hover:bg-gray-100 flex justify-center"
+                        >
+                          <Icon size={20} />
+                        </button>
+                      ))}
+                    </div>
 
                     <button onClick={toggleMenu} className="text-JisaCyan md:hidden flex items-center">
                       <BarsIcon size={36} />
