@@ -1,4 +1,3 @@
-import React from 'react'
 import CardCartTour from './CardCartTour'
 
 const ListCartTour = ({ tours, onCantidadChange, onRemove }) => {
@@ -13,6 +12,8 @@ const ListCartTour = ({ tours, onCantidadChange, onRemove }) => {
                         onCantidadChange={onCantidadChange}
                         onRemove={onRemove}
                     />
+
+
                     <div className="mt-2 w-[90%] self-center border-t border-JisaGris/20"></div>
                 </div>
             ))}

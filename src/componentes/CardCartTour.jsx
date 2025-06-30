@@ -10,12 +10,9 @@ import TrashIcon from '../assets/icons/TrashIcon'
 import SeparatorBar from './SeparatorBar'
 
 const CardCartTour = ({ tour, cantidad, onCantidadChange, onRemove }) => {
-
     return (
-
         <div className="card-tour relative p-4 border rounded-md shadow-md">
             <div className="flex flex-col md:flex-row gap-4 w-full">
-                {/* Imagen */}
                 <div className="img-tour h-20 md:h-20 w-full md:w-32">
                     <img
                         src={tour.imageUrl || "https://picsum.photos/690/390"}
@@ -23,8 +20,6 @@ const CardCartTour = ({ tour, cantidad, onCantidadChange, onRemove }) => {
                         className="w-full h-full object-cover rounded-md"
                     />
                 </div>
-
-                {/* Datos del tour */}
                 <div className="data-tour flex flex-col gap-y-2 w-full">
                     <span className="font-semibold text-sm md:text-base text-JisaGris">{tour.title}</span>
                     <div className="flex items-center text-JisaGrisTextGray gap-1">
@@ -33,7 +28,6 @@ const CardCartTour = ({ tour, cantidad, onCantidadChange, onRemove }) => {
                     </div>
                     <div className="md:flex md:justify-between">
                         <div className="flex flex-col sm:flex-row gap-y-4 sm:gap-y-0 sm:gap-x-6 py-2">
-                            {/* Columna 1: Duración y Dificultad */}
                             <div className="flex md:flex-col gap-3 text-JisaAmarillo w-full sm:flex-1">
                                 <IconCategoria
                                     icon={ClockIcon}
@@ -94,11 +88,9 @@ const CardCartTour = ({ tour, cantidad, onCantidadChange, onRemove }) => {
                         </div>
                     </div>
                 </div>
-
-                {/* Botón eliminar */}
                 <button
                     className="text-red-800 absolute top-2 right-2"
-                    onClick={() => onRemove(tour.id)}
+                    onClick={() => onRemove(tour.slug)}
                 >
                     <TrashIcon size={15} />
                 </button>

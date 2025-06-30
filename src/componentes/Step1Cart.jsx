@@ -2,8 +2,24 @@ import React from 'react'
 import TarjetasMetodos from './TarjetasMetodos'
 import CartIcon from '../assets/icons/CartIcon'
 import ListCartTour from './ListCartTour'
+import { useCart } from '../contexts/CartContext'
+
 
 const Step1Cart = ({ tours, totalItems, subtotal, impuestos, totalPrice, handleNext }) => {
+    const { cartItems, setCartItems, removeFromCart } = useCart();
+
+    const handleCantidadChange = (id, nuevaCantidad) => {
+        if (nuevaCantidad < 1) return;
+
+        const actualizados = cartItems.map(item =>
+            item.id === id ? { ...item, cantidad: nuevaCantidad } : item
+        );
+        setCartItems(actualizados);
+    };
+
+    const handleRemove = (id) => {
+        removeFromCart(id);
+    };
     return (
         <div className="Step1 w-full max-w-7xl mx-auto  mb-12">
             <div className="grid grid-cols-12 gap-4">
@@ -11,7 +27,11 @@ const Step1Cart = ({ tours, totalItems, subtotal, impuestos, totalPrice, handleN
                     <h5 className='text-JisaVerde font-semibold text-2xl'>Carrito</h5>
                     <span className='text-JisaGris font-medium text-base'>Items({totalItems})</span>
                     <div className="flex-col flex gap-y-8">
-                        <ListCartTour tours={tours} />
+                        <ListCartTour
+                            tours={tours}
+                            onCantidadChange={handleCantidadChange}
+                            onRemove={handleRemove}
+                        />
                     </div>
                 </div>
                 <div className="md:col-span-4 col-span-12 flex flex-col">

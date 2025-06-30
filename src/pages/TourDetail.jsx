@@ -32,7 +32,8 @@ const TourDetail = () => {
 
     return (
         <>
-            {/* <StickyReserva /> */}
+            <StickyReserva tour={tour} />
+
             <HeroSectionTour
                 backgroundImage={tour.foto_banner}
                 title={tour.titulo}

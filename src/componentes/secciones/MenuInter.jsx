@@ -1,8 +1,10 @@
 import { NavLink } from "react-router-dom";
 import MenuHeader from "../MenuHeader";
 import CartIcon from "../../assets/icons/CartIcon";
+import { useCart } from "../../contexts/CartContext";
 
 function MenuIntern({ dataGeneral, menuOpen, menu = [] }) {
+  const { cartItems } = useCart();
   const header = dataGeneral?.header || [];
   return (
     <div
@@ -38,7 +40,7 @@ function MenuIntern({ dataGeneral, menuOpen, menu = [] }) {
               <div className="absolute w-10">
                 <CartIcon size={16} />
                 <div className="absolute right-2  inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-4 -end-2">
-                  20
+                  {cartItems.length}
                 </div>
               </div>
             </NavLink>

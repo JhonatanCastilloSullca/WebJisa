@@ -1,4 +1,3 @@
-import React from 'react'
 import HeroSectionTour from '../componentes/HeroSectionTour'
 import HeroSectionMidle from '../componentes/HeroSectionMidle'
 import ToursRelacionados from '../componentes/ToursRelacionados'
@@ -26,7 +25,6 @@ const DestinosDetail = () => {
   if (!data || !data.data) return null;
 
   const tour = data.data.tour || [];
-  console.log("🚀 ~ DestinosDetail ~ tour:", tour)
 
   const tipo = 1;
 

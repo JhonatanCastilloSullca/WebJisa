@@ -19,6 +19,7 @@ import { useEffect } from 'react'
 import LandingDetail from './pages/LandingDetail'
 import { useTranslation } from 'react-i18next'
 import DestinosDetail from './pages/DestinosDetail'
+import { CartProvider } from './contexts/CartContext'
 const idiomaMap = { es: 1, en: 2, br: 3 }
 
 function App() {
@@ -32,28 +33,29 @@ function App() {
   if (isError) return <p className="text-center text-red-500 py-10">Error: {error.message}</p>;
   if (!data || !data.data) return null;
   return (
-
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout dataGeneral={data.data} />}>
-          <Route index element={<Home dataGeneral={data.data} />} />
-          <Route path="tours" element={<Tours />} />
-          <Route path="tours/:slug" element={<TourDetail />} />
-          <Route path="blogs" element={<Blogs />} />
-          <Route path="blogs/:slug" element={<BlogDetail />} />
-          <Route path="paquetes" element={<Paquetes />} />
-          <Route path="paquetes/:slug" element={<PaqueteDetail />} />
-          <Route path="destinos/:slug" element={<DestinosDetail />} />
-          <Route path="landing/:slug" element={<LandingDetail />} />
-          <Route path="nosotros" element={<Nosotros />} />
-          <Route path="terminos-condiciones" element={<TerminosCondiciones />} />
-          <Route path="politicas-privacidad" element={<PoliticaPrivacidad />} />
-          <Route path="preguntas-frecuentes" element={<PreguntasFrecuentes />} />
-          <Route path="carrito" element={<Cart />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <CartProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout dataGeneral={data.data} />}>
+            <Route index element={<Home dataGeneral={data.data} />} />
+            <Route path="tours" element={<Tours />} />
+            <Route path="tours/:slug" element={<TourDetail />} />
+            <Route path="blogs" element={<Blogs />} />
+            <Route path="blogs/:slug" element={<BlogDetail />} />
+            <Route path="paquetes" element={<Paquetes />} />
+            <Route path="paquetes/:slug" element={<PaqueteDetail />} />
+            <Route path="destinos/:slug" element={<DestinosDetail />} />
+            <Route path="landing/:slug" element={<LandingDetail />} />
+            <Route path="nosotros" element={<Nosotros />} />
+            <Route path="terminos-condiciones" element={<TerminosCondiciones />} />
+            <Route path="politicas-privacidad" element={<PoliticaPrivacidad />} />
+            <Route path="preguntas-frecuentes" element={<PreguntasFrecuentes />} />
+            <Route path="carrito" element={<Cart />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </CartProvider>
   )
 }
 

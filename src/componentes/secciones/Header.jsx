@@ -16,8 +16,11 @@ import FlagBr from "../../assets/icons/FlagBr"
 import HouseIcon from "../../assets/icons/HouseIcon"
 import MenuLinea from "./MenuLinea"
 import MenuIntern from "./MenuInter"
+import { useCart } from "../../contexts/CartContext"
 
 function Header({ dataGeneral }) {
+  const { cartItems } = useCart();
+
   const header = dataGeneral?.header || [];
   const headerPromocion = dataGeneral?.promocionHeader || [];
   const menus = dataGeneral?.menu || [];
@@ -153,7 +156,7 @@ function Header({ dataGeneral }) {
                         <div className="relative w-4">
                           <CartIcon size={16} />
                           <div className="absolute -right-4  inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-4 -end-2">
-                            20
+                            {cartItems.length}
                           </div>
                         </div>
                       </NavLink>

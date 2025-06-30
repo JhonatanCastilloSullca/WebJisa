@@ -49,9 +49,10 @@ const MenuHeader = ({ menu }) => {
                                     onMouseLeave={() =>
                                         setSelectedTour({
                                             imagen: item.imagen,
-                                            descripcion: item.submenu[0]?.resumen || "",
+                                            descripcion: item.tours?.[0]?.resumen || "",
                                         })
                                     }
+
                                 >
                                     <div className="flex flex-col max-h-60 overflow-y-auto">
                                         <span className="text-2xl text-center font-bold pt-2 pb-4">{item.tour}</span>

@@ -5,9 +5,9 @@ import Step3Cart from "./Step3Cart";
 
 const steps = ["Resumen de itinerario", "Información de pasajeros", "Proceso de pago"];
 
-
-
 export default function CartWizard({ tours, totalItems, subtotal, impuestos, totalPrice }) {
+    const [currentStep, setCurrentStep] = useState(0);
+
     const handleNext = () => {
         if (currentStep < steps.length - 1) {
             setCurrentStep(currentStep + 1);
@@ -19,29 +19,29 @@ export default function CartWizard({ tours, totalItems, subtotal, impuestos, tot
             setCurrentStep(currentStep - 1);
         }
     };
-    const stepContent = {
-        0: <Step1Cart
-            tours={tours}
-            totalItems={totalItems}
-            subtotal={subtotal}
-            impuestos={impuestos}
-            totalPrice={totalPrice}
-            handleNext={handleNext}
-        />,
-        1: <Step2Cart
-            totalItems={totalItems}
-            handleNext={handleNext}
 
-        />,
+    const stepContent = {
+        0: (
+            <Step1Cart
+                tours={tours}
+                totalItems={totalItems}
+                subtotal={subtotal}
+                impuestos={impuestos}
+                totalPrice={totalPrice}
+                handleNext={handleNext}
+            />
+        ),
+        1: (
+            <Step2Cart
+                totalItems={totalItems}
+                handleNext={handleNext}
+            />
+        ),
         2: <Step3Cart />,
     };
-    const [currentStep, setCurrentStep] = useState(0);
-
-
 
     return (
         <div className="max-w-7xl w-full mx-auto">
-            {/* Stepper */}
             <div className="flex items-center justify-between mb-6">
                 {steps.map((step, index) => (
                     <div key={index} className="flex flex-col items-center flex-1 relative cursor-pointer" onClick={() => setCurrentStep(index)}>
@@ -64,10 +64,6 @@ export default function CartWizard({ tours, totalItems, subtotal, impuestos, tot
 
             <div className="p-4">
                 {stepContent[currentStep]}
-            </div>
-
-            <div className="flex justify-between mt-6">
-
             </div>
         </div>
     );
