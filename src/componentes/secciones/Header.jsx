@@ -60,18 +60,18 @@ function Header({ dataGeneral }) {
     <>
       <header className="top-0 md:absolute relative z-10 bg-white w-full">
         {visible && (
-          <div className="relative bg-JisaGris text-white h-10 overflow-hidden md:block hidden">
+          <div className="relative bg-JisaGris text-white h-6 overflow-hidden md:block hidden">
             <div className="absolute right-0 top-0 h-full w-10 z-10 flex items-center justify-center bg-JisaGris">
               <button
                 onClick={() => setVisible(false)}
-                className="text-white text-lg font-bold"
+                className="text-white text-xs font-bold"
               >
                 ✕
               </button>
             </div>
 
-            <Marquee speed={50} className="h-10 items-center font-medium">
-              <div className="pr-12">
+            <Marquee speed={50} className="h-6 items-center font-medium">
+              <div className="pr-12 text-xs">
                 <a href={headerPromocion.enlace}>{headerPromocion.text}</a>
               </div>
             </Marquee>

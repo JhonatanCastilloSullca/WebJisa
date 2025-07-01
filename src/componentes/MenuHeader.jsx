@@ -32,16 +32,16 @@ const MenuHeader = ({ menu }) => {
             <ul className="flex md:flex-row flex-col">
                 {menu.map((item, index) => (
                     <li key={index} className="hoverable hover:text-JisaCyan uppercase">
-                        <a href="#" className="relative block py-2 px-0 text-sm lg:text-base font-semibold md:text-black text-black  hover:text-JisaCyan">
+                        <a href="#" className="relative block py-2 px-0 text-sm lg:text-sm font-semibold md:text-black text-black  hover:text-JisaCyan">
                             {item.nombre}
                         </a>
                         <div className="p-6 mega-menu mb-16 sm:mb-0 shadow-xl  bg-white font-semibold md:text-black text-black  ">
                             <div className="container mx-auto w-full flex md:flex-row flex-col justify-between">
-                                <ul className="px-4 w-full border-b sm:border-r lg:border-b-0 pb-6 pt-6 lg:pt-3 md:block hidden">
+                                <ul className="px-4 w-full border-b sm:border-r lg:border-b-0 pb-6 pt-6 lg:pt-3 md:block hidden place-items-center">
                                     <img
                                         src={selectedTour.imagen}
                                         alt={item.nombre}
-                                        className="rounded-md h-full object-cover transition-opacity duration-300 opacity-100"
+                                        className="rounded-md h-64 object-cover transition-opacity duration-300 opacity-100"
                                     />
                                 </ul>
                                 <ul
@@ -61,7 +61,7 @@ const MenuHeader = ({ menu }) => {
                                                 <NavLink
                                                     to={`/tours/${subItem.slug}`}
                                                     key={subIndex}
-                                                    className="border-b border-JisaCyan/50 py-1  cursor-pointer text-base"
+                                                    className="border-b border-JisaCyan/50 py-1  cursor-pointer text-xs text-black hover:text-JisaCyan"
                                                     onMouseEnter={() =>
                                                         setSelectedTour({
                                                             imagen: imageCache[subItem.imagen]?.src || subItem.foto_principal,
@@ -76,12 +76,13 @@ const MenuHeader = ({ menu }) => {
                                     </div>
                                 </ul>
 
-                                <ul className="w-full px-10 mx-auto md:block hidden">
-                                    <div className="flex flex-col">
+                                {/* <ul className="w-full px-10 mx-auto md:block hidden"> */}
+                                    {/* <div className="flex flex-col"> */}
                                         {/* <span className="text-2xl text-center font-bold">Tours Disponibles</span> */}
-                                        <ParrafoContent className="text-sm text-JisaCyan" contenido={selectedTour.descripcion} />
-                                    </div>
-                                </ul>
+                                        {/* <ParrafoContent className="text-sm text-JisaCyan" contenido={selectedTour.descripcion} /> */}
+                                    {/* </div> */}
+                                {/* </ul> */}
+                                
                             </div>
                         </div>
                     </li>

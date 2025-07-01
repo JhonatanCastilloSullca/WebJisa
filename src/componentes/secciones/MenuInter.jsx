@@ -13,23 +13,23 @@ function MenuIntern({ dataGeneral, menuOpen, menu = [] }) {
     >
       <div className="w-full max-w-7xl mx-auto">
         <nav className="text-gray-900">
-          <div className="container mx-auto flex md:flex-row flex-col md:justify-center justify-start uppercase">
+          <div className="container mx-auto flex md:flex-row flex-col md:justify-center justify-start uppercase items-center">
             <NavLink
               to="/"
-              className="relative block py-2 px-4 text-sm lg:text-base font-semibold md:text-black text-black hover:text-JisaCyan uppercase"
+              className="relative block py-2 px-4 text-sm lg:text-sm font-semibold md:text-black text-black hover:text-JisaCyan uppercase"
             >
               Inicio
             </NavLink>
             <MenuHeader menu={menu} />
             <NavLink
               to="/nosotros"
-              className="relative block py-2 px-4 text-sm lg:text-base font-semibold md:text-black text-black hover:text-JisaCyan uppercase"
+              className="relative block py-2 px-4 text-sm lg:text-sm font-semibold md:text-black text-black hover:text-JisaCyan uppercase"
             >
               Sobre Nosotros
             </NavLink>
             <NavLink
               to={header.enlace}
-              className="bg-JisaCyan text-white rounded-xl text-center flex px-6 md:font-medium font-bold md:text-base text-xl py-1 items-center"
+              className="bg-JisaCyan text-white rounded-xl text-center flex px-6 md:font-medium font-bold md:text-sm text-xl py-1 items-center place-self-center self-center"
             >
               {header.boton_accion}
             </NavLink>
