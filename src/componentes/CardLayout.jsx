@@ -7,7 +7,7 @@ const CardLayout = () => {
       className="rounded-2xl bg-cover h-[570px] w-full  snap-center relative shrink-0"
     >
       <img
-        src={`https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp`}
+        src={`url("/agencia-de-viaje-cusco-jisaadventure.webp")`}
         alt=""
         className="h-96 w-auto object-cover rounded-lg"
       />

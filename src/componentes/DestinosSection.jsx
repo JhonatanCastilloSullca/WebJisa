@@ -11,6 +11,7 @@ import { useEffect, useState } from "react"
 import SeparatorBarHorizontalCyan from "./SeparatorBarHorizontalVerde";
 import { useApi } from "../hooks/useApi";
 import { useTranslation } from "react-i18next";
+import { NavLink } from "react-router-dom";
 
 const DestinosSection = ({ id, data }) => {
     const { t } = useTranslation()
@@ -35,9 +36,11 @@ const DestinosSection = ({ id, data }) => {
                             <p className="line-clamp-10 md:text-base text-sm font-light my-4 text-white md:text-left text-center">
                                 {tours[activeIndex].descripcion}
                             </p>
-                            <a href="#" className="text-white font-bold text-md md:text-left text-center py-6">
-                                ({tours[activeIndex].tours_count}) {t('destion_section.tours_disponibles')}
-                            </a>
+                            <NavLink to={`/destinos/${tours[activeIndex].slug}`}>
+                                <span className="text-white font-bold text-md md:text-left text-center py-6">
+                                    ({tours[activeIndex].tours_count}) {t('destion_section.tours_disponibles')}
+                                </span>
+                            </NavLink>
                         </div>
                     </div>
                     <div className={`md:col-span-5 col-span-12 `}>

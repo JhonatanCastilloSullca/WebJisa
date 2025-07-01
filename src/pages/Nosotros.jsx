@@ -36,37 +36,37 @@ const Nosotros = () => {
       
       La fundadora de Jisa Adventure, Felicia Acuña Salas, es una apasionada del turismo y amante de su país, Perú. Con una visión clara y determinación, decidió crear esta agencia para compartir la belleza y riqueza cultural de Perú con el mundo.`,
             galeria: [
-                "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
-                "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
-                "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
-                "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
+                'url("/agencia-de-viaje-cusco-jisaadventure.webp")',
+                'url("/agencia-de-viaje-cusco-jisaadventure.webp")',
+                'url("/agencia-de-viaje-cusco-jisaadventure.webp")',
+                'url("/agencia-de-viaje-cusco-jisaadventure.webp")'
             ]
         },
         {
             titulo: "Atención de Calidad",
             descripcion: `En Jisa Adventure, nos enorgullece ofrecer un servicio de atención al cliente excepcional. Nuestro equipo está dedicado a brindar una experiencia de viaje personalizada y de alta calidad para cada uno de nuestros clientes.`,
             galeria: [
-                "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
-                "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
-                "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
-                "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
+                'url("/agencia-de-viaje-cusco-jisaadventure.webp")',
+                'url("/agencia-de-viaje-cusco-jisaadventure.webp")',
+                'url("/agencia-de-viaje-cusco-jisaadventure.webp")',
+                'url("/agencia-de-viaje-cusco-jisaadventure.webp")'
             ]
         },
         {
             titulo: "Conductores Expertos",
             descripcion: `Nuestros conductores son altamente experimentados y conocen a la perfección cada rincón de los destinos turísticos. Garantizamos seguridad, comodidad y un viaje placentero en cada recorrido.`,
             galeria: [
-                "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
-                "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
-                "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
-                "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
+                'url("/agencia-de-viaje-cusco-jisaadventure.webp")',
+                'url("/agencia-de-viaje-cusco-jisaadventure.webp")',
+                'url("/agencia-de-viaje-cusco-jisaadventure.webp")',
+                'url("/agencia-de-viaje-cusco-jisaadventure.webp")'
             ]
         }
     ];
     return (
         <>
             <HeroSectionMidle
-                backgroundImage="https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
+                backgroundImage='url("/agencia-de-viaje-cusco-jisaadventure.webp")'
                 title={t("nosotros.sobre_nosotros")}
                 description={t("nosotros.description")}
                 buttonText="Ver Tours"

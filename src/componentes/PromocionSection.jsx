@@ -5,7 +5,7 @@ const PromocionSection = ({ id }) => {
             id={id}
             className="w-full h-full relative mx-auto  bg-cover bg-center bg-fixed"
             style={{
-                backgroundImage: `url(https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp)`,
+                backgroundImage: `url("/agencia-de-viaje-cusco-jisaadventure.webp")`,
             }}
         >
             <div className="relative inset-0 bg-black/75 flex items-center justify-center py-32">

@@ -24,7 +24,7 @@ const PackageSection = ({ id, data, tipo }) => {
                                 image={tour.foto_principal}
                                 location={tour.ubicaciones.map(u => u.nombre).join(', ')}
                                 description={tour.titulo}
-                                price="0"
+                                price={tour.precio}
                                 dias="7"
                                 group={'Min 4'}
                                 slug={tour.slug}

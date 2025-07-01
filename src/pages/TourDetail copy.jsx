@@ -27,8 +27,8 @@ const TourDetail = () => {
     const blogData = data.data.blog || [];
 
     const tour = {
-        imagen: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
-        imagenSecundaria: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
+        imagen: 'url("/agencia-de-viaje-cusco-jisaadventure.webp")',
+        imagenSecundaria: 'url("/agencia-de-viaje-cusco-jisaadventure.webp")',
         titulo: "CAMINO INCA",
         precioPrincipal: "999.00",
         duracion: "Fullday",
@@ -45,9 +45,9 @@ const TourDetail = () => {
         itinerario: {
             descripcion: "La fundadora de Jisa Adventure, Felicia Acuña Salas, es una apasionada del turismo y amante de su país, Perú. Con una visión clara y determinación, decidió crear esta agencia para compartir la belleza y riqueza cultural de Perú con el mundo. Gracias a su experiencia como guía oficial de turismo, pudo diseñar experiencias únicas y auténticas para los viajeros que buscan descubrir la magia de Perú. Hoy en día, Jisa Adventure es reconocida por su excelencia en el servicio y por brindar momentos inolvidables a quienes eligen explorar este hermoso país con nosotros. ¡Únete a la aventura y descubre la historia que inspiró a Felicia a crear Jisa Adventure!",
             dias: [
-                { titulo: "Llegada a Machupicchu", descripcion: "La fundadora de Jisa Adventure, Felicia Acuña Salas, es una apasionada del turismo y amante de su país, Perú. Con una visión clara y determinación, decidió crear esta agencia para compartir la belleza y riqueza cultural de Perú con el mundo. Gracias a su experiencia como guía oficial de turismo, pudo diseñar experiencias únicas y auténticas para los viajeros que buscan descubrir la magia de Perú. Hoy en día, Jisa Adventure es reconocida por su excelencia en el servicio y por brindar momentos inolvidables a quienes eligen explorar este hermoso país con nosotros. ¡Únete a la aventura y descubre la historia que inspiró a Felicia a crear Jisa Adventure!", imagen: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp" },
-                { titulo: "Día 2 en Machupicchu", descripcion: "Descripción del día 2", imagen: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp" },
-                { titulo: "Día 3 en Machupicchu", descripcion: "Descripción del día 3", imagen: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp" }
+                { titulo: "Llegada a Machupicchu", descripcion: "La fundadora de Jisa Adventure, Felicia Acuña Salas, es una apasionada del turismo y amante de su país, Perú. Con una visión clara y determinación, decidió crear esta agencia para compartir la belleza y riqueza cultural de Perú con el mundo. Gracias a su experiencia como guía oficial de turismo, pudo diseñar experiencias únicas y auténticas para los viajeros que buscan descubrir la magia de Perú. Hoy en día, Jisa Adventure es reconocida por su excelencia en el servicio y por brindar momentos inolvidables a quienes eligen explorar este hermoso país con nosotros. ¡Únete a la aventura y descubre la historia que inspiró a Felicia a crear Jisa Adventure!", imagen: 'url("/agencia-de-viaje-cusco-jisaadventure.webp")' },
+                { titulo: "Día 2 en Machupicchu", descripcion: "Descripción del día 2", imagen: 'url("/agencia-de-viaje-cusco-jisaadventure.webp")' },
+                { titulo: "Día 3 en Machupicchu", descripcion: "Descripción del día 3", imagen: 'url("/agencia-de-viaje-cusco-jisaadventure.webp")' }
             ]
         },
         incluye: [
@@ -79,7 +79,7 @@ const TourDetail = () => {
             {
                 hotel: "Casa Andina",
                 stars: 5,
-                imagePrincipal: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
+                imagePrincipal: 'url("/agencia-de-viaje-cusco-jisaadventure.webp")',
                 descripcion: "Descripción del hotel...",
                 galeria: [
                     {
@@ -111,7 +111,7 @@ const TourDetail = () => {
             {
                 hotel: "Casa Andina1",
                 stars: 5,
-                imagePrincipal: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
+                imagePrincipal: 'url("/agencia-de-viaje-cusco-jisaadventure.webp")',
                 descripcion: "Descripción del hotel...",
                 galeria: [
                     {
@@ -143,7 +143,7 @@ const TourDetail = () => {
             {
                 hotel: "Casa Andina2",
                 stars: 5,
-                imagePrincipal: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
+                imagePrincipal: 'url("/agencia-de-viaje-cusco-jisaadventure.webp")',
                 descripcion: "Descripción del hotel...",
                 galeria: [
                     {
@@ -175,7 +175,7 @@ const TourDetail = () => {
             {
                 hotel: "Casa Andina3",
                 stars: 5,
-                imagePrincipal: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
+                imagePrincipal: 'url("/agencia-de-viaje-cusco-jisaadventure.webp")',
                 descripcion: "Descripción del hotel...",
                 galeria: [
                     {
@@ -207,7 +207,7 @@ const TourDetail = () => {
             {
                 hotel: "Casa Andina4",
                 stars: 5,
-                imagePrincipal: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
+                imagePrincipal: 'url("/agencia-de-viaje-cusco-jisaadventure.webp")',
                 descripcion: "Descripción del hotel...",
                 galeria: [
                     {
@@ -255,7 +255,7 @@ const TourDetail = () => {
                 id: "1",
                 slug: "cusco-slug-1",
                 title: "Grupal",
-                image: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
+                image: 'url("/agencia-de-viaje-cusco-jisaadventure.webp")',
                 location: "Montaña de Colores Palccoyo, Cusco",
                 description: "Rainbow Mountain Vinicunca Tour (Group Service)",
                 price: "$999.00",
@@ -266,7 +266,7 @@ const TourDetail = () => {
                 id: "2",
                 slug: "cusco-slug-2",
                 title: "Grupal",
-                image: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
+                image: 'url("/agencia-de-viaje-cusco-jisaadventure.webp")',
                 location: "Montaña de Colores Palccoyo, Cusco",
                 description: "Rainbow Mountain Vinicunca Tour (Group Service)",
                 price: "$999.00",
@@ -277,7 +277,7 @@ const TourDetail = () => {
                 id: "3",
                 slug: "cusco-slug-3",
                 title: "Grupal",
-                image: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
+                image: 'url("/agencia-de-viaje-cusco-jisaadventure.webp")',
                 location: "Montaña de Colores Palccoyo, Cusco",
                 description: "Rainbow Mountain Vinicunca Tour (Group Service)",
                 price: "$999.00",
@@ -290,7 +290,7 @@ const TourDetail = () => {
         <>
             <StickyReserva />
             <HeroSectionTour
-                backgroundImage="https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
+                backgroundImage='url("/agencia-de-viaje-cusco-jisaadventure.webp")'
                 title="CAMINO INCA"
                 description={`S/. 60 / persona`}
                 buttonText="Ver Tours"

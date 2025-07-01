@@ -43,7 +43,7 @@ const Blogs = () => {
         {
             titulo: "Explora los mejores tours en Cusco",
             slug: "tours-en-cusco",
-            imagenPrincipal: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
+            imagenPrincipal: 'url("/agencia-de-viaje-cusco-jisaadventure.webp")',
             fecha: "Ago 15, 2024",
             Autor: "Jisa Adventure",
             ubicacion: "Cusco, Perú",
@@ -54,7 +54,7 @@ const Blogs = () => {
         {
             titulo: "Las mejores obras de teatro en Lima",
             slug: "teatro-lima",
-            imagenPrincipal: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
+            imagenPrincipal: 'url("/agencia-de-viaje-cusco-jisaadventure.webp")',
             fecha: "Jul 20, 2024",
             Autor: "Cultura Viva",
             ubicacion: "Lima, Perú",
@@ -65,7 +65,7 @@ const Blogs = () => {
         {
             titulo: "Rutas recomendadas para trekking",
             slug: "rutas-trekking",
-            imagenPrincipal: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
+            imagenPrincipal: 'url("/agencia-de-viaje-cusco-jisaadventure.webp")',
             fecha: "Jun 10, 2024",
             Autor: "Aventura Andina",
             ubicacion: "Andes, Perú",
@@ -76,7 +76,7 @@ const Blogs = () => {
         {
             titulo: "Rutas recomendadas para trekking",
             slug: "rutas-trekking",
-            imagenPrincipal: "https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp",
+            imagenPrincipal: 'url("/agencia-de-viaje-cusco-jisaadventure.webp")',
             fecha: "Jun 10, 2024",
             Autor: "Aventura Andina",
             ubicacion: "Andes, Perú",
@@ -93,7 +93,7 @@ const Blogs = () => {
     return (
         <>
             <HeroSectionMidle
-                backgroundImage="https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
+                backgroundImage='url("/agencia-de-viaje-cusco-jisaadventure.webp")'
                 title={t("blogs.nuestro_blog")}
                 description={t("blogs.description")}
             />
