@@ -47,7 +47,7 @@ const ToursCard = ({ title, image, location, description, price, dias, group, sl
                         <div className="mt-2 w-[90%] self-center border-t border-JisaGris/20"></div>
                         <div className="flex flex-col">
                             <span className="text-base font-semibold text-JisaGris/50">Desde</span>
-                            <span className="text-xl font-bold text-JisaVerde">{price}</span>
+                            <span className="text-xl font-bold text-JisaVerde">USD $ {price}</span>
                         </div>
                     </div>
                 </div>

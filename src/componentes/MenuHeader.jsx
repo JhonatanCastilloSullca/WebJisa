@@ -35,7 +35,7 @@ const MenuHeader = ({ menu }) => {
                         <a href="#" className="relative block py-2 px-0 text-sm lg:text-sm font-semibold md:text-black text-black  hover:text-JisaCyan">
                             {item.nombre}
                         </a>
-                        <div className="p-6 mega-menu mb-16 sm:mb-0 shadow-xl  bg-white font-semibold md:text-black text-black  ">
+                        <div className="p-6 mega-menu mb-16 sm:mb-0 shadow-xl  bg-white font-semibold md:text-black text-black">
                             <div className="container mx-auto w-full flex md:flex-row flex-col justify-between">
                                 <ul className="px-4 w-full border-b sm:border-r lg:border-b-0 pb-6 pt-6 lg:pt-3 md:block hidden place-items-center">
                                     <img

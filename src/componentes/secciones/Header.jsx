@@ -148,7 +148,7 @@ function Header({ dataGeneral }) {
                   </div>
 
                   <div className="section-menu  justify-center items-center md:w-auto w-full py-1 md:hidden flex gap-x-2">
-                    <div>
+                    {/* <div>
                       <NavLink
                         to="/carrito"
                         className="relative inline-flex items-center p-3 text-sm font-medium text-center md:text-JisaCyan text-JisaCyan"
@@ -160,7 +160,7 @@ function Header({ dataGeneral }) {
                           </div>
                         </div>
                       </NavLink>
-                    </div>
+                    </div> */}
 
                     <div className="bg-white rounded shadow-lg border z-10 ">
                       {languages.map(({ code, Icon }) => (

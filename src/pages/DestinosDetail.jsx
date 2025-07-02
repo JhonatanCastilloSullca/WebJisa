@@ -18,13 +18,13 @@ const DestinosDetail = () => {
 
   const idiomaId = idiomaMap[t.language] || 1
 
-  const { data, isLoading, isError, error } = useApi({ endpoint: 'tour-slug', method: 'POST', body: { idioma_id: idiomaId, slug: slug, }, });
+  const { data, isLoading, isError, error } = useApi({ endpoint: 'destinos', method: 'POST', body: { idioma_id: idiomaId, slug: slug, }, });
 
   if (isLoading) return <p className="text-center py-10">Cargando layout...</p>;
   if (isError) return <p className="text-center text-red-500 py-10">Error: {error.message}</p>;
   if (!data || !data.data) return null;
 
-  const tour = data.data.tour || [];
+  const destino = data.data.destinos || [];
 
   const tipo = 1;
 
@@ -33,9 +33,9 @@ const DestinosDetail = () => {
   return (
     <>
       <HeroSectionMidle
-        backgroundImage="https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
-        title="Arequipa"
-        description={`La joya blanca del sur Arequipa es un viaje a través de historia, arquitectura y volcanes majestuosos. Conocida como la “Ciudad Blanca”, su centro histórico es un Patrimonio Cultural de la Humanidad lleno de encanto colonial. Desde el impresionante Monasterio de Santa Catalina hasta el imponente Cañón del Colca, hogar del cóndor andino, Arequipa te invita a vivir una experiencia auténtica y diversa. Déjate cautivar por su`}
+        backgroundImage={destino.imagen}
+        title={destino.nombre}
+        description={destino.descripcion}
         buttonText="Ver Tours"
         buttonLink="https://jisaadventure.com/"
       />
@@ -45,7 +45,7 @@ const DestinosDetail = () => {
           <SubHeaderTitle title={tipo == 1 ? t('paquetes_destacados.description') : t('tours_destacados.description')} />
           <SeparatorBarHorizontal />
         </div>
-        <ToursLineSection tours={tour.relacionados} />
+        <ToursLineSection tours={destino.tours} />
       </div>
     </>
   )

@@ -11,19 +11,13 @@ function MainMenu({ menuOpen, menu = [] }) {
       <div className="w-full max-w-7xl mx-auto">
         <nav className="text-gray-900">
           <div className="container mx-auto flex md:flex-row flex-col md:justify-center justify-start uppercase">
-            <NavLink
-              to="/"
-              className="relative block py-2 px-4 text-sm lg:text-base font-bold  md:text-JisaCyan text-black hover:text-JisaGris"
-            >
-              Inicio
-            </NavLink>
             <MenuHeader menu={menu} />
-            <NavLink
+            {/* <NavLink
               to="/nosotros"
               className="relative block py-2 px-4 text-sm lg:text-base font-bold  md:text-JisaCyan text-black hover:text-JisaGris"
             >
-              Sobre Nosotros
-            </NavLink>
+              Sobre Jisa
+            </NavLink> */}
 
           </div>
         </nav>

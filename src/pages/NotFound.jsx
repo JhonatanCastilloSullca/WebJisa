@@ -7,7 +7,7 @@ const NotFound = () => {
     return (
         <>
             <HeroSectionMidle
-                backgroundImage="https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
+                backgroundImage='url("/agencia-de-viaje-cusco-jisaadventure.webp")'
                 title="404"
                 description="Parece que no encontraste lo que buscabas pero te puede interesar"
             />

@@ -37,7 +37,7 @@ const PreguntasFrecuentes = () => {
     return (
         <>
             <HeroSectionMidle
-                backgroundImage="https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
+                backgroundImage='url("/agencia-de-viaje-cusco-jisaadventure.webp")'
                 title="POLITICA DE PRIVACIDAD"
                 description="La fundadora de Jisa Adventure, Felicia Acuña Salas, es una apasionada del turismo y amante de su país, Perú. Gracias a su experiencia como guía oficial de turismo, pudo diseñar experiencias únicas y auténticas para los viajeros."
                 buttonText="Ver Tours"

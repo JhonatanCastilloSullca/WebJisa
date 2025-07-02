@@ -15,7 +15,7 @@ const Tours = () => {
     return (
         <>
             <HeroSectionMidle
-                backgroundImage="https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
+                backgroundImage='url("/agencia-de-viaje-cusco-jisaadventure.webp")'
                 title="Tours"
                 description={`La fundadora de Jisa Adventure, Felicia Acuña Salas, es una apasionada del turismo y amante de su país, Perú. Con una visión clara y determinación, decidió crear esta agencia para compartir la belleza y riqueza cultural de Perú con el mundo. Gracias a su experiencia como guía oficial de turismo, pudo diseñar experiencias únicas y auténticas para los viajeros que buscan descubrir la magia de Perú. `}
             />
@@ -27,7 +27,7 @@ const Tours = () => {
                         <RowNumber col={4}>
                             <ToursCard
                                 title="Grupal"
-                                image="https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
+                                image='url("/agencia-de-viaje-cusco-jisaadventure.webp")'
                                 location="Montaña de Colores Palccoyo, Cusco"
                                 description="Rainbow Mountain Vinicunca Tour (Group Service)"
                                 price="$999.00"
@@ -38,7 +38,7 @@ const Tours = () => {
                         <RowNumber col={4}>
                             <ToursCard
                                 title="Grupal"
-                                image="https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
+                                image='url("/agencia-de-viaje-cusco-jisaadventure.webp")'
                                 location="Montaña de Colores Palccoyo, Cusco"
                                 description="Rainbow Mountain Vinicunca Tour (Group Service)"
                                 price="$999.00"
@@ -49,7 +49,7 @@ const Tours = () => {
                         <RowNumber col={4}>
                             <ToursCard
                                 title="Grupal"
-                                image="https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
+                                image='url("/agencia-de-viaje-cusco-jisaadventure.webp")'
                                 location="Montaña de Colores Palccoyo, Cusco"
                                 description="Rainbow Mountain Vinicunca Tour (Group Service)"
                                 price="$999.00"
@@ -68,7 +68,7 @@ const Tours = () => {
                         <RowNumber col={4}>
                             <ToursCard
                                 title="Grupal"
-                                image="https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
+                                image='url("/agencia-de-viaje-cusco-jisaadventure.webp")'
                                 location="Montaña de Colores Palccoyo, Cusco"
                                 description="Rainbow Mountain Vinicunca Tour (Group Service)"
                                 price="$999.00"
@@ -79,7 +79,7 @@ const Tours = () => {
                         <RowNumber col={4}>
                             <ToursCard
                                 title="Grupal"
-                                image="https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
+                                image='url("/agencia-de-viaje-cusco-jisaadventure.webp")'
                                 location="Montaña de Colores Palccoyo, Cusco"
                                 description="Rainbow Mountain Vinicunca Tour (Group Service)"
                                 price="$999.00"
@@ -90,7 +90,7 @@ const Tours = () => {
                         <RowNumber col={4}>
                             <ToursCard
                                 title="Grupal"
-                                image="https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
+                                image='url("/agencia-de-viaje-cusco-jisaadventure.webp")'
                                 location="Montaña de Colores Palccoyo, Cusco"
                                 description="Rainbow Mountain Vinicunca Tour (Group Service)"
                                 price="$999.00"
@@ -109,7 +109,7 @@ const Tours = () => {
                         <RowNumber col={4}>
                             <ToursCard
                                 title="Grupal"
-                                image="https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
+                                image='url("/agencia-de-viaje-cusco-jisaadventure.webp")'
                                 location="Montaña de Colores Palccoyo, Cusco"
                                 description="Rainbow Mountain Vinicunca Tour (Group Service)"
                                 price="$999.00"
@@ -120,7 +120,7 @@ const Tours = () => {
                         <RowNumber col={4}>
                             <ToursCard
                                 title="Grupal"
-                                image="https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
+                                image='url("/agencia-de-viaje-cusco-jisaadventure.webp")'
                                 location="Montaña de Colores Palccoyo, Cusco"
                                 description="Rainbow Mountain Vinicunca Tour (Group Service)"
                                 price="$999.00"
@@ -131,7 +131,7 @@ const Tours = () => {
                         <RowNumber col={4}>
                             <ToursCard
                                 title="Grupal"
-                                image="https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
+                                image='url("/agencia-de-viaje-cusco-jisaadventure.webp")'
                                 location="Montaña de Colores Palccoyo, Cusco"
                                 description="Rainbow Mountain Vinicunca Tour (Group Service)"
                                 price="$999.00"
@@ -142,7 +142,7 @@ const Tours = () => {
                         <RowNumber col={4}>
                             <ToursCard
                                 title="Grupal"
-                                image="https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
+                                image='url("/agencia-de-viaje-cusco-jisaadventure.webp")'
                                 location="Montaña de Colores Palccoyo, Cusco"
                                 description="Rainbow Mountain Vinicunca Tour (Group Service)"
                                 price="$999.00"
@@ -153,7 +153,7 @@ const Tours = () => {
                         <RowNumber col={4}>
                             <ToursCard
                                 title="Grupal"
-                                image="https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
+                                image='url("/agencia-de-viaje-cusco-jisaadventure.webp")'
                                 location="Montaña de Colores Palccoyo, Cusco"
                                 description="Rainbow Mountain Vinicunca Tour (Group Service)"
                                 price="$999.00"
@@ -164,7 +164,7 @@ const Tours = () => {
                         <RowNumber col={4}>
                             <ToursCard
                                 title="Grupal"
-                                image="https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
+                                image='url("/agencia-de-viaje-cusco-jisaadventure.webp")'
                                 location="Montaña de Colores Palccoyo, Cusco"
                                 description="Rainbow Mountain Vinicunca Tour (Group Service)"
                                 price="$999.00"
@@ -181,7 +181,7 @@ const Tours = () => {
             <div
                 className="w-full h-full relative mx-auto bg-cover bg-center bg-fixed"
                 style={{
-                    backgroundImage: `url(https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp)`,
+                    backgroundImage: `url("/agencia-de-viaje-cusco-jisaadventure.webp")`,
                 }}
             >
                 <div className="relative inset-0 bg-black/95 flex flex-col items-center justify-center py-12">
@@ -209,7 +209,7 @@ const Tours = () => {
                             <SwiperSlide >
                                 <div className="relative h-48 group">
                                     <img
-                                        src="https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp"
+                                        src='url("/agencia-de-viaje-cusco-jisaadventure.webp")'
                                         alt="imagen"
                                         className="w-full h-full object-cover rounded-lg transition-all duration-300 group-hover:border-4 group-hover:border-white"
                                     />
@@ -229,7 +229,7 @@ const Tours = () => {
                             <SwiperSlide >
                                 <div className="h-48">
                                     <img
-                                        src={`https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp`}
+                                        src={`url("/agencia-de-viaje-cusco-jisaadventure.webp")`}
                                         alt={'imagen'}
                                         className="w-full h-full object-cover rounded-lg"
                                     />
@@ -238,7 +238,7 @@ const Tours = () => {
                             <SwiperSlide >
                                 <div className="h-48">
                                     <img
-                                        src={`https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp`}
+                                        src={`url("/agencia-de-viaje-cusco-jisaadventure.webp")`}
                                         alt={'imagen'}
                                         className="w-full h-full object-cover rounded-lg"
                                     />
@@ -247,7 +247,7 @@ const Tours = () => {
                             <SwiperSlide >
                                 <div className="h-48">
                                     <img
-                                        src={`https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp`}
+                                        src={`url("/agencia-de-viaje-cusco-jisaadventure.webp")`}
                                         alt={'imagen'}
                                         className="w-full h-full object-cover rounded-lg"
                                     />
@@ -256,7 +256,7 @@ const Tours = () => {
                             <SwiperSlide >
                                 <div className="h-48">
                                     <img
-                                        src={`https://jisaadventure.com/wp-content/uploads/2024/02/agencia-de-viaje-cusco-jisaadventure.webp`}
+                                        src={`url("/agencia-de-viaje-cusco-jisaadventure.webp")`}
                                         alt={'imagen'}
                                         className="w-full h-full object-cover rounded-lg"
                                     />

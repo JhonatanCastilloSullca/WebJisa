@@ -7,7 +7,7 @@ const CertificadosSection = ({ id }) => {
             imagen: "https://static.vecteezy.com/system/resources/thumbnails/044/248/881/small_2x/young-tourist-with-backpack-and-map-png.png",
         },
         {
-            icono: "https://jisaadventure.com/wp-content/uploads/2024/03/Tripadvisor.webp",
+            icono: "url('/Tripadvisor.webp')",
             imagen: "https://static.vecteezy.com/system/resources/thumbnails/044/248/881/small_2x/young-tourist-with-backpack-and-map-png.png",
         },
         {
@@ -19,8 +19,8 @@ const CertificadosSection = ({ id }) => {
             imagen: "https://static.vecteezy.com/system/resources/thumbnails/044/248/881/small_2x/young-tourist-with-backpack-and-map-png.png",
         },
         {
-            icono: "https://jisaadventure.com/wp-content/uploads/2024/03/Tripadvisor.webp",
-            imagen: "https://jisaadventure.com/wp-content/uploads/2024/03/Tripadvisor.webp",
+            icono: "url('/Tripadvisor.webp')",
+            imagen: "url('/Tripadvisor.webp')",
         },
         {
             icono: "https://jisaadventure.com/wp-content/uploads/2024/03/Gercetur.webp",
