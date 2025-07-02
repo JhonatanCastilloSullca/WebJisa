@@ -5,6 +5,7 @@ import SubHeaderTitle from "../layout/SubHeaderTitle"
 import RowNumber from "../RowNumber"
 import SeparatorBarHorizontal from "../SeparatorBarHorizontal"
 import ToursCard from "../ToursCard"
+import ToursCardSalkantay from "../ToursCardSalkantay"
 
 const PackageSection = ({ id, data, tipo }) => {
     const { t } = useTranslation()
@@ -18,13 +19,14 @@ const PackageSection = ({ id, data, tipo }) => {
             <div className="w-full max-w-6xl mx-auto md:px-0 px-4">
                 <GridNumber col={12} className="md:gap-x-11 gap-x-0">
                     {data.map((tour, index) => (
-                        <RowNumber col={4} key={index}>
-                            <ToursCard
+                        <RowNumber col={4} key={index} className="flex-col">
+                            <ToursCardSalkantay
                                 title={tour.tipo_categoria.nombre}
                                 image={tour.foto_principal}
                                 location={tour.ubicaciones.map(u => u.nombre).join(', ')}
                                 description={tour.titulo}
                                 price="0"
+                                resumen={tour.resumen}
                                 dias="7"
                                 group={'Min 4'}
                                 slug={tour.slug}

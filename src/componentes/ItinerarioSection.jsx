@@ -6,7 +6,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react
 import DownIcon from '../assets/icons/DownIcon'
 import { useTranslation } from 'react-i18next'
 
-const ItinerarioSection = ({ itinerario,dias }) => {
+const ItinerarioSection = ({ itinerario, dias }) => {
     const { t } = useTranslation()
 
     return (
@@ -32,11 +32,13 @@ const ItinerarioSection = ({ itinerario,dias }) => {
                             </DisclosureButton>
                             <DisclosurePanel className="mt-2 text-sm/5">
                                 <div className="grid grid-cols-12 gap-4">
-                                    <div className="md:col-span-9 col-span-12 h-auto flex flex-col md:items-start">
-                                        <ParrafoContent className="text-JisaGris" contenido={dia.itinerario} />
+                                    <div className="md:col-span-12 col-span-12 h-auto grid grid-cols-12 md:items-start items-center justify-center gap-x-4">
+                                        <img src={dia.imagen} alt={dia.titulo} className="col-span-4 w-full rounded-lg h-full max-h-60 object-cover" />
+                                        <img src={dia.imagen} alt={dia.titulo} className="col-span-4 w-full rounded-lg h-full max-h-60 object-cover" />
+                                        <img src={dia.imagen} alt={dia.titulo} className="col-span-4 w-full rounded-lg h-full max-h-60 object-cover" />
                                     </div>
-                                    <div className="md:col-span-3 col-span-12 h-auto flex flex-col md:items-start items-center justify-center">
-                                        <img src={dia.imagen} alt={dia.titulo} className="w-full rounded-lg h-full max-h-60 object-cover" />
+                                    <div className="md:col-span-12 col-span-12 h-auto flex flex-col md:items-start">
+                                        <ParrafoContent className="text-JisaGris" contenido={dia.itinerario} />
                                     </div>
                                 </div>
                             </DisclosurePanel>
