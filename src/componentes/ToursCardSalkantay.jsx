@@ -14,7 +14,7 @@ import StarIcon from "../assets/icons/StarIcon"
 
 const ToursCardSalkantay = ({ title, image, location, description, price, dias, group, slug, resumen }) => {
   return (
-    <NavLink to={`/tours/${slug}`}>
+    // <NavLink to={`/tours/${slug}`}>
       <div className="group w-full flex flex-col bg-cover bg-center rounded-md shadow-lg relative overflow-hidden transition-all duration-300">
         <div
           className="group w-full h-64 flex flex-col bg-cover bg-center shadow-lg relative overflow-hidden transition-all duration-300"
@@ -74,7 +74,7 @@ const ToursCardSalkantay = ({ title, image, location, description, price, dias, 
           </div>
         </div>
       </div>
-    </NavLink>
+    // </NavLink>
 
   )
 }

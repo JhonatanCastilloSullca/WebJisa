@@ -66,8 +66,8 @@ const DestinosSection = ({ id, data }) => {
                             >
                                 {tours.map((tour, index) => (
                                     <SwiperSlide key={index}>
-                                        <div className="w-full md:h-full h-[440px] bg-red-200 rounded-2xl">
-                                            <img src={tour.imagen} alt={tour.nombre} className=" object-center w-full h-full object-cover rounded-2xl" />
+                                        <div className="w-full md:h-full h-[440px] rounded-2xl ">
+                                            <img src={tour.imagen} alt={tour.nombre} className="w-full h-full object-cover" />
                                         </div>
                                     </SwiperSlide>
                                 ))}

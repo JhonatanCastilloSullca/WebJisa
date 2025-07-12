@@ -10,7 +10,8 @@
   },
   "tours_destacados": {
     "title": "Featured tours",
-    "description": "Discover our most popular tours"
+    "description": "Discover our most popular tours",
+    "desde": "from"
   },
   "destion_section": {
     "destinos": "Destinations",

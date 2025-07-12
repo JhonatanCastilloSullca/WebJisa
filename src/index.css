@@ -115,24 +115,27 @@
 }
 
 
-.swiper-destino .swiper .swiper-button-next {
-  opacity: 0;
-}
 
-.swiper-button-prev {
+
+.swiper-button-prev,
+.swiper-button-next {
   background-color: #D9D9D9;
   border-radius: 100%;
   width: 50px !important;
   height: 50px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
 }
 
-.swiper-button-prev:after,
-.swiper-rtl .swiper-button-next:after {
+/* Flechas internas */
+.swiper-button-prev::after,
+.swiper-button-next::after {
   font-size: 15px !important;
   font-weight: bold !important;
-  color: black;
+  color: black !important;
 }
-
 .mySwiperVideo>.swiper-wrapper>.swiper-slide.swiper-slide-active {
   transform: scale(1.2);
 }
@@ -382,3 +385,4 @@ example:
   --rdp-accent-background-color: #f0f0f0; /* Change the accent background color. */
   /* Add more CSS variables here. */
 }
+

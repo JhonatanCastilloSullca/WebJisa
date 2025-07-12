@@ -10,7 +10,8 @@
   },
   "tours_destacados": {
     "title": "Passeios em destaque",
-    "description": "Descubra nossos passeios mais populares"
+    "description": "Descubra nossos passeios mais populares",
+    "desde": "de"
   },
   "destion_section": {
     "destinos": "Destinos",
