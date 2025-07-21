@@ -10,12 +10,14 @@ const FloatingContact = () => {
 
     return (
         <div className="fixed bottom-5 right-5 z-50">
-            <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="w-16 h-16 rounded-full bg-JisaGris text-white flex items-center justify-center shadow-lg"
+             <a
+                href="https://wa.me/51976294449"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-16 h-16 rounded-full bg-white text-gray-700 flex items-center justify-center shadow-md"
             >
-                <ContactIcon />
-            </button>
+                <WhatsappColorIcon size={35} />
+            </a>
             {isOpen && (
                 <div className="absolute bottom-20 right-0 flex flex-col space-y-3">
                     <a
@@ -27,7 +29,7 @@ const FloatingContact = () => {
                         <MailIcon size={25} />
                     </a>
                     <a
-                        href="https://wa.me/51926561020"
+                        href="https://wa.me/51976294449"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-16 h-16 rounded-full bg-white text-gray-700 flex items-center justify-center shadow-md"

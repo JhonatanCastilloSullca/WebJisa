@@ -78,7 +78,7 @@ function Footer() {
               <div className="flex flex-col gap-y-2">
                 <h4 className="font-semibold text-base">{t("footer.asesor_venta")}</h4>
                 <IconText icon={EnvelopeIcon} text="info@jisaadventure.com" />
-                <IconText icon={PhoneIcon} text="926 561 020" />
+                <IconText icon={PhoneIcon} text="976 294 449" />
               </div>
               <div className="flex flex-col gap-y-2">
                 <h4 className="font-semibold text-base">{t("footer.datos_informacion")}</h4>
