@@ -1,4 +1,3 @@
-
 import FacebookIcon from "../../assets/icons/FacebookIcon";
 import GoogleIcon from "../../assets/icons/GoogleIcon"
 import InstagramIcon from "../../assets/icons/InstagramIcon"
@@ -41,11 +40,14 @@ function Footer() {
           </div>
           <div className="md:col-span-4 col-span-12 p-4 text-white px-12">
             <h4 className="font-bold text-xl md:text-left text-center">Jisa Adventure</h4>
-            <div className="lista-menu-footer ps-4 py-2 md:">
-              <ul className="text-base font-normal text-center">
-                {/* <li>
-                  <a href="#">{t("footer.inicio")}</a>
+            <div className="lista-menu-footer ps-4 py-2">
+              <ul className="text-base font-normal text-center md:text-left">
+                {/*
+                <li>
+                  <a href="https://jisaadventure.com/" target="_blank" rel="noopener noreferrer">{t("footer.inicio")}</a>
                 </li>
+                */}
+                {/*
                 <li>
                   <a href="#">{t("footer.destinos")}</a>
                 </li>
@@ -58,18 +60,23 @@ function Footer() {
                 <li>
                   <a href="#">{t("footer.nuestro_blog")}</a> 
                 </li>
+                */}
+                {/*
                 <li>
                   <NavLink to={'/nosotros'}>{t("footer.sobre_nosotros")}</NavLink>
                 </li>
+                */}
                 <li>
                   <NavLink to={'/politicas-privacidad'}>{t("footer.politicas_reserva")}</NavLink>
                 </li>
                 <li>
                   <NavLink to={'/terminos-condiciones'}>{t("footer.terminos_condiciones")}</NavLink>
                 </li>
+                {/*
                 <li>
                   <NavLink to={'/preguntas-frecuentes'}>{t("footer.faq")}</NavLink>
-                </li> */}
+                </li>
+                */}
               </ul>
             </div>
           </div>
