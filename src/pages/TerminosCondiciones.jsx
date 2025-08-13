@@ -1,32 +1,63 @@
-import React from 'react'
-import HeroSectionMidle from '../componentes/HeroSectionMidle'
+import React, { useEffect, useState } from 'react';
+import HeroSectionMidle from '../componentes/HeroSectionMidle';
+import { useTranslation } from 'react-i18next';
+
+const API_URL = 'https://sistema.jisaadventure.com/api/terminos-condiciones';
 
 const TerminosCondiciones = () => {
-    return (
+    const { i18n, t } = useTranslation();
+    const [contenido, setContenido] = useState('');
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
+    // Determinar idiomaId según el idioma actual
+    const idiomaId = i18n.language === 'en' ? 2 : 1; // Ajusta según tus valores reales
+
+    useEffect(() => {
+        setLoading(true);
+        setError(null);
+        fetch(API_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `idiomaId=${idiomaId}`,
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data && data.data && data.data.text && data.data.text.rec_cancel1) {
+                    setContenido(data.data.text.rec_cancel1);
+                } else {
+                    setContenido('No se encontraron términos y condiciones.');
+                }
+                setLoading(false);
+            })
+            .catch((err) => {
+                setError('Error al cargar los términos y condiciones.');
+                setLoading(false);
+            });
+    }, [idiomaId]);
+
+    return (
         <>
             <HeroSectionMidle
                 backgroundImage='url("/agencia-de-viaje-cusco-jisaadventure.webp")'
-                title="TERMINOS Y CONDICIONES"
-                description={`La fundadora de Jisa Adventure, Felicia Acuña Salas, es una apasionada del turismo y amante de su país, Perú. Con una visión clara y determinación, decidió crear esta agencia para compartir la belleza y riqueza cultural de Perú con el mundo. Gracias a su experiencia como guía oficial de turismo, pudo diseñar experiencias únicas y auténticas para los viajeros que buscan descubrir la magia de Perú. `}
-                buttonText="Ver Tours"
+                title={t('terminos.titulo')}
+                description={t('terminos.descripcion')}
+                buttonText={t('terminos.boton')}
                 buttonLink="https://jisaadventure.com/"
             />
             <div className="w-full max-w-7xl mx-auto mt-24 mb-12">
                 <div className='contenido-text-testimonios'>
-                    <h3>Titulo</h3>
-                    <h4 >Subtitulo</h4>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum error et beatae laudantium aut deserunt similique voluptas assumenda consectetur totam. Omnis deserunt animi saepe placeat repellendus! Aliquid nemo deleniti quibusdam?
-                    </p>
-                    <h4 >Subtitulo</h4>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum error et beatae laudantium aut deserunt similique voluptas assumenda consectetur totam. Omnis deserunt animi saepe placeat repellendus! Aliquid nemo deleniti quibusdam?
-                    </p>
+                    {loading && <p>Cargando términos y condiciones...</p>}
+                    {error && <p className="text-red-600">{error}</p>}
+                    {!loading && !error && (
+                        <div dangerouslySetInnerHTML={{ __html: contenido }} />
+                    )}
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
-export default TerminosCondiciones
+export default TerminosCondiciones;

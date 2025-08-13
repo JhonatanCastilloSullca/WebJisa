@@ -1,40 +1,57 @@
 import { useTranslation } from "react-i18next";
 import { useCart } from "../contexts/CartContext";
+import React, { useState } from "react";
+import ModalReserva from "./ModalReserva";
+import FormularioReservaHTML from "./FormularioReservaHTML";
 
 const StickyReserva = ({ tour }) => {
+
     const { t } = useTranslation();
     const { addToCart } = useCart();
+    const [modalOpen, setModalOpen] = useState(false);
 
     const handleAddToCart = () => {
         addToCart(tour);
     };
+    const handleOpenModal = () => setModalOpen(true);
+    const handleCloseModal = () => setModalOpen(false);
 
 
     return (
-        <div className="w-full mx-auto bg-gray-50 fixed bottom-0 border-t-4 border-JisaCyan rounded-md z-40">
-            <div className="w-full max-w-7xl mx-auto flex justify-between px-7 py-3">
-                <div className="precios-reserva flex flex-col">
-                    <span className="font-medium text-lg text-JisaGris">{t('tours_detail.desde')}:</span>
-                    <div className="flex gap-x-2">
-                        <span className="font-black text-2xl text-JisaCyan">{tour.precio}</span>
-                        {tour.precio_regular && (
-                            <span className="font-bold text-2xl text-JisaCyan text-opacity-50 line-through">
-                                {tour.precio_regular}
-                            </span>
-                        )}
+        <>
+            <div className="w-full mx-auto bg-gray-50 fixed bottom-0 border-t-4 border-JisaCyan rounded-md z-40">
+                <div className="w-full max-w-7xl mx-auto flex justify-between px-7 py-3">
+                    <div className="precios-reserva flex flex-col">
+                        <span className="font-medium text-lg text-JisaGris">{t('tours_detail.desde')}:</span>
+                        <div className="flex gap-x-2">
+                            <span className="font-black text-2xl text-JisaCyan">{tour.precio}</span>
+                            {tour.precio_regular && (
+                                <span className="font-bold text-2xl text-JisaCyan text-opacity-50 line-through">
+                                    {tour.precio_regular}
+                                </span>
+                            )}
+                        </div>
+                        <span className="font-medium text-sm text-JisaCyan">{t('tours_detail.por_persona')}:</span>
                     </div>
-                    <span className="font-medium text-sm text-JisaCyan">{t('tours_detail.por_persona')}:</span>
-                </div>
-                <div className="botones-precios-reserva flex gap-x-4 justify-center items-center">
-                    <button onClick={handleAddToCart} className="uppercase px-4 py-2 bg-JisaGris text-white font-semibold text-xl rounded-md">
-                        {t('tours_detail.reservas_ahora')}
-                    </button>
-                    <a href="#" className="uppercase px-4 py-2 bg-JisaCyan text-white font-semibold text-xl rounded-md">
-                        {t('tours_detail.asesor_online')}
-                    </a>
+                    <div className="botones-precios-reserva flex gap-x-4 justify-center items-center">
+                        <button onClick={handleOpenModal} className="uppercase px-4 py-2 bg-JisaGris text-white font-semibold text-xl rounded-md">
+                            {t('tours_detail.reservas_ahora')}
+                        </button>
+                                                <a
+                                                    href="https://wa.me/51976294449"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="uppercase px-4 py-2 bg-JisaCyan text-white font-semibold text-xl rounded-md"
+                                                >
+                                                        {t('tours_detail.asesor_online')}
+                                                </a>
+                    </div>
                 </div>
             </div>
-        </div>
+            <ModalReserva isOpen={modalOpen} onClose={handleCloseModal}>
+                <FormularioReservaHTML onClose={handleCloseModal} />
+            </ModalReserva>
+        </>
     );
 };
 export default StickyReserva;
