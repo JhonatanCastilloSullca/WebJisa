@@ -81,7 +81,7 @@ function Header({ dataGeneral }) {
 
           <div className="  gap-x-1 bg-JisaCyan text-white hidden md:flex justify-center">
             <div className="md:max-w-5xl w-full flex  justify-end align-middle items-center py-[0.15rem]">
-              <IconText icon={WhatsappIcon} text={header.numero} enlace={`https://wa.me/51${header.numero.replace(/\s+/g, '')}`} />
+              <IconText icon={WhatsappIcon} text={`+51 ${header.numero}`} enlace={`https://wa.me/51${header.numero.replace(/\s+/g, '')}`} />
 
               {/* <IconText icon={HouseIcon} text={header.direccion} enlace={`https://wa.me/51${header.numero.replace(/\s+/g, '')}`} /> */}
 

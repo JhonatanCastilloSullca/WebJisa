@@ -22,10 +22,10 @@ function Hero({ id, data }) {
                         <SwiperSlide key={index}>
                             <HeroSection
                                 backgroundImage={img.enlace}
-                                title="LO MEJOR DE CUSCO ESTÁ ESPERÁNDOTE"
-                                description="Comenzaron las reservas para el Camino Inca 2025, separa tu espacio ahora y descubre Machu Picchu en una aventura inolvidable"
-                                buttonText="Ver Tours"
-                                buttonLink="https://jisaadventure.com/"
+                                title={img.titulo}
+                                description={img.descripcion}
+                                buttonText={img.text_boton}
+                                buttonLink={img.accion}
                             />
                         </SwiperSlide>
                     ))}

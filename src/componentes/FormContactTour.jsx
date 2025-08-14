@@ -1,16 +1,14 @@
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-
-const phoneCodes = [
-    { code: "+1", country: "EE.UU." },
-    { code: "+51", country: "Perú" },
-    { code: "+34", country: "España" },
-    { code: "+52", country: "México" },
-    { code: "+16", country: "Estado Unidos Americanos" },
-];
+import { useState } from 'react';
+import { PhoneInput } from 'react-international-phone';
+import 'react-international-phone/style.css';
 
 function FormContactTour() {
     const { t } = useTranslation()
+
+    const [phone, setPhone] = useState('');
+
     const {
         register,
         handleSubmit,
@@ -30,25 +28,11 @@ function FormContactTour() {
                 </span>
                 <div className="gap-2 grid grid-cols-12 ">
                     <div className="md:col-span-2 col-span-4">
-                        <select
-                            {...register("phoneCode", { required: "Selecciona un código de país" })}
+                        <PhoneInput
+                            defaultCountry="ua"
+                            value={phone}
+                            onChange={(phone) => setPhone(phone)}
                             className=" w-full px-3 py-2 border-b-2 border-JisaCyan rounded-md text-black/40 "
-
-                        >
-                            <option value="">{t("contact_section.form.code")}</option>
-                            {phoneCodes.map((item) => (
-                                <option key={item.code} value={item.code}>
-                                    {item.code} ({item.country})
-                                </option>
-                            ))}
-                        </select>
-                    </div>
-                    <div className="md:col-span-4 col-span-8">
-                        <input
-                            type="tel"
-                            placeholder={t("contact_section.form.telefono")}
-                            {...register("phone", { required: "El teléfono es obligatorio" })}
-                            className="w-full px-3 py-2 border-b-2  border-JisaCyan rounded-md"
                         />
                     </div>
 

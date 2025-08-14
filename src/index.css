@@ -114,7 +114,36 @@
   font-style: italic;
 }
 
+/* Quita fondo/borde/sombra del botón de la bandera */
+.phone-field .react-international-phone-country-selector-button{
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
 
+/* Elimina min-height del input que lo hace más alto */
+.phone-field .react-international-phone-input{
+  min-height: 0 !important;
+  height: 40px !important;        /* ajusta a tu input (py-2 ≈ 40px) */
+  padding: 0 !important;
+  line-height: 40px !important;    /* alinea el texto */
+}
+
+/* Ajusta la cajita contenedora del input (por si trae estilos) */
+.phone-field .react-international-phone-input-container{
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* Tamaño y alineación del emoji/bandera */
+.phone-field .react-international-phone-flag-emoji{
+  width: 20px !important;
+  height: 20px !important;
+  line-height: 20px !important;
+}
 
 
 .swiper-button-prev,
