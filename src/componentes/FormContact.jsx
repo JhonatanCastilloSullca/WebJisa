@@ -15,6 +15,12 @@ function FormContact() {
     defaultValues: { phone: "", name: "", email: "", message: "" },
   });
 
+  // const { run, data, isLoading, isError, error } = useApi({
+  //   endpoint: "contact",   // ej: POST /api/contact
+  //   method: "POST",
+  //   manual: true,          // clave para ejecutarlo solo en submit
+  // });
+
   const onSubmit = (data) => {
     console.log("Datos enviados:", data);
   };
@@ -23,7 +29,7 @@ function FormContact() {
     <div className="w-full rounded-xl">
       <form onSubmit={handleSubmit(onSubmit)} className="md:space-y-10 space-y-4">
         <div className="gap-2 grid grid-cols-12">
-          <div className="md:col-span-7 col-span-12">
+          <div className="md:col-span-4 col-span-12">
             <Controller
                 name="phone"
                 control={control}
@@ -47,7 +53,7 @@ function FormContact() {
             )}
           </div>
 
-          <div className="md:col-span-5 col-span-12">
+          <div className="md:col-span-8 col-span-12">
             <input
               type="text"
               placeholder={t("contact_section.form.nombre")}

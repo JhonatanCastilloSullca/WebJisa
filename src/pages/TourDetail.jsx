@@ -26,8 +26,8 @@ const TourDetail = () => {
 
     const tour = data.data.tour || [];
     const dias = tour.itinerarios.length;
-    const grupo = 12;
-    const recojo = "Hotel";
+    const grupo = tour.max_pax;
+    const recojo = tour.recojo;
 
 
     return (
