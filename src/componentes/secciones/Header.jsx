@@ -44,8 +44,8 @@ function Header({ dataGeneral }) {
 
   const languages = [
     { code: 'es', Icon: FlagPeru },
-    // { code: 'en', Icon: FlagEU },
-    // { code: 'br', Icon: FlagBr }
+    { code: 'en', Icon: FlagEU },
+    { code: 'br', Icon: FlagBr }
   ];
   const current = languages.find(l => l.code === i18n.language) || languages[0];
 
@@ -89,7 +89,7 @@ function Header({ dataGeneral }) {
 
               {/* <NavLink to="/blogs">
                 <IconText text="Blog" />
-              </NavLink> */}
+              </NavLink> 
 
               <div ref={ref} className="relative flex">
                 <button
@@ -115,7 +115,7 @@ function Header({ dataGeneral }) {
                     ))}
                   </div>
                 )}
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="md:max-w-5xl w-full mx-auto">
@@ -148,7 +148,7 @@ function Header({ dataGeneral }) {
                   </div>
 
                   <div className="section-menu  justify-center items-center md:w-auto w-full py-1 md:hidden flex gap-x-2">
-                    {/* <div>
+                    <div>
                       <NavLink
                         to="/carrito"
                         className="relative inline-flex items-center p-3 text-sm font-medium text-center md:text-JisaCyan text-JisaCyan"
@@ -160,21 +160,32 @@ function Header({ dataGeneral }) {
                           </div>
                         </div>
                       </NavLink>
-                    </div> */}
+                    </div>
 
-                    <div className="bg-white rounded shadow-lg border z-10 ">
-                      {languages.map(({ code, Icon }) => (
-                        <button
-                          key={code}
-                          onClick={() => {
-                            i18n.changeLanguage(code)
-                            setOpen(false)
-                          }}
-                          className="w-full hover:bg-gray-100 flex justify-center"
-                        >
-                          <Icon size={20} />
-                        </button>
-                      ))}
+                    <div ref={ref} className="relative flex">
+                      <button
+                        onClick={() => setOpen(open => !open)}
+                        className="focus:outline-none"
+                      >
+                        <current.Icon size={16} />
+                      </button>
+
+                      {open && (
+                        <div className="absolute right-0 bg-white rounded shadow-lg border z-10 ">
+                          {languages.map(({ code, Icon }) => (
+                            <button
+                              key={code}
+                              onClick={() => {
+                                i18n.changeLanguage(code)
+                                setOpen(false)
+                              }}
+                              className="w-full hover:bg-gray-100 flex justify-center"
+                            >
+                              <Icon size={16} />
+                            </button>
+                          ))}
+                        </div>
+                      )}
                     </div>
 
                     <button onClick={toggleMenu} className="text-JisaCyan md:hidden flex items-center">
