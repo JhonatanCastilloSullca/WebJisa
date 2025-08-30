@@ -28,7 +28,7 @@ export const CartProvider = ({ children }) => {
           id: tour.id,
           slug: tour.slug,
           titulo: tour.titulo,
-          imageUrl: tour.foto,
+          imageUrl: tour.foto_principal,
           resumen: tour.resumen,
           precio: tour.precio,
           fecha,

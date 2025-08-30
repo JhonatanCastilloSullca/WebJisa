@@ -24,34 +24,7 @@ import CardCartPasajero from '../componentes/CardCartPasajero'
 import CartWizard from '../componentes/CartWizard'
 
 const Cart = () => {
-    const tours = [
-        {
-            id: 1,
-            title: "Rainbow Mountain Vinicunca Tour (Group Service) Adulto",
-            location: "Montaña de Colores Palccoyo, Cusco",
-            image: "https://picsum.photos/690/390",
-            duration: 'Full day',
-            cantidad: 1,
-            difficulty: "Adventure",
-            groupSize: "12",
-            transport: "en su Hotel",
-            date: "14/03/2024",
-            precio: "199.00"
-        },
-        {
-            id: 2,
-            title: "Machu Picchu Full Day Tour",
-            location: "Machu Picchu, Cusco",
-            image: "https://picsum.photos/690/390",
-            duration: 'Full day',
-            cantidad: 2,
-            difficulty: "Trekking",
-            groupSize: "23",
-            transport: "Plaza de armas",
-            date: "16/03/2024",
-            precio: "199.00"
-        },
-    ];
+    
 
     const totalItems = tours.reduce((acc, tour) => acc + tour.cantidad, 0);
 
