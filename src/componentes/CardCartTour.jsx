@@ -15,13 +15,13 @@ const CardCartTour = ({ tour, cantidad, onCantidadChange, onRemove }) => {
             <div className="flex flex-col md:flex-row gap-4 w-full">
                 <div className="img-tour h-20 md:h-20 w-full md:w-32">
                     <img
-                        src={tour.imageUrl || "https://picsum.photos/690/390"}
+                        src={tour.imageUrl}
                         alt={tour.title}
                         className="w-full h-full object-cover rounded-md"
                     />
                 </div>
                 <div className="data-tour flex flex-col gap-y-2 w-full">
-                    <span className="font-semibold text-sm md:text-base text-JisaGris">{tour.title}</span>
+                    <span className="font-semibold text-sm md:text-base text-JisaGris">{tour.titulo}</span>
                     <div className="flex items-center text-JisaGrisTextGray gap-1">
                         <MapDotIcon size={14} />
                         <div className="md:text-sm text-xs">{tour.location}</div>

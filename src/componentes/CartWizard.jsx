@@ -7,6 +7,9 @@ const steps = ["Resumen de itinerario", "Información de pasajeros", "Proceso de
 
 export default function CartWizard({ tours, totalItems, subtotal, impuestos, totalPrice }) {
     const [currentStep, setCurrentStep] = useState(0);
+    const [contact, setContact] = useState({
+        name: "", last_name: "", email: "", phone: "", country_code: "PE"
+    });
 
     const handleNext = () => {
         if (currentStep < steps.length - 1) {
@@ -34,10 +37,16 @@ export default function CartWizard({ tours, totalItems, subtotal, impuestos, tot
         1: (
             <Step2Cart
                 totalItems={totalItems}
+                contact={contact}
+                setContact={setContact}
                 handleNext={handleNext}
             />
         ),
-        2: <Step3Cart />,
+        2: <Step3Cart 
+            totalUSD={Number(totalPrice)}
+            contact={contact}
+            onBack={handlePrev}
+        />,
     };
 
     return (

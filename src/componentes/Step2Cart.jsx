@@ -2,7 +2,8 @@ import React from 'react'
 import CardCartPasajero from './CardCartPasajero'
 import UserIcon from '../assets/icons/UserIcon'
 
-const Step2Cart = ({ totalItems, handleNext }) => {
+const Step2Cart = ({ totalItems, handleNext, contact, setContact }) => {
+    const onChange = (e) => setContact(prev => ({ ...prev, [e.target.name]: e.target.value }));
     return (
         <div className="Step2 w-full max-w-7xl mx-auto mb-12 px-4 md:px-0">
             <div className="grid grid-cols-12 gap-4">
@@ -29,35 +30,24 @@ const Step2Cart = ({ totalItems, handleNext }) => {
                         <div className="formulario grid grid-cols-12 gap-4">
                             <div className="col-span-6 md:col-span-4">
                                 <label className="font-medium md:text-sm text-xs text-JisaGris">Nombre</label>
-                                <input type="text" className="h-10 w-full rounded-md" />
+                                <input name="name" value={contact.name} onChange={onChange} type="text" className="h-10 w-full rounded-md" />
                             </div>
                             <div className="col-span-6 md:col-span-4">
                                 <label className="font-medium md:text-sm text-xs text-JisaGris">Apellidos</label>
-                                <input type="text" className="h-10 w-full rounded-md" />
+                                <input name="last_name" value={contact.last_name} onChange={onChange} type="text" className="h-10 w-full rounded-md" />
                             </div>
-                            <div className="col-span-6 md:col-span-2">
-                                <label className="font-medium md:text-sm text-xs text-JisaGris">Género</label>
-                                <input type="text" className="h-10 w-full rounded-md" />
-                            </div>
-                            <div className="col-span-6 md:col-span-2">
-                                <label className="font-medium md:text-sm text-xs text-JisaGris">Tipo de documento</label>
-                                <input type="text" className="h-10 w-full rounded-md" />
-                            </div>
+                            {/* Puedes cambiar “País” a ISO-2 (US, FR, BR...) */}
                             <div className="col-span-6 md:col-span-3">
-                                <label className="font-medium md:text-sm text-xs text-JisaGris">N° Documento</label>
-                                <input type="text" className="h-10 w-full rounded-md" />
-                            </div>
-                            <div className="col-span-6 md:col-span-3">
-                                <label className="font-medium md:text-sm text-xs text-JisaGris">País</label>
-                                <input type="text" className="h-10 w-full rounded-md" />
+                                <label className="font-medium md:text-sm text-xs text-JisaGris">País (ISO-2)</label>
+                                <input name="country_code" value={contact.country_code} onChange={onChange} placeholder="PE" className="h-10 w-full rounded-md" />
                             </div>
                             <div className="col-span-6 md:col-span-3">
                                 <label className="font-medium md:text-sm text-xs text-JisaGris">Email</label>
-                                <input type="text" className="h-10 w-full rounded-md" />
+                                <input name="email" value={contact.email} onChange={onChange} type="email" className="h-10 w-full rounded-md" />
                             </div>
                             <div className="col-span-6 md:col-span-3">
-                                <label className="font-medium md:text-sm text-xs text-JisaGris">Nacimiento</label>
-                                <input type="text" className="h-10 w-full rounded-md" />
+                                <label className="font-medium md:text-sm text-xs text-JisaGris">Teléfono</label>
+                                <input name="phone" value={contact.phone} onChange={onChange} className="h-10 w-full rounded-md" />
                             </div>
                         </div>
                     </div>

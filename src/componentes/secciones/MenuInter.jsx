@@ -26,7 +26,7 @@ function MenuIntern({ dataGeneral, menuOpen, menu = [] }) {
               className="bg-JisaCyan text-white rounded-xl text-center flex px-6 md:font-medium font-bold md:text-sm text-xl py-1 items-center place-self-center self-center"
             >
               {header.boton_accion}
-            </NavLink>
+            </NavLink>*/}
             <NavLink
               to="/carrito"
               className="relative inline-flex items-center p-3 text-sm font-medium text-center md:text-JisaCyan text-JisaCyan"
@@ -37,7 +37,7 @@ function MenuIntern({ dataGeneral, menuOpen, menu = [] }) {
                   {cartItems.length}
                 </div>
               </div>
-            </NavLink> */}
+            </NavLink>
           </div>
         </nav>
       </div>

@@ -6,7 +6,7 @@ const CardCartPasajero = ({ index }) => {
         <div className="cardCartPasajero md:px-12">
             <div className="md:flex md:justify-between">
                 <h5 className="text-JisaCyan font-semibold md:text-2xl text-sm">
-                    Información del pasajero n° {index + 1}
+                    Información del pasajero N° {index + 1}
                 </h5>
                 <div className="flex gap-x-2">
                     <span className="text-JisaVerde font-semibold md:text-lg text-sm">Pasajero de contacto</span>
