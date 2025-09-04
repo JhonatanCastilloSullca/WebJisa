@@ -97,11 +97,27 @@ export default function Step3Cart({ totalUSD, contact, onBack }) {
 
           <form id="payment-form" onSubmit={handlePay} className="space-y-3">
             <input data-openpay-card="holder_name" placeholder="Titular" required className="h-10 w-full rounded-md px-3" />
-            <input data-openpay-card="card_number" placeholder="Número de tarjeta" required className="h-10 w-full rounded-md px-3" />
+            <input data-openpay-card="card_number" placeholder="Número de tarjeta" required className="h-10 w-full rounded-md px-3" inputMode="numeric" pattern="[0-9]*" maxLength={16}
+              onInput={(e) => {
+                e.target.value = e.target.value.replace(/\D/g, '');
+              }}
+            />
             <div className="grid grid-cols-3 gap-3">
-              <input data-openpay-card="expiration_month" placeholder="MM" required className="h-10 w-full rounded-md px-3" />
-              <input data-openpay-card="expiration_year"  placeholder="YY" required className="h-10 w-full rounded-md px-3" />
-              <input data-openpay-card="cvv2"             placeholder="CVV" required className="h-10 w-full rounded-md px-3" />
+              <input data-openpay-card="expiration_month" placeholder="MM" required className="h-10 w-full rounded-md px-3" inputMode="numeric" pattern="[0-9]*" maxLength={2}
+                onInput={(e) => {
+                  e.target.value = e.target.value.replace(/\D/g, '');
+                }}
+              />
+              <input data-openpay-card="expiration_year"  placeholder="YY" required className="h-10 w-full rounded-md px-3" inputMode="numeric" pattern="[0-9]*" maxLength={2}
+                onInput={(e) => {
+                  e.target.value = e.target.value.replace(/\D/g, '');
+                }}
+              />
+              <input data-openpay-card="cvv2"             placeholder="CVV" required className="h-10 w-full rounded-md px-3" inputMode="numeric" pattern="[0-9]*" maxLength={4} // algunos CVV son de 3 y otros de 4 dígitos
+                onInput={(e) => {
+                  e.target.value = e.target.value.replace(/\D/g, '');
+                }}
+              />
             </div>
 
             <input type="hidden" name="deviceIdHiddenFieldName" />
@@ -111,7 +127,7 @@ export default function Step3Cart({ totalUSD, contact, onBack }) {
               <span className="font-bold text-JisaGris">US$ {Number(totalUSD).toFixed(2)}</span>
             </div>
 
-            {error && <p className="text-red-600 text-sm">{error}</p>}
+            {error && <p className="text-red-600 text-sm">Compra Rechazada</p>}
 
             <div className="flex gap-3">
               <button type="button" onClick={onBack} className="bg-gray-200 text-gray-700 rounded-xl px-5 py-2">Atrás</button>

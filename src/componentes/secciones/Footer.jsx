@@ -40,7 +40,7 @@ function Footer() {
             </div>
           </div>
           <div className="md:col-span-4 col-span-12 p-4 text-white px-12">
-            <h4 className="font-bold text-xl md:text-left text-center">Jisa Adventure</h4>
+            <h4 className="font-bold text-xl text-center">Jisa Adventure</h4>
             <div className="lista-menu-footer ps-4 py-2 md:">
               <ul className="text-base font-normal text-center">
                 {/* <li>
@@ -60,14 +60,14 @@ function Footer() {
                 </li>
                 <li>
                   <NavLink to={'/nosotros'}>{t("footer.sobre_nosotros")}</NavLink>
-                </li>
+                </li> */}
                 <li>
                   <NavLink to={'/politicas-privacidad'}>{t("footer.politicas_reserva")}</NavLink>
                 </li>
                 <li>
                   <NavLink to={'/terminos-condiciones'}>{t("footer.terminos_condiciones")}</NavLink>
                 </li>
-                <li>
+                {/*<li>
                   <NavLink to={'/preguntas-frecuentes'}>{t("footer.faq")}</NavLink>
                 </li> */}
               </ul>

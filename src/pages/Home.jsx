@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react"
 import SearchBar from "../componentes/SearchBar"
 import Hero from "../componentes/secciones/Hero"
 import AboutSection from "../componentes/secciones/AboutSection"
@@ -18,15 +19,17 @@ function Home({ dataGeneral }) {
             {/* <FloatingMenu page="home" /> */}
             <Hero id="hero" data={dataGeneral.slider} />
             <SearchBar id="search" data={dataGeneral.tours} />
-            <AboutSection id="about" data={dataGeneral.nosotros} />
-            <PackageSection id="packages" data={dataGeneral.paquetes} tipo="1" />
-            <DestinosSection id="destinos" data={dataGeneral.destinos} />
-            <PackageSection id="tours" data={dataGeneral.toursPrincipales} tipo="0" />
-            <PromocionSection id="promociones" data={dataGeneral.destinos} />
-            <ContactSection id="contacto" data={dataGeneral.destinos} />
-            <BlogSection id="blog" data={dataGeneral.blogs} />
-            <TestimoniosSection id="testimonios" data={dataGeneral.tripadvisors} google={dataGeneral.googles} />
-            <MarcasSection id="marcas" data={dataGeneral.destinos} />
+            <Suspense>
+                <AboutSection id="about" data={dataGeneral.nosotros} />
+                <PackageSection id="packages" data={dataGeneral.paquetes} tipo="1" />
+                <DestinosSection id="destinos" data={dataGeneral.destinos} />
+                <PackageSection id="tours" data={dataGeneral.toursPrincipales} tipo="0" />
+                <PromocionSection id="promociones" data={dataGeneral.destinos} />
+                <ContactSection id="contacto" data={dataGeneral.destinos} />
+                <BlogSection id="blog" data={dataGeneral.blogs} />
+                <TestimoniosSection id="testimonios" data={dataGeneral.tripadvisors} google={dataGeneral.googles} />
+                <MarcasSection id="marcas" data={dataGeneral.destinos} />
+            </Suspense>
         </>
     );
 };
