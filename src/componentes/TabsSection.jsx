@@ -61,7 +61,7 @@ const TabsSection = ({ tour, dias }) => {
               </TabPanels>
               {/* <MiniGallerySection galeria={tour.galeria} /> */}
             </div>
-            <BookNowSection />
+            <BookNowSection tour={tour}/>
           </div>
         </div>
       </TabGroup>
