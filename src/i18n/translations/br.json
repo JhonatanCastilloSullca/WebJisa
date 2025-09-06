@@ -60,6 +60,8 @@
     "paquetes_disponibles": "Pacotes Disponíveis"
   },
   "tours_detail": {
+    "ver_carrito": "Ver carrinho",
+    "agregado_exitoso": "Adicionado ao carrinho com sucesso",
     "desde": "A partir de",
     "por_persona": "Por pessoa",
     "reservas_ahora": "Reserve agora",
