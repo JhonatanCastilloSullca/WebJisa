@@ -20,7 +20,7 @@ const TestimoniosSection = ({ id, data, google }) => {
     return (
         <div id={id} className="w-full max-w-7xl mx-auto ">
             <div className="flex-col justify-center flex items-center py-10">
-                <HeaderTitle title={t("trip_section.titulo")} />
+                <HeaderTitle title={t("trip_section.titulo")} etiqueta="h2"/>
                 <SubHeaderTitle title={t("trip_section.subtitulo")} />
                 <SeparatorBarHorizontal />
             </div>
