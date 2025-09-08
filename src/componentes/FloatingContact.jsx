@@ -44,7 +44,7 @@ const FloatingContact = () => {
     ? `👉 Hola 👋, estuve navegando en la web 🌎 y me gustaría recibir información personalizada de ${originTag} ✅`
     : `👉 Hola 👋, estuve navegando en la web 🌎 y me gustaría recibir información ✅`;
 
-  const wppLink = buildWppLink("51982733597", message);
+  const wppLink = buildWppLink("51976294449", message);
 
     return (
         <div className="fixed bottom-5 right-5 z-50">
