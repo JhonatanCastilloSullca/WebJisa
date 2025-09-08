@@ -4,7 +4,7 @@ const PoliticaPrivacidad = () => {
   return (
     <>
       <HeroSectionMidle
-        backgroundImage='url("/agencia-de-viaje-cusco-jisaadventure.webp")'
+        backgroundImage='/agencia-de-viaje-cusco-jisaadventure.webp'
         title="POLÍTICA DE PRIVACIDAD Y SEGURIDAD DE LA INFORMACIÓN"
         description={`Jisa Adventure trata datos personales conforme a la Ley N.º 29733 y su Reglamento. Aquí detallamos finalidades, base legal, seguridad, arquitectura de pagos con Openpay (PCI DSS) y tus derechos ARCO.`}
         buttonText="Ver Tours"
