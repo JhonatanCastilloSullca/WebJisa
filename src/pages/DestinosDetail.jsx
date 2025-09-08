@@ -14,11 +14,11 @@ const idiomaMap = { es: 1, en: 2, br: 3 }
 const DestinosDetail = () => {
 
   const { t } = useTranslation()
-  const { slug } = useParams();
+  const { ubicacion } = useParams();
 
   const idiomaId = idiomaMap[t.language] || 1
 
-  const { data, isLoading, isError, error } = useApi({ endpoint: 'destinos', method: 'POST', body: { idioma_id: idiomaId, slug: slug, }, });
+  const { data, isLoading, isError, error } = useApi({ endpoint: 'destinos', method: 'POST', body: { idioma_id: idiomaId, slug: ubicacion, }, });
 
   if (isLoading) return <p className="text-center py-10">Cargando layout...</p>;
   if (isError) return <p className="text-center text-red-500 py-10">Error: {error.message}</p>;

@@ -15,6 +15,7 @@ const idiomaMap = { es: 1, en: 2, br: 3 }
 const TourDetail = () => {
     const { t } = useTranslation()
     const { slug } = useParams();
+    const { ubicacion } = useParams();
 
     const idiomaId = idiomaMap[t.language] || 1
 

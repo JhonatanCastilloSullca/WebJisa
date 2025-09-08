@@ -45,6 +45,8 @@ const PackageSection = ({ id, data, tipo }) => {
                                     dias={tour.itinerarios_count}
                                     group={'Min 4'}
                                     slug={tour.slug}
+                                    tipo={tour.tipo}
+                                    category={tour.ubicaciones[0].slug}
                                 />
                             </SwiperSlide>
                         ))}
@@ -63,6 +65,8 @@ const PackageSection = ({ id, data, tipo }) => {
                                     dias={tour.itinerarios_count}
                                     group={'Min 4'}
                                     slug={tour.slug}
+                                    tipo={tour.tipo}
+                                    category={tour.ubicaciones[0].slug}
                                 />
                             </RowNumber>
                         ))}

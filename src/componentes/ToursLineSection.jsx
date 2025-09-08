@@ -18,6 +18,7 @@ const ToursLineSection = ({ tours }) => {
                         dias="7"
                         group={'Min 4'}
                         slug={tour.slug}
+                        category={tour.ubicaciones[0].slug}
                     />
                 </RowNumber>
             ))}

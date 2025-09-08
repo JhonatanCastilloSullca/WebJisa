@@ -38,18 +38,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout dataGeneral={data.data} />}>
             <Route index element={<Home dataGeneral={data.data} />} />
-            <Route path="tours" element={<Tours />} />
-            <Route path="tours/:slug" element={<TourDetail />} />
+            <Route path="tours/:ubicacion" element={<DestinosDetail />} />
+            <Route path="tours/:ubicacion/:slug" element={<TourDetail />} />
             <Route path="blogs" element={<Blogs />} />
             <Route path="blogs/:slug" element={<BlogDetail />} />
-            <Route path="paquetes" element={<Paquetes />} />
-            <Route path="paquetes/:slug" element={<PaqueteDetail />} />
-            <Route path="destinos/:slug" element={<DestinosDetail />} />
-            <Route path="landing/:slug" element={<LandingDetail />} />
-            <Route path="nosotros" element={<Nosotros />} />
+            <Route path="paquetes/:ubicacion" element={<DestinosDetail />} />
+            <Route path="paquetes/:ubicacion/:slug" element={<TourDetail />} />
             <Route path="terminos-condiciones" element={<TerminosCondiciones />} />
             <Route path="politicas-privacidad" element={<PoliticaPrivacidad />} />
-            <Route path="preguntas-frecuentes" element={<PreguntasFrecuentes />} />
             <Route path="carrito" element={<Cart />} />
             <Route path="*" element={<NotFound />} />
           </Route>
