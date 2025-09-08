@@ -20,7 +20,7 @@ const HeroSection = ({
             <div className="relative z-10 max-w-[1440px] w-full flex flex-col">
                 <div className="grid grid-cols-5 gap-4">
                     <div className="md:col-span-3 col-span-5 flex flex-col md:items-start items-center">
-                        <h1 className="md:text-7xl text-5xl md:w-full  md:text-left text-center font-bold mb-4">{title}</h1>
+                        <span className="md:text-7xl text-5xl md:w-full  md:text-left text-center font-bold mb-4">{title}</span>
                         <p className="text-xl mb-6 w-full md:text-left text-center md:pe-72">{description}</p>
                         {/* {buttonText && buttonLink && (
                             <a

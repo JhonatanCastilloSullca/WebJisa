@@ -11,9 +11,9 @@ export default function TripadvisorReview({ review }) {
                     className="w-12 h-12 rounded-full object-cover"
                 />
                 <div>
-                    <h3 className="font-semibold text-gray-900 ">
+                    <span className="font-semibold text-gray-900 ">
                         {review.nombre}
-                    </h3>
+                    </span>
                     <p className="text-sm text-JisaGris ">
                         {review.contribuciones}
                     </p>
