@@ -145,6 +145,37 @@
   line-height: 20px !important;
 }
 
+/* Día inicial: azul sólido */
+.rdp .rdp-day_range_start {
+  background-color: #0f9690 !important; /* tu color */
+  color: #fff !important;
+  border-radius: .5rem;
+}
+
+/* Intermedios: sombra */
+.rdp .rdp-day_range_middle {
+  background-color: rgba(15,150,144,.12) !important;
+  color: #111827 !important;
+  border-radius: .5rem;
+}
+
+/* Día final: FORZAR que se vea como intermedio */
+.rdp .rdp-day_range_end,
+.rdp .rdp-day_range_end.rdp-day_selected,
+.rdp .rdp-day_selected.rdp-day_range_end {
+  background-color: rgba(15,150,144,.12) !important; /* igual que intermedio */
+  color: #111827 !important;
+  border-radius: .5rem;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Neutralizar focus visible (el aro azul de accesibilidad) */
+.rdp .rdp-day:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
 
 .swiper-button-prev,
 .swiper-button-next {

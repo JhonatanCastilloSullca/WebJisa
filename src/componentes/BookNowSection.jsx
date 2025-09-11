@@ -41,6 +41,10 @@ const BookNowSection = ({ tour }) => {
     const dec = () => onCantidadChange(cantidad - 1);
     const inc = () => onCantidadChange(cantidad + 1);
 
+    const [fecha, setFecha] = useState({ start: "", end: "" });
+
+    const duracionDias = Math.max(1, tour?.itinerarios?.length ?? 1)
+
     return (
         <div className="md:col-span-4 col-span-12 h-auto flex flex-col md:items-start items-center justify-center align-middle ">
             <div className="w-full">
@@ -53,7 +57,11 @@ const BookNowSection = ({ tour }) => {
                     <span className="font-bold text-2xl" >USD $ { total }</span>
                 </div>
                 <div className="border-2 border-JisaGrisTextGray/10 bg-white rounded-b-md flex flex-col pb-2">
-                    <DateRangePicker />
+                    <DateRangePicker
+                        fixedDays={duracionDias}
+                        value={fecha}
+                        onChange={setFecha}
+                    />
                     <span className="font-semibold text-lg text-JisaCyan text-center">{t("tours_detail.cantidad_pasajeros")}</span>
                     <div className="flex p-2 justify-center">
                         <button onClick={dec} className=" font-bold text-JisaGris text-3xl px-4">

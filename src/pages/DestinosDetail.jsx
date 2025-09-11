@@ -9,6 +9,7 @@ import SeparatorBarHorizontal from '../componentes/SeparatorBarHorizontal'
 import JisaTitleContentCyan from '../componentes/layout/JisaTitleContentCyan'
 import HeaderTitle from '../componentes/layout/HeaderTitle'
 import SubHeaderTitle from '../componentes/layout/SubHeaderTitle'
+import SEO from "../componentes/seo";
 
 const idiomaMap = { es: 1, en: 2, br: 3 }
 const DestinosDetail = () => {
@@ -32,6 +33,15 @@ const DestinosDetail = () => {
 
   return (
     <>
+      <SEO
+          title={destino.title}
+          description={destino.description}
+          robots={destino.robots}
+          type="article"
+          siteName="Jisa Adventure"
+          canonical={destino.canonical}
+          keywords={destino.canonical}
+      />
       <HeroSectionMidle
         backgroundImage={destino.imagen}
         title={destino.nombre}

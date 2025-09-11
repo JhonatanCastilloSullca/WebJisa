@@ -29,15 +29,15 @@ const FloatingContact = () => {
     const location = useLocation();
 
     const { originTag, isDetail } = useMemo(() => {
-    const parts = location.pathname.split("/").filter(Boolean);
-    if (parts[0] === "tours" && parts.length >= 3) {
-      return { originTag: toTitle(parts[2]), isDetail: true };
-    }
-    if (parts[0] === "paquetes" && parts.length >= 3) {
-      return { originTag: toTitle(parts[2]), isDetail: true };
-    }
-    return { originTag: "", isDetail: false };
-  }, [location.pathname]);
+      const parts = location.pathname.split("/").filter(Boolean);
+      if (parts[0] === "tours" && parts.length >= 3) {
+        return { originTag: toTitle(parts[2]), isDetail: true };
+      }
+      if (parts[0] === "paquetes" && parts.length >= 3) {
+        return { originTag: toTitle(parts[2]), isDetail: true };
+      }
+        return { originTag: "", isDetail: false };
+    }, [location.pathname]);
 
   // Usa 1 emoji confiable para evitar � en la vista previa
   const message = isDetail

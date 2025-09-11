@@ -26,53 +26,49 @@ const CardCartTour = ({ tour, cantidad, onCantidadChange, onRemove }) => {
                         <MapDotIcon size={14} />
                         <div className="md:text-sm text-xs">{tour.location}</div>
                     </div>
-                    <div className="md:flex md:justify-between">
-                        <div className="flex flex-col sm:flex-row gap-y-4 sm:gap-y-0 sm:gap-x-6 py-2">
-                            <div className="flex md:flex-col gap-3 text-JisaAmarillo w-full sm:flex-1">
-                                <IconCategoria
-                                    icon={ClockIcon}
-                                    title="Duración"
-                                    subtitle={tour.duration}
-                                    tamaño={20}
-                                    tamañotitulo="text-base"
-                                />
-                                <IconCategoria
-                                    icon={MountainHikIcon}
-                                    title="Dificultad"
-                                    subtitle={tour.difficulty}
-                                    tamaño={20}
-                                    tamañotitulo="text-base"
-                                />
-                            </div>
-
-                            <div className="flex md:flex-col gap-3 text-JisaAmarillo w-full sm:flex-1">
-                                <IconCategoria
-                                    icon={GroupUsers}
-                                    title="Grupo"
-                                    subtitle={`${tour.groupSize} Personas`}
-                                    tamaño={20}
-                                    tamañotitulo="text-base"
-                                />
-                                <IconCategoria
-                                    icon={BuIcon}
-                                    title="Transporte"
-                                    subtitle={tour.transport}
-                                    tamaño={20}
-                                    tamañotitulo="text-base"
-                                />
-                            </div>
-
-                            <div className="flex md:flex-col gap-3 text-JisaAmarillo w-full sm:flex-1">
-                                <IconCategoria
-                                    icon={CalendarIcon}
-                                    title="Fecha"
-                                    subtitle={tour.date}
-                                    tamaño={20}
-                                    tamañotitulo="text-base"
+                    <div className="flex flex-col w-full">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-2 text-JisaAmarillo">
+                            <IconCategoria
+                            icon={ClockIcon}
+                            title="Duración"
+                            subtitle={tour.duration}
+                            tamaño={20}
+                            tamañotitulo="text-base"
+                            />
+                            <IconCategoria
+                            icon={MountainHikIcon}
+                            title="Dificultad"
+                            subtitle={tour.difficulty}
+                            tamaño={20}
+                            tamañotitulo="text-base"
+                            />
+                            <IconCategoria
+                            icon={GroupUsers}
+                            title="Grupo"
+                            subtitle={`${tour.groupSize} Personas`}
+                            tamaño={20}
+                            tamañotitulo="text-base"
+                            />
+                            <IconCategoria
+                            icon={BuIcon}
+                            title="Transporte"
+                            subtitle={tour.transport}
+                            tamaño={20}
+                            tamañotitulo="text-base"
+                            />
+                        </div>
+                    </div>
+                    <div className="flex flex-col md:flex-row gap-6 mt-4">
+                        <div className="cantidad-tour flex flex-col items-center">
+                            <span className="font-semibold text-sm text-JisaCyan">Cantidad de pasajeros</span>
+                            <div className="flex items-center gap-2 p-2">
+                                <input
+                                    type="date"
+                                    value={tour.date}
+                                    className="text-JisaGrisTextGray text-lg w-50 rounded-sm text-center border border-JisaGrisTextGray/30 bg-white"
                                 />
                             </div>
                         </div>
-
                         <div className="cantidad-tour flex flex-col justify-center md:items-start sm:items-center items-center">
                             <span className="font-semibold text-sm text-JisaCyan">Cantidad de pasajeros</span>
                             <div className="flex items-center gap-2 p-2">

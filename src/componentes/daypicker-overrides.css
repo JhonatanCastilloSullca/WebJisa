@@ -1,0 +1,45 @@
+/* ====== Restaurar grilla (a prueba de otras hojas de estilo) ====== */
+.rdp table { width: 100%; table-layout: fixed; border-collapse: separate; border-spacing: 0; }
+.rdp thead tr, .rdp tbody tr { display: table-row !important; }
+.rdp th, .rdp td { display: table-cell !important; padding: 0; vertical-align: middle; margin: 0; }
+
+/* Cada día: cuadrado y centrado (sin romper la grilla) */
+.rdp .rdp-day {
+  width: 38px;
+  height: 38px;
+  display: grid;              /* centrado perfecto */
+  place-items: center;
+  padding: 0 !important;
+  margin: 0;                  /* evita empujar a la derecha */
+  box-sizing: border-box;
+}
+
+/* ====== Estilos del rango ====== */
+/* Inicio: azul lleno, texto blanco, esquinas suaves (oval leve) */
+.rdp .is-start,
+.rdp .rdp-day_selected.is-start {           /* por si selected cae en start */
+  background-color: #0f9690 !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;            /* ligeramente bordeado */
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Intermedios + fin: franja plana (sin bordes redondeados) */
+.rdp .as-middle,
+.rdp .rdp-day_selected:not(.is-start) {
+  background-color: rgba(15,150,144,.12) !important;
+  color: #111827 !important;
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Quitar cualquier aro de focus que pueda aparecer */
+.rdp .rdp-day:focus,
+.rdp .rdp-day:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
