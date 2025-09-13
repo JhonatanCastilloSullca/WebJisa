@@ -4,22 +4,29 @@ import CartWizard from "../componentes/CartWizard";
 const Cart = () => {
     const { cartItems } = useCart();
 
-    const totalItems = cartItems.reduce((acc, tour) => acc + tour.cantidad, 0);
+    const itemsCount = cartItems.length;
 
-    const subtotal = cartItems.reduce(
-        (acc, tour) => acc + tour.cantidad * parseFloat(tour.precio),
+    const passengerForms = cartItems.length
+    ? cartItems.reduce((max, tour) => Math.max(max, Number(tour.cantidad || 0)), 0)
+    : 0;
+
+    const subtotalNum = cartItems.reduce(
+        (acc, tour) => acc + Number(tour.cantidad || 0) * Number(tour.precio || 0),
         0
-    ).toFixed(2);
+    );
+    const impuestosNum = subtotalNum * 0.06;
+    const totalNum = subtotalNum + impuestosNum;
 
-    const impuestos = (subtotal * 0.18).toFixed(2);
-
-    const totalPrice = (parseFloat(subtotal) + parseFloat(impuestos)).toFixed(2);
+    const subtotal = subtotalNum.toFixed(2);
+    const impuestos = impuestosNum.toFixed(2);
+    const totalPrice = totalNum.toFixed(2);
 
     return (
         <div className="relative inset-1 w-full max-w-7xl mx-auto md:mt-48 mb-12 py-4">
             <CartWizard
                 tours={cartItems}
-                totalItems={totalItems}
+                itemsCount={itemsCount} 
+                totalItems={passengerForms}
                 subtotal={subtotal}
                 impuestos={impuestos}
                 totalPrice={totalPrice}

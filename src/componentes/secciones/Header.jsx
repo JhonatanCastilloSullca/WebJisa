@@ -154,10 +154,12 @@ function Header({ dataGeneral }) {
                         className="relative inline-flex items-center p-3 text-sm font-medium text-center md:text-JisaCyan text-JisaCyan"
                       >
                         <div className="relative w-4">
-                          <CartIcon size={16} />
-                          <div className="absolute -right-4  inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-4 -end-2">
-                            {cartItems.length}
-                          </div>
+                          <CartIcon size={20} />
+                          {cartItems.length > 0 && (
+                            <span className="absolute -top-2 -right-2 flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-red-500 rounded-full">
+                              {cartItems.length}
+                            </span>
+                          )}
                         </div>
                       </NavLink>
                     </div>

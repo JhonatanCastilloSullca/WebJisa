@@ -11,7 +11,7 @@ const IconCategoria = ({ icon: Icon, title, subtitle, tamaño = 40, tamañoMobil
                 </div>
                 <div className="flex flex-col">
                     <span className={`font-bold ${tamañotitulo}`}>{title}</span>
-                    <span className="font-light text-xs text-JisaGris">{subtitle} </span>
+                    <span className="font-bold text-sm text-JisaGris">{subtitle} </span>
                 </div>
             </div>
         </>

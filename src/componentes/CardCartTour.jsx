@@ -8,8 +8,10 @@ import BuIcon from '../assets/icons/BuIcon'
 import CalendarIcon from '../assets/icons/CalendarIcon'
 import TrashIcon from '../assets/icons/TrashIcon'
 import SeparatorBar from './SeparatorBar'
+import DollarIcon from '../assets/icons/DollarIcon'
 
 const CardCartTour = ({ tour, cantidad, onCantidadChange, onRemove }) => {
+    const subtotal = (tour.precio * cantidad).toFixed(2);
     return (
         <div className="card-tour relative p-4 border rounded-md shadow-md">
             <div className="flex flex-col md:flex-row gap-4 w-full">
@@ -33,53 +35,61 @@ const CardCartTour = ({ tour, cantidad, onCantidadChange, onRemove }) => {
                             title="Duración"
                             subtitle={tour.duration}
                             tamaño={20}
-                            tamañotitulo="text-base"
+                            tamañotitulo="text-lg"
                             />
                             <IconCategoria
                             icon={MountainHikIcon}
                             title="Dificultad"
                             subtitle={tour.difficulty}
                             tamaño={20}
-                            tamañotitulo="text-base"
+                            tamañotitulo="text-lg"
                             />
                             <IconCategoria
-                            icon={GroupUsers}
-                            title="Grupo"
-                            subtitle={`${tour.groupSize} Personas`}
+                            icon={DollarIcon}
+                            title="Precio Unit."
+                            subtitle={`USD $ ${tour.precio}`}
                             tamaño={20}
-                            tamañotitulo="text-base"
+                            tamañotitulo="text-lg"
                             />
                             <IconCategoria
-                            icon={BuIcon}
-                            title="Transporte"
-                            subtitle={tour.transport}
+                            icon={DollarIcon}
+                            title="Sub Total"
+                            subtitle={`USD $ ${subtotal}`}
                             tamaño={20}
-                            tamañotitulo="text-base"
+                            tamañotitulo="text-lg"
                             />
                         </div>
                     </div>
-                    <div className="flex flex-col md:flex-row gap-6 mt-4">
-                        <div className="cantidad-tour flex flex-col items-center">
-                            <span className="font-semibold text-sm text-JisaCyan">Cantidad de pasajeros</span>
-                            <div className="flex items-center gap-2 p-2">
-                                <input
-                                    type="date"
-                                    value={tour.date}
-                                    className="text-JisaGrisTextGray text-lg w-50 rounded-sm text-center border border-JisaGrisTextGray/30 bg-white"
-                                />
-                            </div>
-                        </div>
-                        <div className="cantidad-tour flex flex-col justify-center md:items-start sm:items-center items-center">
-                            <span className="font-semibold text-sm text-JisaCyan">Cantidad de pasajeros</span>
-                            <div className="flex items-center gap-2 p-2">
-                                <button onClick={() => onCantidadChange(tour.id, cantidad - 1)} className="font-bold text-JisaGris text-2xl px-3">-</button>
-                                <input
-                                    type="text"
-                                    value={cantidad}
-                                    readOnly
-                                    className="text-JisaGrisTextGray text-lg w-20 rounded-sm text-center border border-JisaGrisTextGray/30 bg-white"
-                                />
-                                <button onClick={() => onCantidadChange(tour.id, cantidad + 1)} className="font-bold text-JisaGris text-2xl px-3">+</button>
+                    <div className="flex flex-col w-full">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-2 text-JisaAmarillo">
+                            <IconCategoria
+                                icon={CalendarIcon}
+                                title="Fecha Inicio"
+                                subtitle={tour.date_start}
+                                tamaño={20}
+                                tamañotitulo="text-lg"
+                            />
+                            <IconCategoria
+                                icon={CalendarIcon}
+                                title="Fecha Fin"
+                                subtitle={tour.date_end}
+                                tamaño={20}
+                                tamañotitulo="text-lg"
+                            />
+
+                            {/* 👉 Ocupa dos columnas: en mobile y en desktop */}
+                            <div className="col-span-2 md:col-span-2 cantidad-tour flex flex-col justify-center md:items-start sm:items-center items-center">
+                                <span className="font-semibold text-lg text-JisaCyan">Cantidad de pasajeros</span>
+                                <div className="flex items-center gap-2 p-2">
+                                    <button onClick={() => onCantidadChange(tour.id, cantidad - 1)} className="font-bold text-JisaGris text-2xl px-3">-</button>
+                                    <input
+                                        type="text"
+                                        value={cantidad}
+                                        readOnly
+                                        className="text-JisaGrisTextGray text-lg w-20 rounded-sm text-center border border-JisaGrisTextGray/30 bg-white"
+                                    />
+                                    <button onClick={() => onCantidadChange(tour.id, cantidad + 1)} className="font-bold text-JisaGris text-2xl px-3">+</button>
+                                </div>
                             </div>
                         </div>
                     </div>

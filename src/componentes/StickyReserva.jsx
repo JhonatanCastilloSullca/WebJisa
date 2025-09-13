@@ -43,17 +43,20 @@ const StickyReserva = ({ tour }) => {
 
     const wppLink = buildWppLink("51976294449", message);
 
-    const handleAddToCart = () => {
-        addToCart(tour);
+    const handleScrollToForm = () => {
+        const form = document.getElementById("form-reserva-carrito");
+        if (form) {
+            form.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
     };
 
     return (
         <div className="w-full mx-auto bg-gray-50 fixed bottom-0 border-t-4 border-JisaCyan rounded-md z-40">
             <div className="w-full max-w-7xl mx-auto flex justify-between px-7 py-3">
                 <div className="precios-reserva flex flex-col">
-                    <span className="font-medium text-lg text-JisaGris">{t('tours_detail.desde')}:</span>
+                    <span className="font-medium text-lg text-JisaGris">{tour.titulo}</span>
                     <div className="flex gap-x-2">
-                        <span className="font-black text-2xl text-JisaCyan">USD $ {tour.precio}</span>
+                        <span className="font-black text-2xl text-JisaCyan">{t('tours_detail.desde')}: USD $ {tour.precio}</span>
                         {tour.precio_regular && (
                             <span className="font-bold text-2xl text-JisaCyan text-opacity-50 line-through">
                                 {tour.precio_regular}
@@ -63,7 +66,7 @@ const StickyReserva = ({ tour }) => {
                     <span className="font-medium text-sm text-JisaCyan">{t('tours_detail.por_persona')}:</span>
                 </div>
                 <div className="botones-precios-reserva flex gap-x-4 justify-center items-center">
-                    <button onClick={handleAddToCart} className="uppercase px-4 py-2 bg-JisaGris text-white font-semibold text-xl rounded-md">
+                    <button onClick={handleScrollToForm} className="uppercase px-4 py-2 bg-JisaGris text-white font-semibold text-xl rounded-md">
                         {t('tours_detail.reservas_ahora')}
                     </button>
                     <a href={wppLink} target="_blank" className="uppercase px-4 py-2 bg-JisaCyan text-white font-semibold text-xl rounded-md">

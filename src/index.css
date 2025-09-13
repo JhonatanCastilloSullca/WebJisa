@@ -114,7 +114,7 @@
   font-style: italic;
 }
 
-/* Quita fondo/borde/sombra del botón de la bandera */
+/* === Reset que ya te funcionaba === */
 .phone-field .react-international-phone-country-selector-button{
   background: transparent !important;
   border: none !important;
@@ -122,27 +122,105 @@
   box-shadow: none !important;
   padding: 0 !important;
 }
-
-/* Elimina min-height del input que lo hace más alto */
 .phone-field .react-international-phone-input{
   min-height: 0 !important;
-  height: 40px !important;        /* ajusta a tu input (py-2 ≈ 40px) */
+  height: 100% !important;       /* toma la altura del wrapper */
   padding: 0 !important;
-  line-height: 40px !important;    /* alinea el texto */
+  line-height: normal !important;
+  padding-right: 12px !important; /* un poco de aire al final */
 }
-
-/* Ajusta la cajita contenedora del input (por si trae estilos) */
 .phone-field .react-international-phone-input-container{
   border: 0 !important;
   box-shadow: none !important;
   background: transparent !important;
 }
-
-/* Tamaño y alineación del emoji/bandera */
 .phone-field .react-international-phone-flag-emoji{
   width: 20px !important;
   height: 20px !important;
   line-height: 20px !important;
+}
+
+/* === Wrapper genérico + variantes === */
+.phone-field-wrapper { /* tamaño lo da inline con h-[N] */
+  display: flex;
+  align-items: center;
+}
+
+.phone-underline {
+  border-bottom: 2px solid var(--c-cyan, #1aa5a5);
+  height: 42px;
+  display: flex;
+  align-items: center;
+}
+.phone-underline.is-error { border-color: #f87171; }
+
+/* limpiar estilos del lib */
+.phone-field .react-international-phone-country-selector-button{
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+.phone-field .react-international-phone-input{
+  min-height: 0 !important;
+  height: 40px !important;
+  padding: 0 !important;
+  line-height: 40px !important;
+}
+.phone-field .react-international-phone-input-container{
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+.phone-field .react-international-phone-flag-emoji{
+  width: 20px !important;
+  height: 20px !important;
+  line-height: 20px !important;
+}
+
+.card-cart-pasajero input,
+.card-cart-pasajero select {
+  height: 40px;
+  width: 100%;
+  border: 1px solid #e5e7eb; /* gris claro */
+  border-radius: 6px;
+  padding: 0 0.75rem;
+  font-size: 14px;
+  color: #374151; /* gris texto */
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.card-cart-pasajero input:focus,
+.card-cart-pasajero select:focus {
+  border-color: #00a4b4; /* JisaCyan */
+  box-shadow: 0 0 0 1px rgba(0, 164, 180, 0.3);
+}
+
+/* SELECT: caret uniforme */
+.card-cart-pasajero select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23838b93' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right .6rem center;
+  background-size: 12px 12px;
+  padding-right: 2rem;
+}
+
+/* DATE: ícono limpio */
+.card-cart-pasajero input[type="date"] {
+  padding-right: 0.75rem;
+}
+.card-cart-pasajero input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: opacity(0.6);
+  cursor: pointer;
+  margin-right: -4px;
+}
+.card-cart-pasajero input[type="date"]::-webkit-inner-spin-button,
+.card-cart-pasajero input[type="date"]::-webkit-clear-button {
+  display: none;
 }
 
 /* Día inicial: azul sólido */
