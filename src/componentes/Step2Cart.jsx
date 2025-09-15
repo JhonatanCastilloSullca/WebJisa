@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm, FormProvider } from "react-hook-form";
-import CardCartPasajero from "./CardCartPasajero";
 import UserIcon from "../assets/icons/UserIcon";
 import PhoneField from "./PhoneField";
+import CardCartPasajero from "./CardCartPasajero";
 import { useCart } from "../contexts/CartContext";
-import { useApi } from "../hooks/useApi";
+import { useApiMutation } from "../hooks/useApiMutation";
 
+// Utilidad para inicializar pasajeros opcionales
 const makeEmptyPassenger = () => ({
   first_name: "",
   last_name: "",
@@ -22,12 +23,12 @@ const makeEmptyPassenger = () => ({
 const Step2Cart = ({ totalItems, handleNext, contact, setContact, setOrderId }) => {
   const [accepted, setAccepted] = useState(false);
   const [tried, setTried] = useState(false);
-  const [openIndex, setOpenIndex] = useState(0); // primero abierto
+  const [openIndex, setOpenIndex] = useState(0); // 1era tarjeta abierta
 
   // Carrito
   const { cartItems, subtotal, totalPrice } = useCart();
 
-  // RHF para pasajero de contacto
+  // RHF: sólo para el pasajero de contacto
   const methods = useForm({
     mode: "onChange",
     defaultValues: {
@@ -42,16 +43,19 @@ const Step2Cart = ({ totalItems, handleNext, contact, setContact, setOrderId }) 
   });
   const { register, handleSubmit, formState: { errors, isValid } } = methods;
 
-  // Pasajeros (opcional)
+  // Pasajeros opcionales (si los quieres enviar ahora)
   const [passengers, setPassengers] = useState(
     () => Array.from({ length: totalItems }, makeEmptyPassenger)
   );
 
-  // Ajustar cantidad de pasajeros si cambia totalItems
+  // Ajusta tamaño del array si cambia la cantidad
   useEffect(() => {
     setPassengers(prev => {
       if (totalItems > prev.length) {
-        return [...prev, ...Array.from({ length: totalItems - prev.length }, makeEmptyPassenger)];
+        return [
+          ...prev,
+          ...Array.from({ length: totalItems - prev.length }, makeEmptyPassenger),
+        ];
       }
       if (totalItems < prev.length) {
         return prev.slice(0, totalItems);
@@ -60,6 +64,7 @@ const Step2Cart = ({ totalItems, handleNext, contact, setContact, setOrderId }) 
     });
   }, [totalItems]);
 
+  // Escribir campos de cada pasajero desde la tarjeta hija
   const handlePassengerChange = (idx, field, value) => {
     setPassengers(prev => {
       const next = [...prev];
@@ -70,23 +75,18 @@ const Step2Cart = ({ totalItems, handleNext, contact, setContact, setOrderId }) 
 
   const toggle = (i) => setOpenIndex(prev => (prev === i ? -1 : i));
 
-  // API manual para crear la orden
+  // Mutación para crear la orden (NO dispara sola)
   const {
-    run: createOrder,
-    data: orderRes,
+    mutateAsync: createOrder,
     isLoading: isCreating,
     isError: isCreateError,
     error: createError,
-  } = useApi({
-    endpoint: "orders/create",    // <<<<<< AJUSTA TU RUTA
-    method: "POST",
-    manual: true,
-  });
+  } = useApiMutation();
 
-  // Mapea carrito + contacto + pasajeros al payload que espera tu API
+  // Mapeo de carrito + contacto + pasajeros → payload de tu API
   const buildPayload = (contactVals) => {
     const items = cartItems.map((it) => ({
-      product_id: it.id,                      // o tour_id
+      product_id: it.id,                 // o tour_id
       slug: it.slug,
       title: it.titulo,
       qty: Number(it.cantidad || 1),
@@ -109,47 +109,45 @@ const Step2Cart = ({ totalItems, handleNext, contact, setContact, setOrderId }) 
         last_name_mother: contactVals.last_name_mother || "",
         email: contactVals.email,
         phone: contactVals.phone,
-        country_code: contactVals.country_code, // ISO-2 desde PhoneField
-        dial_code: contactVals.dial_code,       // +51 desde PhoneField
+        country_code: contactVals.country_code, // ISO-2 (PhoneField)
+        dial_code: contactVals.dial_code,       // +51 (PhoneField)
         accepted_terms: true,
       },
-      passengers,   // si NO quieres enviarlos ahora, elimina esta línea
+      passengers, // ⬅️ si no quieres enviarlos ahora, bórralo
       items,
-      // meta opcional
       meta: { source: "tour-detail-step2" },
     };
   };
 
-  // Submit: validar contacto + TyC, crear orden, guardar order_id y avanzar
+  // Click → validamos contacto + TyC → POST crear orden → guardamos order_id → next
   const onContinue = handleSubmit(async (vals) => {
     setTried(true);
     if (!accepted) return;
     if (cartItems.length === 0) return;
 
+    const payload = buildPayload(vals);
+
     try {
-      const payload = buildPayload(vals);
-      const res = await createOrder(payload);
+      const res = await createOrder({
+        endpoint: "orders/create",   // ⬅️ AJUSTA tu ruta
+        method: "POST",
+        body: payload,
+      });
 
-      const orderId =
-        res?.data?.order_id || res?.order_id || orderRes?.data?.order_id || null;
+      const orderId = res?.data?.order_id || res?.order_id;
+      if (!orderId) throw new Error("No se recibió order_id desde el servidor.");
 
-      if (!orderId) {
-        throw new Error("No se recibió order_id desde el servidor.");
-      }
-
-      // Guardar contacto en padre
+      // Guarda contacto validado
       setContact((prev) => ({ ...prev, ...vals }));
 
-      // Guardar order_id (elige A o B)
-      // A) LocalStorage
+      // Guardado del order_id
       localStorage.setItem("order_id", orderId);
-      // B) Prop opcional hacia el padre
       setOrderId?.(orderId);
 
       handleNext();
-    } catch (e) {
-      console.error(e);
-      // aquí podrías mostrar un toast con tu sistema de notificaciones
+    } catch (err) {
+      // El mensaje amigable ya lo mostramos abajo con createError?.message
+      console.error("Error al crear orden:", err);
     }
   });
 
@@ -247,9 +245,8 @@ const Step2Cart = ({ totalItems, handleNext, contact, setContact, setOrderId }) 
 
           <div className="mb-4 mt-4 px-4 py-3 rounded-md bg-JisaCyan/5 border border-JisaCyan/20 text-JisaGris">
             <p className="text-sm">
-              <span className="font-semibold text-JisaCyan">Nota:</span> Los datos de los pasajeros
-              adicionales son <b>opcionales</b>. Si no los completas ahora, nuestro equipo se pondrá
-              en contacto más adelante.
+              <span className="font-semibold text-JisaCyan">Nota:</span> Los datos de los pasajeros adicionales son
+              <b> opcionales</b>. Si no los completas ahora, nuestro equipo se pondrá en contacto más adelante.
             </p>
           </div>
 
