@@ -29,7 +29,6 @@ const TabsSection = ({ tour, dias }) => {
           {[
             { label: t('tours_detail.itinerario'), icon: <ItinerarioIcon size={32} /> },
             { label: t('tours_detail.incluye'), icon: <IncludeIcon size={32} /> },
-            { label: t('tours_detail.que_llevar'), icon: <MochilaIcon size={32} /> },
             // { label: t('tours_detail.precios'), icon: <PriceIcon size={32} /> },
             { label: t('tours_detail.faqs'), icon: <QuestionIcon size={32} /> },
             // { label: t('tours_detail.alojamiento'), icon: <HotelIcon size={32} /> },
