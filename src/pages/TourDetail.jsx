@@ -9,12 +9,14 @@ import HeroSectionTour from "../componentes/HeroSectionTour";
 import StickyReserva from "../componentes/StickyReserva";
 import { useTranslation } from "react-i18next";
 import { useApi } from "../hooks/useApi";
+import SEO from "../componentes/seo";
 
 const idiomaMap = { es: 1, en: 2, br: 3 }
 
 const TourDetail = () => {
     const { t } = useTranslation()
     const { slug } = useParams();
+    const { ubicacion } = useParams();
 
     const idiomaId = idiomaMap[t.language] || 1
 
@@ -32,6 +34,15 @@ const TourDetail = () => {
 
     return (
         <>
+            <SEO
+                title={tour.title}
+                description={tour.description}
+                robots={tour.robots}
+                type="article"
+                siteName="Jisa Adventure"
+                canonical={tour.canonical}
+                keywords={tour.canonical}
+            />
             <StickyReserva tour={tour} />
 
             <HeroSectionTour

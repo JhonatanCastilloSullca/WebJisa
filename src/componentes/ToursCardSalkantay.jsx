@@ -12,7 +12,8 @@ import SeparatorBarHorizontal from "./SeparatorBarHorizontal"
 import StarIcon from "../assets/icons/StarIcon"
 
 
-const ToursCardSalkantay = ({ title, image, location, description, price, dias, group, slug, resumen }) => {
+const ToursCardSalkantay = ({ title, image, location, description, price, dias, group, slug, resumen, category, tipo }) => {
+  const tipoFinal = tipo == 1 ? 'paquetes' : 'tours';
   return (
     // <NavLink to={`/tours/${slug}`}>
       <div className="group w-full flex flex-col bg-cover bg-center rounded-md shadow-lg relative overflow-hidden transition-all duration-300">
@@ -65,7 +66,7 @@ const ToursCardSalkantay = ({ title, image, location, description, price, dias, 
                 From <b>$ {price}</b> per person
               </span>
               <NavLink
-                to={`/tours/${slug}`}
+                to={`/${tipoFinal}/${category}/${slug}`}
                 className="bg-JisaCyan text-white rounded-sm text-center flex px-6 md:font-medium font-bold md:text-sm text-xl py-2 items-center"
               >
                 Ver Itinerario

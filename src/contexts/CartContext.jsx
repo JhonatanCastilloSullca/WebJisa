@@ -14,7 +14,7 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem('cart', JSON.stringify(cartItems));
   }, [cartItems]);
 
-  const addToCart = (tour) => {
+  const addToCart = (tour,cantidad,start,end) => {
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
     const fecha = tomorrow.toISOString().split('T')[0];
@@ -32,14 +32,15 @@ export const CartProvider = ({ children }) => {
           resumen: tour.resumen,
           precio: tour.precio,
           fecha,
-          cantidad: 1,
+          cantidad: cantidad,
           title: tour.titulo,
           location: tour.ubicaciones?.[0]?.nombre || "Ubicación no disponible",
           duration: `${tour.itinerarios?.length || 1} días`,
           difficulty: tour.tipo_categoria?.nombre || "No especificado",
           groupSize: 12,
           transport: "Incluido",
-          date: fecha
+          date_start: start,
+          date_end: end
         }
       ];
     });

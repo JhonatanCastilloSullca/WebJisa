@@ -9,20 +9,21 @@ import PaypalIcon from '../assets/icons/PaypalIcon'
 import AmericanIcon from '../assets/icons/AmericanIcon'
 import { useTranslation } from 'react-i18next'
 import { useCart } from "../contexts/CartContext";
+import { useNavigate } from "react-router-dom";
 
 const BookNowSection = ({ tour }) => {
     const { t } = useTranslation()
     const { addToCart } = useCart();
+    const navigate = useNavigate();  
 
     const handleAddToCart = () => {
-        addToCart(tour);
-        setAdded(true);
-        setTimeout(() => setAdded(false), 6000)
+        if (!fecha.start) return;
+
+        addToCart(tour,cantidad,fecha.start,fecha.end);
+        navigate("/carrito");
     };
 
     const [cantidad, setCantidad] = useState(1);
-
-    const [added, setAdded] = useState(false);
 
     const precioUnit = useMemo(() => Number(tour?.precio ?? 0), [tour?.precio]);
 
@@ -41,19 +42,27 @@ const BookNowSection = ({ tour }) => {
     const dec = () => onCantidadChange(cantidad - 1);
     const inc = () => onCantidadChange(cantidad + 1);
 
+    const [fecha, setFecha] = useState({ start: "", end: "" });
+
+    const duracionDias = Math.max(1, tour?.itinerarios?.length ?? 1)
+
     return (
         <div className="md:col-span-4 col-span-12 h-auto flex flex-col md:items-start items-center justify-center align-middle ">
-            <div className="w-full">
-                <div className="bg-JisaGris px-6 pt-4 w-full flex-col flex justify-center items-center text-white rounded-t-md">
+            <div id="form-reserva-carrito" className="w-full">
+                <div className="bg-JisaGris px-6 pt-4 w-full flex-col text-center flex justify-center items-center text-white rounded-t-md">
                     <h4 className="font-bold text-3xl">
                         {t("tours_detail.reservas_ahora")}
                     </h4>
                     <SeparatorBarHorizontalVerde />
                     <h5 className="font-semibold text-base" >{ tour.titulo }</h5>
-                    <span className="font-bold text-2xl" >USD $ { total }</span>
+                    <span className="font-bold text-2xl text-JisaVerde" >USD $ { total }</span>
                 </div>
                 <div className="border-2 border-JisaGrisTextGray/10 bg-white rounded-b-md flex flex-col pb-2">
-                    <DateRangePicker />
+                    <DateRangePicker
+                        fixedDays={duracionDias}
+                        value={fecha}
+                        onChange={setFecha}
+                    />
                     <span className="font-semibold text-lg text-JisaCyan text-center">{t("tours_detail.cantidad_pasajeros")}</span>
                     <div className="flex p-2 justify-center">
                         <button onClick={dec} className=" font-bold text-JisaGris text-3xl px-4">
@@ -65,23 +74,11 @@ const BookNowSection = ({ tour }) => {
                         </button>
                     </div>
                     <div className="flex justify-center">
-                        <button onClick={handleAddToCart} className="flex bg-JisaCyan rounded-md text-white px-10 gap-x-2 py-2 justify-center w-fit">
+                        <button onClick={handleAddToCart} disabled={!fecha.start} className={`flex rounded-md px-10 gap-x-2 py-2 justify-center w-fit ${!fecha.start ? "bg-gray-300 cursor-not-allowed" : "bg-JisaCyan text-white"}`}>
                             <CartIcon />
                             <span className="font-semibold text-lg">{t("tours_detail.añadir_carrito")}</span>
                         </button>
                     </div>
-                    {added && (
-                        <div className="justify-center text-center mt-3">
-                            <p className="text-red-600 text-sm">
-                                ✅ {t('tours_detail.agregado_exitoso')}
-                            </p>
-                            <p className="font-bold">
-                                <a href="/carrito" className="underline text-JisaCyan">
-                                    {t('tours_detail.ver_carrito')}
-                                </a>
-                            </p>
-                        </div>
-                    )}
                     <div className="flex gap-2 py-4 justify-center">
                         <div className="w-12">
                             <DinnersIcon />

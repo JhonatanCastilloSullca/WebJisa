@@ -1,16 +1,21 @@
-import React, { useState } from 'react';
-import { useApiMutation } from '../hooks/useApiMutation'; // versión .js
+import React, { useMemo, useState } from 'react';
+import { useApiMutation } from '../hooks/useApiMutation';
 import TarjetasMetodos from './TarjetasMetodos';
 import InfoIcon from '../assets/icons/InfoIcon';
+import { useCart } from "../contexts/CartContext";
+import { useNavigate } from "react-router-dom";
 
-function genOrderId() {
-  return 'ORD-' + Math.random().toString(36).slice(2, 10).toUpperCase();
-}
-
-export default function Step3Cart({ totalUSD, contact, onBack }) {
+export default function Step3Cart({ totalUSD, contact, onBack, orderId: orderIdProp }) {
   const [loading, setLoading] = useState(false);
   const [error, setError]     = useState(null);
-  const [orderId]             = useState(genOrderId());
+
+  const navigate = useNavigate();
+  const { clearCart } = useCart();
+
+  // 1) Toma el order_id del padre o de localStorage. Si no hay, mostramos aviso.
+  const orderId = useMemo(() => {
+    return orderIdProp || localStorage.getItem('order_id') || '';
+  }, [orderIdProp]);
 
   const OPENPAY_MERCHANT_ID = import.meta.env.VITE_OPENPAY_MERCHANT_ID;
   const OPENPAY_PUBLIC_KEY  = import.meta.env.VITE_OPENPAY_PUBLIC_KEY;
@@ -20,7 +25,14 @@ export default function Step3Cart({ totalUSD, contact, onBack }) {
 
   const handlePay = (e) => {
     e.preventDefault();
-    setError(null); setLoading(true);
+    setError(null);
+
+    if (!orderId) {
+      setError('No se encontró el código de reserva. Regresa al paso anterior para generarlo.');
+      return;
+    }
+
+    setLoading(true);
 
     if (!window.OpenPay) {
       setLoading(false);
@@ -38,45 +50,50 @@ export default function Step3Cart({ totalUSD, contact, onBack }) {
     const form = e.currentTarget;
 
     // Tokenización
-    window.OpenPay.token.extractFormAndCreate(form, async (success) => {
-      try {
-        const tokenId = success.data.id;
+    window.OpenPay.token.extractFormAndCreate(
+      form,
+      async (success) => {
+        try {
+          const tokenId = success.data.id;
 
-        const payload = {
-          order_id: orderId,
-          amount: Number(totalUSD),
-          token_id: tokenId,
-          device_session_id: deviceId,
-          customer: {
-            name: contact?.name || '',
-            last_name: contact?.last_name || '',
-            email: contact?.email || '',
-            phone_number: contact?.phone || '',
-            country_code: contact?.country_code || 'PE',
+          const payload = {
+            order_id: orderId,                   // 👈 usamos el mismo id
+            amount: Number(totalUSD),
+            token_id: tokenId,
+            device_session_id: deviceId,
+            customer: {
+              name: contact?.name || '',
+              last_name: contact?.last_name || '',
+              email: contact?.email || '',
+              phone_number: contact?.phone || '',
+              country_code: contact?.country_code || 'PE',
+            },
+          };
+
+          const data = await charge.mutateAsync({
+            endpoint: 'payments/openpay/charge',
+            body: payload,
+          });
+
+          if (data && data.redirect_url) {
+            window.location.href = data.redirect_url; // 3DS
+            return;
           }
-        };
 
-        const data = await charge.mutateAsync({
-          endpoint: 'payments/openpay/charge',
-          body: payload,
-          // baseUrl: import.meta.env.VITE_API_URL, // si ya está en env, no hace falta
-        });
-
-        if (data && data.redirect_url) {
-          window.location.href = data.redirect_url; // 3DS
-          return;
+          clearCart(); 
+          localStorage.removeItem("order_id");
+          navigate("/gracias"); 
+        } catch (err) {
+          setError(err?.message || 'Error de pago');
+        } finally {
+          setLoading(false);
         }
-
-        alert('Pago realizado ✔');
-      } catch (err) {
-        setError(err?.message || 'Error de pago');
-      } finally {
+      },
+      (err) => {
         setLoading(false);
+        setError(err?.description || 'Error al tokenizar la tarjeta');
       }
-    }, (err) => {
-      setLoading(false);
-      setError(err?.description || 'Error al tokenizar la tarjeta');
-    });
+    );
   };
 
   return (
@@ -84,9 +101,17 @@ export default function Step3Cart({ totalUSD, contact, onBack }) {
       <div className="grid grid-cols-12 gap-4 md:gap-6">
         <div className="col-span-12 md:col-span-6 bg-JisaGris/5 rounded-xl px-4 md:px-10 py-4 md:py-6">
           <h5 className="text-JisaCyan font-semibold text-xl md:text-2xl">
-            Código de reserva: <span className="text-JisaGris px-2 md:px-4">{orderId}</span>
+            Código de reserva:{' '}
+            <span className="text-JisaGris px-2 md:px-4"> JISA-
+              {orderId || '—'}
+            </span>
           </h5>
-          {/* tu resumen... */}
+          {!orderId && (
+            <p className="text-red-600 text-sm mt-2">
+              No se encontró la reserva. Por favor vuelve al paso anterior para generarla.
+            </p>
+          )}
+          {/* Aquí puedes renderizar el resumen de items, contacto, etc. */}
         </div>
 
         <div className="col-span-12 md:col-span-6 bg-JisaGris/5 rounded-xl px-4 md:px-10 py-4 md:py-6">
@@ -96,27 +121,52 @@ export default function Step3Cart({ totalUSD, contact, onBack }) {
           </div>
 
           <form id="payment-form" onSubmit={handlePay} className="space-y-3">
-            <input data-openpay-card="holder_name" placeholder="Titular" required className="h-10 w-full rounded-md px-3" />
-            <input data-openpay-card="card_number" placeholder="Número de tarjeta" required className="h-10 w-full rounded-md px-3" inputMode="numeric" pattern="[0-9]*" maxLength={16}
-              onInput={(e) => {
-                e.target.value = e.target.value.replace(/\D/g, '');
-              }}
+            <input
+              data-openpay-card="holder_name"
+              placeholder="Titular"
+              required
+              className="h-10 w-full rounded-md px-3"
+            />
+            <input
+              data-openpay-card="card_number"
+              placeholder="Número de tarjeta"
+              required
+              className="h-10 w-full rounded-md px-3"
+              inputMode="numeric"
+              pattern="[0-9]*"
+              maxLength={16}
+              onInput={(e) => { e.target.value = e.target.value.replace(/\D/g, ''); }}
             />
             <div className="grid grid-cols-3 gap-3">
-              <input data-openpay-card="expiration_month" placeholder="MM" required className="h-10 w-full rounded-md px-3" inputMode="numeric" pattern="[0-9]*" maxLength={2}
-                onInput={(e) => {
-                  e.target.value = e.target.value.replace(/\D/g, '');
-                }}
+              <input
+                data-openpay-card="expiration_month"
+                placeholder="MM"
+                required
+                className="h-10 w-full rounded-md px-3"
+                inputMode="numeric"
+                pattern="[0-9]*"
+                maxLength={2}
+                onInput={(e) => { e.target.value = e.target.value.replace(/\D/g, ''); }}
               />
-              <input data-openpay-card="expiration_year"  placeholder="YY" required className="h-10 w-full rounded-md px-3" inputMode="numeric" pattern="[0-9]*" maxLength={2}
-                onInput={(e) => {
-                  e.target.value = e.target.value.replace(/\D/g, '');
-                }}
+              <input
+                data-openpay-card="expiration_year"
+                placeholder="YY"
+                required
+                className="h-10 w-full rounded-md px-3"
+                inputMode="numeric"
+                pattern="[0-9]*"
+                maxLength={2}
+                onInput={(e) => { e.target.value = e.target.value.replace(/\D/g, ''); }}
               />
-              <input data-openpay-card="cvv2"             placeholder="CVV" required className="h-10 w-full rounded-md px-3" inputMode="numeric" pattern="[0-9]*" maxLength={4} // algunos CVV son de 3 y otros de 4 dígitos
-                onInput={(e) => {
-                  e.target.value = e.target.value.replace(/\D/g, '');
-                }}
+              <input
+                data-openpay-card="cvv2"
+                placeholder="CVV"
+                required
+                className="h-10 w-full rounded-md px-3"
+                inputMode="numeric"
+                pattern="[0-9]*"
+                maxLength={4}
+                onInput={(e) => { e.target.value = e.target.value.replace(/\D/g, ''); }}
               />
             </div>
 
@@ -127,11 +177,19 @@ export default function Step3Cart({ totalUSD, contact, onBack }) {
               <span className="font-bold text-JisaGris">US$ {Number(totalUSD).toFixed(2)}</span>
             </div>
 
-            {error && <p className="text-red-600 text-sm">Compra Rechazada</p>}
+            {error && <p className="text-red-600 text-sm">{error}</p>}
 
             <div className="flex gap-3">
-              <button type="button" onClick={onBack} className="bg-gray-200 text-gray-700 rounded-xl px-5 py-2">Atrás</button>
-              <button type="submit" disabled={loading} className="bg-JisaCyan text-white rounded-xl px-6 py-2 font-bold">
+              <button type="button" onClick={onBack} className="bg-gray-200 text-gray-700 rounded-xl px-5 py-2">
+                Atrás
+              </button>
+              <button
+                type="submit"
+                disabled={loading || !orderId}
+                className={`rounded-xl px-6 py-2 font-bold text-white ${
+                  loading || !orderId ? 'bg-JisaCyan/60 cursor-not-allowed' : 'bg-JisaCyan hover:opacity-95'
+                }`}
+              >
                 {loading ? 'Procesando…' : 'Pagar ahora'}
               </button>
             </div>

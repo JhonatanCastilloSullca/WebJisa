@@ -9,16 +9,17 @@ import SeparatorBarHorizontal from '../componentes/SeparatorBarHorizontal'
 import JisaTitleContentCyan from '../componentes/layout/JisaTitleContentCyan'
 import HeaderTitle from '../componentes/layout/HeaderTitle'
 import SubHeaderTitle from '../componentes/layout/SubHeaderTitle'
+import SEO from "../componentes/seo";
 
 const idiomaMap = { es: 1, en: 2, br: 3 }
 const DestinosDetail = () => {
 
   const { t } = useTranslation()
-  const { slug } = useParams();
+  const { ubicacion } = useParams();
 
   const idiomaId = idiomaMap[t.language] || 1
 
-  const { data, isLoading, isError, error } = useApi({ endpoint: 'destinos', method: 'POST', body: { idioma_id: idiomaId, slug: slug, }, });
+  const { data, isLoading, isError, error } = useApi({ endpoint: 'destinos', method: 'POST', body: { idioma_id: idiomaId, slug: ubicacion, }, });
 
   if (isLoading) return <p className="text-center py-10">Cargando layout...</p>;
   if (isError) return <p className="text-center text-red-500 py-10">Error: {error.message}</p>;
@@ -32,6 +33,15 @@ const DestinosDetail = () => {
 
   return (
     <>
+      <SEO
+          title={destino.title}
+          description={destino.description}
+          robots={destino.robots}
+          type="article"
+          siteName="Jisa Adventure"
+          canonical={destino.canonical}
+          keywords={destino.canonical}
+      />
       <HeroSectionMidle
         backgroundImage={destino.imagen}
         title={destino.nombre}
