@@ -44,7 +44,7 @@ const DestinosDetail = () => {
       />
       <HeroSectionMidle
         backgroundImage={destino.imagen}
-        title={destino.nombre}
+        title={destino.h1}
         description={destino.descripcion}
         buttonText="Ver Tours"
         buttonLink="https://jisaadventure.com/"

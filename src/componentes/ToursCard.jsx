@@ -13,7 +13,7 @@ const ToursCard = ({ title, image, location, description, price, dias, group, sl
         <div className="group w-full h-[512px] flex flex-col bg-cover bg-center rounded-xl shadow-lg relative overflow-hidden transition-all duration-300"
             style={{ backgroundImage: `url(${image}) ` }}
         >
-            <NavLink to={`/tours/${category}/${slug}`}>
+            <NavLink to={`/tours/${slug}`}>
                 <div className="absolute inset-0 bg-JisaGris/65 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
                 <BoxCard title={title} />
                 <div className="absolute top-10 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">

@@ -47,7 +47,7 @@ const TourDetail = () => {
 
             <HeroSectionTour
                 backgroundImage={tour.foto_banner}
-                title={tour.titulo}
+                title={tour.h1}
                 description={`${t('tours_destacados.desde')} $ ${tour.precio} / persona`}
                 buttonText="Ver Tours"
                 buttonLink="https://jisaadventure.com/"

@@ -38,8 +38,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout dataGeneral={data.data} />}>
             <Route index element={<Home dataGeneral={data.data} />} />
-            <Route path="tours/:ubicacion" element={<DestinosDetail />} />
-            <Route path="tours/:ubicacion/:slug" element={<TourDetail />} />
+            <Route path="tours/:slug" element={<TourDetail />} />
+            <Route path="/:ubicacion" element={<DestinosDetail />} />
+            {/* <Route path="tours/:ubicacion" element={<DestinosDetail />} /> */}
+            
             <Route path="blogs" element={<Blogs />} />
             <Route path="blogs/:slug" element={<BlogDetail />} />
             <Route path="paquetes/:ubicacion" element={<DestinosDetail />} />

@@ -66,7 +66,7 @@ const ToursCardSalkantay = ({ title, image, location, description, price, dias, 
                 From <b>$ {price}</b> per person
               </span>
               <NavLink
-                to={`/${tipoFinal}/${category}/${slug}`}
+                to={`/${tipoFinal}/${slug}`}
                 className="bg-JisaCyan text-white rounded-sm text-center flex px-6 md:font-medium font-bold md:text-sm text-xl py-2 items-center"
               >
                 Ver Itinerario
