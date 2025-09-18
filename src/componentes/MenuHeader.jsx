@@ -58,8 +58,8 @@ const MenuHeader = ({ menu }) => {
                                         <span className="text-2xl text-center font-bold pt-2 pb-4">{item.tour}</span>
                                         <ul className="text-lg flex-col flex gap-y-4">
                                             {item.tours.map((subItem, subIndex) => (
-                                                <NavLink
-                                                    to={`/tours/${subItem.slug}`}
+                                                <NavLink 
+                                                    to={`/${ subItem.tipo == 1 ? 'paquetes' : 'tours'}/${subItem.slug}`}
                                                     key={subIndex}
                                                     className="border-b border-JisaCyan/50 py-1  cursor-pointer text-xs text-black hover:text-JisaCyan"
                                                     onMouseEnter={() =>

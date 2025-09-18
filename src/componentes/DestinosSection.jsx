@@ -37,9 +37,9 @@ const DestinosSection = ({ id, data }) => {
                                 {tours[activeIndex].descripcion}
                             </p>
                             <NavLink to={`/${tours[activeIndex].slug}`}>
-                                <span className="text-white font-bold text-md md:text-left text-center py-6">
-                                    ({tours[activeIndex].tours_count}) {t('destion_section.tours_disponibles')}
-                                </span>
+                                <button className={`flex rounded-md px-10 gap-x-2 py-2 justify-center w-fit bg-JisaCyan text-white`}>
+                                    <span className="font-semibold text-lg">({tours[activeIndex].tours_count}) {t('destion_section.tours_disponibles')}</span>
+                                </button>
                             </NavLink>
                         </div>
                     </div>

@@ -27,22 +27,28 @@ const TabsSection = ({ tour, dias }) => {
       <TabGroup className="w-full ">
         <TabList className="flex w-full justify-center bg-JisaGris/5 overflow-auto">
           {[
-            { label: t('tours_detail.itinerario'), icon: <ItinerarioIcon size={32} /> },
-            { label: t('tours_detail.incluye'), icon: <IncludeIcon size={32} /> },
+            { label: t('tours_detail.itinerario'), icon: <ItinerarioIcon size={32} />, etiqueta:"h2"},
+            { label: t('tours_detail.incluye'), icon: <IncludeIcon size={32} />, etiqueta:"h2"},
             // { label: t('tours_detail.precios'), icon: <PriceIcon size={32} /> },
-            { label: t('tours_detail.faqs'), icon: <QuestionIcon size={32} /> },
+            { label: t('tours_detail.faqs'), icon: <QuestionIcon size={32} />, etiqueta:"h2"},
             // { label: t('tours_detail.alojamiento'), icon: <HotelIcon size={32} /> },
-            { label: t('tours_detail.galeria'), icon: <GalleryIcon size={32} /> },
+            { label: t('tours_detail.galeria'), icon: <GalleryIcon size={32} />, etiqueta:"h2"},
             // { label: t('tours_detail.contactanos'), icon: <ContactIcon size={32} /> }
-          ].map((tab, index) => (
-            <Tab key={index} className={({ selected }) =>
-              `flex flex-col justify-center items-center py-2 px-6 rounded-md transition-colors duration-200 
-                            ${selected ? 'bg-white text-JisaGris font-medium' : 'text-[#98a4a8]'}`
-            }>
-              <span className="text-lg">{tab.label}</span>
-              <span className="py-2 px-4">{tab.icon}</span>
-            </Tab>
-          ))}
+          ].map((tab, index) => {
+            const Tag = tab.etiqueta; // 👈 aquí guardas el componente dinámico
+            return (
+              <Tab
+                key={index}
+                className={({ selected }) =>
+                  `flex flex-col justify-center items-center py-2 px-6 rounded-md transition-colors duration-200 
+                  ${selected ? 'bg-white text-JisaGris font-medium' : 'text-[#98a4a8]'}`
+                }
+              >
+                <Tag className="text-lg">{tab.label}</Tag> {/* 👈 uso dinámico */}
+                <span className="py-2 px-4">{tab.icon}</span>
+              </Tab>
+            );
+          })}
         </TabList>
 
         <div className="w-full max-w-7xl mx-auto">

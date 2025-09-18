@@ -67,6 +67,18 @@ function Footer() {
                 <li>
                   <NavLink to={'/terminos-condiciones'}>{t("footer.terminos_condiciones")}</NavLink>
                 </li>
+                <li>
+                  <NavLink to={'/tours-machu-picchu'}>Tours Machu Picchu</NavLink>
+                </li>
+                <li>
+                  <NavLink to={'/tours-cusco'}>Tours Cusco</NavLink>
+                </li>
+                <li>
+                  <NavLink to={'/paquetes/7-dias-magicos'}>7 Dias Magicos</NavLink>
+                </li>
+                <li>
+                  <NavLink to={'/paquetes/5-dias-magicos'}>5 Dias Magicos</NavLink>
+                </li>
                 {/*<li>
                   <NavLink to={'/preguntas-frecuentes'}>{t("footer.faq")}</NavLink>
                 </li> */}

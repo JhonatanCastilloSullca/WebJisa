@@ -1,5 +1,6 @@
 import React from 'react'
 import RowNumber from './RowNumber'
+import ToursCardSalkantay from './ToursCardSalkantay'
 import ToursCard from './ToursCard'
 import GridNumber from './GridNumber'
 
@@ -9,15 +10,17 @@ const ToursLineSection = ({ tours }) => {
         <GridNumber col={12} className="md:gap-x-11 gap-x-0 pt-4">
             {tours.map((tour) => (
                 <RowNumber key={tour.id}>
-                    <ToursCard
+                    <ToursCardSalkantay
                         title={tour.tipo_categoria.nombre}
                         image={tour.foto_principal}
                         location={tour.ubicaciones.map(u => u.nombre).join(', ')}
                         description={tour.titulo}
                         price={tour.precio}
-                        dias="7"
+                        resumen={tour.resumen}
+                        dias={tour.itinerarios_count}
                         group={'Min 4'}
                         slug={tour.slug}
+                        tipo={tour.tipo}
                         category={tour.ubicaciones[0].slug}
                     />
                 </RowNumber>

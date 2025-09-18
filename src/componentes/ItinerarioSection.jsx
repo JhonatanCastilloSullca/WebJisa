@@ -26,7 +26,7 @@ const ItinerarioSection = ({ itinerario, dias }) => {
                                         <span className="text-xs font-light uppercase">{t('tours_detail.dia')}</span>
                                         <span className="text-lg font-bold">0{index + 1}</span>
                                     </div>
-                                    <span className="text-xl font-semibold">{dia.titulo}</span>
+                                    <h3 className="text-xl font-semibold">{dia.titulo}</h3>
                                 </div>
                                 <DownIcon className="size-5 fill-white/60 group-data-[hover]:fill-white/50 group-data-[open]:rotate-180" />
                             </DisclosureButton>

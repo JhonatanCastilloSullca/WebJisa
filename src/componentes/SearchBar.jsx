@@ -15,7 +15,7 @@ const SearchBar = ({ id, data }) => {
     const getSuggestionValue = (suggestion) => suggestion.titulo;
 
     const renderSuggestion = (suggestion) => (
-        <Link to={`/tours/${suggestion.slug}`}>
+        <Link to={`/${ suggestion.tipo == 1 ? 'paquetes' : 'tours'}/${suggestion.slug}`}>
             <div className="flex items-center gap-2 p-2 border-b hover:bg-gray-100 cursor-pointer">
                 <img src={suggestion.foto_principal} alt={suggestion.titulo} className="w-10 h-10 rounded" />
                 <span>{suggestion.titulo}</span>

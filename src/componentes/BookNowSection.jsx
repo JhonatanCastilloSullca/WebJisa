@@ -50,11 +50,11 @@ const BookNowSection = ({ tour }) => {
         <div className="md:col-span-4 col-span-12 h-auto flex flex-col md:items-start items-center justify-center align-middle ">
             <div id="form-reserva-carrito" className="w-full">
                 <div className="bg-JisaGris px-6 pt-4 w-full flex-col text-center flex justify-center items-center text-white rounded-t-md">
-                    <h4 className="font-bold text-3xl">
+                    <h2 className="font-bold text-3xl">
                         {t("tours_detail.reservas_ahora")}
-                    </h4>
+                    </h2>
                     <SeparatorBarHorizontalVerde />
-                    <h5 className="font-semibold text-base" >{ tour.titulo }</h5>
+                    <span className="font-semibold text-base" >{ tour.titulo }</span>
                     <span className="font-bold text-2xl text-JisaVerde" >USD $ { total }</span>
                 </div>
                 <div className="border-2 border-JisaGrisTextGray/10 bg-white rounded-b-md flex flex-col pb-2">
