@@ -1,8 +1,8 @@
 const JisaTitleContentCyan = ({ contenido, className = "" }) => {
     return (
-        <span className={`md:text-left text-center text-JisaCyan font-medium  ${className}`} >
+        <h2 className={`md:text-left text-center text-JisaCyan font-medium  ${className}`} >
             {contenido}
-        </span>
+        </h2>
     )
 }
 

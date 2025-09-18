@@ -14,6 +14,7 @@ import TerminosCondiciones from './pages/TerminosCondiciones'
 import PreguntasFrecuentes from './pages/PreguntasFrecuentes'
 import Cart from './pages/Cart'
 import PoliticaPrivacidad from './pages/PoliticaPrivacidad'
+import Gracias from './pages/Gracias'
 import { useApi } from './hooks/useApi'
 import { useEffect } from 'react'
 import LandingDetail from './pages/LandingDetail'
@@ -49,6 +50,7 @@ function App() {
             <Route path="terminos-condiciones" element={<TerminosCondiciones />} />
             <Route path="politicas-privacidad" element={<PoliticaPrivacidad />} />
             <Route path="carrito" element={<Cart />} />
+            <Route path="gracias" element={<Gracias />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

@@ -13,10 +13,10 @@ const TourDetails = ({ ubicaciones, descripcion, brochure, imagenSecundaria }) =
                 <div className="flex flex-col justify-center items-center md:items-start text-center md:text-left space-y-4">
                     <div className="flex flex-wrap justify-center md:justify-start text-JisaVerde gap-x-2 gap-y-1">
                         {ubicaciones.map((ubicacion, index) => (
-                            <span key={index} className="font-semibold text-sm sm:text-base">
+                            <h2 key={index} className="font-semibold text-sm sm:text-base">
                                 {ubicacion.nombre}
                                 {index < ubicaciones.length - 1 && <span className="font-black"> - </span>}
-                            </span>
+                            </h2>
                         ))}
                     </div>
                     <ParrafoContent className="text-JisaGris text-sm sm:text-base leading-relaxed" contenido={descripcion} />

@@ -40,9 +40,9 @@ const ToursCard = ({ title, image, location, description, price, dias, group, sl
                         <div className="text-xs font-medium">{location}</div>
                     </div>
 
-                    <div className="text-left font-medium text-base ps-4 text-JisaGris/80">
-                        {description}
-                    </div>
+                    <h3 className="text-left font-medium text-base ps-4 text-JisaGris/80">
+                        {description} etiqueta=""
+                    </h3>
                     <div className="max-h-0 overflow-hidden group-hover:max-h-24 transition-all duration-500 ease-in-out ps-4">
                         <div className="mt-2 w-[90%] self-center border-t border-JisaGris/20"></div>
                         <div className="flex flex-col">

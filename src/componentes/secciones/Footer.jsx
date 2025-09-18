@@ -40,7 +40,7 @@ function Footer() {
             </div>
           </div>
           <div className="md:col-span-4 col-span-12 p-4 text-white px-12">
-            <h4 className="font-bold text-xl text-center">Jisa Adventure</h4>
+            <p className="font-bold text-xl text-center">Jisa Adventure</p>
             <div className="lista-menu-footer ps-4 py-2 md:">
               <ul className="text-base font-normal text-center">
                 {/* <li>
@@ -76,12 +76,12 @@ function Footer() {
           <div className="md:col-span-4 col-span-12  p-4 text-white px-12">
             <div className="flex flex-col gap-y-6">
               <div className="flex flex-col gap-y-2">
-                <h4 className="font-semibold text-base">{t("footer.asesor_venta")}</h4>
+                <p className="font-semibold text-base">{t("footer.asesor_venta")}</p>
                 <IconText icon={EnvelopeIcon} text="info@jisaadventure.com" />
                 <IconText icon={PhoneIcon} text="+51 976 294 449" enlace={`https://wa.me/51976294449`}/>
               </div>
               <div className="flex flex-col gap-y-2">
-                <h4 className="font-semibold text-base">{t("footer.datos_informacion")}</h4>
+                <p className="font-semibold text-base">{t("footer.datos_informacion")}</p>
                 <IconText icon={MapDotIcon} text="Calle Garcilaso, 265  Cusco, Perú" />
                 <IconText icon={ClockIcon} text="08:00a.m - 8:00p.m" />
               </div>
