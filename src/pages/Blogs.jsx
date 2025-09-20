@@ -13,6 +13,9 @@ import PromocionSection from "../componentes/PromocionSection";
 import ContactSection from "../componentes/secciones/ContactSection";
 import { useTranslation } from "react-i18next";
 import { useApi } from "../hooks/useApi";
+import Loading from "../componentes/ui/Loading";
+import NotFound from "../pages/NotFound";
+import SEO from "../componentes/seo";
 
 const idiomaMap = { es: 1, en: 2, br: 3 }
 
@@ -20,115 +23,52 @@ const Blogs = () => {
     const { t } = useTranslation()
     const idiomaId = idiomaMap[t.language] || 1
 
-    const { data, isLoading, isError, error } = useApi({ endpoint: 'blog-slug', method: 'POST', body: { idioma_id: idiomaId, slug: slug, }, });
-    
-    if (isLoading) return <p className="text-center py-10">Cargando layout...</p>;
-    if (isError) return <p className="text-center text-red-500 py-10">Error: {error.message}</p>;
-    if (!data || !data.data) return null;
+    const { data, isLoading, isError, error } = useApi({ endpoint: 'blogs', method: 'POST', body: { idioma_id: idiomaId,}, });
 
-    const [categoriaActiva, setCategoriaActiva] = useState(null);
+    if (isLoading) return <Loading message="Cargando..." />;
+    if (isError && error?.status === 404) {
+        return (
+            <>
+            <SEO
+                title="404 | Blog no encontrado"
+                description="El tour que buscas no existe."
+                robots="noindex, nofollow"
+                type="website"
+                siteName="Jisa Adventure"
+                canonical={`https://jisaadventure.com/`}
+            />
 
-    const categorias = [
-        { id: "comida", label: "Tours", icon: <RestIcon size={40} /> },
-        { id: "teatro", label: "Teatro", icon: <TheaterIcon size={40} /> },
-        { id: "comunicados", label: "Alerta", icon: <HornIcon size={40} /> },
-        { id: "naturaleza", label: "Naturaleza", icon: <HojaIcon size={40} /> },
-        { id: "cultura", label: "Cultura", icon: <MountainIcon size={40} /> },
-        { id: "recomendaciones", label: "Recomendaciones", icon: <InfoIcon size={40} /> },
-        { id: "rutas", label: "Rutas", icon: <ItinerarioIcon size={40} /> },
-        { id: "nocturno", label: "Nocturno", icon: <CocktailIcon size={40} /> },
-    ];
+            <NotFound />
+            </>
+        );
+    }
+    if (isError) {
+        return <p className="text-center text-red-500 py-10">Error: {error.message}</p>;
+    }
 
-    const blogs = [
-        {
-            titulo: "Explora los mejores tours en Cusco",
-            slug: "tours-en-cusco",
-            imagenPrincipal: 'url("/agencia-de-viaje-cusco-jisaadventure.webp")',
-            fecha: "Ago 15, 2024",
-            Autor: "Jisa Adventure",
-            ubicacion: "Cusco, Perú",
-            descripcion: "Descubre los mejores tours para explorar Cusco y sus alrededores.",
-            tag: ["aventura", "cultura"],
-            categoria: "comida",
-        },
-        {
-            titulo: "Las mejores obras de teatro en Lima",
-            slug: "teatro-lima",
-            imagenPrincipal: 'url("/agencia-de-viaje-cusco-jisaadventure.webp")',
-            fecha: "Jul 20, 2024",
-            Autor: "Cultura Viva",
-            ubicacion: "Lima, Perú",
-            descripcion: "Descubre las obras de teatro más destacadas de la capital.",
-            tag: ["arte", "drama"],
-            categoria: "teatro",
-        },
-        {
-            titulo: "Rutas recomendadas para trekking",
-            slug: "rutas-trekking",
-            imagenPrincipal: 'url("/agencia-de-viaje-cusco-jisaadventure.webp")',
-            fecha: "Jun 10, 2024",
-            Autor: "Aventura Andina",
-            ubicacion: "Andes, Perú",
-            descripcion: "Las mejores rutas de trekking en los Andes peruanos.",
-            tag: ["naturaleza", "aventura"],
-            categoria: "rutas",
-        },
-        {
-            titulo: "Rutas recomendadas para trekking",
-            slug: "rutas-trekking",
-            imagenPrincipal: 'url("/agencia-de-viaje-cusco-jisaadventure.webp")',
-            fecha: "Jun 10, 2024",
-            Autor: "Aventura Andina",
-            ubicacion: "Andes, Perú",
-            descripcion: "Las mejores rutas de trekking en los Andes peruanos.",
-            tag: ["naturaleza", "aventura"],
-            categoria: "rutas",
-        },
-    ];
-
-    const blogsFiltrados = categoriaActiva
-        ? blogs.filter((blog) => blog.categoria === categoriaActiva)
-        : blogs;
+    const blogs = data.data.blog || [];
 
     return (
         <>
             <HeroSectionMidle
-                backgroundImage='url("/agencia-de-viaje-cusco-jisaadventure.webp")'
+                backgroundImage='agencia-de-viaje-cusco-jisaadventure.webp'
                 title={t("blogs.nuestro_blog")}
                 description={t("blogs.description")}
             />
 
-            <div className="w-full max-w-4xl mx-auto mt-24 mb-12 px-6">
-                <div className="relative flex items-center justify-between">
-                    {categorias.map(({ id, label, icon }) => (
-                        <div
-                            key={id}
-                            className="flex flex-col justify-center items-center z-10 cursor-pointer"
-                            onClick={() => setCategoriaActiva(id)}
-                        >
-                            <div
-                                className={`h-20 w-20 rounded-xl flex justify-center items-center transition-all duration-300 ${categoriaActiva === id ? "bg-JisaVerde text-JisaGris" : "bg-JisaGris text-JisaVerde"
-                                    }`}
-                            >
-                                {icon}
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
             <div className="w-full max-w-7xl mx-auto mt-24 mb-12 px-6">
                 <div className="grid grid-cols-12 gap-8">
-                    {blogsFiltrados.map((blog, index) => (
+                    {blogs.map((blog, index) => (
                         <div className="md:col-span-4 col-span-12" key={index}>
                             <BlogCard
-                                title={blog.categoria}
-                                image={blog.imagenPrincipal}
-                                location={blog.ubicacion}
+                                title={blog.categoriablog.nombre}
+                                image={blog.imagen}
+                                location=""
                                 description={blog.titulo}
-                                context={blog.descripcion}
-                                author={blog.Autor}
+                                context={blog.resumen}
+                                author="Jisa Adventure"
                                 fecha={blog.fecha}
+                                slug={blog.slug}
                             />
                         </div>
                     ))}

@@ -10,6 +10,8 @@ import JisaTitleContentCyan from '../componentes/layout/JisaTitleContentCyan'
 import HeaderTitle from '../componentes/layout/HeaderTitle'
 import SubHeaderTitle from '../componentes/layout/SubHeaderTitle'
 import SEO from "../componentes/seo";
+import Loading from "../componentes/ui/Loading";
+import NotFound from "../pages/NotFound";
 
 const idiomaMap = { es: 1, en: 2, br: 3 }
 const DestinosDetail = () => {
@@ -21,11 +23,45 @@ const DestinosDetail = () => {
 
   const { data, isLoading, isError, error } = useApi({ endpoint: 'destinos', method: 'POST', body: { idioma_id: idiomaId, slug: ubicacion, }, });
 
-  if (isLoading) return <p className="text-center py-10">Cargando layout...</p>;
-  if (isError) return <p className="text-center text-red-500 py-10">Error: {error.message}</p>;
-  if (!data || !data.data) return null;
+  if (isLoading) return <Loading message="Cargando..." />;
+   if (isError && error?.status === 404) {
+    return (
+      <>
+        <SEO
+          title="404 | Destino no encontrado"
+          description="El destino que buscas no existe."
+          robots="noindex, nofollow"
+          type="website"
+          siteName="Jisa Adventure"
+          canonical={`https://jisaadventure.com/${ubicacion}`}
+        />
+        <NotFound />
+      </>
+    );
+  }
 
-  const destino = data.data.destinos || [];
+  if (isError) {
+    return <p className="text-center text-red-500 py-10">Error: {error.message}</p>;
+  }
+
+  
+  const destino = data?.data?.destinos ?? null;
+
+  if (!destino || (!Array.isArray(destino.tours) || destino.tours.length === 0)) {
+    return (
+      <>
+        <SEO
+          title="404 | Destino no encontrado"
+          description="El destino que buscas no existe."
+          robots="noindex, nofollow"
+          type="website"
+          siteName="Jisa Adventure"
+          canonical={`https://jisaadventure.com/${ubicacion}`}
+        />
+        <NotFound />
+      </>
+    );
+  }
 
   const tipo = 1;
 
@@ -40,7 +76,7 @@ const DestinosDetail = () => {
           type="article"
           siteName="Jisa Adventure"
           canonical={destino.canonical}
-          keywords={destino.canonical}
+          keywords={destino.keywords}
       />
       <HeroSectionMidle
         backgroundImage={destino.imagen}

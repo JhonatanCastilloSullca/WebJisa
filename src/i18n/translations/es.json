@@ -90,7 +90,10 @@
     "cantidad_pasajeros": "Cantidad de pasajeros",
     "dia": "Día",
     "servicios_fuera_de_impuestos": "Servicios fuera de impuestos",
-    "añadir_carrito": "Añadir al carrito"
+    "añadir_carrito": "Añadir al carrito",
+    "comunicate_asesor": "Comunícate con un asesor",
+    "no_disponible": "Este tour es sujeto a Disponibilidad.",
+    "ayuda_disponibilidad": "Te ayudamos a buscar fechas."
   },
   "blogs": {
     "nuestro_blog": "Nuestro blog",

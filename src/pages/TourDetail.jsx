@@ -10,6 +10,9 @@ import StickyReserva from "../componentes/StickyReserva";
 import { useTranslation } from "react-i18next";
 import { useApi } from "../hooks/useApi";
 import SEO from "../componentes/seo";
+import { buildTouristTripFromTour } from "../utils/seoSchemasTour";
+import NotFound from "../pages/NotFound";
+import Loading from "../componentes/ui/Loading";
 
 const idiomaMap = { es: 1, en: 2, br: 3 }
 
@@ -22,15 +25,38 @@ const TourDetail = () => {
 
     const { data, isLoading, isError, error } = useApi({ endpoint: 'tour-slug', method: 'POST', body: { idioma_id: idiomaId, slug: slug, }, });
 
-    if (isLoading) return <p className="text-center py-10">Cargando layout...</p>;
-    if (isError) return <p className="text-center text-red-500 py-10">Error: {error.message}</p>;
-    if (!data || !data.data) return null;
+    if (isLoading) return <Loading message="Cargando..." />;
+    if (isError && error?.status === 404) {
+        return (
+            <>
+            <SEO
+                title="404 | Tour no encontrado"
+                description="El tour que buscas no existe."
+                robots="noindex, nofollow"
+                type="website"
+                siteName="Jisa Adventure"
+                canonical={`https://jisaadventure.com/tours/${slug}`}
+            />
+
+            <NotFound />
+            </>
+        );
+    }
+    if (isError) {
+        return <p className="text-center text-red-500 py-10">Error: {error.message}</p>;
+    }
 
     const tour = data.data.tour || [];
     const dias = tour.itinerarios.length;
     const grupo = tour.max_pax;
     const recojo = tour.recojo;
 
+    const jsonLd = buildTouristTripFromTour(tour, {
+        baseUrl: "https://jisaadventure.com",
+        reservaBase: "/tours",
+        defaultCurrency: "USD",
+        reviews: data.data?.totalTripadvisor
+    });
 
     return (
         <>
@@ -41,7 +67,9 @@ const TourDetail = () => {
                 type="article"
                 siteName="Jisa Adventure"
                 canonical={tour.canonical}
-                keywords={tour.canonical}
+                keywords={tour.keywords}
+                jsonLd={jsonLd}
+                image={tour.foto_banner}
             />
             <StickyReserva tour={tour} />
 
@@ -62,7 +90,7 @@ const TourDetail = () => {
             />
             <TabsSection tour={tour} dias={dias} />
 
-            <TestimoniosSection id="testimonios" data={data.data?.tripadvisors} google={data.data?.googles} />
+            <TestimoniosSection id="testimonios" data={data.data?.tripadvisors} google={data.data?.googles} totalTripadvisor={data.data?.totalTripadvisor} totalGoogle={data.data?.totalGoogle}/>
             <ToursRelacionados tours={tour.relacionados} />
             <BlogSection id="blog" data={data.data?.blogs} />
         </>

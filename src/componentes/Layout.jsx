@@ -11,9 +11,9 @@ function Layout({ dataGeneral }) {
             <ScrollTop />
             <FloatingContact />
             <main className="min-h-screen relative">
-                <Outlet />
+                <Outlet context={{ dataGeneral }}/>
             </main>
-            <Footer />
+            <Footer context={{ dataGeneral }} />
         </>
     )
 }

@@ -1,32 +1,31 @@
-import { useMutation } from '@tanstack/react-query';
+import { useMutation } from "@tanstack/react-query";
+import { fetchJson } from "../utils/apiClient";
 
-const API_URL   = import.meta.env.VITE_API_URL;    // e.g. https://sistema.jisaadventure.com/api
+const API_URL = import.meta.env.VITE_API_URL;    // p.ej. https://sistema.jisaadventure.com/api
 const API_TOKEN = import.meta.env.VITE_API_TOKEN;
 
 export function useApiMutation() {
   return useMutation({
-    mutationFn: async ({ endpoint, body, method = 'POST', headers = {}, absolute = false, baseUrl }) => {
-      const base = absolute ? '' : (baseUrl ?? API_URL);
-      const url  = absolute ? endpoint : `${base}/${endpoint}`;
+    mutationFn: async ({ endpoint, body, method = "POST", headers = {}, absolute = false, baseUrl }) => {
+      const base = absolute ? "" : (baseUrl ?? API_URL);
+      const url = absolute ? endpoint : `${base}/${endpoint}`;
 
-      const res = await fetch(url, {
+      const opts = {
         method,
         headers: {
-          'Authorization': `Bearer ${API_TOKEN}`,
-          'Content-Type': 'application/json',
+          Authorization: `Bearer ${API_TOKEN}`,
+          "Content-Type": "application/json",
           ...headers,
         },
         body: body ? JSON.stringify(body) : null,
-      });
+      };
 
-      let json = {};
-      try { json = await res.json(); } catch(e) {}
-      if (!res.ok) {
-        const msg = (json && json.message) ? json.message : `${res.status} ${res.statusText}`;
-        throw new Error(msg);
-      }
-      return json;
+      // 👉 si falla, lanza HttpError con .status
+      return await fetchJson(url, opts);
     },
-    retry: false,
+    retry: (failureCount, error) => {
+      const status = error?.status ?? 0;
+      return status >= 500 && failureCount < 1; // sin reintentos en 4xx
+    },
   });
 }

@@ -12,10 +12,20 @@ import TestimoniosSection from "../componentes/secciones/TestimoniosSection";
 import FloatingMenu from "../componentes/FloatingMenu";
 import { useApi } from "../hooks/useApi";
 import { useEffect, useState } from "react";
+import SEO from "../componentes/seo";
 
 function Home({ dataGeneral }) {
     return (
         <>
+            <SEO
+                title={dataGeneral.inicio.title}
+                description={dataGeneral.inicio.description}
+                robots={dataGeneral.inicio.robots}
+                type="article"
+                siteName="Jisa Adventure"
+                canonical={dataGeneral.inicio.canonical}
+                keywords={dataGeneral.inicio.keywords}
+            />
             {/* <FloatingMenu page="home" /> */}
             <Hero id="hero" data={dataGeneral.slider} />
             <SearchBar id="search" data={dataGeneral.tours} />
@@ -27,7 +37,7 @@ function Home({ dataGeneral }) {
                 <PromocionSection id="promociones" data={dataGeneral.destinos} />
                 <ContactSection id="contacto" data={dataGeneral.destinos} />
                 <BlogSection id="blog" data={dataGeneral.blogs} />
-                <TestimoniosSection id="testimonios" data={dataGeneral.tripadvisors} google={dataGeneral.googles} />
+                <TestimoniosSection id="testimonios" data={dataGeneral.tripadvisors} google={dataGeneral.googles} totalTripadvisor={dataGeneral.totalTripadvisor} totalGoogle={dataGeneral.totalGoogle}/>
                 <MarcasSection id="marcas" data={dataGeneral.destinos} />
             </Suspense>
         </>

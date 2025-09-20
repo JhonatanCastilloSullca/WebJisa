@@ -21,6 +21,8 @@ import LandingDetail from './pages/LandingDetail'
 import { useTranslation } from 'react-i18next'
 import DestinosDetail from './pages/DestinosDetail'
 import { CartProvider } from './contexts/CartContext'
+import Loading from "./componentes/ui/Loading";
+
 const idiomaMap = { es: 1, en: 2, br: 3 }
 
 function App() {
@@ -30,7 +32,7 @@ function App() {
 
   const { data, isLoading, isError, error } = useApi({ endpoint: 'general', method: 'POST', idiomaId, });
 
-  if (isLoading) return <p className="text-center py-10">Cargando layout...</p>;
+  if (isLoading) return <Loading message="Cargando..." />;
   if (isError) return <p className="text-center text-red-500 py-10">Error: {error.message}</p>;
   if (!data || !data.data) return null;
   return (

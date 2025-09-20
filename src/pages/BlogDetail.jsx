@@ -19,6 +19,9 @@ import PromocionSection from "../componentes/PromocionSection";
 import TestimoniosSection from "../componentes/secciones/TestimoniosSection";
 import { useTranslation } from "react-i18next";
 import { useApi } from "../hooks/useApi";
+import Loading from "../componentes/ui/Loading";
+import SEO from "../componentes/seo";
+import NotFound from "../pages/NotFound";
 
 const idiomaMap = { es: 1, en: 2, br: 3 }
 
@@ -30,9 +33,26 @@ const BlogDetail = () => {
     
     const { data, isLoading, isError, error } = useApi({ endpoint: 'blog-slug', method: 'POST', body: { idioma_id: idiomaId, slug: slug, }, });
 
-    if (isLoading) return <p className="text-center py-10">Cargando layout...</p>;
-    if (isError) return <p className="text-center text-red-500 py-10">Error: {error.message}</p>;
-    if (!data || !data.data) return null;
+    if (isLoading) return <Loading message="Cargando..." />;
+    if (isError && error?.status === 404) {
+        return (
+            <>
+            <SEO
+                title="404 | Blog no encontrado"
+                description="El tour que buscas no existe."
+                robots="noindex, nofollow"
+                type="website"
+                siteName="Jisa Adventure"
+                canonical={`https://jisaadventure.com/`}
+            />
+
+            <NotFound />
+            </>
+        );
+    }
+    if (isError) {
+        return <p className="text-center text-red-500 py-10">Error: {error.message}</p>;
+    }
 
     const blogData = data.data.blog || [];
     return (
@@ -141,7 +161,7 @@ const BlogDetail = () => {
                 </div>
                 <PackageSection data={data.data?.paquetes} tipo="0" />
                 <PromocionSection />
-                <TestimoniosSection id="testimonios" data={data.data?.tripadvisors} google={data.data?.googles} />
+                <TestimoniosSection id="testimonios" data={data.data?.tripadvisors} google={data.data?.googles} totalTripadvisor={data.data?.totalTripadvisor} totalGoogle={data.data?.totalGoogle}/>
             </div>
         </>
     )

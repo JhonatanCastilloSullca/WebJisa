@@ -90,7 +90,10 @@
     "cantidad_pasajeros": "Quantidade de passageiros",
     "dia": "Dia",
     "servicios_fuera_de_impuestos": "Serviços fora de impostos",
-    "añadir_carrito": "Añadir Carriño"
+    "añadir_carrito": "Añadir Carriño",
+    "comunicate_asesor": "Entre em contato com um consultor",
+    "no_disponible": "Este passeio está sujeito à disponibilidade.",
+    "ayuda_disponibilidad": "Nós ajudamos você a encontrar datas."
   },
   "blogs": {
     "nuestro_blog": "Nosso blog",

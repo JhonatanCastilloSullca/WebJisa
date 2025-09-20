@@ -8,7 +8,7 @@ import TripAdvisorIcon from '../../assets/icons/TripAdvisorIcon'
 import GoogleIcon from '../../assets/icons/GoogleIcon'
 import { useTranslation } from 'react-i18next'
 
-const TestimoniosSection = ({ id, data, google }) => {
+const TestimoniosSection = ({ id, data, google, totalTripadvisor=450, totalGoogle=250 }) => {
     const { t } = useTranslation()
     const [activeTab, setActiveTab] = useState("tripadvisor");
 
@@ -39,7 +39,7 @@ const TestimoniosSection = ({ id, data, google }) => {
                 </ul>
 
                 <div className="mt-4">
-                    {activeTab === "tripadvisor" ? <Testimonios marca={'Tripadvisor'} data={data}  /> : <Testimonios marca={'Google'} data={google}  />}
+                    {activeTab === "tripadvisor" ? <Testimonios marca={'Tripadvisor'} data={data} total={totalTripadvisor} totalGoogle={totalGoogle}/> : <Testimonios marca={'Google'} data={google}  total={totalTripadvisor} totalGoogle={totalGoogle}/>}
                 </div>
             </div>
         </div>

@@ -56,13 +56,13 @@ export default function SEO({
           hrefLang={alt.hrefLang}
           href={alt.href.startsWith("http") ? alt.href : toAbsolute(canonicalBase, alt.href)}
         />
-      ))}
+      ))}*/}
 
       {jsonLd && (
         <script type="application/ld+json">
           {JSON.stringify(jsonLd)}
         </script>
-      )} */}
+      )}
     </Helmet>
   );
 }

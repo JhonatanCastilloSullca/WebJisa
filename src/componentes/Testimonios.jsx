@@ -14,7 +14,7 @@ import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { useTranslation } from "react-i18next";
 
-const Testimonios = ({ marca, data }) => {
+const Testimonios = ({ marca, data, total, totalGoogle }) => {
     const { t } = useTranslation()
     const testimonios = data || [];
 
@@ -59,9 +59,9 @@ const Testimonios = ({ marca, data }) => {
                     <div className="flex justify-center py-4">
 
                         {marca === "Tripadvisor" ? (
-                            <p className="text-center" >{t("trip_section.la_evaluación_general_en")} <span className="text-JisaCyan font-bold">Tripadvisor </span>{t("trip_section.es")} <span className="text-JisaCyan font-bold">5.0 </span> de 5,{t("trip_section.en_base_a")}<span className="text-JisaCyan font-bold"> 479 {t("trip_section.reseñas")} </span></p>
+                            <p className="text-center" >{t("trip_section.la_evaluación_general_en")} <span className="text-JisaCyan font-bold">Tripadvisor </span>{t("trip_section.es")} <span className="text-JisaCyan font-bold">5.0 </span> de 5,{t("trip_section.en_base_a")}<span className="text-JisaCyan font-bold"> {total} {t("trip_section.reseñas")} </span></p>
                         ) : (
-                            <p className="text-center" >{t("trip_section.la_evaluación_general_en")} <span className="text-[#eb4939] font-bold">Tripadvisor </span>{t("trip_section.es")} <span className="text-[#eb4939] font-bold">5.0 </span> de 5,{t("trip_section.en_base_a")}<span className="text-[#eb4939] font-bold"> 479 {t("trip_section.reseñas")} </span></p>
+                            <p className="text-center" >{t("trip_section.la_evaluación_general_en")} <span className="text-[#eb4939] font-bold">Tripadvisor </span>{t("trip_section.es")} <span className="text-[#eb4939] font-bold">5.0 </span> de 5,{t("trip_section.en_base_a")}<span className="text-[#eb4939] font-bold"> {totalGoogle} {t("trip_section.reseñas")} </span></p>
 
                         )}
                     </div>
