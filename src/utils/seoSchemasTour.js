@@ -58,7 +58,7 @@ export function buildTouristTripFromTour(tour, {
   // Itinerario (desde tour.itinerarios)
   const itinerary = Array.isArray(tour.itinerarios)
     ? tour.itinerarios.map((it) => ({
-        "@type": "TouristAttraction",
+        "@type": "ItemList",
         name: it.titulo || it.name || `Día`,
         ...(it.titulo ? { description: String(it.titulo).slice(0, 300) } : {}),
       }))
@@ -80,10 +80,11 @@ export function buildTouristTripFromTour(tour, {
     "@context": "https://schema.org",
     "@type": "TouristTrip",
     "name": tour.h1,
-    "url": tourUrl,
     "description": tour.description,
-    "image": imageAbs,
-    "touristType": tour.tipo_categoria?.nombre,
+    "image": [
+      imageAbs,
+    ],
+    ...(itinerary.length ? { itinerary } : {}),
     "provider": {
       "@type": "Organization",
       "name": "Jisa Adventure",
@@ -96,29 +97,23 @@ export function buildTouristTripFromTour(tour, {
         "https://www.tiktok.com/@jisa_adventure",
         "https://www.tripadvisor.com.pe/Attraction_Review-g294318-d17545647-Reviews-JISA_ADVENTURE_Agencia_de_viajes_para_Cusco-Machu_Picchu_Sacred_Valley_Cusco_Reg.html"
       ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "‪+51-976-294-449‬",
+        "contactType": "customer service",
+        "areaServed": "PE",
+        "availableLanguage": ["Spanish", "English"]
+      }
     },
-    ...(destinations.length ? { destination: destinations } : {}),
     ...(price ? {
       "offers": {
         "@type": "Offer",
-        "priceCurrency": priceCurrency,
         "price": price,
+        "priceCurrency": priceCurrency,
         "availability": "https://schema.org/InStock",
         "url": offerUrl,
-        // si manejas fechas, puedes incluirlas:
-        ...(tour.validFrom ? { validFrom: tour.validFrom } : {}),
-        ...(tour.priceValidUntil ? { priceValidUntil: tour.priceValidUntil } : {}),
       }
     } : {}),
-    ...(itinerary.length ? { itinerary } : {}),
-    ...((ratingValue && reviewCount) ? {
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": String(ratingValue),
-        "reviewCount": String(reviewCount),
-      }
-    } : {}),
-    ...(keywords ? { keywords } : {}),
   };
 
   return schema;
