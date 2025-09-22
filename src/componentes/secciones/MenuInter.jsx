@@ -5,43 +5,20 @@ import { useCart } from "../../contexts/CartContext";
 
 function MenuIntern({ dataGeneral, menuOpen, menu = [] }) {
   const { cartItems } = useCart();
-  const header = dataGeneral?.header || [];
+  const header = dataGeneral?.header || {};
+
   return (
-    <div
-      className={`flex flex-col md:flex-row md:bg-white bg-white text-JisaCyan md:text-JisaCyan w-full transition-all duration-300 ease-in-out ${menuOpen ? "block" : "hidden md:flex"
-        }`}
-    >
-      <div className="w-full max-w-7xl mx-auto">
-        <nav className="text-gray-900">
-          <div className="container mx-auto flex md:flex-row flex-col md:justify-center justify-start uppercase items-center">
-            <MenuHeader menu={menu} />
-            {/* <NavLink
-              to="/nosotros"
-              className="relative block py-2 px-4 text-sm lg:text-sm font-semibold md:text-black text-black hover:text-JisaCyan uppercase"
-            >
-              Sobre Jisa
-            </NavLink>
-            <NavLink
-              to={header.enlace}
-              className="bg-JisaCyan text-white rounded-xl text-center flex px-6 md:font-medium font-bold md:text-sm text-xl py-1 items-center place-self-center self-center"
-            >
-              {header.boton_accion}
-            </NavLink>*/}
-            <NavLink
-              to="/carrito"
-              className="relative inline-flex items-center p-3 text-sm font-medium text-center md:text-JisaCyan text-JisaCyan"
-            >
-              <div className="relative w-fit">
-                <CartIcon size={20} />
-                {cartItems.length > 0 && (
-                  <span className="absolute -top-2 -right-2 flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-red-500 rounded-full">
-                    {cartItems.length}
-                  </span>
-                )}
-              </div>
-            </NavLink>
-          </div>
-        </nav>
+    <div className={`${menuOpen ? "block" : "hidden md:flex"}`}>
+      {/* BARRA TURQUESA */}
+      <div id="menubar" className="w-full bg-JisaCyan relative">
+        <div className="mx-auto md:max-w-5xl px-2">
+          <nav className="flex items-center justify-between">
+            {/* Menú centrado */}
+            <div className="flex-1 flex justify-center">
+              <MenuHeader menu={menu} />
+            </div>
+          </nav>
+        </div>
       </div>
     </div>
   );

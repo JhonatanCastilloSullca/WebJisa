@@ -5,7 +5,7 @@ import CartIcon from "../../assets/icons/CartIcon";
 function MainMenu({ menuOpen, menu = [] }) {
   return (
     <div
-      className={`flex flex-col md:flex-row md:bg-JisaCyan bg-white text-JisaCyan md:text-white w-full transition-all duration-300 ease-in-out ${menuOpen ? "block" : "hidden md:flex"
+      className={`flex flex-col md:flex-row md:bg-JisaCyan bg-JisaCyan text-JisaCyan md:text-white w-full transition-all duration-300 ease-in-out ${menuOpen ? "block" : "hidden md:flex"
         }`}
     >
       <div className="w-full max-w-7xl mx-auto">
