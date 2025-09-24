@@ -15,7 +15,11 @@ export default {
         JisaNaranja: '#D18D2A',
       },
       fontFamily: {
-        lufga: ['Lufga', 'sans-serif'],
+        lufga: ["Lufga", "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
+        sans: ["Lufga", "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
+      },
+      fontWeight: {
+        regular: '400', // <— podrás usar font-regular
       },
       lineClamp: {
         7: '7',
@@ -23,10 +27,7 @@ export default {
         9: '9',
         10: '10',
       }
-    },
-    fontFamily: {
-      sans: ['Lufga', 'sans-serif'],
-    },
+    }
   },
   plugins: [
     require('@tailwindcss/line-clamp'),

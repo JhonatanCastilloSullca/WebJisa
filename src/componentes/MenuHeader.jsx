@@ -32,15 +32,14 @@ const MenuHeader = ({ menu }) => {
   const [overlayTop, setOverlayTop] = useState(0);
   const [activeSlug, setActiveSlug] = useState(null);
 
-  // refs por item para medir su bottom exacto
   const itemRefs = useRef([]);
+  const navRootRef = useRef(null); // ★ nav contenedor para cerrar al salir
 
   const closeOverlay = () => {
     setOpenIndex(null);
     setActiveSlug(null);
   };
 
-  // precarga imágenes
   useEffect(() => {
     const cache = {};
     menu.forEach((item) => {
@@ -58,7 +57,6 @@ const MenuHeader = ({ menu }) => {
     setImageCache(cache);
   }, [menu]);
 
-  // calcula top justo debajo del item seleccionado
   const computeTopForIndex = (idx) => {
     const el = itemRefs.current[idx];
     if (el && el.getBoundingClientRect) {
@@ -68,7 +66,7 @@ const MenuHeader = ({ menu }) => {
     return window.scrollY + 56; // fallback
   };
 
-  // mantener overlay pegado al item abierto
+  // Mantén el overlay pegado y cierra con teclas
   useEffect(() => {
     const updateTop = () => {
       if (openIndex !== null) {
@@ -77,20 +75,33 @@ const MenuHeader = ({ menu }) => {
     };
     updateTop();
 
+    // ★ Cerrar al hacer scroll / wheel / touchmove
+    const closeOnScroll = () => {
+      if (openIndex !== null) closeOverlay();
+    };
+
     window.addEventListener("resize", updateTop);
-    window.addEventListener("scroll", updateTop, { passive: true });
+    window.addEventListener("scroll", closeOnScroll, { passive: true });
+    window.addEventListener("wheel", closeOnScroll, { passive: true });
+    window.addEventListener("touchmove", closeOnScroll, { passive: true });
 
     const onKey = (e) => e.key === "Escape" && closeOverlay();
     window.addEventListener("keydown", onKey);
 
+    // ★ Cerrar si la pestaña pierde foco (opcional pero útil)
+    const onVis = () => { if (document.hidden) closeOverlay(); };
+    document.addEventListener("visibilitychange", onVis);
+
     return () => {
       window.removeEventListener("resize", updateTop);
-      window.removeEventListener("scroll", updateTop);
+      window.removeEventListener("scroll", closeOnScroll);
+      window.removeEventListener("wheel", closeOnScroll);
+      window.removeEventListener("touchmove", closeOnScroll);
       window.removeEventListener("keydown", onKey);
+      document.removeEventListener("visibilitychange", onVis);
     };
   }, [openIndex]);
 
-  // si cambias de tab, resetea el activo para que se cargue el 1ro del nuevo menú
   useEffect(() => {
     if (openIndex !== null) setActiveSlug(null);
   }, [openIndex]);
@@ -102,7 +113,6 @@ const MenuHeader = ({ menu }) => {
     const hasMore = tours.length > MAX_VISIBLE;
     const visibleTours = tours.slice(0, MAX_VISIBLE);
 
-    // activo por defecto
     if (!activeSlug && visibleTours[0]?.slug) {
       setActiveSlug(visibleTours[0].slug);
       setSelectedTour({
@@ -127,14 +137,14 @@ const MenuHeader = ({ menu }) => {
 
     return ReactDOM.createPortal(
       <>
-        {/* Backdrop: SOLO desde debajo de la barra hacia abajo */}
+        {/* Backdrop desde el borde inferior del tab hacia abajo */}
         <div
           className="fixed left-0 right-0 bottom-0 z-[60]"
           style={{ top: overlayTop }}
           onPointerDown={closeOverlay}
           aria-hidden="true"
         />
-        {/* Franja blanca posicionada debajo del tab */}
+        {/* Panel blanco */}
         <div
           className="fixed left-0 right-0 z-[70]"
           style={{ top: overlayTop }}
@@ -143,7 +153,7 @@ const MenuHeader = ({ menu }) => {
           <div className="w-full bg-white shadow-[0_10px_30px_rgba(0,0,0,.08)] border-t border-gray-100">
             <div
               className="mx-auto w-full md:max-w-5xl px-4 py-8"
-              onPointerDown={(e) => e.stopPropagation()} // no cerrar al interactuar dentro
+              onPointerDown={(e) => e.stopPropagation()}
             >
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {/* Lista (con separador en desktop) */}
@@ -172,13 +182,12 @@ const MenuHeader = ({ menu }) => {
                             }}
                             onClick={closeOverlay}
                           >
-                            <span className="truncate">{sub.titulo}</span>
+                            <span className="truncate font-medium">{sub.titulo}</span>
                             {isActive && <ArrowRight className="shrink-0 text-JisaCyan" />}
                           </NavLink>
                         </li>
                       );
                     })}
-
                     {hasMore && (
                       <li className="pt-3">
                         <NavLink
@@ -193,10 +202,10 @@ const MenuHeader = ({ menu }) => {
                   </ul>
                 </div>
 
-                {/* Descripción (solo desktop) */}
+                {/* Descripción (desktop) */}
                 <div className="hidden md:block">
                   {selectedTour.titulo && (
-                    <h3 className="text-sm font-bold mb-2 uppercase">{selectedTour.titulo}</h3>
+                    <h3 className="text-sm font-bold mb-2 uppercase text-JisaCyan">{selectedTour.titulo}</h3>
                   )}
                   <div
                     className="text-xs leading-relaxed text-gray-700"
@@ -204,7 +213,7 @@ const MenuHeader = ({ menu }) => {
                   />
                 </div>
 
-                {/* Imagen (solo desktop) */}
+                {/* Imagen (desktop) */}
                 <div className="hidden md:block">
                   {selectedTour.imagen ? (
                     <img
@@ -226,7 +235,13 @@ const MenuHeader = ({ menu }) => {
   };
 
   return (
-    <nav>
+    <nav
+      ref={navRootRef}
+      onMouseLeave={() => {
+        // ★ salir del header/menú cierra el overlay (desktop)
+        if (openIndex !== null) closeOverlay();
+      }}
+    >
       <ul className="flex md:flex-row flex-col">
         {menu.map((item, index) => (
           <li
@@ -235,7 +250,6 @@ const MenuHeader = ({ menu }) => {
             ref={(el) => (itemRefs.current[index] = el)}
             onMouseEnter={() => {
               if ((item.tours || []).length) {
-                // 🔁 cambia de tab con hover
                 const top = computeTopForIndex(index);
                 setOverlayTop(top);
                 setOpenIndex(index);
