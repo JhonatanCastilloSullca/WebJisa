@@ -80,10 +80,10 @@ function Header({ dataGeneral }) {
         )}
         <div className="w-full">
           <div className="md:max-w-5xl w-full mx-auto">
-            <div className="flex justify-between items-center py-2">
+            <div className="flex justify-between items-center py-1">
               <div className="flex items-center">
                 <NavLink to="/">
-                  <img src={header.logo} alt="Logo Jisa Adventure" className="h-10 md:h-16 object-cover py-2 px-2" />
+                  <img src={header.logo} alt="Logo Jisa Adventure" className="h-8 md:h-12 object-cover" />
                 </NavLink>
               </div>
               
