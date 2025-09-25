@@ -2,11 +2,26 @@ import React from 'react'
 import ParrafoContent from './layout/ParrafoContent'
 import MapDotIcon from '../assets/icons/MapDotIcon'
 import { useTranslation } from 'react-i18next'
+import Breadcrumbs from "../componentes/ui/Breadcrumbs";
 
-const TourDetails = ({ ubicaciones, descripcion, brochure, imagenSecundaria }) => {
+const TourDetails = ({ tour,ubicaciones, descripcion, brochure, imagenSecundaria }) => {
     const { t } = useTranslation()
+
+    const ubic = Array.isArray(ubicaciones) && ubicaciones.length > 0
+        ? ubicaciones[0]
+        : null;
+    
+    const ubicHref = ubic?.slug ? `/${ubic.slug}` : "/";
+    const tourHref = tour?.canonical || (tour?.slug ? `/tours/${tour.slug}` : window.location.pathname);
+
+    const breadcrumbItems = [
+        { href: "/", label: "Inicio" },
+        ...(ubic ? [{ href: ubicHref, label: ubic.nombre }] : []),
+        { href: tourHref, label: tour.h1 || tour.title || "Detalle", current: true },
+    ];
     return (
         <div className="w-full max-w-7xl mx-auto mt-10 mb-16 px-4 sm:px-6 lg:px-8">
+            <Breadcrumbs items={breadcrumbItems} className="mb-4" />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
                 {/* Texto y Ubicaciones */}

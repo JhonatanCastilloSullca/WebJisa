@@ -71,7 +71,7 @@ const TourDetail = () => {
                 jsonLd={jsonLd}
                 image={tour.foto_banner}
             />
-            <StickyReserva tour={tour} />
+            {/* <StickyReserva tour={tour} /> */}
 
             <HeroSectionTour
                 backgroundImage={tour.foto_banner}
@@ -82,7 +82,9 @@ const TourDetail = () => {
             />
 
             <TourInfo duracion={dias} grupo={grupo} tipo={tour.tipo_categoria.nombre} recojo={recojo} />
+            
             <TourDetails
+                tour={tour}
                 ubicaciones={tour.ubicaciones}
                 descripcion={tour.resumen}
                 brochure={tour.brochure}

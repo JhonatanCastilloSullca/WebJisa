@@ -12,6 +12,7 @@ import SubHeaderTitle from '../componentes/layout/SubHeaderTitle'
 import SEO from "../componentes/seo";
 import Loading from "../componentes/ui/Loading";
 import NotFound from "../pages/NotFound";
+import Breadcrumbs from "../componentes/ui/Breadcrumbs";
 
 const idiomaMap = { es: 1, en: 2, br: 3 }
 const DestinosDetail = () => {
@@ -46,6 +47,12 @@ const DestinosDetail = () => {
 
   
   const destino = data?.data?.destinos ?? null;
+
+  const labelUbic = destino?.h1 || destino?.nombre || slugToTitle(ubicacion);
+  const breadcrumbItems = [
+    { href: "/", label: "Inicio" },
+    { href: "", label: labelUbic, current: true },
+  ];
 
   if (!destino || (!Array.isArray(destino.tours) || destino.tours.length === 0)) {
     return (
@@ -91,6 +98,7 @@ const DestinosDetail = () => {
           <SubHeaderTitle title={tipo == 1 ? t('paquetes_destacados.description') : t('tours_destacados.description')} />
           <SeparatorBarHorizontal />
         </div>
+        <Breadcrumbs items={breadcrumbItems} className="mb-4 max-w-7xl mx-auto px-4" />
         <ToursLineSection tours={destino.tours} />
       </div>
     </>
