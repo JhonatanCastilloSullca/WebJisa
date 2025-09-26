@@ -33,13 +33,13 @@ const ToursCardSalkantay = ({ title, image, location, description, price, dias, 
               <div className="text-JisaCyan">
                 <ClockIcon size={16} />
               </div>
-              <h3 className="text-xs font-medium">{dias} Dias</h3>
+              <span className="text-xs font-medium">{dias} Dias</span>
             </div>
             <div className="flex gap-x-2">
               <div className="text-JisaCyan">
                 <MountainHikIcon size={16} />
               </div>
-              <span className="text-xs font-medium">{title}</span>
+              <h3 className="text-xs font-medium">{title}</h3>
             </div>
           </div>
 

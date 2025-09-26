@@ -22,6 +22,8 @@ import { useTranslation } from 'react-i18next'
 import DestinosDetail from './pages/DestinosDetail'
 import { CartProvider } from './contexts/CartContext'
 import Loading from "./componentes/ui/Loading";
+import TipoTours from './pages/TipoTours'
+import PaqueteTours from './pages/PaqueteTours'
 
 const idiomaMap = { es: 1, en: 2, br: 3 }
 
@@ -41,13 +43,19 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout dataGeneral={data.data} />}>
             <Route index element={<Home dataGeneral={data.data} />} />
+            <Route path="tours" element={<TipoTours />} />
+            <Route path="paquetes" element={<PaqueteTours />} />
             <Route path="tours/:slug" element={<TourDetail />} />
             <Route path="paquetes/:slug" element={<TourDetail />} />
-            <Route path="/:ubicacion" element={<DestinosDetail />} />           
+
+            <Route path=":ubicacion" element={<DestinosDetail />} />   
+
             <Route path="blogs" element={<Blogs />} />
             <Route path="blogs/:slug" element={<BlogDetail />} />
-            <Route path="paquetes/:ubicacion" element={<DestinosDetail />} />
-            <Route path="paquetes/:ubicacion/:slug" element={<TourDetail />} />
+
+            {/* <Route path="paquetes/:ubicacion" element={<DestinosDetail />} />
+            <Route path="paquetes/:ubicacion/:slug" element={<TourDetail />} /> */}
+
             <Route path="terminos-condiciones" element={<TerminosCondiciones />} />
             <Route path="politicas-privacidad" element={<PoliticaPrivacidad />} />
             <Route path="carrito" element={<Cart />} />

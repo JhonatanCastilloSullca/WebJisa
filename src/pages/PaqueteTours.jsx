@@ -11,30 +11,29 @@ import HeaderTitle from '../componentes/layout/HeaderTitle'
 import SubHeaderTitle from '../componentes/layout/SubHeaderTitle'
 import SEO from "../componentes/seo";
 import Loading from "../componentes/ui/Loading";
-import NotFound from "../pages/NotFound";
+import NotFound from "./NotFound";
 import Breadcrumbs from "../componentes/ui/Breadcrumbs";
 
 const idiomaMap = { es: 1, en: 2, br: 3 }
-const DestinosDetail = () => {
+const PaqueteTours = () => {
 
   const { t } = useTranslation()
-  const { ubicacion } = useParams();
 
   const idiomaId = idiomaMap[t.language] || 1
 
-  const { data, isLoading, isError, error } = useApi({ endpoint: 'destinos', method: 'POST', body: { idioma_id: idiomaId, slug: ubicacion, }, });
+  const { data, isLoading, isError, error } = useApi({ endpoint: 'tours-tipos', method: 'POST', body: { idioma_id: idiomaId, tipo: 1, }, });
 
   if (isLoading) return <Loading message="Cargando..." />;
    if (isError && error?.status === 404) {
     return (
       <>
         <SEO
-          title="404 | Destino no encontrado"
-          description="El destino que buscas no existe."
+          title="404 | Paquetes no encontrado"
+          description="El Paquete que buscas no existe."
           robots="noindex, nofollow"
           type="website"
           siteName="Jisa Adventure"
-          canonical={`https://jisaadventure.com/${ubicacion}`}
+          canonical={`https://jisaadventure.com/paquetes`}
         />
         <NotFound />
       </>
@@ -46,24 +45,23 @@ const DestinosDetail = () => {
   }
 
   
-  const destino = data?.data?.destinos ?? null;
+  const tours = data?.data?.tours ?? null;
 
-  const labelUbic = destino?.h1 || destino?.nombre || slugToTitle(ubicacion);
   const breadcrumbItems = [
     { href: "/", label: "Inicio" },
-    { href: "", label: labelUbic, current: true },
+    { href: "paquetes", label: "Paquetes", current: true },
   ];
 
-  if (!destino || (!Array.isArray(destino.tours) || destino.tours.length === 0)) {
+  if (!tours) {
     return (
       <>
         <SEO
-          title="404 | Destino no encontrado"
-          description="El destino que buscas no existe."
+          title="404 | Paquetes no encontrado"
+          description="El paquete que buscas no existe."
           robots="noindex, nofollow"
           type="website"
           siteName="Jisa Adventure"
-          canonical={`https://jisaadventure.com/${ubicacion}`}
+          canonical={`https://jisaadventure.com/paquetes`}
         />
         <NotFound />
       </>
@@ -72,23 +70,21 @@ const DestinosDetail = () => {
 
   const tipo = 1;
 
-
-
   return (
     <>
       <SEO
-          title={destino.title}
-          description={destino.description}
-          robots={destino.robots}
+          title="Paquetes en Perú y Cusco, Machu Picchu, Ica"
+          description="Viaja por Perú con los mejores tours y paquetes turísticos: Cusco, Machu Picchu, Lago Titicaca, Arequipa, Paracas e Ica. Reserva tu viaje todo incluido."
+          robots="index, follow"
           type="article"
           siteName="Jisa Adventure"
-          canonical={destino.canonical}
-          keywords={destino.keywords}
+          canonical="https://jisaadventure.com/tours"
+          keywords="Paquetes en Perú y Cusco, Machu Picchu, Ica"
       />
       <HeroSectionMidle
-        backgroundImage={destino.imagen}
-        title={destino.h1}
-        description={destino.descripcion}
+        backgroundImage='/agencia-de-viaje-cusco-jisaadventure.webp'
+        title="Paquetes en Perú y Cusco"
+        description="Viaja por Perú con los mejores tours y paquetes turísticos: Cusco, Machu Picchu, Lago Titicaca, Arequipa, Paracas e Ica. Reserva tu viaje todo incluido."
         buttonText="Ver Tours"
         buttonLink="https://jisaadventure.com/"
       />
@@ -101,10 +97,10 @@ const DestinosDetail = () => {
           <SubHeaderTitle title={tipo == 1 ? t('paquetes_destacados.description') : t('tours_destacados.description')} />
           <SeparatorBarHorizontal />
         </div>
-        <ToursLineSection tours={destino.tours} />
+        <ToursLineSection tours={tours} />
       </div>
     </>
   )
 }
 
-export default DestinosDetail
+export default PaqueteTours
