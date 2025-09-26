@@ -39,14 +39,14 @@ const ToursCardSalkantay = ({ title, image, location, description, price, dias, 
               <div className="text-JisaCyan">
                 <MountainHikIcon size={16} />
               </div>
-              <h3 className="text-xs font-medium">{title}</h3>
+              <span className="text-xs font-medium">{title}</span>
             </div>
           </div>
 
           <hr className="my-2" />
 
           <div>
-            <span className="text-lg font-medium">{description}</span>
+            <h3 className="text-lg font-medium">{description}</h3>
           </div>
           <div>
             <span className="text-xs font-light text-JisaGrisTextGray">{location}</span>
