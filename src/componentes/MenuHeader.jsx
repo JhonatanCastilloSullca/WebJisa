@@ -61,9 +61,9 @@ const MenuHeader = ({ menu }) => {
     const el = itemRefs.current[idx];
     if (el && el.getBoundingClientRect) {
       const r = el.getBoundingClientRect();
-      return Math.round(r.bottom + window.scrollY);
+      return Math.round(r.bottom);
     }
-    return window.scrollY + 56; // fallback
+    return 56; // fallback
   };
 
   // Mantén el overlay pegado y cierra con teclas
