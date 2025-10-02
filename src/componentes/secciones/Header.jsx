@@ -83,7 +83,7 @@ function Header({ dataGeneral }) {
             <div className="flex justify-between items-center py-1">
               <div className="flex items-center">
                 <NavLink to="/">
-                  <img src={header.logo} alt="Logo Jisa Adventure" className="h-8 md:h-12 object-cover" />
+                  <img src={header.logo} alt="Jisa Adventure Tour y Paquetes Cusco" className="h-8 md:h-12 object-cover" />
                 </NavLink>
               </div>
               

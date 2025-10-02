@@ -54,7 +54,7 @@ const DestinosDetail = () => {
     { href: "", label: labelUbic, current: true },
   ];
 
-  if (!destino || (!Array.isArray(destino.tours) || destino.tours.length === 0)) {
+  if (!destino || (!Array.isArray(destino.ubicacion_detalles) || destino.ubicacion_detalles.length === 0)) {
     return (
       <>
         <SEO
@@ -96,12 +96,16 @@ const DestinosDetail = () => {
         <div className="flex-col py-5">
           <Breadcrumbs items={breadcrumbItems} className="mb-4 max-w-7xl mx-auto px-4" />
         </div>
-        <div className="flex-col justify-center flex items-center py-1">
-          <HeaderTitle title={tipo == 1 ? t('paquetes_destacados.title') : t('tours_destacados.title')} />
-          <SubHeaderTitle title={tipo == 1 ? t('paquetes_destacados.description') : t('tours_destacados.description')} />
-          <SeparatorBarHorizontal />
-        </div>
-        <ToursLineSection tours={destino.tours} />
+        {destino.ubicacion_detalles.map((destino)=>(
+          <div className="flex-col justify-center flex items-center py-1 mb-20" key={destino.id}>
+            <HeaderTitle title={destino.titulo} etiqueta="h2" />
+            <SubHeaderTitle title={destino.descripcion} />
+            <SeparatorBarHorizontal />
+            <div className="w-full max-w-6xl mx-auto md:px-0 px-4">
+              <ToursLineSection tours={destino.tours}  carrusel="1"/>
+            </div>
+          </div>
+        ))}
       </div>
     </>
   )
