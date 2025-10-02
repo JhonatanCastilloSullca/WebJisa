@@ -27,8 +27,13 @@ function Home({ dataGeneral }) {
                 keywords={dataGeneral.inicio.keywords}
             />
             {/* <FloatingMenu page="home" /> */}
-            <Hero id="hero" data={dataGeneral.slider} />
-            <SearchBar id="search" data={dataGeneral.tours} />
+            <section className="relative">
+                <Hero id="hero" data={dataGeneral.slider} />
+                 <div className="pointer-events-auto absolute left-1/2 -translate-x-1/2
+                  bottom-3 md:bottom-8 w-[min(92vw,900px)] px-4 z-[1200]">
+                    <SearchBar id="search" data={dataGeneral.tours} />
+                </div>
+            </section>
             <Suspense>
                 <AboutSection id="about" data={dataGeneral.nosotros} />
                 <PackageSection id="packages" data={dataGeneral.paquetes} tipo="1" />

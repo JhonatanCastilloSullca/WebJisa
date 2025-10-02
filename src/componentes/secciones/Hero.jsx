@@ -1,58 +1,54 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, EffectFade } from 'swiper/modules';
 import 'swiper/css';
-import { Autoplay } from 'swiper/modules';
+import 'swiper/css/effect-fade';
 import HeroSection from '../HeroSection';
 
-function Hero({ id, data }) {
-    return (
-        <div id={id} className="h-auto w-full relative top-0">
-            {/* Slider de imágenes */}
-            {data?.tipo == 0 && Array.isArray(data.detalles) && (
-                <Swiper
-                    spaceBetween={30}
-                    centeredSlides={true}
-                    autoplay={{
-                        delay: 5000,
-                        disableOnInteraction: true,
-                    }}
-                    modules={[Autoplay]}
-                    className="mySwiper"
-                >
-                    {data.detalles.map((img, index) => (
-                        <SwiperSlide key={index}>
-                            <HeroSection
-                                backgroundImage={img.enlace}
-                                title={img.titulo}
-                                description={img.descripcion}
-                                buttonText={img.text_boton}
-                                buttonLink={img.accion}
-                            />
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-            )}
+function Hero({ id, data, dataSearch }) {
+  const tipo = data?.tipo != null ? Number(data.tipo) : null; // 👈 forzamos número
 
-            {/* Video de fondo */}
-            {data?.tipo === 1 && typeof data.detalles === 'string' && (
-                <div className="relative w-full h-[80vh] overflow-hidden">
-                    <video
-                        className="w-full h-full object-cover"
-                        src={data.detalles}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                    />
-                    {/* Opcional: superponer contenido
-                    <div className="absolute inset-0 flex flex-col justify-center items-center text-white text-center bg-black/40">
-                        <h2 className="text-4xl font-bold mb-4">LO MEJOR DE CUSCO ESTÁ ESPERÁNDOTE</h2>
-                        <p className="max-w-xl mb-6 px-4">Comenzaron las reservas para el Camino Inca 2025, separa tu espacio ahora y descubre Machu Picchu en una aventura inolvidable</p>
-                        <a href="https://jisaadventure.com/" className="bg-white text-black px-6 py-2 rounded-xl font-semibold">Ver Tours</a>
-                    </div> */}
-                </div>
-            )}
+  return (
+    <section id={id} className="h-auto w-full relative">
+      {/* Slider de imágenes */}
+      {tipo === 0 && Array.isArray(data?.detalles) && (
+        <Swiper
+          spaceBetween={30}
+          centeredSlides
+          autoplay={{ delay: 5000, disableOnInteraction: true }}
+          effect="fade"
+          modules={[Autoplay, EffectFade]}
+          className="w-full"
+        >
+          {data.detalles.map((img, i) => (
+            <SwiperSlide key={img?.id ?? img?.enlace ?? i}>
+              <HeroSection
+                backgroundImage={img.enlace}
+                title={img.titulo}
+                description={img.descripcion}
+                buttonText={img.text_boton}
+                buttonLink={img.accion}
+                dataSearch={dataSearch}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      )}
+
+      {/* Video de fondo */}
+      {tipo === 1 && typeof data?.detalles === 'string' && (
+        <div className="relative w-full h-[80vh] overflow-hidden">
+          <video
+            className="w-full h-full object-cover"
+            src={data.detalles}
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
         </div>
-    );
+      )}
+    </section>
+  );
 }
 
 export default Hero;
