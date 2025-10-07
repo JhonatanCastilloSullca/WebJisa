@@ -21,6 +21,8 @@ const TourDetail = () => {
     const { slug } = useParams();
     const { ubicacion } = useParams();
 
+    const canonicalReal = `https://jisaadventure.com/tours/${slug}`;
+
     const idiomaId = idiomaMap[t.language] || 1
 
     const { data, isLoading, isError, error } = useApi({ endpoint: 'tour-slug', method: 'POST', body: { idioma_id: idiomaId, slug: slug, }, });
@@ -66,7 +68,7 @@ const TourDetail = () => {
                 robots={tour.robots}
                 type="article"
                 siteName="Jisa Adventure"
-                canonical={tour.canonical}
+                canonical={tour.canonical ?? canonicalReal}
                 keywords={tour.keywords}
                 jsonLd={jsonLd}
                 image={tour.foto_banner}

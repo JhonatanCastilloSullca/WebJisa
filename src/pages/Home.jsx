@@ -23,7 +23,7 @@ function Home({ dataGeneral }) {
                 robots={dataGeneral.inicio.robots}
                 type="article"
                 siteName="Jisa Adventure"
-                canonical={dataGeneral.inicio.canonical}
+                canonical={dataGeneral.inicio.canonical ?? 'https://jisaadventure.com'}
                 keywords={dataGeneral.inicio.keywords}
             />
             {/* <FloatingMenu page="home" /> */}

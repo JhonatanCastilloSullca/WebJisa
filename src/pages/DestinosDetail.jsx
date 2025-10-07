@@ -20,6 +20,8 @@ const DestinosDetail = () => {
   const { t } = useTranslation()
   const { ubicacion } = useParams();
 
+  const canonicalReal = `https://jisaadventure.com/${ubicacion}`;
+
   const idiomaId = idiomaMap[t.language] || 1
 
   const { data, isLoading, isError, error } = useApi({ endpoint: 'destinos', method: 'POST', body: { idioma_id: idiomaId, slug: ubicacion, }, });
@@ -82,7 +84,7 @@ const DestinosDetail = () => {
           robots={destino.robots}
           type="article"
           siteName="Jisa Adventure"
-          canonical={destino.canonical}
+          canonical={destino.canonical ?? canonicalReal}
           keywords={destino.keywords}
       />
       <HeroSectionMidle
