@@ -21,8 +21,6 @@ const TourDetail = () => {
     const { slug } = useParams();
     const { ubicacion } = useParams();
 
-    const canonicalReal = `https://jisaadventure.com/tours/${slug}`;
-
     const idiomaId = idiomaMap[t.language] || 1
 
     const { data, isLoading, isError, error } = useApi({ endpoint: 'tour-slug', method: 'POST', body: { idioma_id: idiomaId, slug: slug, }, });
@@ -52,6 +50,8 @@ const TourDetail = () => {
     const dias = tour.itinerarios.length;
     const grupo = tour.max_pax;
     const recojo = tour.recojo;
+    const taxo = tour.tipo == 1 ? 'paquetes' : 'tours';
+    const canonicalReal = `https://jisaadventure.com/${taxo}/${slug}`;
 
     const jsonLd = buildTouristTripFromTour(tour, {
         baseUrl: "https://jisaadventure.com",

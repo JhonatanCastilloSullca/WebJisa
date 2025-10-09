@@ -53,6 +53,7 @@ const FloatingContact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-16 h-16 rounded-full bg-white text-gray-700 flex items-center justify-center shadow-md"
+                id="btnWhatsapp"
             >
                 <WhatsappColorIcon size={35} />
             </a>
