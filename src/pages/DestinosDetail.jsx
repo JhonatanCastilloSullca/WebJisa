@@ -88,7 +88,7 @@ const DestinosDetail = () => {
           keywords={destino.keywords}
       />
       <HeroSectionMidle
-        backgroundImage={destino.imagen}
+        backgroundImage={destino.fotoBanner}
         title={destino.h1}
         description={destino.descripcion}
         buttonText="Ver Tours"
