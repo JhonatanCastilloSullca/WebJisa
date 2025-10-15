@@ -66,7 +66,10 @@ export default function CountrySelect({ value = "PE", onChange, lang = "es", err
         IndicatorSeparator: () => null,   // 👈 opcional: quita la barrita
       }}
       styles={styles}
-      className="w-full text-sm"
+      menuPortalTarget={typeof document !== "undefined" ? document.body : null}
+      menuPosition="fixed"
+      menuPlacement="auto"
+      className="w-full text-sm z-50"
     />
   );
 }
