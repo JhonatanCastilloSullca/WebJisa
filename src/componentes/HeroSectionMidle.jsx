@@ -2,7 +2,7 @@ import SeparatorBarHorizontal from "./SeparatorBarHorizontal";
 
 const HeroSectionMidle = ({
     backgroundImage,
-    overlayColor = "rgba(0, 0, 0, 0.25)",
+    overlayColor = "rgba(0, 0, 0, 0.35)",
     title,
     description,
     blogCategoria,
