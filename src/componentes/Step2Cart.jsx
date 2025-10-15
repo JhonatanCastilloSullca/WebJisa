@@ -17,21 +17,29 @@ const makeEmptyPassenger = () => ({
   email: "",
   birthdate: "",
   nationality: "",
-  is_contact: false,     // <- flag dentro del pasajero
+  is_contact: false,
 });
 
-const Step2Cart = ({ totalItems, handleNext, setOrderId }) => {
+// 👇 mapeamos el pasajero RHF al shape de `contact` del wizard
+const mapPassengerToContact = (p) => ({
+  name: p?.first_name || "",
+  last_name: (p?.last_name || "").trim(),
+  email: p?.email || "",
+  phone: p?.phone || "",
+  country_code: p?.country_code || "PE",
+});
+
+const Step2Cart = ({ totalItems, handleNext, setOrderId, contact, setContact }) => {
   const [accepted, setAccepted] = useState(false);
   const [openIndex, setOpenIndex] = useState(0);
 
   const { cartItems, subtotal, totalPrice } = useCart();
 
-  // RHF raíz
   const methods = useForm({
     mode: "onChange",
     defaultValues: {
       passengers: Array.from({ length: totalItems }, makeEmptyPassenger),
-      contactIndex: 0, // índice del contacto
+      contactIndex: 0,
     },
   });
 
@@ -45,7 +53,6 @@ const Step2Cart = ({ totalItems, handleNext, setOrderId }) => {
 
   const { fields, replace } = useFieldArray({ control, name: "passengers" });
 
-  // Mantener longitud del arreglo de pasajeros
   useEffect(() => {
     const current = getValues("passengers") || [];
     if (totalItems > current.length) {
@@ -56,7 +63,6 @@ const Step2Cart = ({ totalItems, handleNext, setOrderId }) => {
       const ci = getValues("contactIndex") ?? 0;
       if (ci >= totalItems) setValue("contactIndex", Math.max(0, totalItems - 1));
     }
-    // Asegura el flag correcto tras cambios de tamaño
     const ci2 = getValues("contactIndex") ?? 0;
     const ps2 = getValues("passengers") || [];
     ps2.forEach((_, i) => {
@@ -66,7 +72,7 @@ const Step2Cart = ({ totalItems, handleNext, setOrderId }) => {
   }, [totalItems]);
 
   const contactIndex = useWatch({ control, name: "contactIndex" });
-  const passengers = useWatch({ control, name: "passengers" });
+  const passengers   = useWatch({ control, name: "passengers" });
 
   const hasContact = useMemo(
     () => Number.isInteger(contactIndex) && contactIndex >= 0 && contactIndex < (passengers?.length || 0),
@@ -83,6 +89,13 @@ const Step2Cart = ({ totalItems, handleNext, setOrderId }) => {
       });
     });
   }, [contactIndex, getValues, setValue]);
+
+  // 🔗 SINCRONIZA el `contact` del wizard con el pasajero principal actual
+  useEffect(() => {
+    if (!hasContact) return;
+    const p = passengers?.[contactIndex];
+    if (p && setContact) setContact(mapPassengerToContact(p));
+  }, [hasContact, contactIndex, passengers, setContact]);
 
   const toggle = (i) => setOpenIndex((prev) => (prev === i ? -1 : i));
 
@@ -109,7 +122,7 @@ const Step2Cart = ({ totalItems, handleNext, setOrderId }) => {
   const onContinue = handleSubmit(async (vals) => {
     if (!accepted || cartItems.length === 0 || !hasContact) return;
 
-    const contact = vals.passengers[vals.contactIndex];
+    const contactPax = vals.passengers[vals.contactIndex];
 
     const payload = {
       channel: "web",
@@ -118,19 +131,17 @@ const Step2Cart = ({ totalItems, handleNext, setOrderId }) => {
         subtotal_usd: Number(subtotal || 0),
         total_usd: Number(totalPrice || 0),
       },
-      // Puedes mantener este bloque si tu API lo usa;
-      // si no, elimínalo y usa solo passengers[*].is_contact en backend.
       contact: {
-        name: contact.first_name,
-        last_name: contact.last_name,
-        last_name_mother: contact.mother_last_name || "",
-        email: contact.email,
-        phone: contact.phone,
-        country_code: contact.country_code,
-        dial_code: contact.dial_code,
+        name: contactPax.first_name,
+        last_name: contactPax.last_name,
+        last_name_mother: contactPax.mother_last_name || "",
+        email: contactPax.email,
+        phone: contactPax.phone,
+        country_code: contactPax.country_code,
+        dial_code: contactPax.dial_code,
         accepted_terms: true,
       },
-      passengers: vals.passengers, // <- cada uno con is_contact true/false
+      passengers: vals.passengers, // cada uno con is_contact true/false
       items: buildItemsPayload(),
       meta: { source: "tour-detail-step2" },
     };
@@ -145,7 +156,10 @@ const Step2Cart = ({ totalItems, handleNext, setOrderId }) => {
       const orderId = res?.data?.order_id || res?.order_id;
       if (!orderId) throw new Error("No se recibió order_id desde el servidor.");
 
-      localStorage.setItem("order_id", orderId);
+      // asegura que el wizard tenga el contacto correcto antes de ir al paso 3
+      setContact?.(mapPassengerToContact(contactPax));
+
+      localStorage.setItem("order_id", orderId); // si tu Step3 lo lee de aquí
       setOrderId?.(orderId);
       handleNext();
     } catch (err) {
@@ -168,6 +182,9 @@ const Step2Cart = ({ totalItems, handleNext, setOrderId }) => {
                 onMarkContact={() => {
                   setValue("contactIndex", index, { shouldDirty: true, shouldValidate: true });
                   setOpenIndex(index);
+                  // 🧲 al marcar, también actualizamos `contact` de inmediato
+                  const p = getValues(`passengers.${index}`);
+                  setContact?.(mapPassengerToContact(p));
                 }}
                 errors={errors}
               />
