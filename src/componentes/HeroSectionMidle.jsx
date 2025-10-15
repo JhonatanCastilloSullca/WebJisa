@@ -2,7 +2,7 @@ import SeparatorBarHorizontal from "./SeparatorBarHorizontal";
 
 const HeroSectionMidle = ({
     backgroundImage,
-    overlayColor = "rgba(0, 0, 0, 0.75)",
+    overlayColor = "rgba(0, 0, 0, 0.25)",
     title,
     description,
     blogCategoria,
@@ -10,7 +10,7 @@ const HeroSectionMidle = ({
 }) => {
     return (
         <div
-            className="md:h-[80vh] h-auto bg-cover bg-center relative flex flex-col justify-end items-center text-white text-center p-4 md:py-32 py-16"
+            className="md:h-[90vh] h-auto bg-cover bg-center relative flex flex-col justify-end items-center text-white text-center p-4 md:py-32 py-16"
             style={{ backgroundImage: `url(${encodeURI(backgroundImage)})` }}
         >
             <div
